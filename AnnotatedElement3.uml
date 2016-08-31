@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.lang.reflect.AnnotatedElement</OriginalElement>
+  <nodes>
+    <node x="88.02500000000003" y="314.0">java.lang.Package</node>
+    <node x="338.25" y="0.0">java.lang.annotation.Annotation</node>
+    <node x="193.95833333333334" y="216.0">java.lang.Class</node>
+    <node x="302.5" y="78.0">java.lang.reflect.Field</node>
+    <node x="160.5" y="78.0">java.lang.reflect.Constructor</node>
+    <node x="40.5" y="78.0">java.lang.reflect.Method</node>
+    <node x="393.6363636363635" y="138.81818181818187">java.lang.annotation.RetentionPolicy</node>
+    <node x="378.5" y="78.0">java.lang.annotation.Retention</node>
+    <node x="138.27272727272725" y="0.0">java.lang.reflect.AnnotatedElement</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.lang.Class" target="java.lang.reflect.Constructor">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.reflect.Field">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Constructor" target="java.lang.Class">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Method" target="java.lang.reflect.AnnotatedElement">
+      <point x="0.0" y="-14.0" />
+      <point x="75.5" y="58.0" />
+      <point x="175.1727272727273" y="58.0" />
+      <point x="-24.599999999999994" y="14.0" />
+    </edge>
+    <edge source="java.lang.reflect.Constructor" target="java.lang.reflect.Constructor">
+      <point x="0.0" y="0.0" />
+      <point x="206.0" y="54.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Field" target="java.lang.reflect.AnnotatedElement">
+      <point x="-14.0" y="-14.0" />
+      <point x="316.5" y="48.0" />
+      <point x="248.97272727272724" y="48.0" />
+      <point x="49.19999999999999" y="14.0" />
+    </edge>
+    <edge source="java.lang.Package" target="java.lang.Package">
+      <point x="0.0" y="0.0" />
+      <point x="125.02500000000003" y="290.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.annotation.Retention" target="java.lang.annotation.Annotation">
+      <point x="0.0" y="-14.0" />
+      <point x="419.0" y="58.0" />
+      <point x="403.5" y="58.0" />
+      <point x="21.75" y="14.0" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.reflect.AnnotatedElement">
+      <point x="14.75" y="-14.0" />
+      <point x="238.20833333333334" y="176.0" />
+      <point x="262.0" y="176.0" />
+      <point x="262.0" y="58.0" />
+      <point x="224.37272727272727" y="58.0" />
+      <point x="24.599999999999994" y="14.0" />
+    </edge>
+    <edge source="java.lang.reflect.Method" target="java.lang.reflect.Method">
+      <point x="0.0" y="0.0" />
+      <point x="75.5" y="54.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Method" target="java.lang.Class">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.reflect.Method">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.Package" target="java.lang.reflect.AnnotatedElement">
+      <point x="-18.5" y="-14.0" />
+      <point x="106.52500000000003" y="294.0" />
+      <point x="0.0" y="294.0" />
+      <point x="0.0" y="48.0" />
+      <point x="150.57272727272726" y="48.0" />
+      <point x="-49.19999999999999" y="14.0" />
+    </edge>
+    <edge source="java.lang.reflect.Field" target="java.lang.reflect.Field">
+      <point x="0.0" y="0.0" />
+      <point x="330.5" y="54.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Field" target="java.lang.Class">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Constructor" target="java.lang.reflect.AnnotatedElement">
+      <point x="0.0" y="-14.0" />
+      <point x="206.0" y="58.0" />
+      <point x="199.77272727272725" y="58.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.Class">
+      <point x="0.0" y="0.0" />
+      <point x="223.45833333333334" y="192.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.reflect.Field" target="java.lang.annotation.Annotation">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.lang.Package" target="java.lang.Class">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.4000000000000004" x="230.00000000000006" y="190.4285714285714" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
