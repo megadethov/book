@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_13._01_BufferedReader_char;
+package full_guide.part_01.chapter_13._01_BufferedReader_char_read;
 
 import java.io.BufferedReader;
 import java.io.IOException;
