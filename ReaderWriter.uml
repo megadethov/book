@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.io.InputStream</OriginalElement>
+  <nodes>
+    <node x="742.0" y="244.0">java.io.PrintWriter</node>
+    <node x="1267.0" y="244.0">java.io.PipedReader</node>
+    <node x="1128.0" y="244.0">java.io.CharArrayReader</node>
+    <node x="112.0" y="244.0">java.io.BufferedWriter</node>
+    <node x="0.0" y="244.0">java.io.StringWriter</node>
+    <node x="372.00000000000006" y="244.0">java.io.FilterWriter</node>
+    <node x="506.00000000000006" y="322.0">java.io.FileWriter</node>
+    <node x="990.0" y="322.0">java.io.LineNumberReader</node>
+    <node x="1382.0" y="244.0">java.io.FilterReader</node>
+    <node x="238.0" y="244.0">java.io.CharArrayWriter</node>
+    <node x="1216.5" y="156.0">java.io.Reader</node>
+    <node x="632.0" y="244.0">java.io.PipedWriter</node>
+    <node x="848.0" y="244.0">java.io.InputStreamReader</node>
+    <node x="810.875" y="0.0">java.lang.AutoCloseable</node>
+    <node x="1495.0" y="244.0">java.io.StringReader</node>
+    <node x="1371.5" y="322.0">java.io.PushbackReader</node>
+    <node x="822.375" y="78.0">java.io.Closeable</node>
+    <node x="384.00000000000006" y="156.0">java.io.Writer</node>
+    <node x="480.00000000000006" y="244.0">java.io.OutputStreamWriter</node>
+    <node x="870.0" y="322.0">java.io.FileReader</node>
+    <node x="997.0" y="244.0">java.io.BufferedReader</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.io.LineNumberReader" target="java.io.BufferedReader">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.io.FilterWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.io.FileReader" target="java.io.InputStreamReader">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.io.CharArrayWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="295.0" y="224.0" />
+      <point x="406.8571428571429" y="224.0" />
+      <point x="-9.142857142857167" y="14.0" />
+    </edge>
+    <edge source="java.io.FilterReader" target="java.io.Reader">
+      <point x="0.0" y="-14.0" />
+      <point x="1428.5" y="214.0" />
+      <point x="1268.25" y="214.0" />
+      <point x="17.25" y="14.0" />
+    </edge>
+    <edge source="java.io.PipedReader" target="java.io.Reader">
+      <point x="0.0" y="-14.0" />
+      <point x="1314.5" y="224.0" />
+      <point x="1256.75" y="224.0" />
+      <point x="5.75" y="14.0" />
+    </edge>
+    <edge source="java.io.PrintWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="785.0" y="204.0" />
+      <point x="443.4285714285715" y="204.0" />
+      <point x="27.428571428571445" y="14.0" />
+    </edge>
+    <edge source="java.io.StringReader" target="java.io.Reader">
+      <point x="0.0" y="-14.0" />
+      <point x="1543.5" y="204.0" />
+      <point x="1279.75" y="204.0" />
+      <point x="28.75" y="14.0" />
+    </edge>
+    <edge source="java.io.BufferedWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="165.0" y="214.0" />
+      <point x="397.7142857142858" y="214.0" />
+      <point x="-18.285714285714278" y="14.0" />
+    </edge>
+    <edge source="java.io.Reader" target="java.io.Closeable">
+      <point x="0.0" y="-14.0" />
+      <point x="1251.0" y="131.0" />
+      <point x="882.375" y="131.0" />
+      <point x="20.0" y="14.0" />
+    </edge>
+    <edge source="java.io.PushbackReader" target="java.io.FilterReader">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.io.OutputStreamWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="546.0" y="224.0" />
+      <point x="425.1428571428572" y="224.0" />
+      <point x="9.142857142857167" y="14.0" />
+    </edge>
+    <edge source="java.io.Writer" target="java.io.Closeable">
+      <point x="0.0" y="-14.0" />
+      <point x="416.00000000000006" y="131.0" />
+      <point x="842.375" y="131.0" />
+      <point x="-20.0" y="14.0" />
+    </edge>
+    <edge source="java.io.StringWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="46.0" y="204.0" />
+      <point x="388.5714285714286" y="204.0" />
+      <point x="-27.428571428571445" y="14.0" />
+    </edge>
+    <edge source="java.io.FileWriter" target="java.io.OutputStreamWriter">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.io.PipedWriter" target="java.io.Writer">
+      <point x="0.0" y="-14.0" />
+      <point x="677.0" y="214.0" />
+      <point x="434.28571428571433" y="214.0" />
+      <point x="18.285714285714278" y="14.0" />
+    </edge>
+    <edge source="java.io.CharArrayReader" target="java.io.Reader">
+      <point x="0.0" y="-14.0" />
+      <point x="1187.5" y="224.0" />
+      <point x="1245.25" y="224.0" />
+      <point x="-5.75" y="14.0" />
+    </edge>
+    <edge source="java.io.BufferedReader" target="java.io.Reader">
+      <point x="0.0" y="-14.0" />
+      <point x="1052.5" y="214.0" />
+      <point x="1233.75" y="214.0" />
+      <point x="-17.25" y="14.0" />
+    </edge>
+    <edge source="java.io.InputStreamReader" target="java.io.Reader">
+      <point x="0.0" y="-14.0" />
+      <point x="912.5" y="204.0" />
+      <point x="1222.25" y="204.0" />
+      <point x="-28.75" y="14.0" />
+    </edge>
+    <edge source="java.io.Closeable" target="java.lang.AutoCloseable">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8213399503722084" x="796.0" y="175.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
