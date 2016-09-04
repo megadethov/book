@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_06.chapter_14._06_UpperBounded_withInterface;
+package full_guide.part_01.chapter_14._06_UpperBounded_withInterface;
 
 /**
  * Created by mega on 03.09.2016.

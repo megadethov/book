@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_06.chapter_14._08_BoundedWildcard;
+package full_guide.part_01.chapter_14._08_BoundedWildcard;
 
 import java.util.ArrayList;
 import java.util.List;

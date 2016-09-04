@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_06.chapter_14._01_GenericsDemo;
+package full_guide.part_01.chapter_14._01_GenericsDemo;
 
 /**
  * Created by mega on 02.09.2016.

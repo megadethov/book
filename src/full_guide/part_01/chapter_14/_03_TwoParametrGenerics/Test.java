@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_06.chapter_14._03_TwoParametrGenerics;
+package full_guide.part_01.chapter_14._03_TwoParametrGenerics;
 
 /**
  * Created by mega on 03.09.2016.

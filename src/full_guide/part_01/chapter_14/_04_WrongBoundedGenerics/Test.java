@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_06.chapter_14._04_WrongBoundedGenerics;
+package full_guide.part_01.chapter_14._04_WrongBoundedGenerics;
 
 /**
  * Created by mega on 03.09.2016.
