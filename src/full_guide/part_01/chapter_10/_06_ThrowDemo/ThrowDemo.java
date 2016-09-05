@@ -7,7 +7,7 @@ public class ThrowDemo {
     public static void main(String[] args) {
         try {
             System.out.println(0);
-            throw new NullPointerException("Demo throw");
+            throw new NullPointerException("GenConstructor throw");
 //            System.out.println(1); // unreachable statement
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
