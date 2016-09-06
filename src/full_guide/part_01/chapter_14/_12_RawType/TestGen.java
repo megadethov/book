@@ -6,13 +6,13 @@ package full_guide.part_01.chapter_14._12_RawType;
 public class TestGen {
     public static void main(String[] args) {
 
-        // создаем объект типа Gen для целых чисел
+        // создаем объект типа NonGen для целых чисел
         Gen<Integer> intObj = new Gen<>(100);
 
-        // создаем объект типа Gen для символьных строк
+        // создаем объект типа NonGen для символьных строк
         Gen<String> strObj = new Gen<>("Hello");
 
-        // создаем объект СЫРОГО типа Gen для Double
+        // создаем объект СЫРОГО типа NonGen для Double
         Gen rawObj = new Gen(0.55);
 
         // требуется приведение поскольку тип не известен
