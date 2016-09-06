@@ -16,6 +16,7 @@ public class GenA<T> {
     }
 }
 
+// В подклассе generics используется только для поддержки обобщенных типв супер класса
 class GenB<T> extends GenA<T> {
 
     public GenB(T obj) {
