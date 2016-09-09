@@ -1,4 +1,4 @@
-package full_guide.part_01.chapter_18_Collections._17_MyComparator;
+package full_guide.part_01.chapter_18_Collections._17_MyComparator_TreeSet;
 
 import java.util.TreeSet;
 
