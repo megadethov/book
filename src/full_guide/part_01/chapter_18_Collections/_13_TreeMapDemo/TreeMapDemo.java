@@ -1,18 +1,18 @@
-package full_guide.part_01.chapter_18_Collections._12_HashMapDemo;
+package full_guide.part_01.chapter_18_Collections._13_TreeMapDemo;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * Created by mega on 09.09.2016.
  */
-// Прменение HashMap для хранения банковских счетов
-public class HashMapDemo {
+// Демо применения TreeMap
+public class TreeMapDemo {
     public static void main(String[] args) {
 
         // создать
-        HashMap<String, Double> accounts = new HashMap<>();
+        TreeMap<String, Double> accounts = new TreeMap<>();
 
         // ввести элементы
         accounts.put("Smith", 1000.0);
@@ -22,7 +22,7 @@ public class HashMapDemo {
         // получить Set записей
         Set<Map.Entry<String, Double>> rec = accounts.entrySet(); // метод Map.entrySet возвращает Set ключей и значений
 
-        // вывести множество записей (ПОРЯДОК НЕ ПОДДЕРЖИВАЕТСЯ)
+        // вывести множество записей (ПОРЯДОК - по возрастанию ключей!!!!)
         for (Map.Entry<String, Double> r : rec) {
             System.out.println(r.getKey() + " - " + r.getValue()); // getKey() и getValue - определены в интерфейсе Map.Entry
         }
@@ -32,7 +32,6 @@ public class HashMapDemo {
         accounts.put("Smith", balance + 1000);
 
         System.out.println("new Smith balance: " + accounts.get("Smith"));
-
 
     }
 }
