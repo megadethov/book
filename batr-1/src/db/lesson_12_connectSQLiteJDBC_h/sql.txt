@@ -1,0 +1,6 @@
+d:/java/book/batr/src/db/CarShop_lesson10.db
+select * from spr_Model;select * from spr_Condition;
+select * from spr_Privod;
+select * from 
+
+spr_Color;

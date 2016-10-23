@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="batr:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/batr_jar</output-path>
+    <root id="archive" name="batr.jar">
+      <element id="module-output" name="batr" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/JTattoo.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
