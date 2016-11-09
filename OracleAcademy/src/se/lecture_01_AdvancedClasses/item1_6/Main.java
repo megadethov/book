@@ -1,4 +1,4 @@
-package se.lecture_01.item1_6;
+package se.lecture_01_AdvancedClasses.item1_6;
 
 /**
  * Created by Yefremov Yuriy

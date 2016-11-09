@@ -1,4 +1,4 @@
-package se.lecture_01.initOrder;
+package se.lecture_01_AdvancedClasses.initOrder;
 
 /**
  * Created by Yefremov Yuriy

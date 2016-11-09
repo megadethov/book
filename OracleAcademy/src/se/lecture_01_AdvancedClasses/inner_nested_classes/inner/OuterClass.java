@@ -1,4 +1,4 @@
-package se.lecture_01.inner_nested_classes.inner;
+package se.lecture_01_AdvancedClasses.inner_nested_classes.inner;
 
 /**
  * Created by Yefremov Yuriy

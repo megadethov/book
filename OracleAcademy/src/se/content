@@ -5,6 +5,7 @@ item1_2 - Полиморфизм
 item1_3 - Интерфейс
 item1_4 - final
 item1_5 - static
-item1_5 - abstract
+item1_6 - abstract
+nested_static - Вложенные статические классы
 reference - Передача по ссылке, по значению
 
