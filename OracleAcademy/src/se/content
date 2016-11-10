@@ -21,5 +21,6 @@ immutable - Строки не меняются
 item_2 - Сравнение строк
 item_3 - Методы String
 item_4 - String substring
+item_5 - String split
 
 
