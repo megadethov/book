@@ -6,6 +6,7 @@ item1_3 - Интерфейс
 item1_4 - final
 item1_5 - static
 item1_6 - abstract
+local_nested - Локальные классы
 nested_static - Вложенные статические классы
 reference - Передача по ссылке, по значению
 
