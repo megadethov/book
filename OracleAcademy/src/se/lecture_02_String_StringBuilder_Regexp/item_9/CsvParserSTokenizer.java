@@ -33,6 +33,8 @@ public class CsvParserSTokenizer {
                     sb.append("\nUsername : " + userName);
                     sb.append("\nCode : " + code);
                     sb.append("\n****************\n");
+
+                    System.out.println(sb); // печатаем распарсенную строку из билдера
                 }
             }
             System.out.println("Done");
