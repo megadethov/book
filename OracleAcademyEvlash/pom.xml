@@ -65,6 +65,9 @@
             </plugin>
 
         </plugins>
+
+        <finalName>Programming</finalName> <!--jar - name-->
+
     </build>
 
 
