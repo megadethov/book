@@ -7,6 +7,65 @@
     <groupId>ua.mega</groupId>
     <artifactId>oa-programming</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <!-- Аргументы для подстановки -->
+    <properties>
+        <jdk.versionSource>1.8</jdk.versionSource>
+        <jdk.versionTarget>1.8</jdk.versionTarget>
+        <servlet.version>3.1.0</servlet.version>
+        <checkstyle.version>2.17</checkstyle.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mavenc.version>3.3</mavenc.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Сборка -->
+    <build>
+        <plugins>
+            <!-- Плагин сборки -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${mavenc.version}</version>
+                <configuration>
+                    <!-- or whatever version you use -->
+                    <source>${jdk.versionSource}</source>
+                    <target>${jdk.versionTarget}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <configLocation>checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 
 </project>
