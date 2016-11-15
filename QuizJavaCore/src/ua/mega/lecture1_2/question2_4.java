@@ -10,11 +10,11 @@ package ua.mega.lecture1_2;
 //    - 1100
 //    - 1111
 
-public class question2_3 {
+public class question2_4 {
     public static void main(String[] args) {
         int x = 0, y = 0, z = 0, t = 0;
-        // Для короткой проверки ||, вторые вторые скобки не будут проверяться, те z, t не будут инкркментированы
-        if ((x++ == 0 | y++ == 0) || (z++ == 0 | t++ == 0)) {
+        // Для первой же короткой проверки || = true, все остальные не требуются, те y, z, t не будут инкркментированы
+        if ((x++ == 0 || y++ == 0) || (z++ == 0 || t++ == 0)) {
             /*NOP*/
         }
         System.out.println(x + " " + y + " " + z + " " + t);
@@ -35,4 +35,4 @@ public class question2_3 {
 
 
 
-// 1100
+// 1000
