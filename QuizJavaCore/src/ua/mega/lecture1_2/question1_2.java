@@ -9,7 +9,7 @@ package ua.mega.lecture1_2;
 //    - напечатает "not empty"
 //    - выбросит NullPointerException
 
-public class question2_1 {
+public class question1_2 {
     public static void main(String[] args) {
         String s = null;
 // длинная проверка | - обязательно проверяет оба условия и во втором случае вызывается метод на null ссылке
