@@ -1,4 +1,4 @@
-package ua.mega.lecture2.Practice1;
+package ua.mega.lecture2.Practice1.item1_4;
 
 import org.junit.Assert;
 import org.junit.Test;
