@@ -1,4 +1,4 @@
-package ua.mega;
+package ua.mega.lecture1.final_static;
 
 /**
  * Created by Yefremov Yuriy
