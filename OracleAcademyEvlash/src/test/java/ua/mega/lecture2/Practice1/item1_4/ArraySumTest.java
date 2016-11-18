@@ -117,28 +117,28 @@ public class ArraySumTest {
     public void sumEmpty() throws MyException {
         int actual = ArraySum.sum(emptyArr);
         int expected = 0;
-        Assert.assertEquals("Test sum()", expected, actual, 0.0001);
+        Assert.assertEquals("A sum()", expected, actual, 0.0001);
     }
 
     @Test
     public void sumZero() throws MyException {
         int actual = ArraySum.sum(zeroArr);
         int expected = 0;
-        Assert.assertEquals("Test sum()", expected, actual, 0.0001);
+        Assert.assertEquals("A sum()", expected, actual, 0.0001);
     }
 
     @Test
     public void sumArr() throws MyException {
         int actual = ArraySum.sum(arr);
         int expected = 60;
-        Assert.assertEquals("Test sum()", expected, actual, 0.0001);
+        Assert.assertEquals("A sum()", expected, actual, 0.0001);
     }
 
     @Test
     public void sumNegative() throws MyException {
         int actual = ArraySum.sum(negativeArr);
         int expected = -60;
-        Assert.assertEquals("Test sum()", expected, actual, 0.0001);
+        Assert.assertEquals("A sum()", expected, actual, 0.0001);
     }
 
 

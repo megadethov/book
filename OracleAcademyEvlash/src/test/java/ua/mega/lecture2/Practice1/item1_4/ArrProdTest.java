@@ -25,28 +25,28 @@ public class ArrProdTest {
     public void prodEmpty() throws MyException {
         int actual = ArrProd.prodArr(emptyArr);
         int expected = 0;
-        Assert.assertEquals("Test prod()", expected, actual, 0.0001);
+        Assert.assertEquals("A prod()", expected, actual, 0.0001);
     }
 
     @Test
     public void prodZero() throws MyException {
         int actual = ArrProd.prodArr(zeroArr);
         int expected = 0;
-        Assert.assertEquals("Test prod()", expected, actual, 0.0001);
+        Assert.assertEquals("A prod()", expected, actual, 0.0001);
     }
 
     @Test
     public void prodArr() throws MyException {
         int actual = ArrProd.prodArr(arr);
         int expected = 6000;
-        Assert.assertEquals("Test prod()", expected, actual, 0.0001);
+        Assert.assertEquals("A prod()", expected, actual, 0.0001);
     }
 
     @Test
     public void prodNegative() throws MyException {
         int actual = ArrProd.prodArr(negativeArr);
         int expected = -6000;
-        Assert.assertEquals("Test prod()", expected, actual, 0.0001);
+        Assert.assertEquals("A prod()", expected, actual, 0.0001);
     }
 
 
