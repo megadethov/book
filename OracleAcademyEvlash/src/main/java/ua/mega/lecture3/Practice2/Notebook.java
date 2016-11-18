@@ -4,57 +4,35 @@ package ua.mega.lecture3.Practice2;
  * Created by Yefremov Yuriy
  */
 public class Notebook {
-    String firma;
-    String model;
-    String description;
-    double price;
+    String title;
+    String price;
 
-    public Notebook(String firma, String model, String description, double price) {
-        this.firma = firma;
-        this.model = model;
-        this.description = description;
+    public Notebook(String title, String price) {
+        this.title = title;
         this.price = price;
     }
 
-    public String getFirma() {
-        return firma;
+    public String getTitle() {
+        return title;
     }
 
-    public void setFirma(String firma) {
-        this.firma = firma;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
     @Override
     public String toString() {
         return "Notebook{" +
-                "firma='" + firma + '\'' +
-                ", model='" + model + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
+                "title='" + title + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 }

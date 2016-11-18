@@ -39,4 +39,17 @@ public class Parser {
         return babyList;
     }
 
+    // метод для парсинга страницы ноутбуков
+    public static ArrayList<Notebook> parserNotebook(StringBuilder sb) {
+        ArrayList<Notebook> al = new ArrayList<>();
+        Pattern pattern = Pattern.compile("(price cost\">)(\\d*)(.*?Ноутбук )(.+?\\))");
+        Matcher matcher = pattern.matcher(sb.toString());
+        while (matcher.find()) {
+            String price = matcher.group(2);
+            String title = matcher.group(4);
+            al.add(new Notebook(title, price));
+        }
+        return al;
+    }
+
 }
