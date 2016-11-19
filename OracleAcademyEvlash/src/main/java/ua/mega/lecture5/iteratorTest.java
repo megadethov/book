@@ -18,6 +18,7 @@ public class iteratorTest {
         Iterator<String> iter = list.iterator();
         while (iter.hasNext()) {
             System.out.println(iter.next());
+//            iter.remove(); // UnsupportedOperationException
         }
 
     }
