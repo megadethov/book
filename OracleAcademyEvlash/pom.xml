@@ -17,7 +17,7 @@
         <jdk.versionSource>1.8</jdk.versionSource>
         <jdk.versionTarget>1.8</jdk.versionTarget>
         <servlet.version>3.1.0</servlet.version>
-        <checkstyle.version>2.17</checkstyle.version>
+        <!--<checkstyle.version>2.17</checkstyle.version>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mavenc.version>3.3</mavenc.version>
     </properties>
@@ -53,7 +53,7 @@
                 </configuration>
             </plugin>
 
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${checkstyle.version}</version>
@@ -72,7 +72,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
         </plugins>
 
