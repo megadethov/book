@@ -32,7 +32,10 @@ item_12 - regex - Символьные классы
 item_13 - regex - Обратные ссылки
 item_14 - regex - Методы класса Matcher. Группы
 item_15 - format - Форматирование
-
 StringReplace - regex - Замена слов с ошибками
+
+Lecture 3 - Exceptions, Junit
+------------------------------------------------------------------------------
+item-1 - AutoCloseable, Try with resources
 
 
