@@ -10,8 +10,10 @@ public class Parent {
 }
 
 class Child extends Parent {
+
     @Override
-    public void test() throws FileNotFoundException, Error, RuntimeException { // Exception - нельзя, расширяет родителя
+    // могу ничего не бросать, могу расширить родителя(потомки), могу - любой unchecked.
+    public void test() throws FileNotFoundException, Error, RuntimeException { // Exception - нельзя предков родителя
         System.out.println("some child work");
     }
 
