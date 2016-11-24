@@ -37,5 +37,6 @@ StringReplace - regex - Замена слов с ошибками
 Lecture 3 - Exceptions, Junit
 ------------------------------------------------------------------------------
 item-1 - AutoCloseable, Try with resources
+item-2 - Вложенный try-catch, несколько catch
 
 
