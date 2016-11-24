@@ -29,4 +29,6 @@ item_9 - StringTokenizer для парсинга csv файла
 item_10 - regex - Проверка строки на содержание в ней слова
 item_11 - regex - Проверка строки на содержание доменов
 
+StringReplace - regex - Замена слов с ошибками
+
 
