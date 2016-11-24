@@ -30,7 +30,7 @@ class Parent {
     }
 
     private int test() {
-        System.out.println("Parent init var");
+        System.out.println("Main init var");
         return 10;
     }
 
@@ -41,13 +41,13 @@ class Parent {
 
     // Конструктор
     // Если определить только свой конструктор - то дефолтный без параметров исчезает и его нужно явно определять
-//    public Parent(int i) {
-//        System.out.println("Parent constructor");
+//    public Main(int i) {
+//        System.out.println("Main constructor");
 //    }
 
     // Конструктор
     public Parent() {
-        System.out.println("Parent constructor");
+        System.out.println("Main constructor");
     }
 }
 

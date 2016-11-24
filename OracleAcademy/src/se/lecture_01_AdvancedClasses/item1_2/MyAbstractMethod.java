@@ -6,7 +6,7 @@ package se.lecture_01_AdvancedClasses.item1_2;
 //Этот пример показывает полиморфизм в действии. Конкретный метод выбирается в рантайм.
 abstract class Parent {
     void print() {
-        System.out.println("Parent print");
+        System.out.println("Main print");
     }
 }
 

@@ -11,7 +11,7 @@ public class Main {
 abstract class Parent {// абстрактный класс может не содержать абстрактный метод
 
     // abstract String ref; // ошибка компиляции, ссылка не может быть abstract
-//    abstract public Parent() { // ошибка компиляции, конструктор не может быть abstract
+//    abstract public Main() { // ошибка компиляции, конструктор не может быть abstract
 //    }
 /*переменные и конструкторы не могут быть абстрактными*/
 
@@ -26,7 +26,7 @@ class Child extends Parent {
     }
 
     @Override
-    public void someMethod1() {// так как в классе Parent метод someMethod1 -
+    public void someMethod1() {// так как в классе Main метод someMethod1 -
         // абстрактный,
         // то в наследниках он должн быть переопределен,
         // иначе ошибка компиляции.

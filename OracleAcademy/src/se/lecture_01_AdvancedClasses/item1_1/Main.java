@@ -8,7 +8,7 @@ package se.lecture_01_AdvancedClasses.item1_1;
 abstract class Parent {
     int p1;
     public Parent() {
-        System.out.println("Construct Parent");
+        System.out.println("Construct Main");
         p1 = 1;
     }
     void Print() {System.out.println(p1);}
@@ -26,10 +26,10 @@ class Child extends Parent {
 
 public class Main {
     public static void main(String[] args) {
-        Parent parent; // такая переменная может ссылаться как на Parent так и на всех его детей
-//        parent = new Parent(); // ошибка компиляции при попытке создать инстанс абстрактного класса
-        Parent child = new Child(); // сначала будет построен Parent, а затем Child.
-        child.Print(); // Child доступен метод Parent
+        Parent parent; // такая переменная может ссылаться как на Main так и на всех его детей
+//        parent = new Main(); // ошибка компиляции при попытке создать инстанс абстрактного класса
+        Parent child = new Child(); // сначала будет построен Main, а затем Child.
+        child.Print(); // Child доступен метод Main
 
     }
 }
