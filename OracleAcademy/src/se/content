@@ -39,6 +39,7 @@ Lecture 3 - Exceptions, Junit
 item-1 - AutoCloseable, Try with resources
 item-2 - Вложенный try-catch, несколько catch
 item-3 - Запрет на расширение Exception при override
-item-4 - ChainedException
+item-4 - ChainedException - getCause()
+item-5 - ChainedException - initCause()
 
 
