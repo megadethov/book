@@ -51,3 +51,5 @@ item-2 - Демо ArrayList add
 item-3 - Iterator
 item-4 - AutoBox
 item-5 - ListIterator - Задача палиндром
+item-6 - Collections - утилитные методы
+treeSet - Comparator, Comparable
