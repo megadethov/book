@@ -56,4 +56,5 @@ item-7 - Сортировка List, Arrays по Comparator
 item-8 - Демо HashSet
 item-9 - Демо LinkedHashSet
 item-10 - Демо TreeSet
+item-11 - Демо HashMap
 treeSet - Comparator, Comparable
