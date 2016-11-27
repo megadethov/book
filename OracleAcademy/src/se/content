@@ -57,4 +57,5 @@ item-8 - Демо HashSet
 item-9 - Демо LinkedHashSet
 item-10 - Демо TreeSet
 item-11 - Демо HashMap
+item-12 - HashSet HashMap TreeMap - Comparator, Comparable
 treeSet - Comparator, Comparable
