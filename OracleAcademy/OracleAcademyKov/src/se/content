@@ -44,7 +44,7 @@ item-5 - ChainedException - initCause()
 item-6 - Собственные исключения
 item-7 - Compile error
 
-Lecture 4 - Collection
+Lecture 4-5 - Collection
 ------------------------------------------------------------------------------
 item-1 - Демо Collection
 item-2 - Демо ArrayList add
@@ -62,3 +62,7 @@ item-13 - Демо TreeMap
 item-14 - Демо Queue
 item-15 - Демо Deque
 treeSet - Comparator, Comparable
+
+Lecture 6 - Generics
+------------------------------------------------------------------------------
+item-1 - MyBox - до дженериков
