@@ -20,6 +20,5 @@ public class MyQueue {
         System.out.println(q.peek()); // DDD
         System.out.println(q); // [DDD, AAA, BBB]
 
-
     }
 }
