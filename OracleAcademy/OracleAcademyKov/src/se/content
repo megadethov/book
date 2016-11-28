@@ -68,3 +68,4 @@ Lecture 6 - Generics
 item-1 - MyBox - до дженериков
 item-2 - MyGenericBox - Демо Generics
 item-3 - MyMultiGenericBox - Демо Generics
+item-4 - GenericBox - одно объявление - множество использования
