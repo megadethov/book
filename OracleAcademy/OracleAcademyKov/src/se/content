@@ -66,3 +66,4 @@ treeSet - Comparator, Comparable
 Lecture 6 - Generics
 ------------------------------------------------------------------------------
 item-1 - MyBox - до дженериков
+item-2 - MyGenericBox - Демо Generics

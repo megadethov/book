@@ -1,4 +1,4 @@
-package se.lecture_06_Generics;
+package se.lecture_06_Generics.item_1;
 
 // класс - типа кнтейнер
 public class MyWrongBox {
