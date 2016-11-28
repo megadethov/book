@@ -75,3 +75,4 @@ item-7 - Wildcards
 item-8 - Ограгичение сверху - upper bounded wildcard - extends
 item-9 - Ограгичение снизу - lower bounded wildcard - super
 item-10 - super, extends
+item-11 - Наследование типизированных классов
