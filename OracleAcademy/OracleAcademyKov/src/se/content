@@ -72,3 +72,4 @@ item-4 - GenericBox - одно объявление - множество исп�
 item-5 - Способ сламать Generics
 item-6 - Generics в методах
 item-7 - Wildcards
+item-8 - Ограгичение сверху - upper bounded wildcard
