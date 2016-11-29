@@ -20,7 +20,7 @@ public class MyBufferedReader {
 
             while ((line = bufferedInput.readLine()) != null) { // читаем строками, проверка на null
                 System.out.println(line);
-                printWriter.println(line); // каждый раз перезаписывает файл заново.
+                printWriter.println(line); // каждый раз перезаписывает файл заново, при вызове auto-flush
 //                printWriter.write(line); // каждый раз перезаписывает файл заново.
             }
             printWriter.flush(); // если не сделать flush и не закрыть ресурсы - двнные могут залипнуть в буфере
