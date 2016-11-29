@@ -85,3 +85,4 @@ item-3 - Scanner - разбить текст на слова, без не бук
 item-4 - FileInputStream - определить тип файла по 4 первым байтам
 item-5 - DataInputStream - определить тип файла по 1 первому инту (4 byte)
 item-6 - DataInputStream - запись массивов примитивных данных в файл, чтение из файла
+item-7 - Serialization
