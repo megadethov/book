@@ -8,7 +8,9 @@ public class User extends Parent { //RE exception "No valid parent's constructor
     private transient String password; // не сериализуется (получает дефолтное значение - null)
     private static String example = "example"; // всегда будет значение которое определеное в классе
 
-    private static final long serialVersionUID = 100L; // версия сериализации для защиты от изменений внесенных после сериализации
+    // версия сериализации для защиты от изменений внесенных после сериализации
+    // при изменениях в сериализуемом классе необходимо менять UID
+    private static final long serialVersionUID = 100L;
 
     public User(long id, int age, String name, Test test, String password) {
         super(id);
