@@ -1,4 +1,4 @@
-package ua.mega.lecture_10;
+package ua.mega.Lecture_6.item_10;
 
 import com.google.gson.Gson;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class JsonObjectStorage {
 
-    static String filePath = "JSON\\src\\main\\java\\ua\\mega\\lecture_10\\jsonObj.json";
+    static String filePath = "JSON\\src\\main\\java\\ua\\mega\\item_10\\jsonObj.json";
 
     public static void main(String[] args) {
         List<Child> list = new ArrayList<Child>();
