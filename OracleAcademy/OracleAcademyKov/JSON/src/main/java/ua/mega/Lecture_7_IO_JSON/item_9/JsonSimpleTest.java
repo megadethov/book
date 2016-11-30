@@ -1,4 +1,4 @@
-package ua.mega.Lecture_6.item_9;
+package ua.mega.Lecture_7_IO_JSON.item_9;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class JsonSimpleTest {
-    static String filePath = "JSON\\src\\main\\java\\ua\\mega\\item_9\\jsonEx.json";
+    static String filePath = "JSON\\src\\main\\java\\ua\\mega\\Lecture_7_IO_JSON\\item_9\\jsonEx.json";
 
     public static void main(String[] args) {
         writeJson();
