@@ -18,6 +18,7 @@ public class MyThread extends Thread { // оздание нового поток
     public static void main(String[] args) {
         MyThread thread = new MyThread();
         thread.start(); // запуск потока
+//        thread.start(); // повторный запуск потока - java.lang.IllegalThreadStateException
 
         System.out.println(Thread.currentThread().getName());
     }

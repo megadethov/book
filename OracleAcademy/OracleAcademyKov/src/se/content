@@ -95,4 +95,5 @@ JSON [Lecture_7_12]
 
 Lecture 8-9 - Thread
 ------------------------------------------------------------------------------
-item-1 - extends Thread
+item-1 - MyClass extends Thread
+item-2 - new Thread (MyClass implements Runnable)
