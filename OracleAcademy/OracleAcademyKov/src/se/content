@@ -100,3 +100,4 @@ item-2 - new Thread (MyClass implements Runnable)
 item-3 - Два потока
 item-4 - run() без start() - выполняется в main() как обычный метод
 item-5 - У каждого потока свой стек
+item-6 - Инфо о потоке (имя, приоритет, группа)
