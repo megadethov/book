@@ -87,3 +87,5 @@ item-5 - DataInputStream - определить тип файла по 1 пер�
 item-6 - DataInputStream - запись массивов примитивных данных в файл, чтение из файла
 item-7 - Serialization
 item-8 - Properties
+item-9 - JSON-simple (see module JSON)
+item-10 - GSON (see module JSON)
