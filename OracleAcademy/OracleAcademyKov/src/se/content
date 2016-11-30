@@ -97,3 +97,4 @@ Lecture 8-9 - Thread
 ------------------------------------------------------------------------------
 item-1 - MyClass extends Thread
 item-2 - new Thread (MyClass implements Runnable)
+item-3 - Два потока
