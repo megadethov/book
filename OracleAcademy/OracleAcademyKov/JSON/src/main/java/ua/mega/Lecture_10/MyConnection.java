@@ -6,8 +6,9 @@ import java.sql.SQLException;
 
 public class MyConnection {
 
-    private static String driverName = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/test"; // test - имя базы
+    private static String driverName = "com.mysql.jdbc.Driver"; // deprecated
+//    private static String driverName = "com.mysql.cj.jdbc.Driver";
+    private static String url = "jdbc:mysql://localhost:3306/library"; // test - имя базы
     private static String user = "root";
     private static String password = "toor";
 
