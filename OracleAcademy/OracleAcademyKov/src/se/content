@@ -108,3 +108,4 @@ item-10 - Асинхронность потоков
 item-11 - Потоки демоны
 item-12 - Состояния потоков
 item-13 - Data races - synchronized
+item-14 - deadlock
