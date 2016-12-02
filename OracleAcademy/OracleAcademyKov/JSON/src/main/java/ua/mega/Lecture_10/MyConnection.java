@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class MyConnection {
 
-    private static String driverName = "com.mysql.jdbc.Driver"; // deprecated
-//    private static String driverName = "com.mysql.cj.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/library"; // test - имя базы
+    private static String driverName = "com.mysql.jdbc.Driver"; // deprecated ?
+//    private static String driverName = "com.mysql.cj.jdbc.Driver"; // new ?
+    private static String url = "jdbc:mysql://localhost:3306/test"; // test - имя базы
     private static String user = "root";
-    private static String password = "toor";
+    private static String password = "root";
 
     // первый способ создать connection
     public static Connection createConnection() {
