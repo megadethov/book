@@ -1,4 +1,9 @@
-CREATE  TABLE  IF NOT EXISTS bookstore (id INT NOT NULL , name VARCHAR(45) NULL, PRIMARY KEY (id));
-CREATE TABLE `test`.`bookstore` (`bookstore_id` INT NOT NULL,`bookstore_name` VARCHAR(45) NULL, PRIMARY KEY (`bookstore_id`));
+
+#DDL
+CREATE  TABLE  IF NOT EXISTS user (id INT NOT NULL , name VARCHAR(45) NULL, PRIMARY KEY (id));
+CREATE TABLE `test`.`user` (`user_id` INT NOT NULL,`user_name` VARCHAR(45) NULL, PRIMARY KEY (`user_id`));
 ALTER TABLE bookstore ADD year INTEGER;
-DROP TABLE bookstore;
+ALTER TABLE user CHANGE COLUMN id id INT(11) NOT NULL AUTO_INCREMENT;
+DROP TABLE user;
+
+#DML
