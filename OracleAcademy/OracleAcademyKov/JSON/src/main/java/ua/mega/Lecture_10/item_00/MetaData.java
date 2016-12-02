@@ -1,4 +1,4 @@
-package ua.mega.Lecture_10.item_01;
+package ua.mega.Lecture_10.item_00;
 
 import ua.mega.Lecture_10.MyConnection;
 
@@ -19,6 +19,7 @@ public class MetaData {
         System.out.println("Support cuncurrent updatable: " + metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE));
         System.out.println();
 
+        if (connection != null)
         connection.close(); // ОБЯЗАТЕЛЬНО !!!
     }
 }
