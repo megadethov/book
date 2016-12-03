@@ -12,10 +12,15 @@ public class UserDML {
     private static final String INSERT_USER_2 = "INSERT INTO user (name, age) VALUES ('Vitia', 30)";
     private static final String INSERT_USER_3 = "INSERT INTO user (name, age) VALUES ('Pavel', 33)";
     private static final String DELETE_USER = "DELETE FROM user";
-    private static final String UPDATE_USER_1 = "UPDATE user SET name = 'Santa' WHERE id = 1";
+    private static final String UPDATE_USER_1 = "UPDATE user SET name = 'Santa' WHERE id = 4"; // id может быть не с 1 (внимательно)
 
     public static void main(String[] args) throws SQLException {
-        insert(INSERT_USER_1);
+//        insert(INSERT_USER_1); // id не передаем тк у него auto-increment
+//        insert(INSERT_USER_2);
+//        insert(INSERT_USER_3);
+        update(UPDATE_USER_1);
+//        delete(DELETE_USER);
+
     }
 
     private static void update(String updateUser) throws SQLException {
