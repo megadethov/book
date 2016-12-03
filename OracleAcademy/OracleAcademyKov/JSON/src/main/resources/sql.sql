@@ -7,3 +7,7 @@ ALTER TABLE user CHANGE COLUMN id id INT(11) NOT NULL AUTO_INCREMENT;
 DROP TABLE user;
 
 #DML
+INSERT INTO user (name, age) VALUES ('Anton', 27);
+DELETE FROM user;
+UPDATE user SET name = 'Santa' WHERE id = 1;
+
