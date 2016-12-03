@@ -2,10 +2,13 @@ package ua.mega.Lecture_10.item_04;
 
 import com.mysql.jdbc.Statement;
 import ua.mega.Lecture_10.MyConnection;
+import ua.mega.Lecture_10.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PreparedStatementTest {
@@ -16,7 +19,10 @@ public class PreparedStatementTest {
 
     public static void main(String[] args) throws SQLException {
 //        insert(INSERT_USER);
-        update(UPDATE_USER);
+//        update(UPDATE_USER);
+
+        List<User> users = findUsersByName(SELECT_USER_BY_NAME, "Santa");
+        System.out.println(users);
     }
 
     private static void insert(String insertUser) throws SQLException {
@@ -45,5 +51,26 @@ public class PreparedStatementTest {
         if (connection != null) connection.close();
     }
 
+    private static List<User> findUsersByName(String sql, String name) throws SQLException {
+        Connection connection = MyConnection.createConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, name);
 
+        ResultSet resultSet = preparedStatement.executeQuery(); // есть результат
+        List<User> users = new ArrayList<>(); // сюда будем складывать собранных User
+
+        while (resultSet.next()) {
+            User user = new User();
+            user.setId(resultSet.getInt("id"));
+            user.setName(resultSet.getString("name"));
+            user.setAge(resultSet.getInt("age"));
+
+            users.add(user); // ложим собранного User в коллекцию
+        }
+        if (resultSet != null) resultSet.close();
+        if (preparedStatement != null) preparedStatement.close();
+        if (connection != null) connection.close();
+
+        return users;
+    }
 }
