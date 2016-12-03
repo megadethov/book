@@ -118,4 +118,5 @@ Lecture 10 - JDBC
 item-00 - MetaData (поддерживаемые БД фичи)
 item-01 - DDL операции, Statement.execute()
 item-02 - DML операции, Statement.executeUpdate()
-item-02 - DML SELECT, Statement.executeQuery()
+item-03 - DML SELECT, Statement.executeQuery()
+item-04 - PreparedStatement
