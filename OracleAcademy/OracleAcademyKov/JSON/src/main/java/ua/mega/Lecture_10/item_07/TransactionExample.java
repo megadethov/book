@@ -11,22 +11,32 @@ public class TransactionExample {
     private static final String UPDATE_USER = "UPDATE user SET name = ? WHERE name = ?";
 
     public static void main(String[] args) {
-        insertWithUpdate(INSERT_QUERY);
+        insertWithUpdate();
     }
 
-    private static void insertWithUpdate(String sql) {
+    private static void insertWithUpdate() {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connection = MyConnection.createConnection();
             connection.setAutoCommit(false); // вкл. транзакции7
-            preparedStatement = connection.prepareStatement(sql);
+
+            // транзакция 1
+            preparedStatement = connection.prepareStatement(INSERT_QUERY);
             preparedStatement.setInt(1, 1000);
             preparedStatement.setString(2, "testTransaction");
             preparedStatement.setInt(3, 120);
             preparedStatement.executeUpdate(); // выполняем INSERT
             connection.commit(); // тк авто-коммит откл. - делаем коммит
+
+            // транзакция 2
+            preparedStatement = connection.prepareStatement(UPDATE_USER);
+            preparedStatement.setString(1, "test_Transaction_Update");
+            preparedStatement.setString(2, "testTransaction");
+            preparedStatement.executeUpdate(); // выполнить UPDATE
+            connection.commit();
+
 
 
         } catch (SQLException e) {
