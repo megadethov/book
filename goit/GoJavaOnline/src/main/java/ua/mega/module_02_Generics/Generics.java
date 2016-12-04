@@ -11,8 +11,7 @@ public class Generics {
    public void testGenericsTypeSafe() {
        List<Integer> ints = Arrays.asList(10, 20, 3);
         for (Object anInt : ints) {
-            Integer i = (Integer) anInt;
-            System.out.println(i);
+            System.out.println(anInt);
         }
 
     }
