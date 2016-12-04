@@ -124,3 +124,4 @@ item-05 - Updatable ResultSet - обновляемый
 item-06 - Batch - пачка SQL
 item-07 - Transaction пример
 item-08 - SavePoint - точки отката транзакций
+item-09 - ConnectionPool

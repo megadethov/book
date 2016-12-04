@@ -43,6 +43,13 @@
             <version>5.1.6</version>
         </dependency>
 
+        <!--Зависимость для работы с соединениями БД ComboPooledDataSource-->
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+
 
 
     </dependencies>
