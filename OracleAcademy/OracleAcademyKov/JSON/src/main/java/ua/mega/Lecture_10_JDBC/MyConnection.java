@@ -1,4 +1,4 @@
-package ua.mega.Lecture_10;
+package ua.mega.Lecture_10_JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

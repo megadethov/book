@@ -1,7 +1,7 @@
-package ua.mega.Lecture_10.item_09;
+package ua.mega.Lecture_10_JDBC.item_09;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import ua.mega.Lecture_10.User;
+import ua.mega.Lecture_10_JDBC.User;
 
 import java.beans.PropertyVetoException;
 import java.sql.Connection;

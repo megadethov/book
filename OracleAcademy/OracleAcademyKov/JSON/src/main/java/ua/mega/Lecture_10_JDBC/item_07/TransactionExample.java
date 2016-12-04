@@ -1,6 +1,6 @@
-package ua.mega.Lecture_10.item_07;
+package ua.mega.Lecture_10_JDBC.item_07;
 
-import ua.mega.Lecture_10.MyConnection;
+import ua.mega.Lecture_10_JDBC.MyConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

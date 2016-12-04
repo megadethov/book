@@ -1,6 +1,6 @@
-package ua.mega.Lecture_10.item_00;
+package ua.mega.Lecture_10_JDBC.item_00;
 
-import ua.mega.Lecture_10.MyConnection;
+import ua.mega.Lecture_10_JDBC.MyConnection;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

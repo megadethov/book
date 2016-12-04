@@ -1,4 +1,4 @@
-package ua.mega.Lecture_10;
+package ua.mega.Lecture_10_JDBC;
 
 public class User {
     private int id;

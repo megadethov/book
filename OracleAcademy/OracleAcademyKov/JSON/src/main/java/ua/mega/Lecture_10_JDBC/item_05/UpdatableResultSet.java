@@ -1,7 +1,6 @@
-package ua.mega.Lecture_10.item_05;
+package ua.mega.Lecture_10_JDBC.item_05;
 
-import com.sun.org.apache.regexp.internal.RE;
-import ua.mega.Lecture_10.MyConnection;
+import ua.mega.Lecture_10_JDBC.MyConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

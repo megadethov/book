@@ -1,8 +1,7 @@
-package ua.mega.Lecture_10.item_04;
+package ua.mega.Lecture_10_JDBC.item_04;
 
-import com.mysql.jdbc.Statement;
-import ua.mega.Lecture_10.MyConnection;
-import ua.mega.Lecture_10.User;
+import ua.mega.Lecture_10_JDBC.MyConnection;
+import ua.mega.Lecture_10_JDBC.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
