@@ -9,7 +9,7 @@ public class Generics {
 
     @Test
    public void testGenericsTypeSafe() {
-       List ints = Arrays.asList(10, 20.3);
+       List<Integer> ints = Arrays.asList(10, 20, 3);
         for (Object anInt : ints) {
             Integer i = (Integer) anInt;
             System.out.println(i);
