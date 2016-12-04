@@ -37,11 +37,19 @@ public class TransactionExample {
             preparedStatement.executeUpdate(); // выполнить UPDATE
             connection.commit();
 
+            // транзакция 3 (с ошибкой)
+            preparedStatement = connection.prepareStatement(INSERT_QUERY);
+            preparedStatement.setInt(1, 1000); // ошибка, такой id уже существует
+            preparedStatement.setString(2, "WRONG_USER_ID");
+            preparedStatement.setInt(3, 100);
+            preparedStatement.executeUpdate();
 
+            connection.commit();
 
         } catch (SQLException e) {
             try {
                 connection.rollback();
+                System.out.println("rollback to nearest commit");
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
