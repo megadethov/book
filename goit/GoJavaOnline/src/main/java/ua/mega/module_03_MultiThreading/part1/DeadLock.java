@@ -5,8 +5,8 @@ import java.util.Random;
 public class DeadLock {
 
     public static Random random = new Random();
-    private static Account account1 = new Account(100L);
-    private static Account account2 = new Account(200L);
+    private static Account account1 = new Account(100L, 1);
+    private static Account account2 = new Account(200L, 2);
 
     public static void main(String[] args) {
         new Thread(new Worker()).start();
@@ -26,9 +26,19 @@ public class DeadLock {
     }
 
     public static void transfer(Account source, Account target, long amount) {
+       final Account a1; //final - тк по ним синхро
+       final  Account a2;
+        if (source.compareTo(target) > 0) {
+            a1 = source;
+            a2 = target;
+        } else {
+            a1 = target;
+            a2 = source;
+        }
+
         // во избежание параллельного изменения счетов разными потоками, нужно захватить мониторы обоих счетов
-        synchronized (source) {
-            synchronized (target) {
+        synchronized (a1) {
+            synchronized (a2) {
                 if (source.getBalance() >= amount) {
                     source.withdraw(amount);
                     target.put(amount);
@@ -40,11 +50,13 @@ public class DeadLock {
         }
     }
 
-    public static class Account {
+    public static class Account implements Comparable<Account>{
         private long balance;
+        private long id;
 
-        public Account(long balance) {
+        public Account(long balance, int id) {
             this.balance = balance;
+            this.id = id;
         }
 
         public long getBalance() {
@@ -59,5 +71,11 @@ public class DeadLock {
             balance -= amount;
         }
 
+        @Override
+        public int compareTo(Account o) {
+            if (this.id > o.id) return 1;
+            if (this.id < o.id) return -1;
+            return 0;
+        }
     }
 }
