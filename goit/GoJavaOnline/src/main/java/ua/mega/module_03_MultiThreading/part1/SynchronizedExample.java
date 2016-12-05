@@ -8,13 +8,14 @@ import java.util.Set;
 public class SynchronizedExample {
 
     public int counter;
+//    public final Object lock = new Object(); // всегда final
 
     public static void main(String[] args) throws InterruptedException {
-      new SynchronizedExample().test();
+        new SynchronizedExample().test();
     }
 
-    public int increment() {
-        return counter++;
+    public synchronized int increment() {
+            return counter++;
     }
 
     public void test() throws InterruptedException {
@@ -27,14 +28,21 @@ public class SynchronizedExample {
 
         Thread.sleep(100);
 
+        boolean isValid = true;
+
         Set<Integer> integerSet = new HashSet<>();
         for (Aggregator aggregator : aggregators) {
             for (Integer i : aggregator.ints) {
-                if (!integerSet.add(i)) System.out.println("Error! Duplicate found: " + i);
+                if (!integerSet.add(i)) {
+                    System.out.println("Error! Duplicate found: " + i);
+                    isValid = false;
+                }
+
             }
         }
+        if (isValid)
+        System.out.println("No duplicates");
     }
-
 
 
     public class Aggregator implements Runnable {
