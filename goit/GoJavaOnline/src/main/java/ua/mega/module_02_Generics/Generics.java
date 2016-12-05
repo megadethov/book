@@ -17,9 +17,19 @@ public class Generics {
     }
 
     @Test
-    public void yestGenericSubtypes() {
+    public void testGenericSubtypes() {
         List<Number> numbers;
         List<Integer> integers = Arrays.asList(10, 20, 30);
 //        numbers = integers; // полиморфизм в Generics не работает
+
+    }
+
+    @Test
+    public void testArraysSubtypes() {
+        Number[] numbers;
+        Integer[] integers = new Integer[]{10, 20, 30};
+        numbers = integers; // ошибки нет
+        numbers[2] = 10.3; // нет ошибки компиляции, но ошибка в runtime - java.lang.ArrayStoreException: java.lang.Double
+
     }
 }
