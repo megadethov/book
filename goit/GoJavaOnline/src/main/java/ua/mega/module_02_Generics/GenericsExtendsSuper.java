@@ -2,6 +2,7 @@ package ua.mega.module_02_Generics;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +18,9 @@ public class GenericsExtendsSuper {
 //        System.out.println(isValidList(citizens, new PersonValidator())); // компилятор не запрещает - Citizen вместо Person
         System.out.println(isValidList(citizens, new PersonValidator())); // компилятор не запрещает - citizens
 
+        // хотим получить уже отфильтрованный список Citizen
+        List<Citizen> filteredCitizens = filteredInvalid(citizens, new PersonValidator()); // PECS (producer - extends, consumer - super)
+
     }
 
     // Метод - проверяет валидность List
@@ -28,6 +32,15 @@ public class GenericsExtendsSuper {
             }
         }
         return true;
+    }
+
+    // Метод - принимает коллекцию, удаляет не валидные элементы, возвращает коллекцию с валидными
+    public <T> List<T> filteredInvalid(List<T> values, Validator<? super T> validator) { // PECS
+        List<T> result = new ArrayList<T>();
+        for (T value : values) {
+            if (validator.isValid(value)) result.add(value);
+        }
+        return result;
     }
 
     // Интерфейс Validator
