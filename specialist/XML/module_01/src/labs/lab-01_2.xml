@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<offices xmlns="http://www.megadethov.com/xml/office">
+    <timeTable>
+        <lesson no="1">
+            <date>2016-12-06</date>
+            <time>10:48:00</time>
+        </lesson>
+    </timeTable>
+</offices>
