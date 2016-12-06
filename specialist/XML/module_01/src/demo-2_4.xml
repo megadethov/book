@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<a:data xmlns="http://www.megadethov.com/xml/lab1"
+        xmlns:a="http://www.megadethov.com/xml/lab2"
+        xmlns:html="http://www.w3.org/1999/xhtml">
+    <a:lesson id="2">
+        <startDate>18-10-2010</startDate>
+        <description>
+            <html:div>
+                &lt; &gt; &amp;
+            </html:div>
+        </description>
+    </a:lesson>
+</a:data>
