@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<myBooks xmlns="http://megadethov.com/catalog/pricelist">
+
+    <book>
+        <title>XML and IE5</title>
+        <author>Алекс Гомер</author>
+        <price>200</price>
+    </book>
+
+    <book xmlns="http://megadethov.com/catalog/staff">
+        <title>Dinamic HTML</title>
+        <author>Алекс Хоумер</author>
+        <price>120</price>
+    </book>
+
+</myBooks>
