@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="demo-3_1.xsd">
+    <customers>
+        <customer>
+            <id>id-1</id>
+            <name>CustomerOne</name>
+            <address>house #1</address>
+        </customer>
+        <customer>
+            <id>id-2</id>
+            <name>CustomerTwo</name>
+            <address>house #2</address>
+        </customer>
+    </customers>
+    <clerks>
+        <clerk>
+            <id>id-1</id>
+            <name>ClerkOne</name>
+            <office>office #1</office>
+        </clerk>
+        <clerk>
+            <id>id-2</id>
+            <name>ClerkTwo</name>
+            <office>office #2</office>
+        </clerk>
+    </clerks>
+</root>
