@@ -5,7 +5,7 @@
         <xs:sequence>
             <xs:element name="firstName" type="xs:string"/>
             <xs:element name="lastName" type="xs:string"/>
-            <xs:element name="age" type="xs:decimal"/>
+            <xs:element name="age" type="xs:positiveInteger"/>
             <xs:element name="birthday" type="xs:date"/>
         </xs:sequence>
     </xs:complexType>

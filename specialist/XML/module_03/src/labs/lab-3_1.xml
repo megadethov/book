@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<employee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="lab-3_1.xsd">
+    <firstName>First Name</firstName>
+    <lastName>Last Name</lastName>
+    <age>33</age>
+    <birthday>1975-05-20</birthday>
+</employee>
