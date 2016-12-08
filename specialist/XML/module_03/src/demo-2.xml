@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="demo-2.xsd">
+      xsi:noNamespaceSchemaLocation="demo-2_1.xsd">
     <name>Vasia</name>
     <myAge>12</myAge>
     <birthDay>1980-05-06</birthDay>
