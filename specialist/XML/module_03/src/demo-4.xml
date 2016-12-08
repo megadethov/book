@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="demo-4.xsd">
+    <id>A-1</id>
+    <name>Bob</name>
+    <age>13</age>
+    <bitrhday>1975-05-20</bitrhday>
+    <phone>111-22-33</phone>
+    <day>Friday</day>
+</root>
