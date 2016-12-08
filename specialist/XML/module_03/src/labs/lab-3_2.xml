@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<offices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="lab-3_2.xsd">
+    <office code="A">
+        <name>Office-A</name>
+        <address>Address-A</address>
+    </office>
+    <office code="B">
+        <name>Office-B</name>
+        <address>Address-B</address>
+    </office>
+</offices>
