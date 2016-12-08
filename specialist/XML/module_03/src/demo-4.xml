@@ -4,7 +4,7 @@
     <id>A-1</id>
     <name>Bob</name>
     <age>13</age>
-    <bitrhday>1975-05-20</bitrhday>
+    <birthday>1975-05-20</birthday>
     <phone>111-22-33</phone>
     <day>Friday</day>
 </root>

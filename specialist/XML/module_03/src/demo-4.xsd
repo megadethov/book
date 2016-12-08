@@ -8,7 +8,7 @@
                 <xs:element name="id" type="xs:ID"/>
                 <xs:element name="name" type="xs:string"/>
                 <xs:element name="age" type="ageType"/>
-                <xs:element name="bitrhday" type="xs:date"/>
+                <xs:element name="birthday" type="xs:date"/>
                 <xs:element name="phone" type="phoneType"/>
                 <xs:element name="day" type="daysType"/>
             </xs:sequence>
