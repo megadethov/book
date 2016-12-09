@@ -1,78 +1,78 @@
-<?xml version="1.0" encoding="windows-1251" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <pricelist>
     <book id="1" store="yes">
-        <title>XML и IE5</title>
-        <author>Алекс Гомер</author>
+        <title>XML Рё IE5</title>
+        <author>РђР»РµРєСЃ Р“РѕРјРµСЂ</author>
         <price>200</price>
     </book>
 
-    <!-- Комментарий -->
+    <!-- РљРѕРјРјРµРЅС‚Р°СЂРёР№ -->
 
     <book id="2">
-        <!-- Супер книжка -->
+        <!-- РЎСѓРїРµСЂ РєРЅРёР¶РєР° -->
         <title>Dimanic HTML</title>
-        <author>Алекс Хоумер</author>
+        <author>РђР»РµРєСЃ РҐРѕСѓРјРµСЂ</author>
         <price>120</price>
     </book>
 
     <book id="3">
-        <title>Технология XSLT</title>
-        <author>Алексей Валиков</author>
+        <title>РўРµС…РЅРѕР»РѕРіРёСЏ XSLT</title>
+        <author>РђР»РµРєСЃРµР№ Р’Р°Р»РёРєРѕРІ</author>
         <price>150</price>
     </book>
 
     <book id="4" store="yes">
         <title>XSLT</title>
-        <author>Стивен Холзнер</author>
+        <author>РЎС‚РёРІРµРЅ РҐРѕР»Р·РЅРµСЂ</author>
         <price>170</price>
     </book>
 
     <book  id="5" store="yes">
-        <!-- Супер книжка -->
-        <title>Практическая криптография</title>
-        <author>Михаил Масленников</author>
+        <!-- РЎСѓРїРµСЂ РєРЅРёР¶РєР° -->
+        <title>РџСЂР°РєС‚РёС‡РµСЃРєР°СЏ РєСЂРёРїС‚РѕРіСЂР°С„РёСЏ</title>
+        <author>РњРёС…Р°РёР» РњР°СЃР»РµРЅРЅРёРєРѕРІ</author>
         <price>200</price>
     </book>
 
     <book id="6">
-        <title>Реест Windows XP</title>
-        <author>Джерри Хонейкатт</author>
+        <title>Р РµРµСЃС‚ Windows XP</title>
+        <author>Р”Р¶РµСЂСЂРё РҐРѕРЅРµР№РєР°С‚С‚</author>
         <price>250</price>
     </book>
 
     <book id="6">
-        <title>Windows XP. Средства повышения производительности</title>
-        <author>Уолтер Брюс</author>
+        <title>Windows XP. РЎСЂРµРґСЃС‚РІР° РїРѕРІС‹С€РµРЅРёСЏ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚Рё</title>
+        <author>РЈРѕР»С‚РµСЂ Р‘СЂСЋСЃ</author>
         <price>250</price>
     </book>
 
     <book id="7">
-        <title>Windows Script Host для Windows 2000/XP</title>
-        <author>Андрей Попов</author>
+        <title>Windows Script Host РґР»СЏ Windows 2000/XP</title>
+        <author>РђРЅРґСЂРµР№ РџРѕРїРѕРІ</author>
         <price>220</price>
     </book>
 
     <book  id="9">
-        <title>Excel 2002. Библия пользователя</title>
-        <author>Джон Уокенбах</author>
+        <title>Excel 2002. Р‘РёР±Р»РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</title>
+        <author>Р”Р¶РѕРЅ РЈРѕРєРµРЅР±Р°С…</author>
         <price>260</price>
     </book>
 
     <book  id="10">
-        <title>XML. Справочник</title>
-        <author>Сандра Э. Эдди</author>
+        <title>XML. РЎРїСЂР°РІРѕС‡РЅРёРє</title>
+        <author>РЎР°РЅРґСЂР° Р­. Р­РґРґРё</author>
         <price>100</price>
     </book>
 
     <book  id="11">
-        <title>Разработка защищенных Web-приложений на платформе Windows 2000</title>
-        <author>Майкл Ховард</author>
+        <title>Р Р°Р·СЂР°Р±РѕС‚РєР° Р·Р°С‰РёС‰РµРЅРЅС‹С… Web-РїСЂРёР»РѕР¶РµРЅРёР№ РЅР° РїР»Р°С‚С„РѕСЂРјРµ Windows 2000</title>
+        <author>РњР°Р№РєР» РҐРѕРІР°СЂРґ</author>
         <price>250</price>
     </book>
 
     <book  id="12">
-        <title>WAP-программирование на языке WML</title>
-        <author>Михаэль Зеебергер-Вайхсельбаум</author>
+        <title>WAP-РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёРµ РЅР° СЏР·С‹РєРµ WML</title>
+        <author>РњРёС…Р°СЌР»СЊ Р—РµРµР±РµСЂРіРµСЂ-Р’Р°Р№С…СЃРµР»СЊР±Р°СѓРј</author>
         <price>150</price>
     </book>
     <test>test</test>
