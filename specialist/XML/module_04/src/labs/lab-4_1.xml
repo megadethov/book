@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pricelist>
+    <!--First book-->
+    <book id="1">
+        <title>XML and XSLT</title>
+        <author>John Smith</author>
+        <price>250</price>
+        <formula>
+            <![CDATA[
+			a = 2 < 3
+			]]>
+        </formula>
+    </book>
+    <!--Вторая книга-->
+    <book id="2">
+        <title>HTML 5</title>
+        <author>Иван Петров</author>
+        <price>300</price>
+    </book>
+</pricelist>
