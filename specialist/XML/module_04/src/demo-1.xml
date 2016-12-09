@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <pricelist>
     <book id="1" store="yes">
         <title>XML и IE5</title>
@@ -40,13 +40,13 @@
         <price>250</price>
     </book>
 
-    <book id="6">
+    <book id="7">
         <title>Windows XP. Средства повышения производительности</title>
         <author>Уолтер Брюс</author>
         <price>250</price>
     </book>
 
-    <book id="7">
+    <book id="8">
         <title>Windows Script Host для Windows 2000/XP</title>
         <author>Андрей Попов</author>
         <price>220</price>
