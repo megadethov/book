@@ -31,4 +31,10 @@
         </div>
     </xsl:template>
 
+    <xsl:template match="book">
+        <div>
+            <xsl:value-of select="title"/>
+        </div>
+    </xsl:template>
+
 </xsl:stylesheet>
