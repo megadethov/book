@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE offices [
+        <!ELEMENT offices (office+) >
+        <!ELEMENT office (name, address) >
+        <!ELEMENT name (#PCDATA) >
+        <!ELEMENT address (#PCDATA) >
+        <!ATTLIST office code CDATA #REQUIRED>
+        ]>
+<offices>
+    <office code="A">
+        <name>Office-A</name>
+        <address>Address-A</address>
+    </office>
+    <office code="B">
+        <name>Office-B</name>
+        <address>Address-B</address>
+    </office>
+</offices>
