@@ -9,7 +9,12 @@
     </xsl:template>
 
     <xsl:template match="a">
-        <xsl:copy-of select="."/>
+        <xsl:copy>
+            <xsl:attribute name="href">
+                <xsl:value-of select="@href"/>
+            </xsl:attribute>
+            <xsl:value-of select="."/>
+        </xsl:copy>
     </xsl:template>
 
 </xsl:stylesheet>
