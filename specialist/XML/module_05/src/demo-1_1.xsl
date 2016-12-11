@@ -20,7 +20,7 @@
     </xsl:attribute-set>
 
     <xsl:template match="book">
-        <xsl:element use-attribute-sets="setX" name="item-{position()}">
+        <xsl:element use-attribute-sets="setX setY" name="item-{position()}">
             <xsl:attribute name="price">
                 <xsl:value-of select="price"/>
             </xsl:attribute>
