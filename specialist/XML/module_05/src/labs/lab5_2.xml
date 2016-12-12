@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="lab5_2.xsl"?>
 <lab5_2>
     <element price="200" name="computer" value="Intel Core Duo"/>
     <element price="220" name="computer" value="AMD"/>
