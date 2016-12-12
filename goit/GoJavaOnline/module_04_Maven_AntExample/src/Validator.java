@@ -1,0 +1,2 @@
+public interface Validator<T> {
+}
