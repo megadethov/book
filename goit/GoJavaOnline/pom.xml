@@ -6,6 +6,7 @@
 
     <groupId>ua.mega</groupId>
     <artifactId>GoJavaOnline</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -19,6 +20,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>module_02_Generics</module>
+    </modules>
 
     <dependencies>
         <dependency>

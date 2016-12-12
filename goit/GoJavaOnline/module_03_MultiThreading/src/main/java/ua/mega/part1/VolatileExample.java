@@ -1,4 +1,4 @@
-package ua.mega.module_03_MultiThreading.part1;
+package main.java.ua.mega.part1;
 
 public class VolatileExample {
 

@@ -1,4 +1,4 @@
-package ua.mega.module_03_MultiThreading.part1;
+package main.java.ua.mega.part1;
 
 // создадим 10 потоков
 public class LatchBootstrap {

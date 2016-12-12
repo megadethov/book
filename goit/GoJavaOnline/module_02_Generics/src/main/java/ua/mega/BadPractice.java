@@ -1,4 +1,4 @@
-package ua.mega.module_02_Generics;
+package ua.mega;
 
 import org.testng.annotations.Test;
 
