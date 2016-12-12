@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lab5_2>
+    <element price="200" name="computer" value="Intel Core Duo"/>
+    <element price="220" name="computer" value="AMD"/>
+    <element price="100" name="monitor" value="19 in"/>
+    <element price="130" name="monitor" value="21 in"/>
+    <element price="150" name="printer" value="LBP2900"/>
+    <element price="160" name="printer" value="LBP2200"/>
+</lab5_2>
