@@ -13,16 +13,20 @@ public class SerialExecutor<T> implements Executor<T> {
     private List<T> validResults = new ArrayList<>();
     private List<T> invalidResults = new ArrayList<T>();
 
+    private boolean executed = false; // этот флаг понадобится, чтобы не нарушилась последовательность отработки методов
+
     private Map<Task<? extends T>, Validator<? super T>> map = new HashMap<>();
 
 
     @Override
     public void addTask(Task<? extends T> task) {
+        checkNotExecuted();
         addTask(task, DEFAULT_VALIDATOR);
     }
 
     @Override
     public void addTask(Task<? extends T> task, Validator<? super T> validator) {
+       checkNotExecuted();
         tasks.add(new TaskAndValidator<T>(task, validator));
         map.put(task, validator);
     }
@@ -38,17 +42,34 @@ public class SerialExecutor<T> implements Executor<T> {
                 invalidResults.add(task.getResult());
             }
         }
+        executed = true; // после выполнения меняем значение флага
     }
 
     @Override
     public List<T> getValidResults() {
+        checkExecuted();
         return validResults;
     }
 
     @Override
     public List<T> getInvalidResults() {
+        checkExecuted();
         return invalidResults;
     }
+
+
+    private void checkNotExecuted() {
+        if (executed) {
+            throw new IllegalStateException("Executor already checkExecuted");
+        }
+    }
+    // этот метод проверяет состояние флага checkExecuted
+    private void checkExecuted() {
+        if (!executed) {
+            throw new IllegalStateException("Executor already checkExecuted");
+        }
+    }
+
 
     private static class TaskAndValidator<T> {
 

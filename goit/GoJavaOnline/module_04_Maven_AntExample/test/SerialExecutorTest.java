@@ -24,6 +24,22 @@ public class SerialExecutorTest {
         assertEquals(executor.getInvalidResults().get(0), Integer.valueOf(-1), "Wrong execution result");
     }
 
+    @Test
+    public void testExecutor() throws Exception {
+        SerialExecutor<Integer> executor = new SerialExecutor<>();
+        executor.addTask(new AddTask(1, -2));
+        executor.addTask(new AddTask(1, 2), result -> result >= 0);
+        executor.addTask(new AddTask(1, -2), result -> result >= 0);
+        executor.addTask(new AddTask(Integer.MAX_VALUE, 1), result -> result >= 0);
+        executor.execute();
+        assertEquals(executor.getValidResults().size(), 2, "Wrong valid results size");
+        assertEquals(executor.getInvalidResults().size(), 2, "Wrong invalid results size");
+        assertEquals(executor.getValidResults().get(0), Integer.valueOf(-1), "Wrong execution result");
+        assertEquals(executor.getValidResults().get(1), Integer.valueOf(3), "Wrong execution result");
+        assertEquals(executor.getInvalidResults().get(0), Integer.valueOf(-1), "Wrong execution result");
+        assertEquals(executor.getInvalidResults().get(1), Integer.valueOf(Integer.MIN_VALUE), "Wrong execution result");
+    }
+
     // по хорошему на Task нужно писать отдельный тест, но он очень простой и мы его лепим в этом тесте
     private static class AddTask implements Task<Integer> {
 
