@@ -51,7 +51,7 @@
     </target>
 
     <target name="test" depends="compile-test">
-        <testng outputDir="${test.report}">
+        <testng outputDir="${test-report}">
             <classpath>
                 <pathelement location="${test-build}"/>
                 <pathelement location="${build}"/>

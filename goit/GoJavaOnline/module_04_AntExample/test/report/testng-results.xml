@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite1" duration-ms="187" started-at="2016-12-13T20:45:36Z" finished-at="2016-12-13T20:45:36Z">
+    <groups>
+    </groups>
+    <test name="Executor Test" duration-ms="187" started-at="2016-12-13T20:45:36Z" finished-at="2016-12-13T20:45:36Z">
+      <class name="SerialExecutorTest">
+        <test-method status="PASS" signature="testExecuteWithValidator()[pri:0, instance:SerialExecutorTest@2d6d8735]" name="testExecuteWithValidator" duration-ms="135" started-at="2016-12-13T22:45:36Z" finished-at="2016-12-13T22:45:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExecuteWithValidator -->
+        <test-method status="PASS" signature="testExecutor()[pri:0, instance:SerialExecutorTest@2d6d8735]" name="testExecutor" duration-ms="2" started-at="2016-12-13T22:45:36Z" finished-at="2016-12-13T22:45:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExecutor -->
+        <test-method status="PASS" signature="testExecuteWithoutValidator()[pri:0, instance:SerialExecutorTest@2d6d8735]" name="testExecuteWithoutValidator" duration-ms="0" started-at="2016-12-13T22:45:36Z" finished-at="2016-12-13T22:45:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExecuteWithoutValidator -->
+      </class> <!-- SerialExecutorTest -->
+    </test> <!-- Executor Test -->
+  </suite> <!-- Suite1 -->
+</testng-results>
