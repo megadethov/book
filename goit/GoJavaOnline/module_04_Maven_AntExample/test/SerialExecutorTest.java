@@ -4,7 +4,8 @@ import static org.testng.Assert.*;
 
 public class SerialExecutorTest {
 
-    @org.testng.annotations.Test
+//    @org.testng.annotations.Test
+    @Test
     public void testExecuteWithoutValidator() throws Exception {
         SerialExecutor<Integer> executor = new SerialExecutor<Integer>();
         executor.addTask(new AddTask(1, 2));
