@@ -1,4 +1,4 @@
-package ua.mega;
+package ua;
 
 import org.testng.annotations.Test;
 
