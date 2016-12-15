@@ -5,7 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Bootstrap {
 
-    TaskProvider<Integer> taskProvider;
+    private TaskProvider<Integer> taskProvider;
+    private Executor<Integer> executor;
 
     public static void main(String[] args) {
 
@@ -16,7 +17,6 @@ public class Bootstrap {
     }
 
     public void execute() {
-        SerialExecutor<Integer> executor = new SerialExecutor<>();
         taskProvider.getAllTasks().forEach(executor::addTask);
         executor.execute();
 
@@ -28,5 +28,9 @@ public class Bootstrap {
 
     public void setTaskProvider(TaskProvider<Integer> taskProvider) {
         this.taskProvider = taskProvider;
+    }
+
+    public void setExecutor(Executor<Integer> executor) {
+        this.executor = executor;
     }
 }
