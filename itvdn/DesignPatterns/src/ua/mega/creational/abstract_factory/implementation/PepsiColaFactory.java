@@ -1,11 +1,18 @@
 package ua.mega.creational.abstract_factory.implementation;
 
-public class PepsiColaFactory {
-    PepsiColaBottle createBottle() {
+import ua.mega.creational.abstract_factory.abstraction.AbstractFactory;
+
+public class PepsiColaFactory implements AbstractFactory {
+
+    public PepsiColaFactory() {
+        System.out.println("Create PepsiColaFactory ...");
+    }
+
+    public PepsiColaBottle createBottle() {
         return new PepsiColaBottle();
     }
 
-    PepsiColaWater createWater() {
+    public PepsiColaWater createWater() {
         return new PepsiColaWater();
     }
 }

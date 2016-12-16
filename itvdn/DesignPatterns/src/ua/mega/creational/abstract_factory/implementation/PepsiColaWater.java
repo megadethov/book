@@ -1,4 +1,9 @@
 package ua.mega.creational.abstract_factory.implementation;
 
-public class PepsiColaWater {
+import ua.mega.creational.abstract_factory.abstraction.AbstractWater;
+
+public class PepsiColaWater implements AbstractWater {
+    public PepsiColaWater() {
+        System.out.println("Create PepsiColaWater ...");
+    }
 }
