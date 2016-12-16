@@ -6,5 +6,6 @@ public class Program {
         Director director = new Director(builder);
         director.construct();
         Product product = builder.getResult();
+        product.show();
     }
 }

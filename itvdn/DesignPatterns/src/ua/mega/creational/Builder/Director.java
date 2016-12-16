@@ -6,11 +6,13 @@ public class Director {
 
     public Director(Builder builder) {
         this.builder = builder;
-        System.out.println("Create Director ...");
     }
 
     public void construct() {
         builder.buildBase();
+        builder.buildFloor();
+        builder.buildFloor();
+        builder.buildFloor();
         builder.buildFloor();
         builder.buildRoof();
     }
