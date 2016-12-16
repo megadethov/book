@@ -1,4 +1,4 @@
-package ua.mega.creational.Builder;
+package ua.mega.creational.builder;
 
 public class Director {
 

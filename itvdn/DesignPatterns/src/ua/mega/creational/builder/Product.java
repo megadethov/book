@@ -1,4 +1,4 @@
-package ua.mega.creational.Builder;
+package ua.mega.creational.builder;
 
 import java.util.ArrayList;
 import java.util.List;
