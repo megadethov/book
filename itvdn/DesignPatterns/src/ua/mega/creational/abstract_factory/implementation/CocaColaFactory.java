@@ -1,5 +1,6 @@
 package ua.mega.creational.abstract_factory.implementation;
 
+import ua.mega.creational.abstract_factory.abstraction.AbstractBonusBooklet;
 import ua.mega.creational.abstract_factory.abstraction.AbstractFactory;
 
 public class CocaColaFactory implements AbstractFactory {
@@ -14,5 +15,10 @@ public class CocaColaFactory implements AbstractFactory {
 
     public CocaColaWater createWater() {
         return new CocaColaWater();
+    }
+
+    @Override
+    public AbstractBonusBooklet createBonusBooklet() {
+        return new PepsiColaBonusBooklet();
     }
 }

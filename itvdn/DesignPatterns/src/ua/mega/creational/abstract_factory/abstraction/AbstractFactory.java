@@ -5,4 +5,6 @@ public interface AbstractFactory {
     AbstractBottle createBottle();
 
     AbstractWater createWater();
+
+    AbstractBonusBooklet createBonusBooklet();
 }
