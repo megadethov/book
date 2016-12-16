@@ -1,9 +1,5 @@
 package ua.mega.creational.abstract_factory.abstraction;
 
-import ua.mega.creational.abstract_factory.abstraction.AbstractBottle;
-import ua.mega.creational.abstract_factory.abstraction.AbstractFactory;
-import ua.mega.creational.abstract_factory.abstraction.AbstractWater;
-
 public class Client {
     private AbstractBottle bottle;
     private AbstractWater water;
