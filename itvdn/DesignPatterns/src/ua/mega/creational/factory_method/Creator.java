@@ -10,5 +10,4 @@ abstract class Creator {
     public void anOperation() {
         product = factoryMethod();
     }
-
 }
