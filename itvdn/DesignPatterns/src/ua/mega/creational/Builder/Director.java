@@ -10,6 +10,8 @@ public class Director {
     }
 
     public void construct() {
-
+        builder.buildBase();
+        builder.buildFloor();
+        builder.buildRoof();
     }
 }
