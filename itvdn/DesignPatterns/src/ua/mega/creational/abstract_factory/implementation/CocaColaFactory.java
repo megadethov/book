@@ -19,6 +19,6 @@ public class CocaColaFactory implements AbstractFactory {
 
     @Override
     public AbstractBonusBooklet createBonusBooklet() {
-        return new PepsiColaBonusBooklet();
+        return new CocaColaBonusBooklet();
     }
 }
