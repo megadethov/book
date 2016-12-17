@@ -1,4 +1,4 @@
-package ua.mega.structural;
+package ua.mega.structural.composite;
 
 public abstract class Component {
 
