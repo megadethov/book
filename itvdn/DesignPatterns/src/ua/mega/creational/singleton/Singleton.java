@@ -10,8 +10,11 @@ public class Singleton {
     }
 
     public static Singleton getInstance() {
-        if (uniqueInstance == null) return new Singleton();
-        else return uniqueInstance;
+        if (uniqueInstance == null) {
+            uniqueInstance = new Singleton();
+            return uniqueInstance;
+        }
+        return uniqueInstance;
     }
 
     public String getSingletonData() {
