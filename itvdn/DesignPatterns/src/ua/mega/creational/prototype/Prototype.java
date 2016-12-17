@@ -8,4 +8,8 @@ public abstract class Prototype {
     }
 
     public abstract Prototype cloning();
+
+    public int getId() {
+        return id;
+    }
 }
