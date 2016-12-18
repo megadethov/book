@@ -1,12 +1,15 @@
 package ua.mega.structural.decorator;
 
-public class ConcreteDecoratorA extends Decorator {
-    private String addedState = "Some state";
+public class ConcreteDecoratorB extends Decorator {
 
     @Override
     public void operation() {
         super.operation(); // декоратор выполняет основную логику - декорируемого компонента
 
-        System.out.println(addedState);// + добавляет свою
+       addedBehavior(); // + добавляет свою
+    }
+
+    public void addedBehavior() {
+        System.out.println("Behavior");
     }
 }
