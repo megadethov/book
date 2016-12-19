@@ -2,10 +2,11 @@ package generics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MaxExample {
-    private static <T extends Comparable<T>> T max(List<T> list) {
+    private static <T extends Comparable<T>> T max(List<T> list, Comparator<? super T> comparator) {
         T max = list.get(0);
         for (int i = 1; i < list.size(); i++) {
 //            if (list.get(i) > max) {
@@ -41,5 +42,9 @@ public class MaxExample {
         }
         list2.add("СС"); // теперь в эту коллекцию можно добавлять <? super String> <какой-то super String> стринга и все ее предки
 
+// Comparator - контрвариантен. Если он умеет сравнивать <T>, то он сможет сравнить и всех его предков <? super T>
+        List<String> al = new ArrayList<>(Arrays.asList("BBB", "A"));
+       String str = max(al, (s1, s2) -> s1.length() - s2.length());
+        System.out.println("max = " + str);
     }
 }
