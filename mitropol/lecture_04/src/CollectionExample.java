@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class CollectionExample {
@@ -31,9 +33,16 @@ public class CollectionExample {
 //        Stream<Integer s = collection.stream();
 //        s.forEach((i) -> System.out.print(i));
 
-        Stream<Integer> s = Stream.iterate(1, i -> i + 1);
+//        Stream<Integer> s = Stream.iterate(1, i -> i + 1); // the same
+       IntStream s = IntStream.iterate(1, i -> i + 1); // the same, нет боксинга - спец класс для примитивных int
 //         s.forEach(System.out::println);
 //         s.filter(i -> i % 2 == 0).forEach(System.out::println);
          s.filter(i -> i % 2 == 0).limit(10).forEach(System.out::println);
+
+        //================================================================
+//        List<String> listToUpper = Arrays.asList("skskj", "sdkd", "ksks", "ssd").stream().map(i -> i.toUpperCase()).collect(Collectors.toList());
+//        System.out.println(listToUpper);
+        Map<Integer, List<String>> map  = Arrays.asList("skskj", "sdkd", "d", "ssd").stream().map(i -> i.toUpperCase()).collect(Collectors.groupingBy(k -> k.length()));
+        System.out.println(map);
     }
 }
