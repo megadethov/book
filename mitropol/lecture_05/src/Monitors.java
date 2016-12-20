@@ -17,7 +17,7 @@ public class Monitors {
             for (int i = 0; i < 10; i++) {
                 try {
                     Object res = resource.pool();
-                    System.out.println("pooling " + res);
+                    System.out.println("pooled " + res);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
