@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
+
 
 public class Multithreading2 {
     public static void main(String[] args) throws InterruptedException {
@@ -9,15 +11,20 @@ public class Multithreading2 {
         List<Integer> list2 = new ArrayList<>(Arrays.asList(10, 50, 30, 40, 20));
 
         List<Integer> result = new ArrayList<>();
+        ReentrantLock reentrantLock = new ReentrantLock();
 
         Thread t1 = new Thread(() -> {
-           Integer max1 = Collections.max(list1, Integer::compare);
+            Integer max1 = Collections.max(list1, Integer::compare);
+            reentrantLock.lock();
             result.add(max1);
+            reentrantLock.unlock();
             System.out.println(max1);
         });
         Thread t2 = new Thread(() -> {
-          Integer max2 = Collections.max(list2, Integer::compare);
+            Integer max2 = Collections.max(list2, Integer::compare);
+            reentrantLock.lock();
             result.add(max2);
+            reentrantLock.unlock();
             System.out.println(max2);
         });
 
