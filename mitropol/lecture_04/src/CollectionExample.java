@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 public class CollectionExample {
     public static void main(String[] args) {
@@ -11,5 +8,8 @@ public class CollectionExample {
         while (iter.hasNext()) {
             System.out.print(iter.next() + " ");
         }
+
+      Collection<Integer> unmod = Collections.unmodifiableCollection(collection);
+        unmod.add(100); // java.lang.UnsupportedOperationException
     }
 }
