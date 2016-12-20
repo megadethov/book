@@ -1,11 +1,24 @@
 public class Monitors {
     public static void main(String[] args) throws InterruptedException {
         Resource resource = new Resource();
+
+        /*Thread t0 = new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                try {
+                    resource.push(i);
+                    System.err.println("pushing " + i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t0.start();*/
+
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 try {
                     resource.push(i);
-                    System.out.println("pushing " + i);
+                    System.err.println("pushing " + i);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -17,7 +30,7 @@ public class Monitors {
             for (int i = 0; i < 10; i++) {
                 try {
                     Object res = resource.pool();
-                    System.out.println("pooled " + res);
+                    System.err.println("pooled " + res);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -35,7 +48,7 @@ class Resource {
             wait();
         }
         this.ob = ob;
-        notifyAll();
+        notify();
     }
 
     synchronized Object pool() throws InterruptedException {
@@ -44,7 +57,7 @@ class Resource {
         }
         Object res = ob;
         ob = null;
-        notifyAll();
+        notify();
         return res;
     }
 }
