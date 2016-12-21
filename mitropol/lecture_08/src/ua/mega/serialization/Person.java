@@ -14,6 +14,9 @@ public class Person implements Serializable {
     transient private String sex; // transient -  поле не сериализуется
     List<Ticket> tickets = new ArrayList<>();
 
+    public Person() {
+    }
+
     public Person(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
