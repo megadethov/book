@@ -1,8 +1,6 @@
 package ua.mega.socket;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -18,8 +16,17 @@ public class Server {
 
         Socket accept = serverSocket.accept(); // программа залипает пока не получит accept
         // Теперь после подключения с ним можно работать
-        InputStream inputStream = accept.getInputStream();
-        OutputStream outputStream = accept.getOutputStream();
+        InputStream inputStream = accept.getInputStream(); // источник для чтения
+        OutputStream outputStream = accept.getOutputStream(); // цель для записи
+
+//        ObjectInputStream ois = new ObjectInputStream(inputStream); // читаем из серверного сокета
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream)); // читаем из серверного сокета
+        for (int i = 0; i < 10; i++) {
+            String str = br.readLine();
+            System.out.println(str);
+        }
+        accept.close(); // закрытие сокета гарантированно закроет все IS-OS
 
 
     }
