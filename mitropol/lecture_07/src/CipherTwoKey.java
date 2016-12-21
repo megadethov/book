@@ -9,6 +9,9 @@ import java.security.*;
 // Ассиметричное шифрование - 2 ключа. Еще называют - шифрование с открытым ключем
 // Public ключ распространяется в открытом виде - для шифрования
 // Private ключ есть только у вас для расшифровки
+// А в электронной подписи наоборот на чтение - публичный ключ, а на создание подписи - приватный.
+// Для избежания перехвата и подмены публичного ключа, надо использовать
+// SSL - secure socket level   TTS - transport level security
 public class CipherTwoKey {
     public static void main(String[] args) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
 
