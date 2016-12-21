@@ -1,4 +1,5 @@
-import java.io.Externalizable;
+package ua.mega.serialization;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "ua.mega.serialization.Person{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +

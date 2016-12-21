@@ -1,4 +1,4 @@
-package ua.mega;
+package ua.mega.serialization;
 
 public class NewSubclass extends NewClass {
     @Override

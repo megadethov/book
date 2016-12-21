@@ -1,3 +1,5 @@
+package ua.mega.serialization;
+
 import java.io.Serializable;
 
 public class Ticket implements Serializable {
@@ -12,7 +14,7 @@ public class Ticket implements Serializable {
 
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "ua.mega.serialization.Ticket{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 '}';

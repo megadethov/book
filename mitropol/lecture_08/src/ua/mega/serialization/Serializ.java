@@ -1,3 +1,5 @@
+package ua.mega.serialization;
+
 import java.io.*;
 
 public class Serializ {
@@ -29,7 +31,7 @@ public class Serializ {
 
         // Десерилизация
         // Если после сериализации объект изменить, то при попытке десериализации - java.io.InvalidClassException
-        // Чтобы это побороть - у Person надо прописать руками versionUID - взять в stack trace
+        // Чтобы это побороть - у ua.mega.serialization.Person надо прописать руками versionUID - взять в stack trace
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("obj.ser"));
         Person person = (Person) ois.readObject();
         System.out.println(person);
