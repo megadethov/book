@@ -3,6 +3,7 @@ import java.io.*;
 public class Serializ {
     public static void main(String[] args) throws IOException {
         Person p = new Person("Вася", "Иванов", 20);
+        p.getTickets().add(new Ticket("12", "TitleOfTicket"));
 
         // сохраняет в файл поля объекта в бинарном виде
 //        DataOutputStream dos = new DataOutputStream(new FileOutputStream("data.ser"));
@@ -19,6 +20,8 @@ public class Serializ {
 //        dis.close();
 
         // Сериализация делает это на уровнеи объекта, для этого объект должен имплементить маркер - Serializable
-
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("obj.ser"));
+        oos.writeObject(p);
+        oos.close();
     }
 }

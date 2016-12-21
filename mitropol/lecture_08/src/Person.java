@@ -1,9 +1,12 @@
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Person implements Serializable {
     private String name;
-    private String  surname;
+    private String surname;
     private int age;
+    List<Ticket> tickets = new ArrayList<>();
 
     public Person(String name, String surname, int age) {
         this.name = name;
@@ -33,5 +36,13 @@ public class Person implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
