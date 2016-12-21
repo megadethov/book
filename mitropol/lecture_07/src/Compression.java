@@ -13,22 +13,27 @@ public class Compression {
 
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         SecretKeySpec key = new SecretKeySpec("qhsjdjwieikdnghc".getBytes(), "AES");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
 
-//        CipherOutputStream cis = new CipherOutputStream(null, null);
+
+//        Пишем данные в зашифрованном виде в файл
+       /* cipher.init(Cipher.ENCRYPT_MODE, key);
         try (FileOutputStream fos = new FileOutputStream("cipher.txt");
              CipherOutputStream cis = new CipherOutputStream(fos, cipher);
              OutputStreamWriter osw = new OutputStreamWriter(cis);
              PrintWriter pw = new PrintWriter(osw))
 
-
-
-       /*try( FileOutputStream fos = new FileOutputStream("out.zip");
+       *//*try( FileOutputStream fos = new FileOutputStream("out.zip");
             GZIPOutputStream gzos = new GZIPOutputStream(fos);
             OutputStreamWriter osw = new OutputStreamWriter(gzos, "UTF-8"); // позволяет задать кодировку, тк PrintWriter - в системной кодировке
-            PrintWriter pw = new PrintWriter(osw))*/ {
+            PrintWriter pw = new PrintWriter(osw))*//*
+        {
 
             pw.println("Hello World");
-        }
+        }*/
+
+        //        Считываем зашифрованные данные
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new CipherInputStream(new FileInputStream("cipher.txt"), cipher)));
+        System.out.println(bufferedReader.readLine());
     }
 }
