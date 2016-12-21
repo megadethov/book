@@ -19,14 +19,20 @@ public class Serializ {
 //        System.out.println(name + " " + surname + " " + age + " лет");
 //        dis.close();
 
+        //==============================================================================================================
+
         // Сериализация делает это на уровнеи объекта, для этого объект должен имплементить маркер - Serializable
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("obj.ser"));
-        oos.writeObject(p);
-        oos.close();
+        // Externalizable - аналог Serializable, но нужно вручную описать сериализацию в имплементируемых методах
+//        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("obj.ser"));
+//        oos.writeObject(p);
+//        oos.close();
+
         // Десерилизация
+        // Если после сериализации объект изменить, то при попытке десериализации - java.io.InvalidClassException
+        // Чтобы это побороть - у Person надо прописать руками versionUID - взять в stack trace
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("obj.ser"));
         Person person = (Person) ois.readObject();
         System.out.println(person);
-        oos.close();
+        ois.close();
     }
 }
