@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Person implements Serializable {
 
-    private static final long serialVersionUID = -3483696822550404645L;
+    private static final long serialVersionUID = -3483696822550404645L; // теперь даже после изменений будет работать десериализация
 
     private String name;
     private String surname;
     private int age;
-    private String sex;
+    transient private String sex; // transient -  поле не сериализуется
     List<Ticket> tickets = new ArrayList<>();
 
     public Person(String name, String surname, int age) {
