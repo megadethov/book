@@ -27,5 +27,6 @@ public class Serializ {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("obj.ser"));
         Person person = (Person) ois.readObject();
         System.out.println(person);
+        oos.close();
     }
 }
