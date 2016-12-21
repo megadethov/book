@@ -45,4 +45,14 @@ public class Person implements Serializable {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", tickets=" + tickets +
+                '}';
+    }
 }

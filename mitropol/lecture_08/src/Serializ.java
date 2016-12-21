@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class Serializ {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Person p = new Person("Вася", "Иванов", 20);
         p.getTickets().add(new Ticket("12", "TitleOfTicket"));
 
@@ -23,5 +23,9 @@ public class Serializ {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("obj.ser"));
         oos.writeObject(p);
         oos.close();
+        // Десерилизация
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("obj.ser"));
+        Person person = (Person) ois.readObject();
+        System.out.println(person);
     }
 }
