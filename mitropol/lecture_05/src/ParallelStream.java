@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,8 +18,14 @@ public class ParallelStream {
 
 //        ExecutorService es = new ThreadPoolExecutor(); // для тонкой настройки
 //        ExecutorService es = Executors.newFixedThreadPool(4); // пул на 4 потока
+
         List<Integer> ints = list.parallelStream().map((l) -> Collections.max(l, Integer::compare)).collect(Collectors.toList());
         System.out.println(ints);
+
+        // максимальное из максимальных
+        // Optional - спец. значение - можетвернуть результат, может и нет, если, например, коллекция пустая
+        Optional<Integer> maxFromMaxs = list.parallelStream().map((l) -> Collections.max(l, Integer::compare)).reduce((a, b) -> a > b ? a : b);
+        System.out.println(maxFromMaxs);
 
         System.exit(0); // нормальное завершение работы программы
     }
