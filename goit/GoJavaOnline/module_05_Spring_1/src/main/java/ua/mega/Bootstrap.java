@@ -5,10 +5,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Bootstrap implements ApplicationContextAware {
+public class Bootstrap {
 
-    private ApplicationContext applicationContext;
     private TaskProvider<Integer> taskProvider;
+    private ExecutorFactory executorFactory;
 
     public static void main(String[] args) {
 
@@ -24,7 +24,7 @@ public class Bootstrap implements ApplicationContextAware {
     }
 
     public void execute() {
-        Executor<Integer> executor = getExecutor();
+        Executor<Integer> executor = executorFactory.getIntegerExecutor();
         taskProvider.getAllTasks().forEach(executor::addTask);
         executor.execute();
 
@@ -34,16 +34,12 @@ public class Bootstrap implements ApplicationContextAware {
         executor.getValidResults().forEach(System.out::println);
     }
 
-    private Executor<Integer> getExecutor() {
-        return (Executor<Integer>) applicationContext.getBean("serialExecutor", SerialExecutor.class);
-    }
 
     public void setTaskProvider(TaskProvider<Integer> taskProvider) {
         this.taskProvider = taskProvider;
     }
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
+    public void setExecutorFactory(ExecutorFactory executorFactory) {
+        this.executorFactory = executorFactory;
     }
 }
