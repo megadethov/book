@@ -7,7 +7,7 @@ public class IntegerTaskProvider implements TaskProvider<Integer> {
 
     private List<Task<Integer>> tasks = new ArrayList<>();
 
-    public void init() {
+    public void init() { // init-method="init"
         tasks.add(new AddTask(1, -2));
         tasks.add(new AddTask(1, 2));
         tasks.add(new AddTask(1, -2));

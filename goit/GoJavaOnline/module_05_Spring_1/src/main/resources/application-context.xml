@@ -3,12 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="bootstrap" class="ua.mega.Bootstrap">
+    <bean id="bootstrap" class="ua.mega.Bootstrap" scope="singleton">
+        <!--1 способ определения зависимостей - конструктор-->
         <!--<constructor-arg index="0" ref="taskProvider"/>-->
        <!-- <constructor-arg name="taskProvider" ref="taskProvider"/>-->
+        <!--2 способ - сеттеры-->
         <property name="taskProvider" ref="taskProvider"/>
-        <property name="executor" ref="serialExecutor"/>
     </bean>
     <bean id="taskProvider" class="ua.mega.IntegerTaskProvider" init-method="init"/>
-    <bean id="serialExecutor" class="ua.mega.SerialExecutor"/>
+    <bean id="serialExecutor" class="ua.mega.SerialExecutor" scope="prototype"/>  <!--prototype - не распространяется на один и тот же инстанс, работает только когда инжектится или достается из контейнера-->
 </beans>
