@@ -2,23 +2,37 @@ package ua.mega.nio;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 public class NIO {
     public static void main(String[] args) throws Exception {
-        ByteBuffer buffer = ByteBuffer.allocate(12); // обертка над массивом
-        buffer.put("12345".getBytes("cp1251"));
+        // обертка над массивом
+        ByteBuffer buffer = ByteBuffer.allocate(12); // в пространстве вашего приложения (если часто создается и удаляется)
+//        ByteBuffer buffer = ByteBuffer.allocateDirect(12); // в пространстве ОС (типа меньше всяких попутных буферов на пути к файловой состеме)
+//        buffer.put("12345".getBytes("cp1251")); // возвращается этот же буфер, что позволяет делать цепочки методов
 
 //        System.out.println(buffer.limit()); // 12
 //        System.out.println(buffer.position()); // 9
 //        buffer.limit(9);
 //        buffer.position(0);
-        buffer.flip();
+//        buffer.flip(); // перевод в режим чтения
 
-        buffer.get();
-        buffer.get();
-        buffer.get();
+//        buffer.get(); // считывает 1 байт из буфера
+//        buffer.get();
+//        buffer.get();
 
-        System.out.println(buffer); // java.nio.HeapByteBuffer[pos=3 lim=5 cap=12]
+//        System.out.println(buffer); // java.nio.HeapByteBuffer[pos=3 lim=5 cap=12]
+//        buffer.compact(); // перемещает недочитанные данные в начало
+//        System.out.println(buffer); // java.nio.HeapByteBuffer[pos=2 lim=12 cap=12]
+
+//        buffer.clear(); // пишем поверх старых данных
+
+//        System.out.println(Arrays.toString(buffer.putInt(1).array())); // [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+//        System.out.println(Arrays.toString(buffer.putInt(100).array())); // [0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0]
+//        System.out.println(Arrays.toString(buffer.putInt(256).array())); // [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        System.out.println(Arrays.toString(buffer.putInt(Integer.MAX_VALUE).array())); // [127, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
 
 
     }
