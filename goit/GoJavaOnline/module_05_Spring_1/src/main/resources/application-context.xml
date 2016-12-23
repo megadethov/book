@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="bootstrap" class="ua.mega.xml_config.Bootstrap" scope="singleton">
+    <bean id="bootstrap" class="ua.mega.aop.xml_config.Bootstrap" scope="singleton">
         <!--1 способ определения зависимостей - конструктор-->
         <!--<constructor-arg index="0" ref="taskProvider"/>-->
         <!-- <constructor-arg name="taskProvider" ref="taskProvider"/>-->
@@ -11,10 +11,10 @@
         <property name="taskProvider" ref="taskProvider"/>
         <property name="executorFactory" ref="executorFactory"/>
     </bean>
-    <bean id="taskProvider" class="ua.mega.xml_config.IntegerTaskProvider" init-method="init"/>
-    <bean id="serialExecutor" class="ua.mega.xml_config.SerialExecutor"
+    <bean id="taskProvider" class="ua.mega.aop.xml_config.IntegerTaskProvider" init-method="init"/>
+    <bean id="serialExecutor" class="ua.mega.aop.xml_config.SerialExecutor"
           scope="prototype"/>  <!--prototype - не распространяется на один и тот же инстанс, работает только когда инжектится или достается из контейнера-->
-    <bean id="executorFactory" class="ua.mega.xml_config.ExecutorFactory">
+    <bean id="executorFactory" class="ua.mega.aop.xml_config.ExecutorFactory">
         <lookup-method name="getIntegerExecutor" bean="serialExecutor"/>
     </bean>
 </beans>

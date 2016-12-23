@@ -2,7 +2,7 @@
 <suite name="common-all-tests">
     <test name="utils">
         <classes>
-            <class name="ua.mega.SerialExecutorTest"/>
+            <class name="SerialExecutorTest"/>
         </classes>
     </test>
 </suite>
