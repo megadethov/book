@@ -1,4 +1,4 @@
-package ua.mega;
+package ua.mega.xml_config;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bootstrapA" class="ua.mega.annotation_config.Bootstrap">
+
+        <property name="taskProvider" ref="taskProviderA"/>
+        <property name="executorFactory" ref="executorFactoryA"/>
+    </bean>
+    <bean id="taskProviderA" class="ua.mega.annotation_config.IntegerTaskProvider" init-method="init"/>
+    <bean id="serialExecutorA" class="ua.mega.annotation_config.SerialExecutor" scope="prototype"/>
+    <bean id="executorFactoryA" class="ua.mega.annotation_config.ExecutorFactory">
+        <lookup-method name="getIntegerExecutor" bean="serialExecutorA"/>
+    </bean>
+</beans>

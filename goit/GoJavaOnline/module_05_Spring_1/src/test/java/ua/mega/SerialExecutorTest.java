@@ -1,8 +1,9 @@
 package ua.mega;
 
 import org.testng.annotations.Test;
+import ua.mega.xml_config.SerialExecutor;
+import ua.mega.xml_config.Task;
 
-import static org.testng.Assert.*;
 import static org.testng.Assert.assertEquals;
 
 public class SerialExecutorTest {

@@ -1,4 +1,4 @@
-package ua.mega;
+package ua.mega.annotation_config;
 
 public abstract class ExecutorFactory {
 

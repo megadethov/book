@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ua.mega.Bootstrap</mainClass>
+                            <mainClass>ua.mega.xml_config.Bootstrap</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
