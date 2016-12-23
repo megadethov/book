@@ -1,10 +1,15 @@
 package ua.mega.annotation_config;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
+@Scope("prototype")
 public class SerialExecutor<T> implements Executor<T> {
 
     // эта лямбда заменяет имплементацию метода интерфкйса Validator - метда isValid(), к-ый всегда возвращает - true
@@ -28,7 +33,7 @@ public class SerialExecutor<T> implements Executor<T> {
 
     @Override
     public void addTask(Task<? extends T> task, Validator<? super T> validator) {
-       checkNotExecuted();
+        checkNotExecuted();
         tasks.add(new TaskAndValidator<T>(task, validator));
         map.put(task, validator);
     }
@@ -65,6 +70,7 @@ public class SerialExecutor<T> implements Executor<T> {
             throw new IllegalStateException("Executor already checkExecuted");
         }
     }
+
     // этот метод проверяет состояние флага checkExecuted
     private void checkExecuted() {
         if (!executed) {
