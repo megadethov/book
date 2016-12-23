@@ -8,7 +8,7 @@
     <bean id="logAspect" class="ua.mega.aop.LogAspect"/>
 
     <aop:config>
-        <aop:pointcut id="executerExecute" expression="execution(* ua.mega.aop.Executor.execute())"/>
+        <aop:pointcut id="executerExecute" expression="execution(* ua.mega.aop.Executor.*(..))"/>
         <aop:aspect ref="logAspect">
        <aop:around pointcut-ref="executerExecute" method="onExecute"/>
         </aop:aspect>

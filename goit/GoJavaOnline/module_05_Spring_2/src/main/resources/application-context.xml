@@ -11,11 +11,11 @@
     <bean id="serialExecutor" class="ua.mega.aop.SerialExecutor" scope="prototype"/>
 
 
-    <bean name="executorInterceptor" class="ua.mega.aop.ExecutorInterceptor"/>
+    <!--<bean name="executorInterceptor" class="ua.mega.aop.ExecutorInterceptor"/>
     <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <property name="beanNames" value="*Executor"/>
         <property name="interceptorNames" value="executorInterceptor"/>
-    </bean>
+    </bean>-->
 
     <bean id="executorFactory" class="ua.mega.aop.ExecutorFactory">
         <lookup-method name="getIntegerExecutor" bean="serialExecutor"/>
