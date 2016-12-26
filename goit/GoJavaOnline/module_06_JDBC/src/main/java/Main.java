@@ -2,6 +2,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 
 public class Main {
 
@@ -22,6 +23,16 @@ public class Main {
             LOGGER.info("Successfully connected to DB");
             String sql = "SELECT * FROM employee";
             ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Employee employee = new Employee();
+                employee.setId(resultSet.getInt("id"));
+                employee.setName(resultSet.getString("name"));
+                employee.setAge(resultSet.getInt("age"));
+                employee.setAddress(resultSet.getString("address"));
+                employee.setSalary(resultSet.getFloat("salary"));
+                employee.setJoinDate(resultSet.getString("join_date"));
+                System.out.println(employee);
+            }
         } catch (SQLException e) {
             LOGGER.error("Exception occurred while connecting to DB: " + url, e);
         }

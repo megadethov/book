@@ -6,7 +6,7 @@ public class Employee {
     private int age;
     private String address;
     private float salary;
-    private LocalDateTime join_date;
+    private String  joinDate;
 
     public int getId() {
         return id;
@@ -48,11 +48,23 @@ public class Employee {
         this.salary = salary;
     }
 
-    public LocalDateTime getJoin_date() {
-        return join_date;
+    public String getJoinDate() {
+        return joinDate;
     }
 
-    public void setJoin_date(LocalDateTime join_date) {
-        this.join_date = join_date;
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", salary=" + salary +
+                ", joinDate=" + joinDate +
+                '}';
     }
 }
