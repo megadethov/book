@@ -1,9 +1,7 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Main {
 
@@ -19,8 +17,11 @@ public class Main {
         String user = "postgres";
         String password = "postgres";
 
-        try (Connection connection = DriverManager.getConnection(url, user, password);) {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             Statement statement = connection.createStatement();) {
             LOGGER.info("Successfully connected to DB");
+            String sql = "SELECT * FROM employee";
+            ResultSet resultSet = statement.executeQuery(sql);
         } catch (SQLException e) {
             LOGGER.error("Exception occurred while connecting to DB: " + url, e);
         }
