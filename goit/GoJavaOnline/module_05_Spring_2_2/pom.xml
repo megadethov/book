@@ -78,6 +78,7 @@
     </build>
     <modules>
         <module>../module_05_Spring_2</module>
+        <module>../module_06_JDBC</module>
     </modules>
 
     <dependencies>
