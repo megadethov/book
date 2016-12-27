@@ -36,6 +36,7 @@ public class EmployeeDao {
             }
         } catch (SQLException e) {
             LOGGER.error("Exception occurred while connecting to DB: " + url, e);
+            throw new RuntimeException(e);
         }
         return employees;
     }
