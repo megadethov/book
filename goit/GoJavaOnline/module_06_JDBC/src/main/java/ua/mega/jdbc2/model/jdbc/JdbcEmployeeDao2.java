@@ -1,9 +1,9 @@
-package ua.mega.jdbc.model.jdbc;
+package ua.mega.jdbc2.model.jdbc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.mega.jdbc.model.Employee;
-import ua.mega.jdbc.model.EmployeeDao2;
+import ua.mega.jdbc2.model.Employee;
+import ua.mega.jdbc2.model.EmployeeDao2;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
 public class JdbcEmployeeDao2 implements EmployeeDao2 {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcEmployeeDao2.class);
-    private String url = "jdbc:postgresql://localhost:5432/company";
+    private String url = "jdbc2:postgresql://localhost:5432/company";
     private String user = "postgres";
     private String password = "postgres";
 

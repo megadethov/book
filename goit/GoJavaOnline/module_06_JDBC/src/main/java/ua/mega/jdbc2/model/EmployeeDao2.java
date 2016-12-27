@@ -1,4 +1,4 @@
-package ua.mega.jdbc.model;
+package ua.mega.jdbc2.model;
 
 import java.util.List;
 

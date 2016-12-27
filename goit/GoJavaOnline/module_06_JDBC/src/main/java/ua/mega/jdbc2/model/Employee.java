@@ -1,6 +1,4 @@
-package ua.mega.jdbc.model;
-
-import java.time.LocalDateTime;
+package ua.mega.jdbc2.model;
 
 public class Employee {
     private int id;
@@ -60,7 +58,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "ua.mega.jdbc.model.Employee{" +
+        return "ua.mega.jdbc2.model.Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
