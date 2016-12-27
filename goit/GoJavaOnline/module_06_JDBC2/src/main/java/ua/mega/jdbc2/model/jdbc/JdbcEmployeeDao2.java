@@ -5,11 +5,14 @@ import org.slf4j.LoggerFactory;
 import ua.mega.jdbc2.model.Employee;
 import ua.mega.jdbc2.model.EmployeeDao2;
 
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcEmployeeDao2 implements EmployeeDao2 {
+
+    private DataSource dataSource;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcEmployeeDao2.class);
     private String url = "jdbc2:postgresql://localhost:5432/company";
@@ -22,7 +25,7 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
 
     @Override
     public Employee load(int id) {
-        try (Connection connection = DriverManager.getConnection(url, user, password);
+        try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employee WHERE id = ?");) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
