@@ -1,5 +1,6 @@
 package ua.mega.jdbc2.model.jdbc;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.mega.jdbc2.model.Employee;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class JdbcEmployeeDao2 implements EmployeeDao2 {
 
-    private DataSource dataSource;
+    private DataSource dataSource = new ComboPooledDataSource();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcEmployeeDao2.class);
     private String url = "jdbc2:postgresql://localhost:5432/company";
