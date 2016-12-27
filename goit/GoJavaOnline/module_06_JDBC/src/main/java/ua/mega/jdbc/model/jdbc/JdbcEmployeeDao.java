@@ -1,18 +1,21 @@
+package ua.mega.jdbc.model.jdbc;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ua.mega.jdbc.model.Employee;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDao {
+public class JdbcEmployeeDao {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDao.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcEmployeeDao.class);
     private String url = "jdbc:postgresql://localhost:5432/company";
     private String user = "postgres";
     private String password = "postgres";
 
-    public EmployeeDao() {
+    public JdbcEmployeeDao() {
         loadDriver();
     }
 

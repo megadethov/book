@@ -1,3 +1,5 @@
+package ua.mega.jdbc.model;
+
 import java.time.LocalDateTime;
 
 public class Employee {
@@ -58,7 +60,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "ua.mega.jdbc.model.Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

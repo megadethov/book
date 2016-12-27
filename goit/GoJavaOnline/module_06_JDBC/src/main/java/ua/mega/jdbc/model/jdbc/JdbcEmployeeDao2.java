@@ -1,21 +1,26 @@
+package ua.mega.jdbc.model.jdbc;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ua.mega.jdbc.model.Employee;
+import ua.mega.jdbc.model.EmployeeDao2;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDao2 {
+public class JdbcEmployeeDao2 implements EmployeeDao2 {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDao2.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcEmployeeDao2.class);
     private String url = "jdbc:postgresql://localhost:5432/company";
     private String user = "postgres";
     private String password = "postgres";
 
-    public EmployeeDao2() {
+    public JdbcEmployeeDao2() {
         loadDriver();
     }
 
+    @Override
     public Employee load(int id) {
         try (Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employee WHERE id = ?");) {
@@ -33,6 +38,7 @@ public class EmployeeDao2 {
         }
     }
 
+    @Override
     public List<Employee> getAll() {
 
         List<Employee> employees = new ArrayList<>();
