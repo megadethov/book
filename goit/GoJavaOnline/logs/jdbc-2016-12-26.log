@@ -1,0 +1,12 @@
+2016-12-26 20:17:06,925 INFO  from Main in main - Loading JDBC driver: org.postgresql.Driver
+2016-12-26 20:17:07,099 INFO  from Main in main - Driver loaded successful
+2016-12-26 20:26:17,930 INFO  from Main in main - Loading JDBC driver: org.postgresql.Driver
+2016-12-26 20:26:17,959 INFO  from Main in main - Driver loaded successful
+2016-12-26 20:28:06,765 INFO  from Main in main - Loading JDBC driver: org.postgresql.Driver
+2016-12-26 20:28:06,800 INFO  from Main in main - Driver loaded successful
+2016-12-26 20:30:28,794 INFO  from Main in main - Loading JDBC driver: org.postgresql.Driver
+2016-12-26 20:30:28,843 INFO  from Main in main - Driver loaded successful
+2016-12-26 20:31:01,814 INFO  from Main in main - Loading JDBC driver: org.postgresql.Driver
+2016-12-26 20:31:01,844 INFO  from Main in main - Driver loaded successful
+2016-12-26 20:31:19,564 INFO  from Main in main - Loading JDBC driver: org.postgresql.Driver
+2016-12-26 20:31:19,601 INFO  from Main in main - Driver loaded successful
