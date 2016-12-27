@@ -13,15 +13,12 @@ import java.util.List;
 
 public class JdbcEmployeeDao2 implements EmployeeDao2 {
 
-    private DataSource dataSource = new ComboPooledDataSource();
+    private DataSource dataSource;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcEmployeeDao2.class);
-    private String url = "jdbc2:postgresql://localhost:5432/company";
-    private String user = "postgres";
-    private String password = "postgres";
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDao2.class);
 
-    public JdbcEmployeeDao2() {
-        loadDriver();
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     @Override
@@ -37,7 +34,7 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
             }
 
         } catch (SQLException e) {
-            LOGGER.error("Exception occurred while connecting to DB: " + url, e);
+            LOGGER.error("Exception occurred while connecting to DB: ", e);
             throw new RuntimeException(e);
         }
     }
@@ -47,7 +44,7 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
 
         List<Employee> employees = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection(url, user, password);
+        try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();) {
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM employee");
@@ -56,7 +53,7 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
                 employees.add(employee);
             }
         } catch (SQLException e) {
-            LOGGER.error("Exception occurred while connecting to DB: " + url, e);
+            LOGGER.error("Exception occurred while connecting to DB: ", e);
             throw new RuntimeException(e);
         }
         return employees;
@@ -74,15 +71,6 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
     }
 
 
-    private void loadDriver() {
-        try {
-            LOGGER.info("Loading JDBC driver: org.postgresql.Driver");
-            Class.forName("org.postgresql.Driver");
-            LOGGER.info("Driver loaded successfully");
-        } catch (ClassNotFoundException e) {
-            LOGGER.error("Can't find driver: org.postgresql.Driver");
-            throw new RuntimeException(e);
-        }
-    }
+
 }
 
