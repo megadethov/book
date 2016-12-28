@@ -3,6 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="employeeController" class="ua.mega.jdbc2.controllers.EmployeeController">
+        <property name="txManager" ref="txManager"/>
+        <property name="employeeDao2" ref="employeeDao2"/>
+    </bean>
     <bean id="employeeDao2" class="ua.mega.jdbc2.model.jdbc.JdbcEmployeeDao2">
         <property name="dataSource" ref="dataSource"/>
     </bean>
