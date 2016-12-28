@@ -6,7 +6,7 @@
 
     <groupId>ua.mega.GoJavaOnline_1</groupId>
     <artifactId>module_02_Generics</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <build>
@@ -22,6 +22,7 @@
     </build>
     <modules>
         <module>../module_04_MavenExample</module>
+        <module>../module_07_Hibernate</module>
     </modules>
 
     <dependencies>
