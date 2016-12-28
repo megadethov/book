@@ -3,6 +3,8 @@ package ua.mega.jdbc2.model.jdbc;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.jdbc2.model.Employee;
 import ua.mega.jdbc2.model.EmployeeDao2;
 
@@ -22,7 +24,9 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
     }
 
     @Override
+    @Transactional(propagation = Propagation.MANDATORY)
     public Employee load(int id) {
+
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employee WHERE id = ?");) {
             preparedStatement.setInt(1, id);
@@ -40,6 +44,7 @@ public class JdbcEmployeeDao2 implements EmployeeDao2 {
     }
 
     @Override
+    @Transactional(propagation = Propagation.MANDATORY)
     public List<Employee> getAll() {
 
         List<Employee> employees = new ArrayList<>();

@@ -3,6 +3,8 @@ package ua.mega.jdbc2.controllers;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import ua.mega.jdbc2.model.Employee;
 import ua.mega.jdbc2.model.EmployeeDao2;
@@ -24,6 +26,22 @@ public class EmployeeController {
             txManager.rollback(status);
             throw new RuntimeException(e);
         }
+    }
+
+//    public Employee getEmployeeById(int id) {
+//        TransactionStatus status = txManager.getTransaction(new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_REQUIRED));
+//        try {
+//            Employee result = employeeDao2.load(id);
+//            txManager.commit(status);
+//            return result;
+//        } catch (Exception e) {
+//            txManager.rollback(status);
+//            throw new RuntimeException(e);
+//        }
+//    }
+@Transactional/*(propagation = Propagation.REQUIRED)*/
+    public Employee getEmployeeById(int id) {
+            return employeeDao2.load(id);
     }
 
     public void setTxManager(PlatformTransactionManager txManager) {
