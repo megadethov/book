@@ -1,6 +1,7 @@
 package ua.mega.hibernate.model.dao.hibernate;
 
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Dish;
 import ua.mega.hibernate.model.dao.DishDao;
 
@@ -11,6 +12,7 @@ public class HDishDao implements DishDao {
      private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public void save(Dish dish) {
         sessionFactory.getCurrentSession().save(dish);
     }

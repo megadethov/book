@@ -101,4 +101,16 @@ public class Employee {
     public void setSalary(Float salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", position=" + position +
+                ", salary=" + salary +
+                '}';
+    }
 }

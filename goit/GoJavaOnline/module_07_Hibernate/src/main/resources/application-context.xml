@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 
-    <bean id="main" class="ua.mega.hibernate.Main">
-        <property name="employeeController" ref="employeeController"/>
-    </bean>
+default-autowire="byName">
 
-    <bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController">
-        <property name="employeeDao" ref="employeeDao"/>
-    </bean>
+    <!--<bean id="main" class="ua.mega.hibernate.Main">-->
+        <!--<property name="employeeController" ref="employeeController"/>-->
+    <!--</bean>-->
+    <!--<bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController">-->
+        <!--<property name="employeeDao" ref="employeeDao"/>-->
+    <!--</bean>-->
+    <!--<bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao">-->
+        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
 
-    <bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean id="main" class="ua.mega.hibernate.Main"/>
 
+    <bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController"/>
+    <bean id="dishController" class="ua.mega.hibernate.model.controllers.DishController"/>
+
+    <bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao"/>
+    <bean id="dishDao" class="ua.mega.hibernate.model.dao.hibernate.HDishDao"/>
 </beans>

@@ -1,16 +1,19 @@
 package ua.mega.hibernate.model.controllers;
 
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Dish;
 import ua.mega.hibernate.model.DishCategory;
 import ua.mega.hibernate.model.dao.DishDao;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class DishController {
 
     private DishDao dishDao;
 
+    @Transactional
     public void createDish() {
 
         Dish plov = new Dish();
@@ -41,11 +44,13 @@ public class DishController {
         if (!dishes.contains(potato)) {
             dishDao.save(potato);
         }
-
-
-
-
     }
+
+    @Transactional
+    public List<Dish> getAllDishes() {
+        return dishDao.findAll();
+    }
+
 
     public void setDishDao(DishDao dishDao) {
         this.dishDao = dishDao;
