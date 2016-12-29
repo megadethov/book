@@ -7,16 +7,16 @@
 
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
-    <bean id="main2" class="ua.mega.jdbc2.Main2">
+    <bean id="main2" class="ua.mega.hibernate.jdbc2.Main2">
         <property name="employeeController" ref="employeeController"/>
     </bean>
 
-    <bean id="employeeController" class="ua.mega.jdbc2.controllers.EmployeeController">
+    <bean id="employeeController" class="ua.mega.hibernate.jdbc2.controllers.EmployeeController">
         <property name="txManager" ref="txManager"/>
         <property name="employeeDao2" ref="employeeDao2"/>
     </bean>
 
-    <bean id="employeeDao2" class="ua.mega.jdbc2.model.jdbc.JdbcEmployeeDao2">
+    <bean id="employeeDao2" class="JdbcEmployeeDao2">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

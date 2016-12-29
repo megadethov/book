@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="logAspect" class="ua.mega.aop.LogAspect2"/>
+    <bean id="logAspect" class="LogAspect2"/>
 
     <aop:aspectj-autoproxy/>
 

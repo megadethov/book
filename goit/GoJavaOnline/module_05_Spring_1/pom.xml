@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ua.mega.aop.xml_config.Bootstrap</mainClass>
+                            <mainClass>ua.mega.hibernate.aop.xml_config.Bootstrap</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -39,7 +39,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ua.mega.aop.xml_config.Bootstrap</mainClass>
+                            <mainClass>Bootstrap</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -29,7 +29,7 @@
         <jar destfile="${dest}/AntExample.jar">
             <fileset dir="${build}"/>
             <manifest>
-                <attribute name="ua.mega.jdbc2.Main2-Class" value="Bootstrap"/>
+                <attribute name="Main2-Class" value="Bootstrap"/>
             </manifest>
         </jar>
     </target>

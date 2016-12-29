@@ -3,21 +3,21 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="bootstrap" class="ua.mega.aop.Bootstrap">
+    <bean id="bootstrap" class="Bootstrap">
         <property name="taskProvider" ref="taskProvider"/>
         <property name="executorFactory" ref="executorFactory"/>
     </bean>
-    <bean id="taskProvider" class="ua.mega.aop.IntegerTaskProvider" init-method="init"/>
-    <bean id="serialExecutor" class="ua.mega.aop.SerialExecutor" scope="prototype"/>
+    <bean id="taskProvider" class="IntegerTaskProvider" init-method="init"/>
+    <bean id="serialExecutor" class="SerialExecutor" scope="prototype"/>
 
 
-    <!--<bean name="executorInterceptor" class="ua.mega.aop.ExecutorInterceptor"/>
+    <!--<bean name="executorInterceptor" class="ExecutorInterceptor"/>
     <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <property name="beanNames" value="*Executor"/>
         <property name="interceptorNames" value="executorInterceptor"/>
     </bean>-->
 
-    <bean id="executorFactory" class="ua.mega.aop.ExecutorFactory">
+    <bean id="executorFactory" class="ExecutorFactory">
         <lookup-method name="getIntegerExecutor" bean="serialExecutor"/>
     </bean>
 </beans>
