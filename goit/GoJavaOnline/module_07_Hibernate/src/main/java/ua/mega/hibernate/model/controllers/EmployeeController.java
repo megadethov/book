@@ -5,11 +5,17 @@ import ua.mega.hibernate.model.Employee;
 import ua.mega.hibernate.model.EmployeeDao;
 import ua.mega.hibernate.model.Position;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class EmployeeController {
 
     private EmployeeDao employeeDao;
 @Transactional
-    public void createEmployee() {
+    public Employee createEmployee() {
+
+    Set<Employee> allEmployees = new HashSet<>(employeeDao.findAll());
+
         Employee employee = new Employee();
 
         employee.setId(1L);
@@ -19,8 +25,10 @@ public class EmployeeController {
         employee.setPhoneNumber("555-55-55");
         employee.setSalary(25000.0F);
 
-        employeeDao.save(employee);
-
+        if (!allEmployees.contains(employee)) {
+            employeeDao.save(employee);
+        }
+    return employee;
     }
 
     public void setEmployeeDao(EmployeeDao employeeDao) {

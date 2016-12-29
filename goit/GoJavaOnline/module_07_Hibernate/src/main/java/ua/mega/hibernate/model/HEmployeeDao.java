@@ -26,6 +26,11 @@ public class HEmployeeDao implements EmployeeDao {
         return null;
     }
 
+    @Override
+    public void remove(Employee employee) {
+        sessionFactory.getCurrentSession().delete(employee);
+    }
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
