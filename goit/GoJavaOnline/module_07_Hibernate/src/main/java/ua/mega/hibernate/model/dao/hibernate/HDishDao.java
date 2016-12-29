@@ -1,6 +1,8 @@
 package ua.mega.hibernate.model.dao.hibernate;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Dish;
 import ua.mega.hibernate.model.dao.DishDao;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class HDishDao implements DishDao {
 
-     private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     @Override
     @Transactional
@@ -19,7 +21,15 @@ public class HDishDao implements DishDao {
 
     @Override
     public List<Dish> findAll() {
-      return sessionFactory.getCurrentSession().createQuery("select d from Dish d").list();
+        return sessionFactory.getCurrentSession().createQuery("select d from Dish d").list();
+    }
+
+    @Override
+    public Dish findByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select d from Dish d where d.name like :name");
+        return (Dish) query.uniqueResult();
+
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

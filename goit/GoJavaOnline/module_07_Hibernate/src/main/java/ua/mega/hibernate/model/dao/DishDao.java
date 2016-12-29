@@ -10,4 +10,6 @@ public interface DishDao {
 
     List<Dish> findAll();
 
+    Dish findByName(String name);
+
 }
