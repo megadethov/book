@@ -2,6 +2,7 @@ package ua.mega.hibernate.model.dao.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Employee;
 import ua.mega.hibernate.model.dao.EmployeeDao;
@@ -28,6 +29,14 @@ public class HEmployeeDao implements EmployeeDao {
     public List<Employee> findAll() {
         Session session = sessionFactory.getCurrentSession();
        return session.createQuery("select e from Employee e").list(); // select * from employee
+    }
+
+    @Override
+    public Employee findByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select  e from Employee e where e.name like :name");
+        query.setParameter("name", name);
+        return (Employee) query.uniqueResult();
     }
 
     @Override
