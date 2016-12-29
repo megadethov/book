@@ -1,8 +1,10 @@
-package ua.mega.hibernate.model;
+package ua.mega.hibernate.model.dao.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
+import ua.mega.hibernate.model.Employee;
+import ua.mega.hibernate.model.dao.EmployeeDao;
 
 
 import java.util.List;

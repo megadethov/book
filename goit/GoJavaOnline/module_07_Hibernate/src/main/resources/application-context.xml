@@ -11,7 +11,7 @@
         <property name="employeeDao" ref="employeeDao"/>
     </bean>
 
-    <bean id="employeeDao" class="ua.mega.hibernate.model.HEmployeeDao">
+    <bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

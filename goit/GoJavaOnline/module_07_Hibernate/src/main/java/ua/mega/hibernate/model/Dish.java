@@ -7,7 +7,7 @@ public class Dish {
 
     @Id
     @Column(name = "id")
-    private Long id;
+    private long id;
 
     @Column(name = "name")
     private String name;
@@ -22,11 +22,11 @@ public class Dish {
     @Column(name = "weight")
     private Float weight;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

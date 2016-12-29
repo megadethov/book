@@ -1,4 +1,6 @@
-package ua.mega.hibernate.model;
+package ua.mega.hibernate.model.dao;
+
+import ua.mega.hibernate.model.Employee;
 
 import java.util.List;
 
