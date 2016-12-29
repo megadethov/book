@@ -1,5 +1,6 @@
 package ua.mega.hibernate.model;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +24,8 @@ public class HEmployeeDao implements EmployeeDao {
 
     @Override
     public List<Employee> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+       return session.createQuery("select e from Employee e").list(); // select * from employee
     }
 
     @Override
