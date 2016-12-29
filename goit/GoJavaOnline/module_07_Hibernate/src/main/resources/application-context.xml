@@ -3,5 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="main" class="ua.mega.hibernate.Main"/>
+    <bean id="main" class="ua.mega.hibernate.Main">
+        <property name="employeeController" ref="employeeController"/>
+    </bean>
+
+    <bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController">
+        <property name="employeeDao" ref="employeeDao"/>
+    </bean>
+
+    <bean id="employeeDao" class="ua.mega.hibernate.model.HEmployeeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 </beans>
