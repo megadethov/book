@@ -1,12 +1,12 @@
 package ua.mega.hibernate.model.dao;
 
-import ua.mega.hibernate.model.Order;
+import ua.mega.hibernate.model.Orders;
 
 import java.util.List;
 
 public interface OrderDao {
 
-    void save(Order order);
+    void save(Orders order);
 
-    List<Order> findAllOrders();
+    List<Orders> findAllOrders();
 }
