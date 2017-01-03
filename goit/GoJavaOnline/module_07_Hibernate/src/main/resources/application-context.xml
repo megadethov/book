@@ -19,7 +19,9 @@ default-autowire="byName">
 
     <bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController"/>
     <bean id="dishController" class="ua.mega.hibernate.model.controllers.DishController"/>
+    <bean id="orderController" class="ua.mega.hibernate.model.controllers.OrderController"/>
 
     <bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao"/>
     <bean id="dishDao" class="ua.mega.hibernate.model.dao.hibernate.HDishDao"/>
+    <bean id="orderDao" class="ua.mega.hibernate.model.dao.hibernate.HOrderDao"/>
 </beans>
