@@ -1,9 +1,9 @@
-package ua.mega.hibernate.model.controllers;
+package ua.mega.hibernate.controllers;
 
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Employee;
 import ua.mega.hibernate.model.Waiter;
-import ua.mega.hibernate.model.dao.EmployeeDao;
+import ua.mega.hibernate.dao.EmployeeDao;
 import ua.mega.hibernate.model.Position;
 
 import java.util.HashSet;

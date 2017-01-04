@@ -8,10 +8,10 @@ default-autowire="byName">
     <!--<bean id="main" class="ua.mega.hibernate.Main">-->
         <!--<property name="employeeController" ref="employeeController"/>-->
     <!--</bean>-->
-    <!--<bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController">-->
+    <!--<bean id="employeeController" class="ua.mega.hibernate.controllers.EmployeeController">-->
         <!--<property name="employeeDao" ref="employeeDao"/>-->
     <!--</bean>-->
-    <!--<bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao">-->
+    <!--<bean id="employeeDao" class="ua.mega.hibernate.dao.hibernate.HEmployeeDao">-->
         <!--<property name="sessionFactory" ref="sessionFactory"/>-->
     <!--</bean>-->
 
@@ -19,11 +19,11 @@ default-autowire="byName">
         <property name="reInit" value="false"/>
     </bean>
 
-    <bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController"/>
-    <bean id="dishController" class="ua.mega.hibernate.model.controllers.DishController"/>
-    <bean id="orderController" class="ua.mega.hibernate.model.controllers.OrderController"/>
+    <bean id="employeeController" class="ua.mega.hibernate.controllers.EmployeeController"/>
+    <bean id="dishController" class="ua.mega.hibernate.controllers.DishController"/>
+    <bean id="orderController" class="ua.mega.hibernate.controllers.OrderController"/>
 
-    <bean id="employeeDao" class="ua.mega.hibernate.model.dao.hibernate.HEmployeeDao"/>
-    <bean id="dishDao" class="ua.mega.hibernate.model.dao.hibernate.HDishDao"/>
-    <bean id="orderDao" class="ua.mega.hibernate.model.dao.hibernate.HOrderDao"/>
+    <bean id="employeeDao" class="ua.mega.hibernate.dao.hibernate.HEmployeeDao"/>
+    <bean id="dishDao" class="ua.mega.hibernate.dao.hibernate.HDishDao"/>
+    <bean id="orderDao" class="ua.mega.hibernate.dao.hibernate.HOrderDao"/>
 </beans>

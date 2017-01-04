@@ -1,4 +1,4 @@
-package ua.mega.hibernate.model.dao;
+package ua.mega.hibernate.dao;
 
 import ua.mega.hibernate.model.Orders;
 

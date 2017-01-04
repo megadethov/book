@@ -1,9 +1,8 @@
-package ua.mega.hibernate.model.dao.hibernate;
+package ua.mega.hibernate.dao.hibernate;
 
 import org.hibernate.SessionFactory;
-import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Orders;
-import ua.mega.hibernate.model.dao.OrderDao;
+import ua.mega.hibernate.dao.OrderDao;
 
 import java.util.List;
 

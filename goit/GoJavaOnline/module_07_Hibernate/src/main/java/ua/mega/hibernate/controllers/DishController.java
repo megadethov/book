@@ -1,9 +1,9 @@
-package ua.mega.hibernate.model.controllers;
+package ua.mega.hibernate.controllers;
 
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Dish;
 import ua.mega.hibernate.model.DishCategory;
-import ua.mega.hibernate.model.dao.DishDao;
+import ua.mega.hibernate.dao.DishDao;
 
 import java.util.HashSet;
 import java.util.List;

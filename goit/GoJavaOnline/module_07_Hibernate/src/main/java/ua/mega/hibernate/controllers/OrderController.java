@@ -1,11 +1,11 @@
-package ua.mega.hibernate.model.controllers;
+package ua.mega.hibernate.controllers;
 
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Dish;
 import ua.mega.hibernate.model.Orders;
-import ua.mega.hibernate.model.dao.DishDao;
-import ua.mega.hibernate.model.dao.EmployeeDao;
-import ua.mega.hibernate.model.dao.OrderDao;
+import ua.mega.hibernate.dao.DishDao;
+import ua.mega.hibernate.dao.EmployeeDao;
+import ua.mega.hibernate.dao.OrderDao;
 
 import java.util.ArrayList;
 import java.util.Arrays;

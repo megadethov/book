@@ -1,11 +1,10 @@
-package ua.mega.hibernate.model.dao.hibernate;
+package ua.mega.hibernate.dao.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Dish;
-import ua.mega.hibernate.model.dao.DishDao;
+import ua.mega.hibernate.dao.DishDao;
 
 import java.util.List;
 

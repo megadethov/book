@@ -2,9 +2,9 @@ package ua.mega.hibernate;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ua.mega.hibernate.model.controllers.DishController;
-import ua.mega.hibernate.model.controllers.EmployeeController;
-import ua.mega.hibernate.model.controllers.OrderController;
+import ua.mega.hibernate.controllers.DishController;
+import ua.mega.hibernate.controllers.EmployeeController;
+import ua.mega.hibernate.controllers.OrderController;
 
 import java.util.ArrayList;
 import java.util.List;
