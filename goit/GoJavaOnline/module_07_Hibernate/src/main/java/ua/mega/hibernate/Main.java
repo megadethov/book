@@ -15,6 +15,14 @@ public class Main {
     private DishController dishController;
     private OrderController orderController;
 
+    public boolean isReInit() {
+        return reInit;
+    }
+
+    public void setReInit(boolean reInit) {
+        this.reInit = reInit;
+    }
+
     private boolean reInit;
 
     public static void main(String[] args) {
@@ -36,21 +44,8 @@ public class Main {
     }
 
     private void start() {
-        employeeController.createEmployee();
-        dishController.createDish();
+        employeeController.printEmployee("John");
 
-        List<String> dishes1 = new ArrayList<>();
-        dishes1.add("Plov");
-        dishes1.add("Salad");
-        orderController.createOrder("John", dishes1, 1);
-
-        List<String> dishes2 = new ArrayList<>();
-        dishes2.add("Potato");
-        dishes2.add("Salad");
-        orderController.createOrder("John", dishes2, 2);
-
-//        orderController.getAllOrders().forEach(System.out::println);
-        orderController.printAllOrders();
 
 //        employeeController.getAllEmployees().forEach(System.out::println);
 //        dishController.getAllDishes().forEach(System.out::println);

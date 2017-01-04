@@ -35,6 +35,17 @@ public class EmployeeController {
     }
 
     @Transactional
+//    public void printEmployee(Long id) {
+//        System.out.println(employeeDao.load(id));
+//        System.out.println(employeeDao.load(id));
+//    }
+
+    public void printEmployee(String name) {
+        System.out.println(employeeDao.findByName(name));
+        System.out.println(employeeDao.findByName(name));
+    }
+
+    @Transactional
     public void createEmployee() {
 
         Set<Employee> allEmployees = new HashSet<>(employeeDao.findAll());

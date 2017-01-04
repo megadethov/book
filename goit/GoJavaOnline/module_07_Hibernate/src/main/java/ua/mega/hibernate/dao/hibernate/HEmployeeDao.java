@@ -4,9 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
-import ua.mega.hibernate.model.Employee;
 import ua.mega.hibernate.dao.EmployeeDao;
-
+import ua.mega.hibernate.model.Employee;
 
 import java.util.List;
 
@@ -23,7 +22,9 @@ public class HEmployeeDao implements EmployeeDao {
     @Override
     @Transactional
     public Employee load(Long id) {
-        return null;
+        Query query = sessionFactory.getCurrentSession().createQuery("select e from Employee e where e.id = :id");
+        query.setParameter("id", id);
+        return (Employee) query.uniqueResult();
     }
 
     @Override
