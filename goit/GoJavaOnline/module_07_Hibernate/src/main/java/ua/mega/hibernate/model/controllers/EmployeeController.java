@@ -2,6 +2,7 @@ package ua.mega.hibernate.model.controllers;
 
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.hibernate.model.Employee;
+import ua.mega.hibernate.model.Waiter;
 import ua.mega.hibernate.model.dao.EmployeeDao;
 import ua.mega.hibernate.model.Position;
 
@@ -12,6 +13,26 @@ import java.util.Set;
 public class EmployeeController {
 
     private EmployeeDao employeeDao;
+
+    @Transactional
+    public void initEmployees() {
+
+        Waiter john = new Waiter();
+        john.setName("John");
+        john.setSurname("Smith");
+        john.setPhoneNumber("555-55-55");
+        john.setPosition(Position.WAITER);
+        john.setSalary(25000.00F);
+        employeeDao.save(john);
+
+        Waiter mary = new Waiter();
+        john.setName("Mary");
+        john.setSurname("Smith");
+        john.setPhoneNumber("555-55-55");
+        john.setPosition(Position.WAITER);
+        john.setSalary(25000.00F);
+        employeeDao.save(mary);
+    }
 
     @Transactional
     public void createEmployee() {
@@ -43,7 +64,7 @@ public class EmployeeController {
     }
 
     @Transactional
-    public void removeAllEmployee(){
+    public void removeAllEmployee() {
         employeeDao.removeAll();
     }
 

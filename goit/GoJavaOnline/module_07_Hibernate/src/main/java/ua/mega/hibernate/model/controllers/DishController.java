@@ -14,6 +14,30 @@ public class DishController {
     private DishDao dishDao;
 
     @Transactional
+    public void initDishes() {
+        Dish plov = new Dish();
+        plov.setName("Plov");
+        plov.setCategory(DishCategory.MAIN);
+        plov.setPrice(5.00F);
+        plov.setWeight(300.00F);
+        dishDao.save(plov);
+
+        Dish salad = new Dish();
+        salad.setName("Salad");
+        salad.setCategory(DishCategory.SALAD);
+        salad.setPrice(2.00F);
+        salad.setWeight(200.00F);
+        dishDao.save(salad);
+
+        Dish potato = new Dish();
+        potato.setName("Potato");
+        potato.setCategory(DishCategory.SALAD);
+        potato.setPrice(2.00F);
+        potato.setWeight(100.00F);
+        dishDao.save(potato);
+    }
+
+    @Transactional
     public void createDish() {
 
         Dish plov = new Dish();

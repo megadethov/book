@@ -29,7 +29,7 @@ public class Main {
             dishController.removeAllDishes();
             employeeController.removeAllEmployee();
 
-            employeeController.initEmployee();
+            employeeController.initEmployees();
             dishController.initDishes();
             orderController.initOrders();
         }
