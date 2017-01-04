@@ -43,8 +43,14 @@ public class OrderController {
         return result;
     }
 
+    @Transactional
     public void printAllOrders() {
         getAllOrders().forEach(System.out::println);
+    }
+
+    @Transactional
+    public void removeAllOrders() {
+        orderDao.removeAll();
     }
 
     public EmployeeDao getEmployeeDao() {

@@ -56,6 +56,11 @@ public class DishController {
         return dishDao.findByName(name);
     }
 
+    @Transactional
+   public void removeAllDishes() {
+        dishDao.removeAll();
+    }
+
 
     public void setDishDao(DishDao dishDao) {
         this.dishDao = dishDao;

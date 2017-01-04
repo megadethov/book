@@ -14,7 +14,6 @@ public class HDishDao implements DishDao {
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional
     public void save(Dish dish) {
         sessionFactory.getCurrentSession().save(dish);
     }
@@ -31,6 +30,11 @@ public class HDishDao implements DishDao {
         query.setParameter("name", name);
         return (Dish) query.uniqueResult();
 
+    }
+
+    @Override
+    public void removeAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from Dish").executeUpdate();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

@@ -15,7 +15,9 @@ default-autowire="byName">
         <!--<property name="sessionFactory" ref="sessionFactory"/>-->
     <!--</bean>-->
 
-    <bean id="main" class="ua.mega.hibernate.Main"/>
+    <bean id="main" class="ua.mega.hibernate.Main" init-method="init">
+        <property name="reInit" value="false"/>
+    </bean>
 
     <bean id="employeeController" class="ua.mega.hibernate.model.controllers.EmployeeController"/>
     <bean id="dishController" class="ua.mega.hibernate.model.controllers.DishController"/>

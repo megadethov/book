@@ -12,4 +12,6 @@ public interface DishDao {
 
     Dish findByName(String name);
 
+    void removeAll();
+
 }

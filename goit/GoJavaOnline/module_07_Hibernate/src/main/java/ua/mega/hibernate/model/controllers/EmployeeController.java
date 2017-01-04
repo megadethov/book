@@ -42,6 +42,11 @@ public class EmployeeController {
         return employeeDao.findByName(name);
     }
 
+    @Transactional
+    public void removeAllEmployee(){
+        employeeDao.removeAll();
+    }
+
     public void setEmployeeDao(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }

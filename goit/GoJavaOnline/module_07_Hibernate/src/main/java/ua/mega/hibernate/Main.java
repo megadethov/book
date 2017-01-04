@@ -15,10 +15,24 @@ public class Main {
     private DishController dishController;
     private OrderController orderController;
 
+    private boolean reInit;
+
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml", "hibernate-context.xml");
         Main main = applicationContext.getBean(Main.class);
         main.start();
+    }
+
+    public void init() {
+        if (reInit) {
+            orderController.removeAllOrders();
+            dishController.removeAllDishes();
+            employeeController.removeAllEmployee();
+
+            employeeController.initEmployee();
+            dishController.initDishes();
+            orderController.initOrders();
+        }
     }
 
     private void start() {

@@ -9,4 +9,6 @@ public interface OrderDao {
     void save(Orders order);
 
     List<Orders> findAllOrders();
+
+    void removeAll();
 }

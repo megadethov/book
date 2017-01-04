@@ -21,17 +21,20 @@ public class HEmployeeDao implements EmployeeDao {
     }
 
     @Override
+    @Transactional
     public Employee load(Long id) {
         return null;
     }
 
     @Override
+    @Transactional
     public List<Employee> findAll() {
         Session session = sessionFactory.getCurrentSession();
        return session.createQuery("select e from Employee e").list(); // select * from employee
     }
 
     @Override
+    @Transactional
     public Employee findByName(String name) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select  e from Employee e where e.name like :name");
@@ -40,8 +43,15 @@ public class HEmployeeDao implements EmployeeDao {
     }
 
     @Override
+    @Transactional
     public void remove(Employee employee) {
         sessionFactory.getCurrentSession().delete(employee);
+    }
+
+    @Override
+    @Transactional
+    public void removeAll() {
+        sessionFactory.getCurrentSession().createQuery("delete from Employee").executeUpdate();
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
