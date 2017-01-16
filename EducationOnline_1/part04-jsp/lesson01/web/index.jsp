@@ -4,9 +4,9 @@
 <%--    <%@ page session="false" %>   использовать сессию - по умолчанию = true --%>
 <%--    <%@ page info="Информация о Сервлете" %>   получить можно методом Servlet.getServletInfo()  --%>
 <%--    <%@ page autoFlush="true" %>   освобождение буфера при переполнении автоматически   --%>
-    <%@ page errorPage="error.jsp" %>   страница для перехода при возникновении ошибки
-<%--    <%@ page isErrorPage="false" %>   является ли данная страница error.jsp    --%>
-<%--    <%@ include file="other.jsp"%>   включает другую страницу   --%>
+    <%--<%@ page errorPage="m.jsp" %>   страница для перехода при возникновении ошибки--%>
+<%--    <%@ page isErrorPage="false" %>   является ли данная страница m.jsp    --%>
+    <%@ include file="m.jsp"%>   включает другую страницу
 <html>
 <head>
     <title></title>
@@ -17,8 +17,8 @@
     // Это Скриптлет
 //    A obj = new A();
     int a = 10;
-    int b = 2;
-    int res = a + b;
+    int b = 5;
+    int res = a / b;
 %>
 
 <%--JSP Expression--%>
