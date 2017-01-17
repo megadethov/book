@@ -13,6 +13,10 @@
             <param-name>name1</param-name>
             <param-value>345</param-value>
         </init-param>
+        <init-param>
+            <param-name>name2</param-name>
+            <param-value>555</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>

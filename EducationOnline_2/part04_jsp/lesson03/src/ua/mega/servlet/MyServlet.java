@@ -14,7 +14,7 @@ public class MyServlet extends HttpServlet {
     public void init() throws ServletException {
         System.out.println("init MyServlet");
         status = Integer.valueOf(getInitParameter("name1"));
-        System.out.println(status);
+        System.out.println("Status: " + status);
     }
 
     @Override
