@@ -7,8 +7,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MyServlet extends HttpServlet {
+
+    private Integer status;
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("init MyServlet");
+        status = Integer.valueOf(getInitParameter("name1"));
+        System.out.println(status);
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("servlet dispatch");
       req.getRequestDispatcher("home.jsp").forward(req, resp);
     }
 

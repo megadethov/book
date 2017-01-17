@@ -9,10 +9,14 @@
     <servlet>
         <servlet-name>myServlet</servlet-name>
         <servlet-class>ua.mega.servlet.MyServlet</servlet-class>
+        <init-param>
+            <param-name>name1</param-name>
+            <param-value>345</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>myServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <url-pattern>/toHome</url-pattern>
     </servlet-mapping>
 </web-app>

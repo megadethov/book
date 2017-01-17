@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>INDEX PAGE</h1>
+<a href="toHome">HOME</a>
 </body>
 </html>
