@@ -11,7 +11,7 @@
     <title>Index Page</title>
 </head>
 <body>
-<form action="setsession.jsp" method="post">
+<form action="myServlet" method="post">
   Input <input type="text" name="textinput" />
     <input type="submit" name="send" value="next" />
 </form>

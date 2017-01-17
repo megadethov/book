@@ -1,5 +1,5 @@
 <%
-   String str = (String) session.getAttribute("textin");
+   String str = (String) session.getAttribute("servlSession");
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
