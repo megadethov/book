@@ -13,14 +13,16 @@ public class MyServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         System.out.println("init MyServlet");
-        status = Integer.valueOf(getInitParameter("name1"));
+        status = Integer.valueOf(getServletConfig().getInitParameter("name1"));
         System.out.println("Status: " + status);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("servlet dispatch");
-      req.getRequestDispatcher("home.jsp").forward(req, resp);
+//        System.out.println("context-param " + req.getSession().getServletContext().getInitParameter("contextName1"));
+        System.out.println("context-param " + getServletContext().getInitParameter("contextName1"));
+        req.getRequestDispatcher("home.jsp").forward(req, resp);
     }
 
     @Override

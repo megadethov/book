@@ -23,4 +23,10 @@
         <servlet-name>myServlet</servlet-name>
         <url-pattern>/toHome</url-pattern>
     </servlet-mapping>
+
+    <!--Доступно для всего приложения-->
+    <context-param>
+        <param-name>contextName1</param-name>
+        <param-value>899</param-value>
+    </context-param>
 </web-app>
