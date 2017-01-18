@@ -12,9 +12,14 @@ HOME PAGE </br>
 //    out.println("attribute B: " + request.getAttribute("atrB"));
 %>
 attribute B: <%= request.getAttribute("atrB")%> </br>
-<%
+<%--<%
     out.println("name: " + ((User) request.getAttribute("user")).getName() + "</br>");
     out.println("age: " + ((User) request.getAttribute("user")).getAge() + "</br>");
-%>
+%>--%>
+
+<%--JSP EL--%>
+name: ${user.name} </br>
+age: ${user.age + 100} </br>
+
 </body>
 </html>
