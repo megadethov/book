@@ -1,3 +1,4 @@
+<%@ page import="ua.mega.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,10 +7,14 @@
 <body>
 HOME PAGE </br>
 <%
-    out.println("status: " + request.getAttribute("status"));
-    out.println("attribute A: " + request.getAttribute("atrA"));
+    out.println("status: " + request.getAttribute("status") + "</br>");
+    out.println("attribute A: " + request.getAttribute("atrA") + "</br>");
 //    out.println("attribute B: " + request.getAttribute("atrB"));
 %>
-attribute B: <%= request.getAttribute("atrB")%>
+attribute B: <%= request.getAttribute("atrB")%> </br>
+<%
+    out.println("name: " + ((User) request.getAttribute("user")).getName() + "</br>");
+    out.println("age: " + ((User) request.getAttribute("user")).getAge() + "</br>");
+%>
 </body>
 </html>

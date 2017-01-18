@@ -18,6 +18,9 @@ public class MyServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user = new User("Tom", 33);
+
+        req.setAttribute("user", user);
         req.setAttribute("status", status);
         req.setAttribute("atrA", "aaa");
         req.setAttribute("atrB", "bbb");
