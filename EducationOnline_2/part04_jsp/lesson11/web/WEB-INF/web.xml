@@ -32,7 +32,7 @@
     <filter-mapping>
         <filter-name>myFilter</filter-name>
         <!--<url-pattern>/*.html?status=10</url-pattern>-->
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/myServlet</url-pattern>
     </filter-mapping>
 
 </web-app>
