@@ -38,7 +38,7 @@ public class AuthFilter implements Filter {
             return;
         }
 
-        ((HttpServletResponse) servletResponse).sendRedirect("login.jsp?login=invalid");
+        ((HttpServletResponse) servletResponse).sendRedirect("login.jsp?loginorpassword=invalid");
 
     }
 
