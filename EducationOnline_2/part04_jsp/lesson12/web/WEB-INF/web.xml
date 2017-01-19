@@ -9,19 +9,6 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>myServlet</servlet-name>
-        <servlet-class>ua.mega.MyServlet</servlet-class>
-        <init-param>
-            <param-name>name1</param-name>
-            <param-value>999</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>myServlet</servlet-name>
-        <url-pattern>/myServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>ua.mega.LoginServlet</servlet-class>
     </servlet>
@@ -38,20 +25,6 @@
         <servlet-name>logoutServlet</servlet-name>
         <url-pattern>/logoutServlet</url-pattern>
     </servlet-mapping>
-
-    <filter>
-        <filter-name>myFilter</filter-name>
-        <filter-class>ua.mega.MyFilter</filter-class>
-        <init-param>
-            <param-name>status</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>myFilter</filter-name>
-        <!--<url-pattern>/*.html?status=10</url-pattern>-->
-        <url-pattern>/myServlet</url-pattern>
-    </filter-mapping>
 
     <filter>
         <filter-name>authFilter</filter-name>

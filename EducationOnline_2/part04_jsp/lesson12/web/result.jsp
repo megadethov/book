@@ -11,7 +11,9 @@
     <title>Result Page</title>
 </head>
 <body>
-<h1>Status filter: ${sessionScope.get("status")}</h1>
-<h1>Status filter: <%=session.getAttribute("status")%></h1>
+<h1>WELCOME</h1>
+<a href="logoutServlet">Log Out</a><br>
+<a href="index.jsp">HOME</a><br>
+
 </body>
 </html>

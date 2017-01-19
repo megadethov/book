@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AuthFilter implements Filter {
 
-    private List<String> pathFilters = new ArrayList<>(Arrays.asList(new String[]{"one", "two", "three"}));
+    private List<String> pathFilters = new ArrayList<>(Arrays.asList(new String[]{"add", "remove", "update", "result.jsp"}));
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

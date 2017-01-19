@@ -4,6 +4,7 @@
     <title>Logout JSP</title>
 </head>
 <body>
-LOGOUT
+LOGOUT <br>
+<a href="index.jsp">HOME</a>
 </body>
 </html>
