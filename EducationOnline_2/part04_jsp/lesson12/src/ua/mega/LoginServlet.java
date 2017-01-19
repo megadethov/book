@@ -25,12 +25,15 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
 
         User user = userDataSource.getUserByUsernameAndPassword(username, password);
-        if (user != null) {
-            session.setAttribute("PRINCIPAL", user);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/result.jsp");
-            dispatcher.forward(req, resp);
-            return;
+        if (username != null && password != null) {
+            if (user != null) {
+                session.setAttribute("PRINCIPAL", user);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/result.jsp");
+                dispatcher.forward(req, resp);
+                return;
+            }
         }
+
         resp.sendRedirect("login.jsp?loginorpassword=invalid");
     }
 }

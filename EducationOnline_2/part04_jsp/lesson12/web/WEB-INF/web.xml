@@ -21,6 +21,24 @@
         <url-pattern>/myServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>ua.mega.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>ua.mega.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logoutServlet</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>myFilter</filter-name>
         <filter-class>ua.mega.MyFilter</filter-class>
@@ -33,6 +51,16 @@
         <filter-name>myFilter</filter-name>
         <!--<url-pattern>/*.html?status=10</url-pattern>-->
         <url-pattern>/myServlet</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>authFilter</filter-name>
+        <filter-class>ua.mega.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authFilter</filter-name>
+        <!--<url-pattern>/*.html?status=10</url-pattern>-->
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 </web-app>
