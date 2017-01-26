@@ -16,6 +16,7 @@ public class HelloWWW3 extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
         writer.println(ServletUtilities.headWithTitle("Hello WWW") +
+                "<body>" +
                 "<h1>Hello WWW</h1>" +
                 "</body>" +
                 "</html>");

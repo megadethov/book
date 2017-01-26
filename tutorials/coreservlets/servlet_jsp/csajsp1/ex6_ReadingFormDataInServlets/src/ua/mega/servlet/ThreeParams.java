@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by mega
+ * Reading the Three Parameters
  */
 public class ThreeParams extends HttpServlet {
     @Override
@@ -17,6 +17,7 @@ public class ThreeParams extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         String title = "Reading Three Request Parameters";
         writer.println(ServletUtilities.headWithTitle(title) +
+                "<body>" +
                 "<h1 align=center>" + title + "</h1>\n" +
                 "<ul>\n" +
                 " <li><b>param1</b>: "
@@ -26,6 +27,7 @@ public class ThreeParams extends HttpServlet {
                 " <li><b>param3</b>: "
                 + req.getParameter("param3") + "\n" +
                 "</ul>\n" +
-                "</body></html>");
+                "</body>" +
+                "</html>");
     }
 }

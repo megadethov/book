@@ -14,4 +14,12 @@
         <servlet-name>threeParams</servlet-name>
         <url-pattern>/threeParams</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>showParameters</servlet-name>
+        <servlet-class>ua.mega.servlet.ShowParameters</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showParameters</servlet-name>
+        <url-pattern>/showParameters</url-pattern>
+    </servlet-mapping>
 </web-app>
