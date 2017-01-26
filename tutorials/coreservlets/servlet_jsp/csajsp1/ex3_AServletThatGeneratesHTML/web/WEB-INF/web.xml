@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>helloWWW</servlet-name>
-        <servlet-class>ua.mega.servlet.HelloWWW</servlet-class>
+        <servlet-class>ua.mega.servlet.ThreeParams.HelloWWW</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>helloWWW</servlet-name>
