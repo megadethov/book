@@ -34,11 +34,11 @@ public class ShowParameters extends HttpServlet {
                 if (paramValue.length() == 0)
                     writer.println("<I>No Value</I>");
                 else
-                    writer.println(paramValue);
+                    writer.println(ServletUtilities.filter(paramValue));
             } else {
                 writer.println("<ul>");
                 for (int i = 0; i < paramValues.length; i++) {
-                    writer.println("<li>" + paramValues[i]);
+                    writer.println("<li>" + ServletUtilities.filter(paramValues[i]));
                 }
                 writer.println("</ul>");
             }
