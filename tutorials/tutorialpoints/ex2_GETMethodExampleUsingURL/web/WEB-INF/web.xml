@@ -5,7 +5,7 @@
          version="3.1">
     <servlet>
         <servlet-name>helloForm</servlet-name>
-        <servlet-class>ua.mega.servlets.HelloForm</servlet-class>
+        <servlet-class>ua.mega.servlets.SetCookies</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>helloForm</servlet-name>

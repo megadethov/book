@@ -4,11 +4,19 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
-        <servlet-name>helloForm</servlet-name>
+        <servlet-name>readCookies</servlet-name>
+        <servlet-class>ua.mega.servlets.ReadCookies</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>readCookies</servlet-name>
+        <url-pattern>/readCookies</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>setCookies</servlet-name>
         <servlet-class>ua.mega.servlets.SetCookies</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>helloForm</servlet-name>
-        <url-pattern>/helloForm</url-pattern>
+        <servlet-name>setCookies</servlet-name>
+        <url-pattern>/setCookies</url-pattern>
     </servlet-mapping>
 </web-app>
