@@ -40,14 +40,11 @@ public class SendEmail extends HttpServlet {
             }
         });
 
-
         // Set response content type
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
 
         try {
-            session.setDebug(true);
-            Transport transport = session.getTransport();
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
             // Set From: header field of the header.
