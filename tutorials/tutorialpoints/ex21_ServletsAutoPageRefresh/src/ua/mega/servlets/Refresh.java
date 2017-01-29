@@ -10,17 +10,18 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * HTTP Header Response Example
+ * Auto Page Refresh Example
+ * This example shows how a servlet performs auto page refresh
+ * using setIntHeader() method to set Refresh header.
  */
 public class Refresh extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Set refresh, autoload time as 5 seconds
+        // Set refresh, auto load time as 5
         resp.setIntHeader("Refresh", 5);
-
         // Set response content type
-        resp.setContentType("");
+        resp.setContentType("text/html");
 
         // Get current time
         Calendar calendar = new GregorianCalendar();
@@ -28,19 +29,15 @@ public class Refresh extends HttpServlet {
         int hour = calendar.get(Calendar.HOUR);
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
-
-        if (calendar.get(Calendar.AM_PM) == 0) {
+        if (calendar.get(Calendar.AM_PM) == 0)
             am_pm = "AM";
-        } else {
+        else
             am_pm = "PM";
-        }
-
-        String CT = hour + ":" + minute + ":" + second + " " + am_pm;
+        String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
 
         PrintWriter writer = resp.getWriter();
-        String title = "Auto Refresh Header Setting";
+        String title = "Auto Page Refresh using Servlet";
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n";
-
         writer.println(docType +
                 "<html>\n" +
                 "<head><title>" + title + "</title></head>\n"+
@@ -51,6 +48,6 @@ public class Refresh extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       doGet(req, resp);
+        doGet(req, resp);
     }
 }
