@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>Example custom tag with attribute</short-name>
+    <!--<uri>http://mycompany.com</uri>-->
+    <uri>WEB-INF/custom.tld</uri>
+
+   <tag>
+       <name>hello</name>
+       <tag-class>ua.mega.customtaghandlers.HelloTag</tag-class>
+       <!--<body-content>empty</body-content>-->
+       <body-content>scriptless</body-content>
+       <attribute>
+           <name>message</name>
+           <required>false</required>
+           <type>java.lang.String</type> <!--by default-->
+       </attribute>
+
+       <!--Required handling on tag handler-->
+      <!-- <attribute>
+           <name>number</name>
+           <required>true</required>
+           <type>java.lang.Number</type>
+       </attribute>-->
+   </tag>
+
+</taglib>
+
+ <!--The attribute's name is "message", so the setter method is setMessage().
+ Now let us add this attribute in TLD file using <attribute> element as follows:
+ -->
