@@ -12,4 +12,4 @@ You can write XML equivalent of the above syntax as follows:   <jsp:directive.in
     <p>Thanks for visiting my page.</p>
 </center>
 
-<%@include file="footer.jsp"%>
+<%@include file=""%>
