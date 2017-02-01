@@ -13,7 +13,8 @@ This method returns an Enumeration that contains the header information associat
     <h2>HTTP Header Request Example</h2>
     <table width="100%" border="1" align="center">
         <tr bgcolor="#ffe4c4">
-            <th>Header Name</th><th>Value</th>
+            <th>Header Name</th>
+            <th>Value</th>
         </tr>
         <%
             Enumeration headerNames = request.getHeaderNames();
@@ -24,6 +25,16 @@ This method returns an Enumeration that contains the header information associat
                 out.println("<td> " + paramValue + "</td></tr>\n");
             }
         %>
+    </table>
+
+    <table width="100%" border="1" align="center">
+        <tr bgcolor="#7fffd4"><th>Cookie name</th><th>Cookie value</th></tr>
+    <%
+        Cookie[] cookies = request.getCookies();
+        for (Cookie c : cookies) {
+            out.print("<tr><td>" + c.getName() + "</td><td>" + c.getValue() + "</td></tr>");
+        }
+    %>
     </table>
 </center>
 </body>
