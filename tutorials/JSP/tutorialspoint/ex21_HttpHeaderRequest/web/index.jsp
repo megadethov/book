@@ -28,13 +28,33 @@ This method returns an Enumeration that contains the header information associat
     </table>
 
     <table width="100%" border="1" align="center">
-        <tr bgcolor="#7fffd4"><th>Cookie name</th><th>Cookie value</th></tr>
-    <%
-        Cookie[] cookies = request.getCookies();
-        for (Cookie c : cookies) {
-            out.print("<tr><td>" + c.getName() + "</td><td>" + c.getValue() + "</td></tr>");
-        }
-    %>
+        <tr bgcolor="#7fffd4">
+            <th>Cookie name</th>
+            <th>Cookie value</th>
+        </tr>
+        <%
+            Cookie[] cookies = request.getCookies();
+            for (Cookie c : cookies) {
+                out.print("<tr><td>" + c.getName() + "</td><td>" + c.getValue() + "</td></tr>");
+            }
+        %>
+    </table>
+
+    <table width="100%" border="1" align="center">
+        <tr bgcolor="#ffebcd">
+            <th>Attribute name</th>
+            <th>Attribute value</th>
+        </tr>
+        <%
+            request.setAttribute("oneAttribute", 100);
+            request.setAttribute("twoAttribute", "HelloAttribute");
+
+            Enumeration attributeNames = request.getAttributeNames();
+            while (attributeNames.hasMoreElements()) {
+                String attrName = (String) attributeNames.nextElement();
+                out.print("<tr><td>" + attrName + "</td><td>" + request.getAttribute(attrName) + "</td></tr>");
+            }
+        %>
     </table>
 </center>
 </body>
