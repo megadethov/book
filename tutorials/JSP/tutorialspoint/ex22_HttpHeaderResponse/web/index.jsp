@@ -1,10 +1,9 @@
 <%@ page import="java.util.Calendar" %>
-<%@ page import="java.util.GregorianCalendar" %><%--
-  Created by IntelliJ IDEA.
-  User: mega
-  Date: 01.02.2017
-  Time: 14:02
-  To change this template use File | Settings | File Templates.
+<%@ page import="java.util.GregorianCalendar" %>
+<%--
+When a Web server responds to a HTTP request to the browser,
+the response typically consists of a status line, some response headers,
+a blank line, and the document.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
