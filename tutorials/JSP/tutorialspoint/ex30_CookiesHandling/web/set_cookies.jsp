@@ -26,5 +26,6 @@
         <%= request.getParameter("last_name")%>
     </p></li>
 </ul>
+<h3><a href="read.jsp">read cookies</a> </h3>
 </body>
 </html>
