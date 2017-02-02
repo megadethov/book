@@ -1,22 +1,22 @@
 <%--
-read cookies
+Delete cookies
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Read cookies</title>
+    <title>Delete Page</title>
 </head>
 <body>
-<h2>Read cookies: </h2>
+<h2>Delete cookies</h2>
 <%
     Cookie[] cookies = request.getCookies();
     for (Cookie c : cookies) {
         if (c.getName().equals("first_name") | c.getName().equals("last_name")) {
-            out.println(c.getName() + " = " + c.getValue() + "<br/>");
+            c.setMaxAge(0);
+            response.addCookie(c);
         }
     }
-
 %>
-<a href="delete.jsp">delete cookies</a>
+<a href="read.jsp">read cookies</a>
 </body>
 </html>
