@@ -28,3 +28,16 @@ for combining fields from two tables by using values common to each.
 SELECT ID, NAME, AGE, AMOUNT
 FROM CUSTOMERS, ORDERS
 WHERE CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+/*
+This would produce the following result:
++----+----------+-----+--------+
+| ID | NAME     | AGE | AMOUNT |
++----+----------+-----+--------+
+|  3 | kaushik  |  23 |   3000 |
+|  3 | kaushik  |  23 |   1500 |
+|  2 | Khilan   |  25 |   1560 |
+|  4 | Chaitali |  25 |   2060 |
++----+----------+-----+--------+
+*/
+

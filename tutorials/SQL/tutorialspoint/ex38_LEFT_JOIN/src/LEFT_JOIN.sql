@@ -1,13 +1,13 @@
 /*
-The INNER JOIN creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate.
- The basic syntax of INNER JOIN is as follows:
+The SQL LEFT JOIN returns all rows from the left table, even if there are no matches in the right table. This means that if the ON clause matches 0 (zero) records in right table, the join will still return a row in the result, but with NULL in each column from right table.
+This means that a left join returns all the values from the left table, plus matched values from the right table or NULL in case of no matching join predicate.
+The basic syntax of LEFT JOIN is as follows:
 
 SELECT table1.column1, table2.column2...
-FROM * table1
-INNER JOIN table2
+FROM table1
+LEFT JOIN table2
 ON table1.common_field = table2.common_field;
-*/
-/*
+
 (a) CUSTOMERS table is as follows:
 +----+----------+-----+-----------+----------+
 | ID | NAME     | AGE | ADDRESS   | SALARY   |
@@ -32,21 +32,26 @@ ON table1.common_field = table2.common_field;
 | 103 | 2008-05-20 00:00:00 |           4 |   2060 |
 +-----+---------------------+-------------+--------+
 
-Now, let us join these two tables using INNER JOIN as follows:
-*/
-
+Now, let us join these two tables using LEFT JOIN as follows:
+ */
 SELECT id, name, amount, date
-FROM customers INNER JOIN orders
-ON customers.id = orders.customer_id;
+FROM customers
+LEFT JOIN orders
+  ON customers.id = orders.customer_id;
 
 /*
 This would produce the following result:
 +----+----------+--------+---------------------+
 | ID | NAME     | AMOUNT | DATE                |
 +----+----------+--------+---------------------+
+|  1 | Ramesh   |   NULL | NULL                |
+|  2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
 |  3 | kaushik  |   3000 | 2009-10-08 00:00:00 |
 |  3 | kaushik  |   1500 | 2009-10-08 00:00:00 |
-|  2 | Khilan   |   1560 | 2009-11-20 00:00:00 |
 |  4 | Chaitali |   2060 | 2008-05-20 00:00:00 |
+|  5 | Hardik   |   NULL | NULL                |
+|  6 | Komal    |   NULL | NULL                |
+|  7 | Muffy    |   NULL | NULL                |
 +----+----------+--------+---------------------+
+
  */
