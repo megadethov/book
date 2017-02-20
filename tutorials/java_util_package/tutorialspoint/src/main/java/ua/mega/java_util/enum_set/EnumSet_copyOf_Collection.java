@@ -8,7 +8,7 @@ import java.util.EnumSet;
  * The java.util.EnumSet.copyOf(Collection<E> c) method creates an enum set
  * initialized from the specified collection.
  */
-public class EnumSet_copyOf {
+public class EnumSet_copyOf_Collection {
 
     // create an enum
     public enum Numbers {
