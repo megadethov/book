@@ -22,7 +22,7 @@ public class Collections_singleton {
 
         // singleton - immutable
         Set<String> one = Collections.singleton("One");
-        one.add("Two"); // java.lang.UnsupportedOperationException
+//        one.add("Two"); // java.lang.UnsupportedOperationException
 
         list2.removeAll(one);
         System.out.println("The SingletonList is :" + list2);
