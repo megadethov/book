@@ -1,6 +1,9 @@
 package ua.mega.jdbc.sample;
 
 import java.sql.*;
+import java.util.Properties;
+
+import static java.awt.SystemColor.info;
 
 public class FirstExample {
 
@@ -23,6 +26,12 @@ public class FirstExample {
             //STEP 3: Open a conn
             System.out.println("Connection to DB ...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            //STEP 3: Open a conn - Properties
+           /* Properties credentials = new Properties();
+            credentials.put("user", USER);
+            credentials.put("password", PASS);
+            conn = DriverManager.getConnection(DB_URL, credentials);*/
 
             //STEP 4: Execute a query
             System.out.println("Creating stmt...");
