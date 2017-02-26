@@ -36,6 +36,8 @@ Login to the database as follows −
 C:\Program Files\MySQL\bin>mysql -u root -p
 Enter password: ********
 mysql>
+
+show databases
 */
 
 # CREATE the TABLE Employee AS FOLLOWS −
@@ -53,12 +55,3 @@ INSERT INTO Employees VALUES (100, 18, 'Zara', 'Ali');
 INSERT INTO Employees VALUES (101, 25, 'Mahnaz', 'Fatma');
 INSERT INTO Employees VALUES (102, 30, 'Zaid', 'Khan');
 INSERT INTO Employees VALUES (103, 28, 'Sumit', 'Mittal');
-
-
-
-
-
-
-
-
-
