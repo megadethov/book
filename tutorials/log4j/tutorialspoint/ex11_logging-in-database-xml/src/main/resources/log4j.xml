@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <appender name="DB" class="org.apache.log4j.jdbc.JDBCAppender">
+        <param name="URL" value="jdbc:mysql://localhost/log"/>
+        <param name="driver" value="com.mysql.jdbc.Driver"/>
+        <param name="user" value="root"/>
+        <param name="password" value="root"/>
+        <param name="sql" value="INSERT INTO logs VALUES('%x', now(), '%C', '%p', '%m')"/>
+    </appender>
+
+    <root>
+        <level value="debug" />
+        <appender-ref ref="DB" />
+    </root>
+
+</log4j:configuration>
