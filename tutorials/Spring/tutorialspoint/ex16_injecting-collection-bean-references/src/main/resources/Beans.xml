@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address1" class="java.lang.String">
+        <constructor-arg value="INDIA"/>
+    </bean>
+    <bean id="address2" class="java.lang.String">
+        <constructor-arg value="Pakistan"/>
+    </bean>
+
+    <bean id="javaCollection" class="ua.mega.JavaCollection">
+
+        <property name="addressList">
+            <list>
+                <ref bean="address1"/>
+                <ref bean="address2"/>
+                <value>Pakistan</value>
+            </list>
+        </property>
+        <property name="addressSet">
+            <set>
+                <ref bean="address1"/>
+                <ref bean="address2"/>
+                <value>Pakistan</value>
+            </set>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="one" value="INDIA"/>
+                <entry key="two" value-ref="address1"/>
+                <entry key="three" value-ref="address2"/>
+            </map>
+        </property>
+
+    </bean>
+</beans>
