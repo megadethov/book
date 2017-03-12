@@ -5,7 +5,7 @@
 
     <bean id="textEditor" class="ua.mega.TextEditor">
         <property name="spellChecker">
-            <bean id="spellChrcker" class="ua.mega.SpellChecker"/>
+            <bean id="spellChecker" class="ua.mega.SpellChecker"/>
         </property>
     </bean>
 </beans>
