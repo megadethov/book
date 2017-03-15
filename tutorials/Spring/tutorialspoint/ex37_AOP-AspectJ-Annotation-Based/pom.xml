@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega.spring</groupId>
-    <artifactId>ex36_AOP-XML-Schema-Based</artifactId>
+    <artifactId>ex37_AOP-AspectJ-Annotation-Based</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
