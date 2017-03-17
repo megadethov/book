@@ -11,5 +11,9 @@ public class LambdaExpressionExample {
 //        Addable ad = (a, b) -> {return a+b;};
         Addable ad = (a, b) -> (a + b);
         System.out.println(ad.add(10, 20));
+
+        // Multiple parameters with data type in lambda expression
+        Addable ad2 = (int a, int b) -> (a + b);
+        System.out.println(ad2.add(100, 200));
     }
 }
