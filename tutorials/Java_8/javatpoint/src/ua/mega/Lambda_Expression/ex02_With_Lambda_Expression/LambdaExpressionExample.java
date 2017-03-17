@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex02_With_Lambda_Expression;
+package ua.mega.Lambda_Expression.ex02_With_Lambda_Expression;
 
 @FunctionalInterface // It is optional
 interface Drawable{

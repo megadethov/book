@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex07_Lambda_Expression_Foreach;
+package ua.mega.Lambda_Expression.ex07_Lambda_Expression_Foreach;
 
 import java.util.ArrayList;
 import java.util.List;

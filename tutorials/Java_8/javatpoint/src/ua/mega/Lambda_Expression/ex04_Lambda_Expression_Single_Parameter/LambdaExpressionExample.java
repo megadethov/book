@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex04_Lambda_Expression_Single_Parameter;
+package ua.mega.Lambda_Expression.ex04_Lambda_Expression_Single_Parameter;
 
 interface Sayable{
     public String say(String name);

@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex08_Lambda_Expression_Multiple_Statements;
+package ua.mega.Lambda_Expression.ex08_Lambda_Expression_Multiple_Statements;
 
 interface Sayable {
     String say(String message);

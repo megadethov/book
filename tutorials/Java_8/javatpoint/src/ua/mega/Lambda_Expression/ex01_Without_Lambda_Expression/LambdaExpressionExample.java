@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex01_Without_Lambda_Expression;
+package ua.mega.Lambda_Expression.ex01_Without_Lambda_Expression;
 
 interface Drawable {
     public void draw();

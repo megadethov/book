@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex06_Lambda_Expression_With_or_without_return_keyword;
+package ua.mega.Lambda_Expression.ex06_Lambda_Expression_With_or_without_return_keyword;
 
 interface Addable {
     int add(int a, int b);

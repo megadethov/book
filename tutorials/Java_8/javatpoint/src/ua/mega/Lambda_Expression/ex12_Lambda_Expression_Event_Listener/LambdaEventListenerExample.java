@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex12_Lambda_Expression_Event_Listener;
+package ua.mega.Lambda_Expression.ex12_Lambda_Expression_Event_Listener;
 
 import javax.swing.*;
 

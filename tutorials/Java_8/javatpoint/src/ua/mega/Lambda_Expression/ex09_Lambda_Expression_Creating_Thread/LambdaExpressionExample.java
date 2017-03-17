@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex09_Lambda_Expression_Creating_Thread;
+package ua.mega.Lambda_Expression.ex09_Lambda_Expression_Creating_Thread;
 
 public class LambdaExpressionExample {
     public static void main(String[] args) {

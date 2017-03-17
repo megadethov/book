@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex05_Lambda_Expression_Multiple_Parameters;
+package ua.mega.Lambda_Expression.ex05_Lambda_Expression_Multiple_Parameters;
 
 interface Addable{
     int add(int a, int b);

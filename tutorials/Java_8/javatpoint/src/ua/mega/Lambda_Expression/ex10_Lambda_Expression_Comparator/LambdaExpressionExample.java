@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex10_Lambda_Expression_Comparator;
+package ua.mega.Lambda_Expression.ex10_Lambda_Expression_Comparator;
 
 import java.util.ArrayList;
 import java.util.Collections;

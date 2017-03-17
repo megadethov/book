@@ -1,4 +1,4 @@
-package ua.mega.LambdaExpression.ex11_Lambda_Expression_Filter_Collection_Data;
+package ua.mega.Lambda_Expression.ex11_Lambda_Expression_Filter_Collection_Data;
 
 import java.util.ArrayList;
 import java.util.List;
