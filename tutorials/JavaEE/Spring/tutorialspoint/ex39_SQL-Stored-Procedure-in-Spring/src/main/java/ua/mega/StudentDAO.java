@@ -1,6 +1,7 @@
 package ua.mega;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 public interface StudentDAO {
     /**
