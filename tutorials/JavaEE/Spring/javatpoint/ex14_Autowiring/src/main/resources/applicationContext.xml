@@ -3,12 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--<bean id="b1" class="ua.mega.B"/>-->
-    <bean id="b" class="ua.mega.B"/>
+    <!--<bean id="b1" class="ua.mega.ua.mega.B"/>-->
+    <bean id="b" class="ua.mega.ua.mega.B"/>
 
-    <!--<bean id="a" class="ua.mega.A" autowire="byName"/>-->
-    <!--<bean id="a" class="ua.mega.A" autowire="byType"/>-->
-    <bean id="a" class="ua.mega.A" autowire="constructor"/>
-    <!--<bean id="a" class="ua.mega.A" autowire="no"/>-->          <!--by default-->
+    <!--<bean id="a" class="ua.mega.ua.mega.A" autowire="byName"/>-->
+    <!--<bean id="a" class="ua.mega.ua.mega.A" autowire="byType"/>-->
+    <bean id="a" class="ua.mega.ua.mega.A" autowire="constructor"/>
+    <!--<bean id="a" class="ua.mega.ua.mega.A" autowire="no"/>-->          <!--by default-->
 
 </beans>
