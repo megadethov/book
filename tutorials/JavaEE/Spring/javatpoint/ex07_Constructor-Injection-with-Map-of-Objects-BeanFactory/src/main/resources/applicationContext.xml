@@ -5,13 +5,13 @@
 
     <bean id="answer1" class="ua.mega.Answer">
         <constructor-arg name="id" value="1"/>
-        <constructor-arg name="answer" value="Java is a Programming Language"/>
+        <constructor-arg name="name" value="Java is a Programming Language"/>
         <constructor-arg name="postedDate" value="12/12/2001"/>
     </bean>
 
     <bean id="answer2" class="ua.mega.Answer">
         <constructor-arg name="id" value="2"/>
-        <constructor-arg name="answer" value="Java is a Platform"/>
+        <constructor-arg name="name" value="Java is a Platform"/>
         <constructor-arg name="postedDate" value="12/12/2003"/>
     </bean>
 
