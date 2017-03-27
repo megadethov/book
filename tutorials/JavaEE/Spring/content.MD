@@ -58,12 +58,38 @@
 <p>====Autowiring===</p>
 .......with xml config
 <p><a href="./javatpoint/ex14_Autowiring">Autowiring</a></p>
+<p><a href="./tutorialspoint/ex18_autowiring-by-name">autowiring-by-name</a></p>
+<p><a href="./tutorialspoint/ex19_autowiring-by-type">autowiring-by-type</a></p>
+<p><a href="./tutorialspoint/ex20_autowiring-by-constructor">autowiring-by-constructor</a></p>
+
 
 <p>====Injection with Factory Method===</p>
 .......with ApplicationContext
 <p><a href="./javatpoint/ex15_Dependency-Injection-with-static-factory-method-Own-Class">Injection-with-static-factory-method-Own-Class</a></p>
 <p><a href="./javatpoint/ex16_Dependency-Injection-with-static-factory-method-Another-Class">Injection-with-static-factory-method-Another-Class</a></p>
 <p><a href="./javatpoint/ex17_Dependency-Injection-with-non-static-factory-method-Another-Class">Injection-with-non-static-factory-method-Another-Class</a></p>
+
+<h3>Annotation Based Configuration:</h3>
+<p><a href="./tutorialspoint/ex21_required-annotation">@Required</a></p>
+<p><a href="./tutorialspoint/ex22_autowired-annotation-on-setter-methods">@Autowired on Setter Methods</a></p>
+<p><a href="./tutorialspoint/ex23_autowired-annotation-on-properties">@Autowired on Properties</a></p>
+<p><a href="./tutorialspoint/ex24_autowired-annotation-on-constructors">@Autowired on Constructors</a></p>
+<p><a href="./tutorialspoint/ex25_autowired-annotation-with-required-false-option">@Autowired with (required=false) option</a></p>
+<p><a href="./tutorialspoint/ex26_qualifier-annotation">@Qualifier</a></p>
+<p><a href="./tutorialspoint/ex27_PostConstruct-and-PreDestroy-Annotations">@PostConstruct and @PreDestroy (JSR-250 based annotations)</a></p>
+<p><a href="./tutorialspoint/ex28_Resource-Annotation">@Resource (JSR-250 based annotations)</a></p>
+
+<h3>Java Based Configuration:</h3>
+<p><a href="./tutorialspoint/ex29_Java-Based-Configuration">@Configuration & @Bean Annotations</a></p>
+<p><a href="./tutorialspoint/ex30_Java-Based-Configuration-Injecting-Bean-Dependencies">Injecting Bean Dependencies</a></p>
+<p><a href="./tutorialspoint/ex31_Java-Based-Configuration-Import-Annotation">@Import Annotation</a></p>
+<p><a href="./tutorialspoint/ex32_Java-Based-Configuration-Bean-Lifecycle">Bean-Lifecycle</a></p>
+<p><a href="./tutorialspoint/ex33_Java-Based-Configuration-Bean-Scope">Bean-Scope</a></p>
+
+<h3>Event Handling:</h3>
+<p><a href="./tutorialspoint/ex34_Event-Handling">Listening to Context Events</a></p>
+<p><a href="./tutorialspoint/ex35_Custom-Events">Custom Events</a></p>
+
 
 <h3>Spring AOP:</h3>
 .......By Spring1.2 Old style (dtd based) (also supported in Spring3)
@@ -79,6 +105,7 @@
 <p><a href="./javatpoint/ex25_@AfterReturning-AOP-AspectJ-Annotation">@AfterReturning</a></p>
 <p><a href="./javatpoint/ex26_@Around-AOP-AspectJ-Annotation">@Around</a></p>
 <p><a href="./javatpoint/ex27_@AfterThrowing-AOP-AspectJ-Annotation">@AfterThrowing</a></p>
+<p><a href="./tutorialspoint/ex37_AOP-AspectJ-Annotation-Based">@AspectJ Based AOP example</a></p>
 
 .......By Spring XML configuration-style(schema based)
 <p><a href="./javatpoint/ex28_XML-AOP-AspectJ-aop_before">aop:before</a></p>
@@ -86,14 +113,20 @@
 <p><a href="./javatpoint/ex30_XML-AOP-AspectJ-aop_after_returning">aop:after-returning</a></p>
 <p><a href="./javatpoint/ex31_XML-AOP-AspectJ-aop_around">aop:around</a></p>
 <p><a href="./javatpoint/ex32_XML-AOP-AspectJ-aop_after-throwing">aop:after-throwing</a></p>
+<p><a href="./tutorialspoint/ex36_AOP-XML-Schema-Based">XML Schema Based AOP example</a></p>
 
 <h3>Spring JdbcTemplate:</h3>
 <p><a href="./javatpoint/ex33_Spring-JdbcTemplate-Example">Example</a></p>
+<p><a href="./tutorialspoint/ex38_Spring-JDBC-Example">Example 2</a></p>
 <p><a href="./javatpoint/ex34_Spring-JdbcTemplate-PreparedStatement">PreparedStatement</a></p>
 <p><a href="./javatpoint/ex35_Spring-JdbcTemplate-ResultSetExtractor">ResultSetExtractor</a></p>
 <p><a href="./javatpoint/ex36_Spring-JdbcTemplate-RowMapper">RowMapper</a></p>
 <p><a href="./javatpoint/ex37_Spring-JdbcTemplate-NamedParameterJdbcTemplate">NamedParameterJdbcTemplate</a></p>
 <p><a href="./javatpoint/ex38_Spring3-JdbcTemplate-SimpleJdbcTemplate-with-varargs-autoboxing">SimpleJdbcTemplate-with-varargs-autoboxing</a></p>
+<p><a href="./tutorialspoint/ex39_SQL-Stored-Procedure-in-Spring">SQL Stored Procedure in Spring</a></p>
+.......Transaction Management
+<p><a href="./tutorialspoint/ex40_Programmatic-Transaction-Management">Programmatic transaction management</a></p>
+<p><a href="./tutorialspoint/ex41_Declarative-Transaction-Management">Declarative transaction management (with AOP)</a></p>
 
 
 
