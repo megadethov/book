@@ -10,8 +10,9 @@
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
+
         <!--<set name="certificates" cascade="all" sort="natural">-->
-        <set name="certificates" cascade="all" sort="MyClass">
+        <set name="certificates" cascade="all" sort="ua.mega.MyClass">
             <key column="employee_id"/>
             <one-to-many class="ua.mega.Certificate"/>
         </set>

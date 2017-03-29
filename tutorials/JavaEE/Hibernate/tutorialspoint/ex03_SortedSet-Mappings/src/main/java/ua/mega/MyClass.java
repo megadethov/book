@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 public class MyClass implements Comparator<Certificate> {
 
+    public MyClass() {
+    }
+
     @Override
     public int compare(Certificate o1, Certificate o2) {
         final int BEFORE = -1;
