@@ -1,6 +1,8 @@
 package ua.mega;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class User {
@@ -9,13 +11,13 @@ public class User {
 
     private ProteinData proteinData = new ProteinData();
 
-    private Set<UserHistory> histories = new HashSet<>();
+    private List<UserHistory> histories = new ArrayList<>();
 
-    public Set<UserHistory> getHistories() {
+    public List<UserHistory> getHistories() {
         return histories;
     }
 
-    public void setHistories(Set<UserHistory> histories) {
+    public void setHistories(List<UserHistory> histories) {
         this.histories = histories;
     }
 
