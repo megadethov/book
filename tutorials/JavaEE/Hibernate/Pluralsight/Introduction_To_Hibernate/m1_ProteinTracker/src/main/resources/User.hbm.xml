@@ -15,14 +15,14 @@
         <property name="goal" column="goal" type="int"/>
     </component>
 
-    <list name="histories" table="user_history">
+    <map name="histories" table="user_history">
         <key column="id"/>
-        <list-index column="POSITION"/>
+        <map-key type="string" column="entity_identifier"/>
         <composite-element class="ua.mega.UserHistory">
             <property name="entryTime" type="date" column="entry_time"/>
             <property name="entry" type="string" column="entry"/>
         </composite-element>
-    </list>
+    </map>
 
 </class>
 </hibernate-mapping>
