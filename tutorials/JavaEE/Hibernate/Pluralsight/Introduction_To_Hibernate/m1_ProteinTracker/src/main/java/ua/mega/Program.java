@@ -19,6 +19,8 @@ public class Program {
         User loadedUser = (User) session.get(User.class, 1);
         System.out.println(loadedUser.getName());
         System.out.println(loadedUser.getGoal());
+        //auto update
+        loadedUser.setTotal(50);
         session.getTransaction().commit();
 
         session.close();
