@@ -9,7 +9,11 @@
     </id>
     <!--<property name="name"/> This also works-->
     <property name="name" column="name" type="string"/>
-    <property name="total" column="total" type="int"/>
-    <property name="goal" column="goal" type="int"/>
+
+    <component name="proteinData">
+        <property name="total" column="total" type="int"/>
+        <property name="goal" column="goal" type="int"/>
+    </component>
+
   </class>
 </hibernate-mapping>
