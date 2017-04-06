@@ -10,7 +10,7 @@ public class Program {
         session.beginTransaction();
         User user = new User();
         user.setName("Joe");
-        user.setGoal(250);
+        user.getProteinData().setGoal(250);
         session.save(user);
         session.getTransaction().commit();
 
@@ -18,9 +18,9 @@ public class Program {
 //        User loadedUser = (User) session.load(User.class, 1); // the same
         User loadedUser = (User) session.get(User.class, 1);
         System.out.println(loadedUser.getName());
-        System.out.println(loadedUser.getGoal());
+        System.out.println(loadedUser.getProteinData().getGoal());
         //auto update
-        loadedUser.setTotal(50);
+        loadedUser.getProteinData().setTotal(50);
         session.getTransaction().commit();
 
         session.close();
