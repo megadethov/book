@@ -23,6 +23,8 @@
 
         <property name="show_sql">true</property>
 
+        <mapping resource="User.hbm.xml"/>
+
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
