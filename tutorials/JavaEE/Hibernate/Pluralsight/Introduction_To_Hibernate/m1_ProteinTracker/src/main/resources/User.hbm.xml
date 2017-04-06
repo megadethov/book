@@ -7,6 +7,7 @@
     <id name="id" column="id" type="int">
         <generator class="identity"/>
     </id>
+    <!--<property name="name"/> This also works-->
     <property name="name" column="name" type="string"/>
     <property name="total" column="total" type="int"/>
     <property name="goal" column="goal" type="int"/>
