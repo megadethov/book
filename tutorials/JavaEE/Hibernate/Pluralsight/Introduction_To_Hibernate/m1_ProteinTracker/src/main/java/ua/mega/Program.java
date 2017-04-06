@@ -2,6 +2,8 @@ package ua.mega;
 
 import org.hibernate.Session;
 
+import java.util.Date;
+
 public class Program {
     public static void main(String[] args) {
         System.out.println("Hello World");
@@ -10,7 +12,9 @@ public class Program {
         session.beginTransaction();
         User user = new User();
         user.setName("Joe");
+        user.getHistories().add(new UserHistory(new Date(), "Set the name to Joe"));
         user.getProteinData().setGoal(250);
+        user.getHistories().add(new UserHistory(new Date(), "Set the goal to 250"));
         session.save(user);
         session.getTransaction().commit();
 
@@ -19,8 +23,14 @@ public class Program {
         User loadedUser = (User) session.get(User.class, 1);
         System.out.println(loadedUser.getName());
         System.out.println(loadedUser.getProteinData().getGoal());
+
+        for (UserHistory history : user.getHistories()) {
+            System.out.println(history.getEntryTime() + " - " + history.getEntry());
+        }
+
         //auto update
         loadedUser.getProteinData().setTotal(50);
+        user.getHistories().add(new UserHistory(new Date(), "Set total to 50"));
         session.getTransaction().commit();
 
         session.close();

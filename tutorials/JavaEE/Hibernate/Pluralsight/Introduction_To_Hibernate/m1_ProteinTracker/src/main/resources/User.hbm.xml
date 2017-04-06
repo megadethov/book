@@ -15,5 +15,13 @@
         <property name="goal" column="goal" type="int"/>
     </component>
 
+    <set name="histories" table="user_history">
+        <key column="id"/>
+        <composite-element class="ua.mega.UserHistory">
+            <property name="entryTime" type="date" column="entry_time"/>
+            <property name="entry" type="string" column="entry"/>
+        </composite-element>
+    </set>
+
   </class>
 </hibernate-mapping>
