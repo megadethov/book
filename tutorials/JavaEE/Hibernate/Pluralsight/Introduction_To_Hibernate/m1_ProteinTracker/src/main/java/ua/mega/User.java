@@ -8,13 +8,13 @@ public class User {
 
     private ProteinData proteinData = new ProteinData();
 
-    private Map<String, UserHistory> histories = new HashMap<>();
+    private List<UserHistory> histories = new ArrayList<>();
 
-    public Map<String, UserHistory> getHistories() {
+    public List<UserHistory> getHistories() {
         return histories;
     }
 
-    public void setHistories(Map<String, UserHistory> histories) {
+    public void setHistories(List<UserHistory> histories) {
         this.histories = histories;
     }
 

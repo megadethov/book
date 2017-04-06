@@ -1,28 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-<class name="ua.mega.User" table="users">
-    <id name="id" column="id" type="int">
-        <generator class="identity"/>
-    </id>
-    <!--<property name="name"/> This also works-->
-    <property name="name" column="name" type="string"/>
+    <class name="ua.mega.User" table="users">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+        <!--<property name="name"/> This also works-->
+        <property name="name" column="name" type="string"/>
 
-    <component name="proteinData">
-        <property name="total" column="total" type="int"/>
-        <property name="goal" column="goal" type="int"/>
-    </component>
+        <component name="proteinData">
+            <property name="total" column="total" type="int"/>
+            <property name="goal" column="goal" type="int"/>
+        </component>
 
-    <map name="histories" table="user_history">
-        <key column="id"/>
-        <map-key type="string" column="entity_identifier"/>
-        <composite-element class="ua.mega.UserHistory">
-            <property name="entryTime" type="date" column="entry_time"/>
-            <property name="entry" type="string" column="entry"/>
-        </composite-element>
-    </map>
+        <idbag name="histories" table="user_history">
+            <collection-id column="id" type="int">
+                <generator class="increment"/>
+            </collection-id>
+            <key column="user_id"/>
+            <composite-element class="ua.mega.UserHistory">
+                <property name="entryTime" type="date" column="entry_time"/>
+                <property name="entry" type="string" column="entry"/>
+            </composite-element>
+        </idbag>
 
-</class>
+    </class>
 </hibernate-mapping>
