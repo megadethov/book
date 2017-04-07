@@ -21,11 +21,11 @@ public class Person {
         this.emailAddresses = emailAddresses;
     }
 
-    public Set getEvents() {
+    protected Set getEvents() {
         return events;
     }
 
-    public void setEvents(Set events) {
+    protected void setEvents(Set events) {
         this.events = events;
     }
 
