@@ -2,6 +2,7 @@ package org.hibernate.tutorial;
 
 import org.hibernate.Session;
 import org.hibernate.tutorial.domain.Event;
+import org.hibernate.tutorial.domain.Person;
 import org.hibernate.tutorial.util.HibernateUtil;
 
 import java.util.Date;
@@ -12,7 +13,8 @@ public class EventManager {
 
         if (args[0].equals("store")) {
             mgr.createAndStoreEvent("My Event", new Date());
-        }
+        } // TODO: 07.04.2017 try add else
+
         HibernateUtil.getSessionFactory().close();
     }
 
@@ -26,5 +28,15 @@ public class EventManager {
         session.save(theEvent);
 
         session.getTransaction().commit();
+    }
+
+    private void addPersonToEvent(Long personId, Long eventId) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Person aPerson = (Person) session.load(Person.class, personId);
+        Event anEvent = (Event) session.load(Event.class, eventId);
+        aPerson.getEvents().add(anEvent);
+        // TODO: 07.04.2017 - try modify a collection when it is detached  
     }
 }
