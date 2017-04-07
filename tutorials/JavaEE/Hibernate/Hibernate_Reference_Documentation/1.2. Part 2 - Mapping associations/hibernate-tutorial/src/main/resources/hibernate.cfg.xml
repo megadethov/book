@@ -32,6 +32,7 @@
 
         <mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/>
         <mapping resource="org/hibernate/tutorial/domain/Person.hbm.xml"/>
+        <mapping resource="org/hibernate/tutorial/domain/PersonEmailAddress.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

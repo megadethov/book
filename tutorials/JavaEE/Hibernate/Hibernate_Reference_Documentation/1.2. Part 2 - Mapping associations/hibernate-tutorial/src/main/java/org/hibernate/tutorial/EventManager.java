@@ -39,4 +39,15 @@ public class EventManager {
         aPerson.getEvents().add(anEvent);
         // TODO: 07.04.2017 - try modify a collection when it is detached  
     }
+
+    private void addEmailToPerson(Long personId, String emailAddress) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Person aPerson = (Person) session.load(Person.class, personId);
+        // adding to the emailAddress collection might trigger a lazy load of the collection
+        aPerson.getEmailAddresses().add(emailAddress);
+
+        session.getTransaction().commit();
+    }
 }
