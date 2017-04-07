@@ -11,11 +11,11 @@ public class Event {
 
     private Set participants = new HashSet();
 
-    protected Set getParticipants() {
+    public Set getParticipants() {
         return participants;
     }
 
-    protected void setParticipants(Set participants) {
+    public void setParticipants(Set participants) {
         this.participants = participants;
     }
 
