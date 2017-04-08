@@ -12,7 +12,7 @@
     <name>Hibernate</name>
 
     <modules>
-        <module>part01_First-Example/Mapping_POJO</module>
+        <module>part01_Basic-Mapping/Mapping_POJO</module>
     </modules>
 
 </project>
