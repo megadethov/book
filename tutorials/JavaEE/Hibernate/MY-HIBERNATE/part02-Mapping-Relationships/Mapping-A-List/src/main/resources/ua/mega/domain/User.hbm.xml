@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ua.mega.domain">
+    <class name="User" table="USER">
+        <id name="id" type="int" column="USER_ID">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="string" column="NAME"/>
+        <property name="age" type="int" column="AGE"/>
+
+        <list name="emails" table="EMAILS">
+            <key column="USER_ID"/>
+            <list-index column="POSITION"/>
+            <composite-element class="Email">
+                <property name="name" type="string" column="NAME"/>
+                <property name="registrationDate" type="date" column="REG_DATE"/>
+            </composite-element>
+        </list>
+
+        <list name="phones" table="PHONES">
+            <key column="USER_ID"/>
+            <list-index column="POSITION"/>
+            <element type="string" column="PHONE_NUMBER"/>
+        </list>
+    </class>
+</hibernate-mapping>
