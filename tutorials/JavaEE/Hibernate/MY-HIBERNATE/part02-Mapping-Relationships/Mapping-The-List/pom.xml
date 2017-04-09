@@ -12,11 +12,11 @@
     </parent>
 
     <groupId>ua.mega.hibernate</groupId>
-    <artifactId>Mapping-A-List</artifactId>
+    <artifactId>Mapping-The-List</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Mapping A List</name>
+    <name>Mapping The List</name>
 
     <properties>
         <maven.test.skip>true</maven.test.skip>
@@ -27,7 +27,7 @@
 
     <build>
         <!-- we dont want the version to be part of the generated war file name -->
-        <finalName>${artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
 
         <plugins>
             <plugin>

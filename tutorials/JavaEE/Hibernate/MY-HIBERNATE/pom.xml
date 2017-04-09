@@ -15,7 +15,8 @@
         <module>part01_Basic-Mapping/Mapping_POJO</module>
         <module>part02-Mapping-Relationships/Mapping-The-Component</module>
         <module>part02-Mapping-Relationships/Mapping-The-Set</module>
-        <module>part02-Mapping-Relationships/Mapping-A-List</module>
+        <module>part02-Mapping-Relationships/Mapping-The-List</module>
+        <module>part02-Mapping-Relationships/Mapping-The-Map</module>
     </modules>
 
 </project>
