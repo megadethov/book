@@ -8,15 +8,15 @@
         <groupId>ua.mega.hibernate</groupId>
         <artifactId>MY-HIBERNATE</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../</relativePath>
+        <relativePath>../../../</relativePath>
     </parent>
 
     <groupId>ua.mega.hibernate</groupId>
-    <artifactId>Many-To-One</artifactId>
+    <artifactId>Many-To-One-uni</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Many-To-One</name>
+    <name>Many-To-One-uni</name>
 
     <properties>
         <maven.test.skip>true</maven.test.skip>
