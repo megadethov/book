@@ -17,6 +17,8 @@
         <module>part02-Mapping-Relationships/Mapping-The-Set</module>
         <module>part02-Mapping-Relationships/Mapping-The-List</module>
         <module>part02-Mapping-Relationships/Mapping-The-Map</module>
+        <module>part02-Mapping-Relationships/Mapping-The-Bag</module>
+        <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/Many-To-One</module>
     </modules>
 
 </project>
