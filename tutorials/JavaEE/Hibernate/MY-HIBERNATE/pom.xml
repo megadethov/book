@@ -20,6 +20,7 @@
         <module>part02-Mapping-Relationships/Mapping-The-Bag</module>
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/Many-To-One-uni</module>
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/One-To-One-uni</module>
+        <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/One-To-One-Revers-uni</module>
     </modules>
 
 </project>
