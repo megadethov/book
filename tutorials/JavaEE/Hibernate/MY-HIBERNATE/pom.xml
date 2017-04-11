@@ -28,6 +28,7 @@
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL-with-JOIN/One-To-One-uni-with-JOIN</module>
         <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL/One-To-Many_Many-To-One-bi_SET</module>
         <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL/One-To-Many_Many-To-One-bi_LIST</module>
+        <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL/One-To-One-bi</module>
     </modules>
 
 </project>
