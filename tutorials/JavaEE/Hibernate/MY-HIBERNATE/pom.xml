@@ -22,8 +22,10 @@
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/One-To-One-uni</module>
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/One-To-One-Revers-uni</module>
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/Many-To-One-uni</module>
+        <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL/One-To-Many-uni</module>
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL-with-JOIN/One-To-Many-uni-with-JOIN</module>
         <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL-with-JOIN/Many-To-One-uni-with-JOIN</module>
+        <module>part03_Mapping-Entity-Type-Relationships/UNIDIRECTIONAL-with-JOIN/One-To-One-uni-with-JOIN</module>
     </modules>
 
 </project>
