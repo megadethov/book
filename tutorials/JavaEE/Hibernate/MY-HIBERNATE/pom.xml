@@ -31,6 +31,7 @@
         <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL/One-To-One-bi</module>
         <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL/One-To-One-bi_SPEC-ID-GEN</module>
         <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL-with-JOIN/One-To-Many_Many-To-One-bi-with-JOIN</module>
+        <module>part03_Mapping-Entity-Type-Relationships/BIDIRECTIONAL-with-JOIN/One-To-One-bi-with-JOIN</module>
     </modules>
 
 </project>
