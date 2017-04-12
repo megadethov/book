@@ -69,7 +69,20 @@ INSERT INTO test ( a, b ) VALUES ( 'one', 'two' );
 SELECT * FROM test;
 
 CREATE TABLE test ( a TEXT, b TEXT, c TEXT NOT NULL );
-# CREATE TABLE test ( a TEXT, b TEXT, c TEXT DEFAULT 'panda' ); --TEXT DEFAULT not work in MySQL
-CREATE TABLE test ( a TEXT, b TEXT, c INTEGER DEFAULT 0 );
-CREATE TABLE test ( a VARCHAR(125) UNIQUE, b TEXT, c INTEGER DEFAULT 0 );
-CREATE TABLE test ( a VARCHAR(125) UNIQUE NOT NULL, b TEXT, c INTEGER DEFAULT 0 );
+# CREATE TABLE test ( a TEXT, b TEXT, c TEXT DEFAULT 'panda' ); #TEXT DEFAULT not work in MySQL
+CREATE TABLE test ( a TEXT, b TEXT, c VARCHAR(125) DEFAULT 'panda' );
+CREATE TABLE test ( a VARCHAR(125) UNIQUE, b TEXT, c VARCHAR(125) DEFAULT 'panda' );
+CREATE TABLE test ( a VARCHAR(125) UNIQUE NOT NULL, c VARCHAR(125) DEFAULT 'panda' );
+
+-- 10 ALTER TABLE
+
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
+INSERT INTO test VALUES ( 'one', 'two', 'three');
+INSERT INTO test VALUES ( 'two', 'three', 'four');
+INSERT INTO test VALUES ( 'three', 'four', 'five');
+SELECT * FROM test;
+
+ALTER TABLE test ADD d TEXT;
+ALTER TABLE test ADD e VARCHAR(125) DEFAULT 'panda';
+
+DROP TABLE test;
