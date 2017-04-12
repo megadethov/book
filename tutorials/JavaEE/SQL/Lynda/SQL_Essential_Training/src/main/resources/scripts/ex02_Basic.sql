@@ -26,3 +26,10 @@ SELECT * FROM test;
 INSERT INTO test VALUES ( 1, 'This', 'Right here!' );
 INSERT INTO test ( b, c ) VALUES ( 'That', 'Over there!' );
 INSERT INTO test ( a, b, c ) SELECT id, name, description from item;
+
+-- 07 DELETE FROM--------------------------------------------------------
+
+SELECT * FROM test;
+DELETE FROM test WHERE a = 3;
+SELECT * FROM test WHERE a = 1;
+DELETE FROM test WHERE a = 1;
