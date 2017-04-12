@@ -61,3 +61,15 @@ INSERT INTO test ( b, c ) VALUES ( 'one', 'two' );
 INSERT INTO test ( a, c ) VALUES ( 1, 'two' );
 INSERT INTO test ( a, b ) VALUES ( 1, 'two' );
 DROP TABLE test;
+
+-- 09 Constraints-----------------------------------------------------------
+
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
+INSERT INTO test ( a, b ) VALUES ( 'one', 'two' );
+SELECT * FROM test;
+
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT NOT NULL );
+# CREATE TABLE test ( a TEXT, b TEXT, c TEXT DEFAULT 'panda' ); --TEXT DEFAULT not work in MySQL
+CREATE TABLE test ( a TEXT, b TEXT, c INTEGER DEFAULT 0 );
+CREATE TABLE test ( a VARCHAR(125) UNIQUE, b TEXT, c INTEGER DEFAULT 0 );
+CREATE TABLE test ( a VARCHAR(125) UNIQUE NOT NULL, b TEXT, c INTEGER DEFAULT 0 );
