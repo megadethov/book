@@ -148,3 +148,24 @@ SELECT Name FROM Country ORDER BY Name DESC;
 SELECT Name FROM Country ORDER BY Name ASC;
 SELECT Name, Continent FROM Country ORDER BY Continent, Name;
 SELECT Name, Continent, Region FROM Country ORDER BY Continent DESC, Region, Name;
+
+-- 15 CASE
+-- test.db
+
+CREATE TABLE booltest (a INTEGER, b INTEGER);
+INSERT INTO booltest VALUES (1, 0);
+SELECT * FROM booltest;
+
+SELECT
+  CASE WHEN a THEN 'true' ELSE 'false' END as boolA,
+  CASE WHEN b THEN 'true' ELSE 'false' END as boolB
+FROM booltest
+;
+
+SELECT
+  CASE a WHEN 1 THEN 'true' ELSE 'false' END AS boolA,
+  CASE b WHEN 1 THEN 'true' ELSE 'false' END AS boolB
+FROM booltest
+;
+
+DROP TABLE booltest;
