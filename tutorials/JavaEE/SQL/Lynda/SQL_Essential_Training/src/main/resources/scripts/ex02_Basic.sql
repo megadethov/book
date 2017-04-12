@@ -86,3 +86,15 @@ ALTER TABLE test ADD d TEXT;
 ALTER TABLE test ADD e VARCHAR(125) DEFAULT 'panda';
 
 DROP TABLE test;
+
+-- 11 ID------------------------------------------------------------
+
+CREATE TABLE test (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  a INTEGER,
+  b TEXT
+);
+INSERT INTO test (a, b) VALUES ( 10, 'a' );
+INSERT INTO test (a, b) VALUES ( 11, 'b' );
+INSERT INTO test (a, b) VALUES ( 12, 'c' );
+SELECT * FROM test;
