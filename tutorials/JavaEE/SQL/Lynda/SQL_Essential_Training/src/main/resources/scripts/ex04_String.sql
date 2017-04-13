@@ -16,3 +16,15 @@ SELECT released,
 FROM album
 ORDER BY released
 ;
+
+-- 04 TRIM----------------------------------------------------------------------------------
+-- :memory:
+
+SELECT '   string   ';
+SELECT TRIM('   string   ');
+SELECT LTRIM('   string   ');
+SELECT RTRIM('   string   ');
+SELECT '...string...';
+SELECT TRIM(LEADING '.' FROM '...string...');
+SELECT TRIM(BOTH '.' FROM '...string...');
+SELECT TRIM(TRAILING '.' FROM '...string...');
