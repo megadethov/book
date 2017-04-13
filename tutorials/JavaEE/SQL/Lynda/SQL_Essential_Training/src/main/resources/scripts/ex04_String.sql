@@ -28,3 +28,13 @@ SELECT '...string...';
 SELECT TRIM(LEADING '.' FROM '...string...');
 SELECT TRIM(BOTH '.' FROM '...string...');
 SELECT TRIM(TRAILING '.' FROM '...string...');
+
+-- 05 UPPER/LOWER---------------------------------------------------------------------------
+-- world.db
+
+SELECT 'StRiNg';
+SELECT 'StRiNg' = 'string';
+SELECT LOWER('StRiNg') = LOWER('string');
+SELECT UPPER('StRiNg') = UPPER('string');
+SELECT UPPER(Name) FROM City ORDER BY Name;
+SELECT LOWER(Name) FROM City ORDER BY Name;
