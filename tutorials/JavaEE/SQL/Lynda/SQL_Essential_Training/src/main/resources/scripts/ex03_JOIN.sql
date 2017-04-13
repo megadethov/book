@@ -36,3 +36,31 @@ JOIN right_table AS r ON l.id = r.id
 -- restore database
 DROP TABLE left_table;
 DROP TABLE right_table;
+
+-- 03 Junction Table---------------------------------------------------------------------------
+-- test.db
+
+SELECT * FROM customer;
+SELECT * FROM item;
+SELECT * FROM sale;
+
+SELECT c.name AS Cust, i.name AS Item, s.price AS Price
+FROM customer AS c
+  JOIN sale AS s ON s.customer_id = c.id
+  JOIN item AS i ON s.item_id = i.id
+ORDER BY Cust, Item
+;
+
+-- a customer without sales
+INSERT INTO customer (id, name ) VALUES (100, 'Jane Smith' );
+
+-- left joins
+SELECT c.name AS Cust, i.name AS Item, s.price AS Price
+FROM customer AS c
+  LEFT JOIN sale AS s ON s.customer_id = c.id
+  LEFT JOIN item AS i ON s.item_id = i.id
+ORDER BY Cust, Item
+;
+
+-- restore database
+DELETE FROM customer WHERE id = 100;
