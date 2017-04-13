@@ -12,3 +12,29 @@
            ( CAST(1 AS REAL) + CAST(2 AS REAL) ) as B );*/
 
 # todo it's not work with MySQL
+
+-- 02 typeof---------------------------------------------------------------------------------
+-- :memory:
+
+SELECT TYPEOF( 1 + 1 );
+SELECT TYPEOF( 1 + 1.0 );
+SELECT TYPEOF('panda');
+SELECT TYPEOF('panda' + 'koala');
+
+# todo it's not work with MySQL
+
+-- 03 INTEGER division----------------------------------------------------------------------
+-- :memory:
+
+SELECT 1 / 2;
+SELECT 1.0 / 2;
+SELECT 17 / 5;
+SELECT 17 / 5, 17 % 5;
+
+-- 04 ROUND()------------------------------------------------------------------------------
+-- :memory:
+
+SELECT 2.55555;
+SELECT ROUND(2.55555);
+SELECT ROUND(2.55555, 3);
+SELECT ROUND(2.55555, 0);
