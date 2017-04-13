@@ -139,7 +139,7 @@ SELECT DISTINCT a, b FROM test;
 
 DROP TABLE test;
 
--- 14 ORDER BY
+-- 14 ORDER BY---------------------------------------------------------------------------
 -- world.db
 
 SELECT Name FROM Country;
@@ -149,7 +149,7 @@ SELECT Name FROM Country ORDER BY Name ASC;
 SELECT Name, Continent FROM Country ORDER BY Continent, Name;
 SELECT Name, Continent, Region FROM Country ORDER BY Continent DESC, Region, Name;
 
--- 15 CASE
+-- 15 CASE------------------------------------------------------------------------------
 -- test.db
 
 CREATE TABLE booltest (a INTEGER, b INTEGER);
