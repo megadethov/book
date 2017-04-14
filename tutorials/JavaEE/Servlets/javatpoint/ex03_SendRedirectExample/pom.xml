@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega.javatpoint</groupId>
-    <artifactId>ex02_RequestDispatcherExample</artifactId>
+    <artifactId>ex03_SendRedirectExample</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>ex02_RequestDispatcherExample</name>
+    <name>ex03_SendRedirectExample</name>
 
     <properties>
         <maven.test.skip>false</maven.test.skip>
@@ -21,7 +21,7 @@
     <build>
         <!-- we dont want the version to be part of the generated war file name -->
         <!--<finalName>${project.artifactId}</finalName>-->
-        <finalName>demo</finalName>
+        <finalName>demo3</finalName>
 
         <plugins>
             <plugin>
