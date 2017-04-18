@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega.javatpoint</groupId>
-    <artifactId>ex04_Example_of_ServletConfig_to-get_initialization_parameter</artifactId>
+    <artifactId>ex10_Example_of_using_Hidden_Form_Field</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>ex04_Example_of_ServletConfig_to-get_initialization_parameter</name>
+    <name>ex10_Example_of_using_Hidden_Form_Field</name>
 
     <properties>
-        <maven.test.skip>false</maven.test.skip>
+        <maven.test.skip>true</maven.test.skip>
         <source-code.version>1.8</source-code.version>
         <source-code.encoding>UTF-8</source-code.encoding>
         <servlet-version>2.5</servlet-version>
@@ -21,7 +21,7 @@
     <build>
         <!-- we dont want the version to be part of the generated war file name -->
         <!--<finalName>${project.artifactId}</finalName>-->
-        <finalName>demo</finalName>
+        <finalName>hidden_demo</finalName>
 
         <plugins>
             <plugin>
