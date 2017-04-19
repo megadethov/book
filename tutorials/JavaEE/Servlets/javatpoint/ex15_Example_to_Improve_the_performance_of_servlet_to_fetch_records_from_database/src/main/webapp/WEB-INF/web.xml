@@ -9,12 +9,21 @@
     </listener>
     
     <servlet>
-        <servlet-name>fetchData</servlet-name>
-        <servlet-class>ua.mega.FetchData</servlet-class>
+        <servlet-name>myServlet1</servlet-name>
+        <servlet-class>ua.mega.MyServlet1</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>fetchData</servlet-name>
-        <url-pattern>/fetchData</url-pattern>
+        <servlet-name>myServlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>myServlet2</servlet-name>
+        <servlet-class>ua.mega.MyServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myServlet2</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
     </servlet-mapping>
 
 </web-app>
