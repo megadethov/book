@@ -10,7 +10,7 @@ public class EmpDao {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/xe", "root", "root");
         } catch (Exception e) {
             System.out.println(e);
         }
