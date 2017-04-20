@@ -14,7 +14,7 @@ public class MyListener implements ServletContextListener {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/xe", "root", "root");
 
-            PreparedStatement ps = con.prepareStatement("select * from csuser");
+            PreparedStatement ps = con.prepareStatement("select * from user905");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User u = new User();
