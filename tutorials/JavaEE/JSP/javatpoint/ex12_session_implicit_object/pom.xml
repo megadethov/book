@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega.javatpoint</groupId>
-    <artifactId>ex01_JSP_Scriptlet_tag</artifactId>
+    <artifactId>ex12_session_implicit_object</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>ex01_JSP_Scriptlet_tag</name>
+    <name>ex12_session_implicit_object</name>
 
     <properties>
         <maven.test.skip>false</maven.test.skip>
