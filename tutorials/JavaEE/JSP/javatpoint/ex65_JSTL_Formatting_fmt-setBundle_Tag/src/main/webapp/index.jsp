@@ -7,11 +7,10 @@
 </head>
 <body>
 
-<fmt:bundle basename="ua.mega.Main" prefix="colour.">
-    <fmt:message key="Violet"/><br/>
-    <fmt:message key="Indigo"/><br/>
-    <fmt:message key="Blue"/><br/>
-</fmt:bundle>
+<fmt:setBundle basename="com.javatpoint.Main" var="lang"/>
+<fmt:message key="vegetable.Potato" bundle="${lang}"/><br/>
+<fmt:message key="vegetable.Tomato" bundle="${lang}"/><br/>
+<fmt:message key="vegetable.Carrot" bundle="${lang}"/><br/>
 
 </body>
 </html>
