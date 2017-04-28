@@ -3,7 +3,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>fmt:timeZone Tag</title>
+    <title>JSTL XML</title>
 </head>
 <body>
 
@@ -11,10 +11,10 @@
 
 <c:set var="vegetable">
     <vegetables>
-       <vegetable>
-           <name>Onion</name>
-           <price>40/kg</price>
-       </vegetable>
+        <vegetable>
+            <name>Onion</name>
+            <price>40/kg</price>
+        </vegetable>
         <vegetable>
             <name>Potato</name>
             <price>30/kg</price>
