@@ -11,17 +11,9 @@
 
     <!-- Invoke 'Generate' action to add tags or functions -->
     <tag>
-        <name>pow</name>
-        <tag-class>ua.mega.PowerNumber</tag-class>
-        <body-content>tagdependent</body-content>
-        <attribute>
-            <name>number</name>
-            <required>true</required>
-        </attribute>
-        <attribute>
-            <name>power</name>
-            <required>true</required>
-        </attribute>
+        <name>today</name>
+        <tag-class>ua.mega.PrintDate</tag-class>
+        <body-content>empty</body-content>
     </tag>
 
 </taglib>
