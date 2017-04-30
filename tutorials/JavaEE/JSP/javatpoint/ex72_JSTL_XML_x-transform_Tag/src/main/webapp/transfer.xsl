@@ -3,7 +3,7 @@
     <xsl:template match="/">
         <html>
             <body>
-                <h2>Company's Employee detail</h2>
+                <h2>Company's ua.mega.beans.Emp detail</h2>
                 <table border="2">
                     <tr>
                         <th align="left">Name
