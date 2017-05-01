@@ -1,4 +1,4 @@
-package ua.mega.servlet;
+package ua.mega.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
