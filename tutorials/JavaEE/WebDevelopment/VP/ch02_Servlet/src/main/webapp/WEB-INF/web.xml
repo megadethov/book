@@ -12,4 +12,22 @@
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/hello-everyone.html</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisplayAllBooksServlet</servlet-name>
+        <servlet-class>ua.mega.servlets.DisplayAllBooksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayAllBooksServlet</servlet-name>
+        <url-pattern>/all-books.html</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FindBooksByAuthorServlet</servlet-name>
+        <servlet-class>ua.mega.servlets.FindBooksByAuthorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindBooksByAuthorServlet</servlet-name>
+        <url-pattern>/FindBooksByAuthor.html</url-pattern>
+    </servlet-mapping>
 </web-app>
