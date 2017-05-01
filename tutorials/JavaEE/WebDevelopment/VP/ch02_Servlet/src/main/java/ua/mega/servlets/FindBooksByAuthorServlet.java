@@ -27,7 +27,7 @@ public class FindBooksByAuthorServlet extends HttpServlet {
 
         // render the output
         out.print("<html><head><title>Our entire catalogue</title>");
-        out.print("<body><h1>Our entire catalogue</h1>");
+        out.print("<body><h1>Books by the Author " + author + "</h1>");
         out.print("<ul>");
         for (Book next : allBooksByAuthor) {
             out.print("<li>");
