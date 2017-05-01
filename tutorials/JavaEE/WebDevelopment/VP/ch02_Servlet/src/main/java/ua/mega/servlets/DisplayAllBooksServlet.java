@@ -13,12 +13,12 @@ import java.util.List;
 
 public class DisplayAllBooksServlet extends HttpServlet {
     @Override
-    public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
         resp.setContentType("text/html");
 
         // do some work
-        BookService bookService = new BookService();
+        BookService bookService = BookService.getService();
         List<Book> allBooks = bookService.getEntireCatalogue();
         // output the result page
         out.print("<html><head><title>Our entire catalogue</title>");

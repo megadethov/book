@@ -30,4 +30,16 @@
         <servlet-name>FindBooksByAuthorServlet</servlet-name>
         <url-pattern>/FindBooksByAuthor.html</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AddNewBookServlet</servlet-name>
+        <servlet-class>ua.mega.servlets.AddNewBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNewBookServlet</servlet-name>
+        <url-pattern>/AddNewBook.html</url-pattern>
+    </servlet-mapping>
+
+    
+    
 </web-app>
