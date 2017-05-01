@@ -5,19 +5,19 @@ public class Book {
     private String isbn;
     private String title;
     private String author;
-    private String price;
+    private double price;
 
     public Book() {
     }
 
-    public Book(String isbn, String title, String author, String price) {
+    public Book(String isbn, String title, String author, double price) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.price = price;
     }
 
-    public Book(int id, String isbn, String title, String author, String price) {
+    public Book(int id, String isbn, String title, String author, double price) {
         this(isbn, title, author, price);
         this.id = id;
     }
@@ -59,11 +59,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
