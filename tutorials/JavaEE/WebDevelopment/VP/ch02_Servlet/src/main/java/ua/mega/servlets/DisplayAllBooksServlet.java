@@ -27,6 +27,11 @@ public class DisplayAllBooksServlet extends HttpServlet {
         for (Book next : allBooks) {
             out.print("<li>");
             out.print(next.getTitle());
+            // add to Card
+            out.print("<form method='post' action='AddBookToCard.html'>");
+            out.print("<input type='hidden' name='id' value=' " + next.getId() + " ' >");
+            out.print("<input type='submit' value='Add Book to Card'>");
+            out.print("</form>");
             out.print("</li>");
         }
         out.print("</ul>");
