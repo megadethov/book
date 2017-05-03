@@ -33,6 +33,11 @@ public class AddToCartServlet extends HttpServlet {
         session.setAttribute("cart", cart);
         out.print("<h1>Thank you</h1><p>You have added the book to your cart</p>");
 
+        String url = "viewCart.html";
+        url = resp.encodeURL(url);
+
+        out.print("<a href='" + url + "'>Click here to visit your Cart</a>");
+
         out.close();
     }
 }
