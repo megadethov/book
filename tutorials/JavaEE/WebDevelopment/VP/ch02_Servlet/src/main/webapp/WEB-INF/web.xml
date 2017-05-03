@@ -58,6 +58,8 @@
         <url-pattern>/viewCart.html</url-pattern>
     </servlet-mapping>
 
-    
+    <session-config>
+        <session-timeout>4000</session-timeout> <!-- (0) - never expired session -->
+    </session-config>
     
 </web-app>
