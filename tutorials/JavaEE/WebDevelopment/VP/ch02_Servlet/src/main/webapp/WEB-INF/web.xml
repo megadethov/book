@@ -40,6 +40,24 @@
         <url-pattern>/AddNewBook.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>ua.mega.servlets.AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCart.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <servlet-class>ua.mega.servlets.ViewCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <url-pattern>/viewCart.html</url-pattern>
+    </servlet-mapping>
+
     
     
 </web-app>

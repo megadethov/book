@@ -1,6 +1,7 @@
 package ua.mega.domain;
 
 public class Book {
+    private static int nextId = 1;
     private int id;
     private String isbn;
     private String title;
@@ -11,15 +12,11 @@ public class Book {
     }
 
     public Book(String isbn, String title, String author, double price) {
+        this.id = nextId++;
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.price = price;
-    }
-
-    public Book(int id, String isbn, String title, String author, double price) {
-        this(isbn, title, author, price);
-        this.id = id;
     }
 
     @Override
