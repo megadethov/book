@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 
@@ -18,7 +19,7 @@
                 <h2>${nextBook.title}</h2>
                 <p>
 					<span> by ${nextBook.author}>
-					       $${nextBook.price}
+					     <fmt:formatNumber type="currency" currencyCode="USD" value="${nextBook.price}"/>
 				
 					<form method='post' action='<c:url value="AddToCart.html"/> '>
 						<input type='hidden' name='id' value='${nextBook.id}'/>
