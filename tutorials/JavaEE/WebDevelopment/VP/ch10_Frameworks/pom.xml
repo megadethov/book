@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega</groupId>
-    <artifactId>ch09_JSTL</artifactId>
+    <artifactId>ch10_Frameworks</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>ch09_JSTL</name>
+    <name>ch10_Frameworks</name>
 
     <properties>
         <maven.test.skip>false</maven.test.skip>
