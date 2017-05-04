@@ -3,9 +3,7 @@ package ua.mega.servlets;
 import ua.mega.domain.Book;
 import ua.mega.services.BookService;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +14,8 @@ public class AddNewBookServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        PrintWriter out = res.getWriter();
-        res.setContentType("text/html");
 
+        // do the work and render a response.
         String isbn = req.getParameter("isbn");
         String title = req.getParameter("title");
         String author = req.getParameter("author");
@@ -29,11 +26,9 @@ public class AddNewBookServlet extends HttpServlet {
         BookService service = BookService.getService();
         service.registerNewBook(newBook);
 
-        // render response
-        out.print("<html><head><title>Add new Book</title>");
-        out.print("<body><h1>Book " + title + " has added</h1>");
-        out.print("</body></html>");
-
-        out.close();
+        // Forward to a JSP page to inform the user all is well
+        ServletContext context = req.getServletContext();
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/book-added.jsp");
+        dispatcher.forward(req, res);
     }
 }
