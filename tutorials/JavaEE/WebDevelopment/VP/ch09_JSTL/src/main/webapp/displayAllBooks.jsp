@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
 
@@ -16,7 +17,7 @@
     <ul>
         <c:forEach items="${allBooks}" var="nextBook">
             <li>
-                <h2>${nextBook.title}</h2>
+                <h2>${fn:toUpperCase(nextBook.title)}</h2>
                 <p>
 					<span> by ${nextBook.author}>
 					     <fmt:formatNumber type="currency" currencyCode="USD" value="${nextBook.price}"/>
