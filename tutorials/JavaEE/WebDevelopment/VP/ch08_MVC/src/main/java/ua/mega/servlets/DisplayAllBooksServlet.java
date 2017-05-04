@@ -3,6 +3,8 @@ package ua.mega.servlets;
 import ua.mega.domain.Book;
 import ua.mega.services.BookService;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,12 @@ public class DisplayAllBooksServlet extends HttpServlet {
         BookService bookService = BookService.getService();
         List<Book> allBooks = bookService.getEntireCatalogue();
 
-        // forward to the displayAllBooks.jsp page to display the results
+        //store all books inside an attribute
+        req.setAttribute("allBooks", allBooks);
 
+        // forward to the displayAllBooks.jsp page to display the results
+        ServletContext context = req.getServletContext();
+        RequestDispatcher dispatcher = context.getRequestDispatcher("/displayAllBooks.jsp");
+        dispatcher.forward(req, resp);
     }
 }

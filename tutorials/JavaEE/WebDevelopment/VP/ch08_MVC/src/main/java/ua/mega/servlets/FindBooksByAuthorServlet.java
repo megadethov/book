@@ -3,9 +3,7 @@ package ua.mega.servlets;
 import ua.mega.domain.Book;
 import ua.mega.services.BookService;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,29 +15,23 @@ public class FindBooksByAuthorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        resp.setContentType("text/html");
 
         // do the work - find all books by the supplied author
         BookService service = BookService.getService();
-
         // form handling - extracting a parameter from the form
         String author = req.getParameter("author");
 
-        List<Book> allBooksByAuthor = service.getAllBooksByAuthor(author);
+        String targetPage;
 
-        // render the output
-        out.print("<html><head><title>Books by the Author</title>");
-        out.print("<body><h1>Books by the Author " + author + "</h1>");
-        out.print("<ul>");
-        for (Book next : allBooksByAuthor) {
-            out.print("<li>");
-            out.print(next.getTitle());
-            out.print("</li>");
+        if (author.trim().equals("")) {
+            req.setAttribute("message", "Please, fill in a name of the author");
+            targetPage = "/findByAuthor.jsp";
+        } else {
+            List<Book> allBooksByAuthor = service.getAllBooksByAuthor(author);
+            req.setAttribute("allBooksByAuthor", allBooksByAuthor);
+            targetPage = "/find-books-results.jsp";
         }
-        out.print("</ul>");
-        out.print("</body></html>");
-
-        out.close();
+        RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher(targetPage);
+        dispatcher.forward(req, resp);
     }
 }
