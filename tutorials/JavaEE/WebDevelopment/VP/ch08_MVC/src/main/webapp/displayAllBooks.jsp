@@ -27,7 +27,7 @@
 					<span> by  <%= nextBook.getAuthor() %>  
 					       $<%= nextBook.getPrice() %>			
 				
-					<form method='post' action='addToCart.html'>
+					<form method='post' action='AddToCart.html'>
 						<input type='hidden' name='id' value='<%= nextBook.getId() %>'/>
 						<input type='image' src='cart-button.png'/>
 				    </form>

@@ -15,12 +15,12 @@
     <ul>
         <c:forEach items="${allBooks}" var="nextBook">
             <li>
-                <h2><c:out value="${nextBook.title}"/></h2>
+                <h2>${nextBook.title}</h2>
                 <p>
-					<span> by <c:out value="${nextBook.author}"/>
-					       $<c:out value="${nextBook.price}"/>
+					<span> by ${nextBook.author}>
+					       $${nextBook.price}
 				
-					<form method='post' action='addToCart.html'>
+					<form method='post' action='<c:url value="AddToCart.html"/> '>
 						<input type='hidden' name='id' value='${nextBook.id}'/>
 						<input type='image' src='cart-button.png'/>
 				    </form>
