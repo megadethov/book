@@ -21,7 +21,7 @@
     <build>
         <!-- we dont want the version to be part of the generated war file name -->
         <!--<finalName>${project.artifactId}</finalName>-->
-        <finalName>mywebapp</finalName>
+        <finalName>mywebapp2</finalName>
 
         <plugins>
             <plugin>

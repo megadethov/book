@@ -21,14 +21,20 @@ public class AddNewBookServlet extends HttpServlet {
         String author = req.getParameter("author");
         double price = Double.parseDouble(req.getParameter("price"));
 
-        Book newBook = new Book(isbn, title, author, price);
+        String targetPage;
 
-        BookService service = BookService.getService();
-        service.registerNewBook(newBook);
+        if (isbn.trim().equals("") || title.trim().equals("") || author.equals("")) {
+            targetPage = "/add-new-book.jsp";
+        } else {
+            Book newBook = new Book(isbn, title, author, price);
+            BookService service = BookService.getService();
+            service.registerNewBook(newBook);
+            targetPage = "/book-added.jsp";
+        }
 
         // Forward to a JSP page to inform the user all is well
         ServletContext context = req.getServletContext();
-        RequestDispatcher dispatcher = context.getRequestDispatcher("/book-added.jsp");
+        RequestDispatcher dispatcher = context.getRequestDispatcher(targetPage);
         dispatcher.forward(req, res);
     }
 }
