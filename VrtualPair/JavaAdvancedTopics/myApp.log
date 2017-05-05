@@ -1,0 +1,7 @@
+
+2017-05-05 20:32:53,082 FATAL Main [main] Fatal event 
+2017-05-05 20:32:53,088 ERROR Main [main] Error event 
+2017-05-05 20:32:53,088 WARN Main [main] Warn event 
+2017-05-05 20:32:53,089 INFO Main [main] Info event 
+2017-05-05 20:32:53,090 OFF Main [main] Off event 
+2017-05-05 20:33:31,120 OFF Main [main] Off event 

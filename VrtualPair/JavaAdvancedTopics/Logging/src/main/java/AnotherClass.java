@@ -8,6 +8,10 @@ public class AnotherClass {
 
     public void testMethod() {
         logger.log(Level.FATAL, "Fatal event");
+        logger.log(Level.ERROR, "Error event");
+        logger.log(Level.WARN, "Warn event");
         logger.log(Level.INFO, "Info event");
+        logger.log(Level.DEBUG, "Debug event");
+        logger.log(Level.TRACE, "Trace event");
     }
 }
