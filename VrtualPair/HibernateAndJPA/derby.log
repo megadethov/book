@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Sun May 07 12:54:04 EEST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-015b-e254-8ed4-00000365aae0 
-on database directory D:\java\book\VrtualPair\HibernateAndJPA\db-derby\bin\MyDatabase  with class loader sun.misc.Launcher$AppClassLoader@14dad5dc 
+Sun May 07 14:17:04 EEST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-015b-e2a0-8a50-0000035c6378 
+on database directory D:\java\book\VrtualPair\HibernateAndJPA\MyDatabase  with class loader sun.misc.Launcher$AppClassLoader@14dad5dc 
 Loaded from file:/D:/java/soft/Maven_repo/org/apache/derby/derby/10.8.3.0/derby-10.8.3.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_66-b17
