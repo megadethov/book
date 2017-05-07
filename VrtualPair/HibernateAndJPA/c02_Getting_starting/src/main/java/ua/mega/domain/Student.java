@@ -18,6 +18,7 @@ public class Student {
     private String enrollmentID;
     private String name;
     private String tutorName; // This will become a class soon
+    private int numberOfCourses;
 
     /**
      * Required by Hibernate
