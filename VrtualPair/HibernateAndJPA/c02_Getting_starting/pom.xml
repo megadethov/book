@@ -13,6 +13,9 @@
         <maven.test.skip>true</maven.test.skip>
         <source-code.version>1.8</source-code.version>
         <source-code.encoding>UTF-8</source-code.encoding>
+        <hibernate-version>4.3.8.Final</hibernate-version>
+        <slf4j-version>1.7.25</slf4j-version>
+        <log4j-version>1.2.17</log4j-version>
     </properties>
 
     <build>
@@ -35,7 +38,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.8.Final</version>
+            <version>${hibernate-version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
@@ -43,6 +46,27 @@
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
             <version>10.8.3.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j-version}</version>
         </dependency>
 
     </dependencies>
