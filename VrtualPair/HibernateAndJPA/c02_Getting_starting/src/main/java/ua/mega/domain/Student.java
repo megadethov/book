@@ -1,15 +1,13 @@
 package ua.mega.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Represents a Student enrolled in the college management
  * system (CMS)
  */
 @Entity
+@Table(name = "TBL_STUDENT")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +16,9 @@ public class Student {
     private String enrollmentID;
     private String name;
     private String tutorName; // This will become a class soon
-    private int numberOfCourses;
+
+    @Column(name = "NUM_COURSES")
+    private Integer numberOfCourses;
 
     /**
      * Required by Hibernate
@@ -40,6 +40,7 @@ public class Student {
     public Student(String name) {
         this.name = name;
         this.tutorName = null;
+        this.numberOfCourses = 7;
     }
 
     public double calculateGradePointAverage() {
