@@ -21,9 +21,9 @@ public class HibernateTestHarness {
         Session session = sf.openSession();
 
         Transaction tx = session.beginTransaction();
-        Student myStudent = (Student) session.get(Student.class, 2);
-        session.delete(myStudent);
-        System.out.println(myStudent);
+
+        Student myStudent = (Student) session.get(Student.class, 3);
+        myStudent.setTutorName("Dave Salo");
 
         tx.commit();
         session.close();
