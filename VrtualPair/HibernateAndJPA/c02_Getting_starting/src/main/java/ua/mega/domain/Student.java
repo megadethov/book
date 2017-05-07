@@ -16,6 +16,7 @@ public class Student {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name="TUTOR_FK")
     private Tutor supervisor;
 
     /**
@@ -62,5 +63,9 @@ public class Student {
     }
     public String getSupervisorName(){
         return this.supervisor.getName();
+    }
+
+    public Tutor getSupervisor() {
+        return this.supervisor;
     }
 }
