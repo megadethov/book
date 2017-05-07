@@ -22,6 +22,8 @@
         <property name="hbm2ddl.auto">update</property>
 
    		<mapping class="ua.mega.domain.Student"/>
+   		<mapping class="ua.mega.domain.Tutor"/>
+
     </session-factory>
 
 </hibernate-configuration>

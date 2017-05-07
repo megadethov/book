@@ -7,7 +7,6 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
-@Table(name = "TBL_STUDENT")
 public class Student {
     // if we're prefer using property access, add annotation to getters (+ we can add logic to get-set method)
     @Id
@@ -15,13 +14,9 @@ public class Student {
     private int id;
     private String enrollmentID;
     private String name;
-    private String tutorName; // This will become a class soon
 
-    @Column(name = "NUM_COURSES")
-    private Integer numberOfCourses;
-
-    @Transient
-    private double averageScoreAcrossAllExam;
+    @ManyToOne
+    private Tutor supervisor;
 
     /**
      * Required by Hibernate
@@ -32,9 +27,9 @@ public class Student {
     /**
      * Initialises a student with a particular tutor
      */
-    public Student(String name, String tutorName) {
+    public Student(String name, Tutor supervisor) {
         this.name = name;
-        this.tutorName = tutorName;
+        this.supervisor = supervisor;
     }
 
     /**
@@ -42,8 +37,7 @@ public class Student {
      */
     public Student(String name) {
         this.name = name;
-        this.tutorName = null;
-        this.numberOfCourses = 7;
+        this.supervisor = null;
     }
 
     public double calculateGradePointAverage() {
@@ -59,44 +53,14 @@ public class Student {
         return this.name;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getEnrollmentID() {
-        return enrollmentID;
+    public void allocateSupervisor(Tutor newSuperviser) {
+        this.supervisor = newSuperviser;
     }
-
-    public void setEnrollmentID(String enrollmentID) {
-        this.enrollmentID = enrollmentID;
-    }
-
-    public String getName() {
-        return name.toUpperCase();
-    }
-
-    public void setName(String name) {
-        this.name = name.toUpperCase();
-    }
-
-    public String getTutorName() {
-        return tutorName;
-    }
-
-    public void setTutorName(String tutorName) {
-        this.tutorName = tutorName;
-    }
-
-
-    public Integer getNumberOfCourses() {
-        return numberOfCourses;
-    }
-
-    public void setNumberOfCourses(Integer numberOfCourses) {
-        this.numberOfCourses = numberOfCourses;
+    public String getSupervisorName(){
+        return this.supervisor.getName();
     }
 }
