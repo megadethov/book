@@ -9,15 +9,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "TBL_STUDENT")
 public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    // if we're prefer using property access, add annotation to getters (+ we can add logic to get-set method)
     private int id;
-
     private String enrollmentID;
     private String name;
     private String tutorName; // This will become a class soon
-
-    @Column(name = "NUM_COURSES")
     private Integer numberOfCourses;
 
     /**
@@ -56,6 +52,8 @@ public class Student {
         return this.name;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -73,11 +71,11 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return name.toUpperCase();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.toUpperCase();
     }
 
     public String getTutorName() {
@@ -86,5 +84,20 @@ public class Student {
 
     public void setTutorName(String tutorName) {
         this.tutorName = tutorName;
+    }
+
+    @Column(name = "NUM_COURSES")
+    public Integer getNumberOfCourses() {
+        return numberOfCourses;
+    }
+
+    public void setNumberOfCourses(Integer numberOfCourses) {
+        this.numberOfCourses = numberOfCourses;
+    }
+
+    @Transient
+    public double getAverageScoreAcrossAllExam() {
+        // do some calculations
+        return 0.0;
     }
 }
