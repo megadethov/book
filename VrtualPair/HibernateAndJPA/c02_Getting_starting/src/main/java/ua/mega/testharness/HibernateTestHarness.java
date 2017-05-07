@@ -10,12 +10,10 @@ import ua.mega.domain.Student;
 
 public class HibernateTestHarness {
 
-  private static SessionFactory sessionFactory = null;
+    private static SessionFactory sessionFactory = null;
 
     public static void main(String[] args) {
         Student testStudent = new Student("Jessica Ennis", "Toni Minichiello");
-
-        System.out.println("The student has an id of: " + testStudent.getId());
 
         // save the student to the database
 
@@ -23,17 +21,15 @@ public class HibernateTestHarness {
         Session session = sf.openSession();
 
         Transaction tx = session.beginTransaction();
-        session.save(testStudent);
-
-        System.out.println("The student has an id of: " + testStudent.getId());
+        Student myStudent = (Student) session.get(Student.class, 1);
+        System.out.println(myStudent);
 
         tx.commit();
         session.close();
     }
 
     public static SessionFactory getSessionFactory() {
-        if (sessionFactory == null)
-        {
+        if (sessionFactory == null) {
             Configuration configuration = new Configuration();
             configuration.configure();
 
