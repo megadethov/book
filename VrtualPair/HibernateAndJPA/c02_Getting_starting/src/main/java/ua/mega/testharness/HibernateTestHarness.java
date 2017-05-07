@@ -32,11 +32,9 @@ public class HibernateTestHarness {
         Student foundStudent = (Student) session.get(Student.class, 1);
         System.out.println(foundStudent);
 
-        System.out.println(foundStudent.getSupervisorName());
+        Tutor supervisor = (Tutor) session.get(Tutor.class, 2);
 
-        Tutor supervisor = foundStudent.getSupervisor();
-
-        System.out.println(supervisor.getName());
+        foundStudent.allocateSupervisor(supervisor);
 
         tx.commit();
         session.close();
