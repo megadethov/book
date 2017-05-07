@@ -14,7 +14,8 @@ public class HibernateTestHarness {
 
     public static void main(String[] args) {
         Student testStudent = new Student("Jessica Ennis", "Toni Minichiello");
-        System.out.println(testStudent + "has a grade point avarage of " + testStudent.calculateGradePointAverage());
+
+        System.out.println("The student has an id of: " + testStudent.getId());
 
         // save the student to the database
 
@@ -23,6 +24,9 @@ public class HibernateTestHarness {
 
         Transaction tx = session.beginTransaction();
         session.save(testStudent);
+
+        System.out.println("The student has an id of: " + testStudent.getId());
+
         tx.commit();
         session.close();
     }
