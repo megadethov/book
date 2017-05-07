@@ -10,11 +10,18 @@ import javax.persistence.*;
 @Table(name = "TBL_STUDENT")
 public class Student {
     // if we're prefer using property access, add annotation to getters (+ we can add logic to get-set method)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String enrollmentID;
     private String name;
     private String tutorName; // This will become a class soon
+
+    @Column(name = "NUM_COURSES")
     private Integer numberOfCourses;
+
+    @Transient
+    private double averageScoreAcrossAllExam;
 
     /**
      * Required by Hibernate
@@ -52,8 +59,6 @@ public class Student {
         return this.name;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -86,18 +91,12 @@ public class Student {
         this.tutorName = tutorName;
     }
 
-    @Column(name = "NUM_COURSES")
+
     public Integer getNumberOfCourses() {
         return numberOfCourses;
     }
 
     public void setNumberOfCourses(Integer numberOfCourses) {
         this.numberOfCourses = numberOfCourses;
-    }
-
-    @Transient
-    public double getAverageScoreAcrossAllExam() {
-        // do some calculations
-        return 0.0;
     }
 }
