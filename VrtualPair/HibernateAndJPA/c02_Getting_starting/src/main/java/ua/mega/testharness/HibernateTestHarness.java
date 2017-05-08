@@ -31,7 +31,7 @@ public class HibernateTestHarness {
         // print out the supervisor
         System.out.println(myStudent.getSupervisorName());*/
 
-        /*Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
+        Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
 
         Student student1 = new Student("Rebecca Soni");
         Student student2 = new Student("Zou Kai");
@@ -49,9 +49,9 @@ public class HibernateTestHarness {
         Set<Student> students = newTutor.getSupervisionGroup();
         for (Student next : students) {
             System.out.println(next);
-        }*/
+        }
 
-        Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
+/*        Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
         Set<Student> students = myTutor.getSupervisionGroup();
 
         for (Student next : students) {
@@ -61,7 +61,7 @@ public class HibernateTestHarness {
         Student student = new Student("Cullen Jones");
         session.save(student);
 
-        myTutor.addStudentToSupervisionGroup(student);
+        myTutor.addStudentToSupervisionGroup(student);*/
 
         tx.commit();
         session.close();
