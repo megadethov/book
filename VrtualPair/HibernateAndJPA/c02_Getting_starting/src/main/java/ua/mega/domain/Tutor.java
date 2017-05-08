@@ -15,9 +15,9 @@ public class Tutor {
     private int salary;
 
     @OneToMany
-    @MapKey(name = "enrollmentID")
+    @OrderBy("name")
     @JoinColumn(name="TUTOR_FK")
-    private Map<String, Student> supervisionGroup;
+    private List<Student> supervisionGroup;
 
     public Tutor() {
     }
@@ -26,19 +26,19 @@ public class Tutor {
         this.staffId = staffId;
         this.name = name;
         this.salary = salary;
-        this.supervisionGroup = new HashMap<String, Student>();
+        this.supervisionGroup = new ArrayList<Student>();
     }
 
     public String getName() {
         return name;
     }
 
-    public Map<String, Student> getSupervisionGroup() {
-        Map<String, Student> unmodifiable = Collections.unmodifiableMap(this.supervisionGroup);
+    public List<Student> getSupervisionGroup() {
+        List<Student> unmodifiable = Collections.unmodifiableList(this.supervisionGroup);
         return unmodifiable;
     }
 
     public void addStudentToSupervisionGroup(Student studentToAdd) {
-        this.supervisionGroup.put(studentToAdd.getEnrollmentId(), studentToAdd);
+        this.supervisionGroup.add(studentToAdd);
     }
 }

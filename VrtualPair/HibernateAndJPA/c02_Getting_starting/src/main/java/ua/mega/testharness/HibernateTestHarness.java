@@ -9,6 +9,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import ua.mega.domain.Student;
 import ua.mega.domain.Tutor;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,7 +33,7 @@ public class HibernateTestHarness {
         // print out the supervisor
         System.out.println(myStudent.getSupervisorName());*/
 
-/*        Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
+      /*  Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
 
         Student student1 = new Student("Rebecca Soni", "1-SON-2012");
         Student student2 = new Student("Zou Kai", "2-ZOU-2009");
@@ -48,13 +49,13 @@ public class HibernateTestHarness {
         newTutor.addStudentToSupervisionGroup(student3);*/
 
         Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
-        Map<String, Student> students = myTutor.getSupervisionGroup();
+        List<Student> students = myTutor.getSupervisionGroup();
 
-        for (Student next : students.values()) {
+        for (Student next : students) {
             System.out.println(next);
         }
 
-        Student requiredStudent = students.get("2-ZOU-2009");
+        Student requiredStudent = students.get(0);
         System.out.println("Found the student " + requiredStudent);
 
         tx.commit();
