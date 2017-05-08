@@ -1,9 +1,6 @@
 package ua.mega.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +16,7 @@ public class Tutor {
     private String name;
     private int salary;
 
+    @OneToMany
     private Set<Student> supervisionGroup;
 
     public Tutor() {
