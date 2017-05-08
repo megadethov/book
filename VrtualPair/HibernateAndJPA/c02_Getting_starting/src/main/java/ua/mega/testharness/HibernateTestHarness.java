@@ -48,12 +48,21 @@ public class HibernateTestHarness {
         newTutor.addStudentToSupervisionGroup(student2);
         newTutor.addStudentToSupervisionGroup(student3);
 
-       /* Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
+        //Init Many-to-one relation
+        student1.allocateSupervisor(newTutor);
+        System.out.println(student1.getSupervisorName());
+        student2.allocateSupervisor(newTutor);
+        System.out.println(student2.getSupervisorName());
+        student3.allocateSupervisor(newTutor);
+        System.out.println(student3.getSupervisorName());
+
+        //Init One-to-many relation
+        Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
         Set<Student> students = myTutor.getSupervisionGroup();
 
         for (Student next : students) {
             System.out.println(next);
-        }*/
+        }
 
         tx.commit();
         session.close();
