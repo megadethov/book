@@ -1,9 +1,7 @@
 package ua.mega.domain;
 
 import javax.persistence.*;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Tutor {
@@ -17,8 +15,9 @@ public class Tutor {
     private int salary;
 
     @OneToMany
+    @MapKey(name = "enrollmentID")
     @JoinColumn(name="TUTOR_FK")
-    private Set<Student> supervisionGroup;
+    private Map<String, Student> supervisionGroup;
 
     public Tutor() {
     }
@@ -27,19 +26,19 @@ public class Tutor {
         this.staffId = staffId;
         this.name = name;
         this.salary = salary;
-        this.supervisionGroup = new HashSet<Student>();
+        this.supervisionGroup = new HashMap<String, Student>();
     }
 
     public String getName() {
         return name;
     }
 
-    public Set<Student> getSupervisionGroup() {
-        Set<Student> unmodifiable = Collections.unmodifiableSet(this.supervisionGroup);
+    public Map<String, Student> getSupervisionGroup() {
+        Map<String, Student> unmodifiable = Collections.unmodifiableMap(this.supervisionGroup);
         return unmodifiable;
     }
 
     public void addStudentToSupervisionGroup(Student studentToAdd) {
-        this.supervisionGroup.add(studentToAdd);
+        this.supervisionGroup.put(studentToAdd.getEnrollmentId(), studentToAdd);
     }
 }

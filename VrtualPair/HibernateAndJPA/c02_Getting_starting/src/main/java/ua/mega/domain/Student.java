@@ -36,8 +36,9 @@ public class Student {
     /**
      * Initialises a student with no pre set tutor
      */
-    public Student(String name) {
+    public Student(String name, String enrollmentID) {
         this.name = name;
+        this.enrollmentID = enrollmentID;
 //        this.supervisor = null;
     }
 
@@ -56,6 +57,10 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEnrollmentId() {
+        return this.enrollmentID;
     }
 
 //    public void allocateSupervisor(Tutor newSuperviser) {

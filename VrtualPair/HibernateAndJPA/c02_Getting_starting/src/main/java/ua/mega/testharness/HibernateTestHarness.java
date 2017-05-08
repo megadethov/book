@@ -9,6 +9,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import ua.mega.domain.Student;
 import ua.mega.domain.Tutor;
 
+import java.util.Map;
 import java.util.Set;
 
 public class HibernateTestHarness {
@@ -31,11 +32,11 @@ public class HibernateTestHarness {
         // print out the supervisor
         System.out.println(myStudent.getSupervisorName());*/
 
-        Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
+/*        Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
 
-        Student student1 = new Student("Rebecca Soni");
-        Student student2 = new Student("Zou Kai");
-        Student student3 = new Student("Chris Hoy");
+        Student student1 = new Student("Rebecca Soni", "1-SON-2012");
+        Student student2 = new Student("Zou Kai", "2-ZOU-2009");
+        Student student3 = new Student("Chris Hoy", "3-HOY-1997");
 
         session.save(student1);
         session.save(student2);
@@ -44,24 +45,17 @@ public class HibernateTestHarness {
 
         newTutor.addStudentToSupervisionGroup(student1);
         newTutor.addStudentToSupervisionGroup(student2);
-        newTutor.addStudentToSupervisionGroup(student3);
+        newTutor.addStudentToSupervisionGroup(student3);*/
 
-        Set<Student> students = newTutor.getSupervisionGroup();
-        for (Student next : students) {
+        Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
+        Map<String, Student> students = myTutor.getSupervisionGroup();
+
+        for (Student next : students.values()) {
             System.out.println(next);
         }
 
-/*        Tutor myTutor = (Tutor) session.get(Tutor.class, 1);
-        Set<Student> students = myTutor.getSupervisionGroup();
-
-        for (Student next : students) {
-            System.out.println(next);
-        }
-
-        Student student = new Student("Cullen Jones");
-        session.save(student);
-
-        myTutor.addStudentToSupervisionGroup(student);*/
+        Student requiredStudent = students.get("2-ZOU-2009");
+        System.out.println("Found the student " + requiredStudent);
 
         tx.commit();
         session.close();
