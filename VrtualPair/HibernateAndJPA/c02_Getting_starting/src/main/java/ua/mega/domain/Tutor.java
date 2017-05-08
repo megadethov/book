@@ -14,10 +14,8 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany
-    @OrderBy("name")
-    @JoinColumn(name="TUTOR_FK")
-    private List<Student> supervisionGroup;
+    @OneToMany(mappedBy = "supervisor")
+    private Set<Student> supervisionGroup;
 
     public Tutor() {
     }
@@ -26,15 +24,15 @@ public class Tutor {
         this.staffId = staffId;
         this.name = name;
         this.salary = salary;
-        this.supervisionGroup = new ArrayList<Student>();
+        this.supervisionGroup = new HashSet<Student>();
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Student> getSupervisionGroup() {
-        List<Student> unmodifiable = Collections.unmodifiableList(this.supervisionGroup);
+    public Set<Student> getSupervisionGroup() {
+        Set<Student> unmodifiable = Collections.unmodifiableSet(this.supervisionGroup);
         return unmodifiable;
     }
 

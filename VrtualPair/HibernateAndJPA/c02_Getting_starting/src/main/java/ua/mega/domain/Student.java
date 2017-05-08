@@ -15,9 +15,9 @@ public class Student {
     private String enrollmentID;
     private String name;
 
-//    @ManyToOne
-//    @JoinColumn(name="TUTOR_FK")
-//    private Tutor supervisor;
+    @ManyToOne
+    @JoinColumn(name="TUTOR_FK")
+    private Tutor supervisor;
 
     /**
      * Required by Hibernate
@@ -28,10 +28,10 @@ public class Student {
     /**
      * Initialises a student with a particular tutor
      */
-//    public Student(String name, Tutor supervisor) {
-//        this.name = name;
-//        this.supervisor = supervisor;
-//    }
+    public Student(String name, Tutor supervisor) {
+        this.name = name;
+        this.supervisor = supervisor;
+    }
 
     /**
      * Initialises a student with no pre set tutor
@@ -63,14 +63,14 @@ public class Student {
         return this.enrollmentID;
     }
 
-//    public void allocateSupervisor(Tutor newSuperviser) {
-//        this.supervisor = newSuperviser;
-//    }
-//    public String getSupervisorName(){
-//        return this.supervisor.getName();
-//    }
-//
-//    public Tutor getSupervisor() {
-//        return this.supervisor;
-//    }
+    public void allocateSupervisor(Tutor newSuperviser) {
+        this.supervisor = newSuperviser;
+    }
+    public String getSupervisorName(){
+        return this.supervisor.getName();
+    }
+
+    public Tutor getSupervisor() {
+        return this.supervisor;
+    }
 }
