@@ -17,6 +17,9 @@ public class Tutor {
     @OneToMany(mappedBy = "supervisor")
     private Set<Student> supervisionGroup;
 
+    @ManyToMany(mappedBy = "qualifiedTutors")
+    private Set<Subject> subjectsQualifiedToTeach;
+
     public Tutor() {
     }
 
@@ -25,6 +28,12 @@ public class Tutor {
         this.name = name;
         this.salary = salary;
         this.supervisionGroup = new HashSet<Student>();
+        subjectsQualifiedToTeach = new HashSet<>();
+    }
+
+    public void addSubjectToQualifications(Subject subject)
+    {
+        this.subjectsQualifiedToTeach.add(subject);
     }
 
     public String getName() {

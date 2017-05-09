@@ -23,6 +23,7 @@
 
    		<mapping class="ua.mega.domain.Student"/>
    		<mapping class="ua.mega.domain.Tutor"/>
+        <mapping class="ua.mega.domain.Subject"/>
 
     </session-factory>
 

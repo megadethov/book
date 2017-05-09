@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import ua.mega.domain.Student;
+import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
 
 import java.util.List;
@@ -32,7 +33,6 @@ public class HibernateTestHarness {
         myStudent.allocateSupervisor(newTutor);
         // print out the supervisorTUTOR_STUDENT
         System.out.println(myStudent.getSupervisorName());*/
-
         Tutor newTutor = new Tutor("ABC844", "Adrian Nathan", 282424721);
 
         Student student1 = new Student("Rebecca Soni", "1-SON-2012");
@@ -63,6 +63,24 @@ public class HibernateTestHarness {
         for (Student next : students) {
             System.out.println(next);
         }
+
+        // test out a couple of subjects
+        Subject subject1 = new Subject("Math", 2);
+        Subject subject2 = new Subject("Science", 4);
+
+        session.save(subject1);
+        session.save(subject2);
+
+        newTutor.addSubjectToQualifications(subject1);
+        newTutor.addSubjectToQualifications(subject2);
+        subject1.addTutorToSubject(newTutor);
+        subject2.addTutorToSubject(newTutor);
+
+        Tutor secondTutor = new Tutor("GHT23637", "Ben Ainsli", 3852638);
+        session.save(secondTutor);
+
+        secondTutor.addSubjectToQualifications(subject2);
+        subject2.addTutorToSubject(secondTutor);
 
         tx.commit();
         session.close();
