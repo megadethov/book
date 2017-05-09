@@ -27,10 +27,14 @@ public class Subject {
     public void addTutorToSubject(Tutor tutor)
     {
         this.qualifiedTutors.add(tutor);
+        tutor.getSubjects().add(this);
     }
 
     public String toString() {
         return this.subjectName + " lasts for " + this.numberOfSemesters + " semesters";
     }
 
+    public Set<Tutor> getQualifiedTutors() {
+        return this.qualifiedTutors;
+    }
 }

@@ -1,6 +1,7 @@
 package ua.mega.domain;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.util.*;
 
 @Entity
@@ -34,6 +35,7 @@ public class Tutor {
     public void addSubjectToQualifications(Subject subject)
     {
         this.subjectsQualifiedToTeach.add(subject);
+        subject.getQualifiedTutors().add(this);
     }
 
     public String getName() {
@@ -47,5 +49,9 @@ public class Tutor {
 
     public void addStudentToSupervisionGroup(Student studentToAdd) {
         this.supervisionGroup.add(studentToAdd);
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjectsQualifiedToTeach;
     }
 }

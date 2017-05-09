@@ -73,13 +73,13 @@ public class HibernateTestHarness {
 
         newTutor.addSubjectToQualifications(subject1);
         newTutor.addSubjectToQualifications(subject2);
-        subject1.addTutorToSubject(newTutor);
-        subject2.addTutorToSubject(newTutor);
+//        subject1.addTutorToSubject(newTutor);
+//        subject2.addTutorToSubject(newTutor);
 
         Tutor secondTutor = new Tutor("GHT23637", "Ben Ainsli", 3852638);
         session.save(secondTutor);
 
-        secondTutor.addSubjectToQualifications(subject2);
+//        secondTutor.addSubjectToQualifications(subject2);
         subject2.addTutorToSubject(secondTutor);
 
         tx.commit();
