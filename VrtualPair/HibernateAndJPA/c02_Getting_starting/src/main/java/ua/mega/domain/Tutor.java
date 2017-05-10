@@ -11,6 +11,7 @@ public class Tutor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(unique = true, nullable = false)
     private String staffId;
     private String name;
     private int salary;
@@ -59,5 +60,20 @@ public class Tutor {
 
     public Set<Subject> getSubjects() {
         return subjectsQualifiedToTeach;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tutor tutor = (Tutor) o;
+
+        return staffId != null ? staffId.equals(tutor.staffId) : tutor.staffId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return staffId != null ? staffId.hashCode() : 0;
     }
 }

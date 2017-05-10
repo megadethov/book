@@ -12,6 +12,8 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(unique = true, nullable = false)
     private String enrollmentID;
     private String name;
 
@@ -82,11 +84,11 @@ public class Student {
 
         Student student = (Student) o;
 
-        return id == student.id;
+        return enrollmentID != null ? enrollmentID.equals(student.enrollmentID) : student.enrollmentID == null;
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return enrollmentID != null ? enrollmentID.hashCode() : 0;
     }
 }
