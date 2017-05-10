@@ -25,24 +25,23 @@ public class HibernateTestHarness {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        Tutor tutor = new Tutor("ABC123", "Laura Bennet", 3247474);
-        session.save(tutor);
-        Student student = new Student("Name-1", "enroll-111");
-        session.save(student);
+        Tutor t1 = new Tutor("ABC123", "David Banks", 2939393);
+        session.save(t1);
 
-        tutor.addStudentToSupervisionGroup(student);
+        Student s1 = new Student("Marco Fortes", "1-FOR-2010");
+        t1.addStudentToSupervisionGroup(s1);
 
-        tx.commit();
-        session.close();
+        Student s2 = new Student("Luke Adams", "2-ADA-2009");
+        t1.addStudentToSupervisionGroup(s2);
 
-        // second session
-        session = sf.openSession();
-        tx = session.beginTransaction();
+        Student s3 = new Student("Angie Bainbridge", "3-BAI-2008");
+        t1.addStudentToSupervisionGroup(s3);
 
-        Tutor tutorFromDatabase = (Tutor) session.get(Tutor.class, 1);
-        Set<Student> lauraStudents = tutorFromDatabase.getSupervisionGroup();
+        System.out.println(t1.getSupervisionGroup().size()); // =1, not 3
 
-        System.out.println(lauraStudents.contains(student));
+        session.save(s1);
+        session.save(s2);
+        session.save(s3);
 
         tx.commit();
         session.close();
