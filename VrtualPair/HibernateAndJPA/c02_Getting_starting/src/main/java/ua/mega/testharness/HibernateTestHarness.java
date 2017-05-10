@@ -42,9 +42,7 @@ public class HibernateTestHarness {
         Tutor tutorFromDatabase = (Tutor) session.get(Tutor.class, 1);
         Set<Student> lauraStudents = tutorFromDatabase.getSupervisionGroup();
 
-        for (Student next : lauraStudents) {
-            System.out.println(next);
-        }
+        System.out.println(lauraStudents.contains(student));
 
         tx.commit();
         session.close();
