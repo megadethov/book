@@ -20,41 +20,22 @@ public class HibernateTestHarness {
 
         tx.begin();
 
-       /* Tutor tutor = new Tutor("adc123", "Aaron", 18314243);
-        em.persist(tutor);
+        Tutor t1 = new Tutor("adc123", "Aaron", 18314243);
+        em.persist(t1);
 
-        Student student1 = new Student("Student-1", "1-STD");
-        em.persist(student1);
-        Student student2 = new Student("Student-2", "2-STD");
-        em.persist(student2);
+        Student s1 = new Student("Student-1", "1-STD");
+        t1.addStudentToSupervisionGroup(s1);
+        Student s2 = new Student("Student-2", "2-STD");
+        t1.addStudentToSupervisionGroup(s2);
+        Student s3 = new Student("Student-3", "3-STD");
+        t1.addStudentToSupervisionGroup(s3);
 
-        Subject subject = new Subject("Math", 2);
-        em.persist(subject);
-        Subject subject2 = new Subject("Science", 4);
-        em.persist(subject2);
+//        em.persist(s1);
+//        em.persist(s2);
+        em.persist(s3);
 
-        Tutor tutor2 = new Tutor("xyz", "Ben", 283837);
-        em.persist(tutor2);
-
-        tutor.addSubjectToQualifications(subject);
-        tutor.addSubjectToQualifications(subject2);
-        tutor2.addSubjectToQualifications(subject2);
-
-        tutor.addStudentToSupervisionGroup(student1);
-        tutor.addStudentToSupervisionGroup(student2);*/
-
-        Tutor tutor = em.find(Tutor.class, 1);
-        System.out.println(tutor);
-
-        Set<Student> students = tutor.getSupervisionGroup();
-        for (Student next : students) {
-            System.out.println(next);
-        }
-
-        Student student = em.find(Student.class, 2);
-        System.out.println(student);
-
-        em.remove(student);
+        Set<Student> students = t1.getSupervisionGroup();
+        System.out.println(students.size());
 
         tx.commit();
         em.close();

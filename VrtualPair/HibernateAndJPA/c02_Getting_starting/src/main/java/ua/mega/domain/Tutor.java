@@ -1,8 +1,9 @@
 package ua.mega.domain;
 
 import javax.persistence.*;
-import java.awt.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Tutor {
@@ -16,7 +17,7 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor")
+    @OneToMany(mappedBy = "supervisor", cascade = CascadeType.PERSIST)
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "qualifiedTutors")
