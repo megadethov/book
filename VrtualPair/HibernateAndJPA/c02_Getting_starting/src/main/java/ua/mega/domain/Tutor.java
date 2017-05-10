@@ -4,22 +4,22 @@ import javax.persistence.*;
 import java.awt.*;
 import java.util.*;
 
-//@Entity
+@Entity
 public class Tutor {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-//    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String staffId;
     private String name;
     private int salary;
 
-//    @OneToMany(mappedBy = "supervisor")
+    @OneToMany(mappedBy = "supervisor")
     private Set<Student> supervisionGroup;
 
-//    @ManyToMany(mappedBy = "qualifiedTutors")
+    @ManyToMany(mappedBy = "qualifiedTutors")
     private Set<Subject> subjectsQualifiedToTeach;
 
     public Tutor() {
