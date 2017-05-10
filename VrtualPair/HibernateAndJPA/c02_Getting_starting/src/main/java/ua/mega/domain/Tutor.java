@@ -85,4 +85,9 @@ public class Tutor {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public void createNewStudentAndAddToSupervisorGroup(String name, String enrollmentID) {
+        Student student = new Student(name, enrollmentID);
+        this.addStudentToSupervisionGroup(student);
+    }
 }

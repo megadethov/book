@@ -23,16 +23,8 @@ public class HibernateTestHarness {
         Tutor t1 = new Tutor("adc123", "Aaron", 18314243);
         em.persist(t1);
 
-        Student s1 = new Student("Student-1", "1-STD");
-        t1.addStudentToSupervisionGroup(s1);
-        Student s2 = new Student("Student-2", "2-STD");
-        t1.addStudentToSupervisionGroup(s2);
-        Student s3 = new Student("Student-3", "3-STD");
-        t1.addStudentToSupervisionGroup(s3);
-
-//        em.persist(s1);
-//        em.persist(s2);
-        em.persist(s3);
+        t1.createNewStudentAndAddToSupervisorGroup("Student-1", "1-STD");
+        t1.createNewStudentAndAddToSupervisorGroup("Student-2", "2-STD");
 
         Set<Student> students = t1.getSupervisionGroup();
         System.out.println(students.size());
