@@ -19,29 +19,13 @@ public class HibernateTestHarness {
     private static SessionFactory sessionFactory = null;
 
     public static void main(String[] args) {
-        // save the student to the database
 
         SessionFactory sf = getSessionFactory();
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        Tutor t1 = new Tutor("ABC123", "David Banks", 2939393);
-        session.save(t1);
-
-        Student s1 = new Student("Marco Fortes", "1-FOR-2010");
-        t1.addStudentToSupervisionGroup(s1);
-
-        Student s2 = new Student("Luke Adams", "2-ADA-2009");
-        t1.addStudentToSupervisionGroup(s2);
-
-        Student s3 = new Student("Angie Bainbridge", "3-BAI-2008");
-        t1.addStudentToSupervisionGroup(s3);
-
-        System.out.println(t1.getSupervisionGroup().size());
-
-        session.save(s1);
-        session.save(s2);
-        session.save(s3);
+        Tutor tutor = new Tutor("adc123", "Aaron", 18314243);
+        session.save(tutor);
 
         tx.commit();
         session.close();

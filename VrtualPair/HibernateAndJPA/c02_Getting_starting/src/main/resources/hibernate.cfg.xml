@@ -23,8 +23,9 @@
         <property name="hbm2ddl.auto">create</property>
 
    		<mapping class="ua.mega.domain.Student"/>
-   		<mapping class="ua.mega.domain.Tutor"/>
+   		<!--<mapping class="ua.mega.domain.Tutor"/>-->
         <mapping class="ua.mega.domain.Subject"/>
+        <mapping resource="Tutor.hbm.xml"/>
 
     </session-factory>
 
