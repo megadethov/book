@@ -27,6 +27,26 @@ public class HibernateTestHarness {
         Tutor tutor = new Tutor("adc123", "Aaron", 18314243);
         session.save(tutor);
 
+        Student student1 = new Student("Student-1", "1-STD");
+        session.save(student1);
+        Student student2 = new Student("Student-2", "2-STD");
+        session.save(student2);
+
+        Subject subject = new Subject("Math", 2);
+        session.save(subject);
+        Subject subject2 = new Subject("Science", 4);
+        session.save(subject2);
+
+        Tutor tutor2 = new Tutor("xyz", "Ben", 283837);
+        session.save(tutor2);
+
+        tutor.addSubjectToQualifications(subject);
+        tutor.addSubjectToQualifications(subject2);
+        tutor2.addSubjectToQualifications(subject2);
+
+        tutor.addStudentToSupervisionGroup(student1);
+        tutor.addStudentToSupervisionGroup(student2);
+
         tx.commit();
         session.close();
     }
