@@ -47,8 +47,14 @@ public class Tutor {
         return unmodifiable;
     }
 
+    public Set<Student> getModifiableSupervisionGroup()
+    {
+        return this.supervisionGroup;
+    }
+
     public void addStudentToSupervisionGroup(Student studentToAdd) {
         this.supervisionGroup.add(studentToAdd);
+        studentToAdd.allocateSupervisor(this);
     }
 
     public Set<Subject> getSubjects() {

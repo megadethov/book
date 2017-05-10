@@ -65,6 +65,7 @@ public class Student {
 
     public void allocateSupervisor(Tutor newSuperviser) {
         this.supervisor = newSuperviser;
+        newSuperviser.getModifiableSupervisionGroup().add(this);
     }
     public String getSupervisorName(){
         return this.supervisor.getName();
@@ -73,4 +74,5 @@ public class Student {
     public Tutor getSupervisor() {
         return this.supervisor;
     }
+
 }
