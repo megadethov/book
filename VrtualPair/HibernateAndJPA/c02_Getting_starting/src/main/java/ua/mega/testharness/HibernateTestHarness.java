@@ -29,19 +29,18 @@ public class HibernateTestHarness {
         session.save(t1);
 
         Student s1 = new Student("Marco Fortes", "1-FOR-2010");
+        session.save(s1);
         t1.addStudentToSupervisionGroup(s1);
 
         Student s2 = new Student("Luke Adams", "2-ADA-2009");
+        session.save(s2);
         t1.addStudentToSupervisionGroup(s2);
 
         Student s3 = new Student("Angie Bainbridge", "3-BAI-2008");
+        session.save(s3);
         t1.addStudentToSupervisionGroup(s3);
 
-        System.out.println(t1.getSupervisionGroup().size()); // =1, not 3
-
-        session.save(s1);
-        session.save(s2);
-        session.save(s3);
+        System.out.println(t1.getSupervisionGroup().size()); // =3, not 1 now
 
         tx.commit();
         session.close();
