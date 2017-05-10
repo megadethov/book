@@ -76,4 +76,12 @@ public class Tutor {
     public int hashCode() {
         return staffId != null ? staffId.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return "Tutor{" +
+                "staffId='" + staffId + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

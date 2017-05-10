@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.Set;
 
 public class HibernateTestHarness {
 
@@ -19,7 +20,7 @@ public class HibernateTestHarness {
 
         tx.begin();
 
-        Tutor tutor = new Tutor("adc123", "Aaron", 18314243);
+       /* Tutor tutor = new Tutor("adc123", "Aaron", 18314243);
         em.persist(tutor);
 
         Student student1 = new Student("Student-1", "1-STD");
@@ -40,7 +41,18 @@ public class HibernateTestHarness {
         tutor2.addSubjectToQualifications(subject2);
 
         tutor.addStudentToSupervisionGroup(student1);
-        tutor.addStudentToSupervisionGroup(student2);
+        tutor.addStudentToSupervisionGroup(student2);*/
+
+        Tutor tutor = em.find(Tutor.class, 1);
+        System.out.println(tutor);
+
+        Set<Student> students = tutor.getSupervisionGroup();
+        for (Student next : students) {
+            System.out.println(next);
+        }
+
+        Student student = em.find(Student.class, 1);
+        System.out.println(student);
 
         tx.commit();
         em.close();
