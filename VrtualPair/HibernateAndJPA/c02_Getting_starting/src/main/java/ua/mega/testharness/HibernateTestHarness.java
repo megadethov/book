@@ -19,7 +19,7 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-        Query query = em.createQuery("from Student");
+        TypedQuery<Student> query = em.createQuery("from Student", Student.class);
         List<Student> resultList = query.getResultList();
         for (Student next : resultList) {
             System.out.println(next);
