@@ -19,11 +19,9 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-        Query query = em.createQuery("from Student as student where student.name like 'Marco%' ");
-        List<Student> resultList = query.getResultList();
-        for (Student next : resultList) {
-            System.out.println(next);
-        }
+        Query query = em.createQuery("from Student as student where student.enrollmentID = '1-FOR-2010' ");
+        Object singleResult = query.getSingleResult();
+        System.out.println(singleResult);
 
         tx.commit();
         em.close();
