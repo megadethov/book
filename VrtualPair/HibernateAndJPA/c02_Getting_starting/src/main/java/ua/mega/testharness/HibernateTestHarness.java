@@ -20,13 +20,13 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        Subject subject = em.find(Subject.class, 3);
+        Subject subject = em.find(Subject.class, 2);
 
-        Query q = em.createQuery("from Tutor as tutor where :subject member of tutor.subjectsQualifiedToTeach");
+        Query q = em.createQuery("from Student as student where :subject member of student.supervisor.subjectsQualifiedToTeach");
         q.setParameter("subject", subject);
 
-        List<Tutor> tutors = q.getResultList();
-        for (Tutor next : tutors) {
+        List<Student> students = q.getResultList();
+        for (Student next : students) {
             System.out.println(next);
         }
 
