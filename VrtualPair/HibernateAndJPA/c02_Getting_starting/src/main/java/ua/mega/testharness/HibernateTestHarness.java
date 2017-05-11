@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import ua.mega.domain.Address;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
@@ -26,11 +27,15 @@ public class HibernateTestHarness {
 //        t1.createNewStudentAndAddToSupervisorGroup("Student-1", "1-STD", "1 The Street", "Anytown-1", "1112233");
 //        t1.createNewStudentAndAddToSupervisorGroup("Student-2", "2-STD", "2 The Street", "Anytown-2", "23624786");
 
-        Student student = new Student("Dmitriy Peters", "1-PET-2011");
-        em.persist(student);
+//        Student student = new Student("Dmitriy Peters", "1-PET-2011");
+//        em.persist(student);
 
-//        Student studentFromDatabase = em.find(Student.class, 1);
-//        System.out.println(studentFromDatabase);
+        Student studentFromDatabase = em.find(Student.class, 1);
+        System.out.println(studentFromDatabase);
+
+        if (studentFromDatabase.getAddress() == null) {
+            studentFromDatabase.setAddress(new Address("1 Pall Mall", "London", "W1A 1WW"));
+        }
 
         tx.commit();
         em.close();
