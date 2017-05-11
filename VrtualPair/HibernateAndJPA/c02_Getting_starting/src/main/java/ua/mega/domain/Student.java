@@ -40,6 +40,12 @@ public class Student {
         this.address = new Address(street, city, zipOrPostecode);
     }
 
+    public Student(String enrollmentID, String name) {
+        this.enrollmentID = enrollmentID;
+        this.name = name;
+        this.address = null;
+    }
+
     public double calculateGradePointAverage() {
         // some complex business logic!
         // we won't need this method on the course, BUT it is import
