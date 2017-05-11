@@ -29,7 +29,7 @@ public class HibernateTestHarness {
             System.out.println(next);
         }
 
-        Query q2 = em.createQuery("from Tutor as tutor where tutor.supervisionGroup is empty ");
+        Query q2 = em.createQuery("from Tutor as tutor where tutor.supervisionGroup is not empty ");
         List<Tutor> tutors = q2.getResultList();
         for (Tutor next : tutors) {
             System.out.println(next);
