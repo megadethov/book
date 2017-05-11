@@ -19,21 +19,17 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-        Tutor tutor = em.find(Tutor.class, 1);
 
-        Query q = em.createQuery("from Student as student where student.supervisor.name = 'David Banks' ");
+        Subject subject = em.find(Subject.class, 3);
 
-        List<Student> students = q.getResultList();
+        Query q = em.createQuery("from Tutor as tutor where :subject member of tutor.subjectsQualifiedToTeach");
+        q.setParameter("subject", subject);
 
-        for (Student next : students) {
-            System.out.println(next);
-        }
-
-        Query q2 = em.createQuery("from Tutor as tutor where tutor.supervisionGroup is not empty ");
-        List<Tutor> tutors = q2.getResultList();
+        List<Tutor> tutors = q.getResultList();
         for (Tutor next : tutors) {
             System.out.println(next);
         }
+
 
         tx.commit();
         em.close();
