@@ -21,8 +21,8 @@ public class HibernateTestHarness {
         // let's do some queries!
         Tutor tutor = em.find(Tutor.class, 1);
 
-        Query q = em.createQuery("from Student as student where student.supervisor = :tutor");
-        q.setParameter("tutor", tutor);
+        Query q = em.createQuery("from Student as student where student.supervisor.name = 'David Banks' ");
+
         List<Student> students = q.getResultList();
 
         for (Student next : students) {
