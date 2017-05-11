@@ -7,6 +7,7 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
+@SecondaryTable(name="TBL_ADDRESS")
 public class Student {
     // if we're prefer using property access, add annotation to getters (+ we can add logic to get-set method)
     @Id
@@ -21,8 +22,12 @@ public class Student {
     @JoinColumn(name="TUTOR_FK")
     private Tutor supervisor;
 
-    @Embedded
-    private Address address;
+    @Column(table = "TBL_ADDRESS")
+    private String city;
+    @Column(table = "TBL_ADDRESS")
+    private String street;
+    @Column(table = "TBL_ADDRESS", name = "ZIP_OR_POSTCODE")
+    private String zipOrPostcode;
 
     /**
      * Required by Hibernate
@@ -37,13 +42,14 @@ public class Student {
         this.name = name;
         this.enrollmentID = enrollmentID;
         this.supervisor = null;
-        this.address = new Address(street, city, zipOrPostecode);
+        this.city = city;
+        this.street = street;
+        this.zipOrPostcode = zipOrPostecode;
     }
 
     public Student(String enrollmentID, String name) {
         this.enrollmentID = enrollmentID;
         this.name = name;
-        this.address = null;
     }
 
     public double calculateGradePointAverage() {
@@ -56,7 +62,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.name + " lives at: " + this.address;
+        return this.name + " lives at: " + this.street + ", " + this.city;
     }
 
     public void setId(int id) {
@@ -71,6 +77,7 @@ public class Student {
         this.supervisor = newSuperviser;
         newSuperviser.getModifiableSupervisionGroup().add(this);
     }
+
     public String getSupervisorName(){
         return this.supervisor.getName();
     }
@@ -92,13 +99,5 @@ public class Student {
     @Override
     public int hashCode() {
         return enrollmentID != null ? enrollmentID.hashCode() : 0;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }
