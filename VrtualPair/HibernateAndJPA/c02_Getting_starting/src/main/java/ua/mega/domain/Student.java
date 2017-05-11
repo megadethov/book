@@ -7,7 +7,6 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
-@SecondaryTable(name="TBL_ADDRESS")
 public class Student {
     // if we're prefer using property access, add annotation to getters (+ we can add logic to get-set method)
     @Id
@@ -18,16 +17,12 @@ public class Student {
     private String enrollmentID;
     private String name;
 
-    @ManyToOne/*(cascade = CascadeType.PERSIST)*/
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="TUTOR_FK")
     private Tutor supervisor;
 
-    @Column(table = "TBL_ADDRESS")
-    private String city;
-    @Column(table = "TBL_ADDRESS")
-    private String street;
-    @Column(table = "TBL_ADDRESS", name = "ZIP_OR_POSTCODE")
-    private String zipOrPostcode;
+    @Embedded
+    private Address address;
 
     /**
      * Required by Hibernate
@@ -42,14 +37,13 @@ public class Student {
         this.name = name;
         this.enrollmentID = enrollmentID;
         this.supervisor = null;
-        this.city = city;
-        this.street = street;
-        this.zipOrPostcode = zipOrPostecode;
+        this.address = new Address(street, city, zipOrPostecode);
     }
 
     public Student(String enrollmentID, String name) {
         this.enrollmentID = enrollmentID;
         this.name = name;
+        this.address = null;
     }
 
     public double calculateGradePointAverage() {
@@ -62,7 +56,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.name + " lives at: " + this.street + ", " + this.city;
+        return this.name + " lives at: " + this.address;
     }
 
     public void setId(int id) {
@@ -77,7 +71,6 @@ public class Student {
         this.supervisor = newSuperviser;
         newSuperviser.getModifiableSupervisionGroup().add(this);
     }
-
     public String getSupervisorName(){
         return this.supervisor.getName();
     }
@@ -99,5 +92,13 @@ public class Student {
     @Override
     public int hashCode() {
         return enrollmentID != null ? enrollmentID.hashCode() : 0;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

@@ -11,8 +11,7 @@ public class HibernateTestHarness {
 
     public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         setUpData();
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -20,23 +19,18 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        Subject subject = em.find(Subject.class, 2);
+        Query q = em.createQuery("from Tutor as tutor join tutor.supervisionGroup as student where student.address.city = 'Georgia' ");
+        List<Object[]> results = q.getResultList();
 
-        Query q = em.createQuery("from Student as student where :subject member of student.supervisor.subjectsQualifiedToTeach");
-        q.setParameter("subject", subject);
-
-        List<Student> students = q.getResultList();
-        for (Student next : students) {
-            System.out.println(next);
+        for (Object[] next : results){
+            System.out.println(next[0] + "-------" + next[1]);
         }
-
 
         tx.commit();
         em.close();
     }
 
-    public static void setUpData()
-    {
+    public static void setUpData() {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
