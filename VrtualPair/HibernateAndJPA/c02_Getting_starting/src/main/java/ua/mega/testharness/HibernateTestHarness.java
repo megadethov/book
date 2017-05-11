@@ -19,7 +19,7 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-        Query query = em.createQuery("from Student as student where student.name = 'marco fortes' ");
+        Query query = em.createQuery("from Student as student where lower(student.name) = 'marco fortes' ");
         Student singleResult = (Student) query.getSingleResult();
         System.out.println(singleResult);
 
