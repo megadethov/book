@@ -3,6 +3,7 @@ package ua.mega.domain;
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -30,7 +31,7 @@ public class Tutor {
         this.staffId = staffId;
         this.name = name;
         this.salary = salary;
-        this.supervisionGroup = new HashSet<Student>();
+        this.supervisionGroup = new LinkedHashSet<>();
         subjectsQualifiedToTeach = new HashSet<>();
     }
 

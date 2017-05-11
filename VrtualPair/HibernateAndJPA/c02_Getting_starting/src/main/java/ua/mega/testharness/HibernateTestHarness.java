@@ -23,6 +23,9 @@ public class HibernateTestHarness {
 
         t1.createNewStudentAndAddToSupervisorGroup("Student-1", "1-STD", "1 The Street", "Anytown-1", "1112233");
         t1.createNewStudentAndAddToSupervisorGroup("Student-2", "2-STD", "2 The Street", "Anytown-2", "23624786");
+        t1.createNewStudentAndAddToSupervisorGroup("Student-3", "3-STD", "2 The Street", "Anytown-2", "23624786");
+        t1.createNewStudentAndAddToSupervisorGroup("Student-4", "4-STD", "2 The Street", "Anytown-2", "23624786");
+        t1.createNewStudentAndAddToSupervisorGroup("Student-5", "5-STD", "2 The Street", "Anytown-2", "23624786");
 
         tx.commit();
         em.close();
