@@ -19,7 +19,7 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        Query q = em.createQuery("select tutor from Tutor as tutor join tutor.supervisionGroup as student where student.address.city = 'Georgia' ");
+        Query q = em.createQuery("select distinct tutor from Tutor as tutor join tutor.supervisionGroup as student where student.address.city = 'Georgia' ");
         List<Tutor> results = q.getResultList();
 
         for (Tutor next : results){
