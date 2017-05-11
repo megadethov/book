@@ -4,10 +4,8 @@ import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class HibernateTestHarness {
 
@@ -21,6 +19,11 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
+        Query query = em.createQuery("from Student");
+        List<Student> resultList = query.getResultList();
+        for (Student next : resultList) {
+            System.out.println(next);
+        }
 
         tx.commit();
         em.close();
