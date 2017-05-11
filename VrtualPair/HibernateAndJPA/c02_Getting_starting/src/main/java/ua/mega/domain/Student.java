@@ -18,7 +18,7 @@ public class Student {
     private String enrollmentID;
     private String name;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne/*(cascade = CascadeType.PERSIST)*/
     @JoinColumn(name="TUTOR_FK")
     private Tutor supervisor;
 
