@@ -18,11 +18,12 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-
-        Query q = em.createQuery("select distinct student.supervisor from Student as student where student.address.city = 'Georgia' ");
+        String city = "Georgia";
+        Query q = em.createQuery("select distinct student.supervisor from Student as student where student.address.city = :city ");
+        q.setParameter("city", city);
         List<Tutor> results = q.getResultList();
 
-        for (Tutor next : results){
+        for (Tutor next : results) {
             System.out.println(next);
         }
 
