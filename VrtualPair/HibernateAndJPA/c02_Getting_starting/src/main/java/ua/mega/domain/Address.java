@@ -1,11 +1,13 @@
 package ua.mega.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
     private String street;
     private String city;
+    @Column(name = "ZIP_OR_POSTCODE")
     private String zipOrPostcode;
 
     public Address() {
