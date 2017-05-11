@@ -21,6 +21,9 @@ public class Student {
     @JoinColumn(name="TUTOR_FK")
     private Tutor supervisor;
 
+    @Embedded
+    private Address address;
+
     /**
      * Required by Hibernate
      */
@@ -28,20 +31,13 @@ public class Student {
     }
 
     /**
-     * Initialises a student with a particular tutor
-     */
-    public Student(String name, Tutor supervisor) {
-        this.name = name;
-        this.supervisor = supervisor;
-    }
-
-    /**
      * Initialises a student with no pre set tutor
      */
-    public Student(String name, String enrollmentID) {
+    public Student(String name, String enrollmentID, String street, String city, String zipOrPostecode) {
         this.name = name;
         this.enrollmentID = enrollmentID;
-//        this.supervisor = null;
+        this.supervisor = null;
+        this.address = new Address(street, city, zipOrPostecode);
     }
 
     public double calculateGradePointAverage() {
@@ -54,7 +50,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.name;
+        return this.name + " lives at: " + this.address;
     }
 
     public void setId(int id) {
@@ -90,5 +86,13 @@ public class Student {
     @Override
     public int hashCode() {
         return enrollmentID != null ? enrollmentID.hashCode() : 0;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
