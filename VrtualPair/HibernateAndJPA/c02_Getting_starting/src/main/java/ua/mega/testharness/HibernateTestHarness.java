@@ -19,11 +19,11 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        Query q = em.createQuery("from Tutor as tutor join tutor.supervisionGroup as student where student.address.city = 'Georgia' ");
-        List<Object[]> results = q.getResultList();
+        Query q = em.createQuery("select tutor from Tutor as tutor join tutor.supervisionGroup as student where student.address.city = 'Georgia' ");
+        List<Tutor> results = q.getResultList();
 
-        for (Object[] next : results){
-            System.out.println(next[0] + "-------" + next[1]);
+        for (Tutor next : results){
+            System.out.println(next);
         }
 
         tx.commit();
@@ -63,7 +63,7 @@ public class HibernateTestHarness {
         em.persist(t3);
 
         // this only works because we are cascading from tutor to student
-        t1.createNewStudentAndAddToSupervisorGroup("Marco Fortes", "1-FOR-2010", "1 The Street", "Anytown", "484848");
+        t1.createNewStudentAndAddToSupervisorGroup("Marco Fortes", "1-FOR-2010", "1 The Street", "Georgia", "484848");
         t1.createNewStudentAndAddToSupervisorGroup("Kath Grainer", "2-GRA-2009", "2 Kaths Street", "Georgia", "939393");
         t3.createNewStudentAndAddToSupervisorGroup("Sandra Perkins", "3-PER-2009", "4 The Avenue", "Georgia", "939393");
 
