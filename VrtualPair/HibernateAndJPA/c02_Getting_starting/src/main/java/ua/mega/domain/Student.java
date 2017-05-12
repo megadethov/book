@@ -101,4 +101,8 @@ public class Student {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
