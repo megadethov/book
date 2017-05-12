@@ -24,12 +24,12 @@ public class HibernateTestHarness {
         Session session = (Session) em.getDelegate();
 
         // let's do some queries!
-        Criteria criteria = session.createCriteria(Student.class);
+        Criteria criteria = session.createCriteria(Tutor.class);
 
-        criteria.createCriteria("supervisor").add(Restrictions.eq("name", "David Banks"));
+        criteria.add(Restrictions.sizeGt("supervisionGroup", 1));
 
-        List<Student> students = criteria.list();
-        for (Student next : students) {
+        List<Tutor> tutors = criteria.list();
+        for (Tutor next : tutors) {
             System.out.println(next);
         }
 
