@@ -19,9 +19,10 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        int result = em.createQuery("update Tutor as tutor set tutor .salary = tutor .salary * 2").executeUpdate();
-        System.out.println(result);
-
+        List<Object[]> result = em.createNativeQuery("SELECT s.NAME, s.ENROLLMENTID FROM STUDENT AS s").getResultList();
+        for (Object[] next : result) {
+            System.out.println(next[0] + " --- " + next[1]);
+        }
         tx.commit();
         em.close();
     }
