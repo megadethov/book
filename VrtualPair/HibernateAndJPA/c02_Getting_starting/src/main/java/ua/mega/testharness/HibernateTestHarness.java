@@ -18,8 +18,10 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-        long result = (long) em.createQuery("select count(student) from Student as student").getSingleResult();
-        System.out.println("Number of students - " + result);
+
+        double averageSalary = (double) em.createQuery("select avg(tutor.salary) from Tutor as tutor").getSingleResult();
+        System.out.println("Avg salary: " + averageSalary);
+
         tx.commit();
         em.close();
     }
