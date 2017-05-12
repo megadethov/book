@@ -26,7 +26,7 @@ public class HibernateTestHarness {
         // let's do some queries!
         Criteria criteria = session.createCriteria(Tutor.class);
 
-        criteria.add(Restrictions.sizeGt("supervisionGroup", 1));
+        criteria.add(Restrictions.sizeEq("supervisionGroup", 0));
 
         List<Tutor> tutors = criteria.list();
         for (Tutor next : tutors) {
