@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
@@ -22,6 +23,11 @@ public class HibernateTestHarness {
         Session session = (Session) em.getDelegate();
 
         // let's do some queries!
+        Criteria criteria = session.createCriteria(Student.class);
+        List<Student> students = criteria.list();
+        for (Student next : students) {
+            System.out.println(next);
+        }
 
         tx.commit();
         em.close();
