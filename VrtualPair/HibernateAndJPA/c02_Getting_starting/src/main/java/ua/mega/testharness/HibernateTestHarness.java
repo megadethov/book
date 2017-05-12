@@ -18,8 +18,8 @@ public class HibernateTestHarness {
         tx.begin();
 
         // let's do some queries!
-        List<Student> students = em.createQuery("from Student").getResultList();
-        System.out.println("Number of students - " + students.size());
+        long result = (long) em.createQuery("select count(student) from Student as student").getSingleResult();
+        System.out.println("Number of students - " + result);
         tx.commit();
         em.close();
     }
