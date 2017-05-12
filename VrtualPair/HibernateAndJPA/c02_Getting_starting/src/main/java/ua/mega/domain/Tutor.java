@@ -91,4 +91,8 @@ public class Tutor {
         Student student = new Student(name, enrollmentID, city, street, zipOrPostofficecode);
         this.addStudentToSupervisionGroup(student);
     }
+
+    public void doubleSalary() {
+        this.salary = this.salary * 2;
+    }
 }

@@ -19,8 +19,10 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        double averageSalary = (double) em.createQuery("select avg(tutor.salary) from Tutor as tutor").getSingleResult();
-        System.out.println("Avg salary: " + averageSalary);
+        List<Tutor> tutors = em.createQuery("from Tutor as tutor").getResultList();
+        for (Tutor next : tutors) {
+            next.doubleSalary();
+        }
 
         tx.commit();
         em.close();
@@ -40,18 +42,18 @@ public class HibernateTestHarness {
         em.persist(history);
 
         // This tutor will be very busy, with lots of students
-        Tutor t1 = new Tutor("ABC123", "David Banks", 2939393);
+        Tutor t1 = new Tutor("ABC123", "David Banks", 10000);
         t1.addSubjectToQualifications(mathematics);
         t1.addSubjectToQualifications(science);
 
         // This tutor is new and has no students
         // But he will be able to teach science and mathematics
-        Tutor t2 = new Tutor("DEF456", "Alan Bridges", 0);
+        Tutor t2 = new Tutor("DEF456", "Alan Bridges", 15000);
         t2.addSubjectToQualifications(mathematics);
         t2.addSubjectToQualifications(science);
 
         // This tutor is the only tutor who can teach History
-        Tutor t3 = new Tutor("GHI678", "Linda Histroia", 0);
+        Tutor t3 = new Tutor("GHI678", "Linda Histroia", 20000);
         t3.addSubjectToQualifications(history);
 
         em.persist(t1);
