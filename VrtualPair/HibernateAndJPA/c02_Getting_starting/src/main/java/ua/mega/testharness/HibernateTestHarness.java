@@ -19,10 +19,8 @@ public class HibernateTestHarness {
 
         // let's do some queries!
 
-        List<Tutor> tutors = em.createQuery("from Tutor as tutor").getResultList();
-        for (Tutor next : tutors) {
-            next.doubleSalary();
-        }
+        int result = em.createQuery("update Tutor as tutor set tutor .salary = tutor .salary * 2").executeUpdate();
+        System.out.println(result);
 
         tx.commit();
         em.close();
