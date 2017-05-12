@@ -26,7 +26,7 @@ public class HibernateTestHarness {
         // let's do some queries!
         Criteria criteria = session.createCriteria(Student.class);
 
-        criteria.add(Restrictions.like("name", "%Marco%"));
+        criteria.add(Restrictions.eq("name", "Kath Grainer"));
 
         List<Student> students = criteria.list();
         for (Student next : students) {
