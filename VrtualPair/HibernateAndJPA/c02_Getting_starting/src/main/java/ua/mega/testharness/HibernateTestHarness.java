@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import org.hibernate.Session;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
@@ -17,12 +18,11 @@ public class HibernateTestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
+        // Be careful
+        Session session = (Session) em.getDelegate();
+
         // let's do some queries!
 
-        List<Student> students = em.createNativeQuery("SELECT * FROM STUDENT", Student.class).getResultList();
-        for (Student next : students) {
-            System.out.println(next);
-        }
         tx.commit();
         em.close();
     }
