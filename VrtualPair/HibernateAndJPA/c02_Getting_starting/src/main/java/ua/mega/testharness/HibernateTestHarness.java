@@ -2,6 +2,7 @@ package ua.mega.testharness;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
@@ -24,6 +25,9 @@ public class HibernateTestHarness {
 
         // let's do some queries!
         Criteria criteria = session.createCriteria(Student.class);
+
+        criteria.add(Restrictions.like("name", "%Marco%"));
+
         List<Student> students = criteria.list();
         for (Student next : students) {
             System.out.println(next);
