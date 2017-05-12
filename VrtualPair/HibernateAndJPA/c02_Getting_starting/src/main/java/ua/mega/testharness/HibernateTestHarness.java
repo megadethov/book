@@ -2,6 +2,7 @@ package ua.mega.testharness;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Restrictions;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
@@ -28,6 +29,7 @@ public class HibernateTestHarness {
 
         criteria.createAlias("supervisionGroup", "student");
         criteria.add(Restrictions.eq("student.address.city", "Georgia"));
+        criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
 
         List<Tutor> tutors = criteria.list();
         for (Tutor next : tutors) {
