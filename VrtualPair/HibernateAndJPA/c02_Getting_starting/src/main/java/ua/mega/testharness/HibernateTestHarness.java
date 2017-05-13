@@ -24,6 +24,7 @@ public class HibernateTestHarness {
         CriteriaQuery<Student> criteria = builder.createQuery(Student.class);
         // from clause
         Root<Student> root = criteria.from(Student.class);
+        criteria.where(builder.equal(root.get("name"), "Marco Fortes"));
 
         Query q = em.createQuery(criteria);
         List<Student> results = q.getResultList();
