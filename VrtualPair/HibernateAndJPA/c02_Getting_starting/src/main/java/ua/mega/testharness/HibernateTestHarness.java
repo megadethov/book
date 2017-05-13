@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import ua.mega.domain.Person;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
@@ -8,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class HibernateTestHarness {
 
@@ -23,6 +25,11 @@ public class HibernateTestHarness {
         Tutor tutor = new Tutor("28373", "Marta Reeves", 90000);
         em.persist(student);
         em.persist(tutor);
+
+        List<Person> results = em.createQuery("from Person").getResultList();
+        for (Person next : results) {
+            next.calculateReport();
+        }
 
         tx.commit();
         em.close();
