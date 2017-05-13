@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 public class Tutor extends Person {
 
-    @Column(unique = true, nullable = false)
+//    @Column(unique = true, nullable = false)
     private String staffId;
     private int salary;
 
