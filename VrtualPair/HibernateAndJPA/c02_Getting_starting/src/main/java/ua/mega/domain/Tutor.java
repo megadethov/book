@@ -7,15 +7,10 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-public class Tutor {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+public class Tutor extends Person {
 
     @Column(unique = true, nullable = false)
     private String staffId;
-    private String name;
     private int salary;
 
     @OneToMany(mappedBy = "supervisor", cascade = {CascadeType.PERSIST})
@@ -25,11 +20,12 @@ public class Tutor {
     private Set<Subject> subjectsQualifiedToTeach;
 
     public Tutor() {
+        super(null);
     }
 
     public Tutor(String staffId, String name, int salary) {
+        super(name);
         this.staffId = staffId;
-        this.name = name;
         this.salary = salary;
         this.supervisionGroup = new LinkedHashSet<>();
         subjectsQualifiedToTeach = new HashSet<>();
@@ -42,7 +38,7 @@ public class Tutor {
     }
 
     public String getName() {
-        return name;
+        return super.getName();
     }
 
     public Set<Student> getSupervisionGroup() {
@@ -83,7 +79,7 @@ public class Tutor {
     public String toString() {
         return "Tutor{" +
                 "staffId='" + staffId + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + getName() + '\'' +
                 '}';
     }
 
@@ -94,5 +90,10 @@ public class Tutor {
 
     public void doubleSalary() {
         this.salary = this.salary * 2;
+    }
+
+    @Override
+    public void calculateReport() {
+        System.out.println("Report for tutor " + this.getName());
     }
 }

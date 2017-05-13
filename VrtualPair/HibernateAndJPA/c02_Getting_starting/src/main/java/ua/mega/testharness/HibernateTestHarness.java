@@ -1,37 +1,28 @@
 package ua.mega.testharness;
 
-import ua.mega.domain.Address;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
 
-import javax.persistence.*;
-import javax.persistence.criteria.*;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 public class HibernateTestHarness {
 
     public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
 
     public static void main(String[] args) {
-        setUpData();
+
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Tutor> criteria = builder.createQuery(Tutor.class).distinct(true);
-        Root<Tutor> root = criteria.from(Tutor.class);
-        Join<Tutor, Student> students = root.join("supervisionGroup");
-        Path<Address> address = students.get("address");
-        Path<String> city = address.get("city");
-        criteria.where(builder.equal(city, "Georgia"));
-        Query q = em.createQuery(criteria);
-
-        List<Tutor> results = q.getResultList();
-        for (Tutor next : results) {
-            System.out.println(next);
-        }
+        Student student = new Student("Bill Jones", "1-JON-2011", "4 The Terrace", "Chicago", "83722");
+        Tutor tutor = new Tutor("28373", "Marta Reeves", 90000);
+        em.persist(student);
+        em.persist(tutor);
 
         tx.commit();
         em.close();

@@ -7,15 +7,10 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
-public class Student {
-    // if we're prefer using property access, add annotation to getters (+ we can add logic to get-set method)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+public class Student extends Person {
 
     @Column(unique = true, nullable = false)
     private String enrollmentID;
-    private String name;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="TUTOR_FK")
@@ -28,21 +23,22 @@ public class Student {
      * Required by Hibernate
      */
     public Student() {
+        super(null);
     }
 
     /**
      * Initialises a student with no pre set tutor
      */
     public Student(String name, String enrollmentID, String street, String city, String zipOrPostecode) {
-        this.name = name;
+        super(name);
         this.enrollmentID = enrollmentID;
         this.supervisor = null;
         this.address = new Address(street, city, zipOrPostecode);
     }
 
     public Student(String enrollmentID, String name) {
+        super(name);
         this.enrollmentID = enrollmentID;
-        this.name = name;
         this.address = null;
     }
 
@@ -56,11 +52,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.name + " lives at: " + this.address;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return this.getName() + " lives at: " + this.address;
     }
 
     public String getEnrollmentId() {
@@ -103,6 +95,11 @@ public class Student {
     }
 
     public String getName() {
-        return this.name;
+        return super.getName();
+    }
+
+    @Override
+    public void calculateReport() {
+        System.out.println("Report for student " + this.getName());
     }
 }
