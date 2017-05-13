@@ -20,7 +20,7 @@ public class HibernateTestHarness {
         tx.begin();
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Tutor> criteria = builder.createQuery(Tutor.class);
+        CriteriaQuery<Tutor> criteria = builder.createQuery(Tutor.class).distinct(true);
         Root<Tutor> root = criteria.from(Tutor.class);
         Join<Tutor, Student> students = root.join("supervisionGroup");
         Path<Address> address = students.get("address");
