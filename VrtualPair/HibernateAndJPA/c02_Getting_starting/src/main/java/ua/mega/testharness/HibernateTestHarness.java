@@ -1,14 +1,13 @@
 package ua.mega.testharness;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.CriteriaSpecification;
-import org.hibernate.criterion.Restrictions;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class HibernateTestHarness {
@@ -21,18 +20,14 @@ public class HibernateTestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        // Be careful
-        Session session = (Session) em.getDelegate();
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Student> criteria = builder.createQuery(Student.class);
+        // from clause
+        Root<Student> root = criteria.from(Student.class);
 
-        // let's do some queries!
-        Criteria criteria = session.createCriteria(Tutor.class);
-
-        criteria.createAlias("supervisionGroup", "student");
-        criteria.add(Restrictions.eq("student.address.city", "Georgia"));
-        criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-
-        List<Tutor> tutors = criteria.list();
-        for (Tutor next : tutors) {
+        Query q = em.createQuery(criteria);
+        List<Student> results = q.getResultList();
+        for (Student next : results) {
             System.out.println(next);
         }
 
