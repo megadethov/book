@@ -7,6 +7,7 @@ import ua.mega.domain.Tutor;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
@@ -24,7 +25,9 @@ public class HibernateTestHarness {
         CriteriaQuery<Student> criteria = builder.createQuery(Student.class);
         // from clause
         Root<Student> root = criteria.from(Student.class);
-        criteria.where(builder.equal(root.get("name"), "Marco Fortes"));
+        Path<Tutor> tutor = root.get("supervisor");
+
+        criteria.where(builder.equal(tutor.get("name"), "David Banks"));
 
         Query q = em.createQuery(criteria);
         List<Student> results = q.getResultList();
