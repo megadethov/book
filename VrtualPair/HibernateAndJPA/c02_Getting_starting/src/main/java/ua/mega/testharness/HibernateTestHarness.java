@@ -1,14 +1,12 @@
 package ua.mega.testharness;
 
+import ua.mega.domain.Address;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 public class HibernateTestHarness {
@@ -22,16 +20,16 @@ public class HibernateTestHarness {
         tx.begin();
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<Student> criteria = builder.createQuery(Student.class);
-        // from clause
-        Root<Student> root = criteria.from(Student.class);
-        Path<String> nameProperty = root.get("name");
-
-        criteria.where(builder.like(nameProperty, "%e%"));
-
+        CriteriaQuery<Tutor> criteria = builder.createQuery(Tutor.class);
+        Root<Tutor> root = criteria.from(Tutor.class);
+        Join<Tutor, Student> students = root.join("supervisionGroup");
+        Path<Address> address = students.get("address");
+        Path<String> city = address.get("city");
+        criteria.where(builder.equal(city, "Georgia"));
         Query q = em.createQuery(criteria);
-        List<Student> results = q.getResultList();
-        for (Student next : results) {
+
+        List<Tutor> results = q.getResultList();
+        for (Tutor next : results) {
             System.out.println(next);
         }
 
