@@ -7,6 +7,7 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
+@DiscriminatorValue(value = "S")
 public class Student extends Person {
 
 //    @Column(unique = true, nullable = false)
