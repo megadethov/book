@@ -7,10 +7,9 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
-@DiscriminatorValue(value = "S")
 public class Student extends Person {
 
-//    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String enrollmentID;
 
     @ManyToOne(cascade = CascadeType.PERSIST)

@@ -7,10 +7,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue(value = "T")
 public class Tutor extends Person {
 
-//    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String staffId;
     private int salary;
 
