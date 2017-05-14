@@ -3,7 +3,7 @@ package ua.mega.domain;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
