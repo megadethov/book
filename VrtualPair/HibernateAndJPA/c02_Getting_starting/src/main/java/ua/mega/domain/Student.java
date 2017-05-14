@@ -23,21 +23,21 @@ public class Student extends Person {
      * Required by Hibernate
      */
     public Student() {
-        super(null);
+        super(null, null);
     }
 
     /**
      * Initialises a student with no pre set tutor
      */
     public Student(String name, String enrollmentID, String street, String city, String zipOrPostecode) {
-        super(name);
+        super(enrollmentID, name);
         this.enrollmentID = enrollmentID;
         this.supervisor = null;
         this.address = new Address(street, city, zipOrPostecode);
     }
 
     public Student(String enrollmentID, String name) {
-        super(name);
+        super(enrollmentID, name);
         this.enrollmentID = enrollmentID;
         this.address = null;
     }
