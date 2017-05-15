@@ -3,14 +3,17 @@ package ua.mega.domain;
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-public class Tutor extends Person {
+public class Tutor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @Column(unique = true, nullable = false)
     private String staffId;
+    private String name;
     private int salary;
 
     @OneToMany(mappedBy = "supervisor", cascade = {CascadeType.PERSIST})
@@ -19,36 +22,28 @@ public class Tutor extends Person {
     @ManyToMany(mappedBy = "qualifiedTutors")
     private Set<Subject> subjectsQualifiedToTeach;
 
+
+    // required by hibernate
     public Tutor() {
-        super(null, null);
     }
 
+    // "business constructor"
     public Tutor(String staffId, String name, int salary) {
-        super(staffId, name);
+        super();
         this.staffId = staffId;
+        this.name = name;
         this.salary = salary;
-        this.supervisionGroup = new LinkedHashSet<>();
-        subjectsQualifiedToTeach = new HashSet<>();
+        this.supervisionGroup = new HashSet<Student>();
+        this.subjectsQualifiedToTeach = new HashSet<Subject>();
     }
 
-    public void addSubjectToQualifications(Subject subject)
-    {
+    public void doubleSalary() {
+        this.salary = this.salary * 2;
+    }
+
+    public void addSubjectToQualifications(Subject subject) {
         this.subjectsQualifiedToTeach.add(subject);
         subject.getQualifiedTutors().add(this);
-    }
-
-    public String getName() {
-        return super.getName();
-    }
-
-    public Set<Student> getSupervisionGroup() {
-        Set<Student> unmodifiable = Collections.unmodifiableSet(this.supervisionGroup);
-        return unmodifiable;
-    }
-
-    public Set<Student> getModifiableSupervisionGroup()
-    {
-        return this.supervisionGroup;
     }
 
     public void addStudentToSupervisionGroup(Student studentToAdd) {
@@ -57,43 +52,54 @@ public class Tutor extends Person {
     }
 
     public Set<Subject> getSubjects() {
-        return subjectsQualifiedToTeach;
+        return this.subjectsQualifiedToTeach;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public Set<Student> getSupervisionGroup() {
+        Set<Student> unmodifiable = Collections.unmodifiableSet(this.supervisionGroup);
+        return unmodifiable;
+    }
 
-        Tutor tutor = (Tutor) o;
+    public Set<Student> getModifiableSupervisionGroup() {
+        return this.supervisionGroup;
+    }
 
-        return staffId != null ? staffId.equals(tutor.staffId) : tutor.staffId == null;
+    public String getName() {
+        return this.name;
+    }
+
+    public String toString() {
+        return "Tutor: " + this.name + " (" + this.staffId + ")";
     }
 
     @Override
     public int hashCode() {
-        return staffId != null ? staffId.hashCode() : 0;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((staffId == null) ? 0 : staffId.hashCode());
+        return result;
     }
 
     @Override
-    public String toString() {
-        return "Tutor{" +
-                "staffId='" + staffId + '\'' +
-                ", name='" + getName() + '\'' +
-                '}';
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Tutor other = (Tutor) obj;
+        if (staffId == null) {
+            if (other.staffId != null)
+                return false;
+        } else if (!staffId.equals(other.staffId))
+            return false;
+        return true;
     }
 
-    public void createNewStudentAndAddToSupervisorGroup(String name, String enrollmentID, String city, String street, String zipOrPostofficecode) {
-        Student student = new Student(name, enrollmentID, city, street, zipOrPostofficecode);
+    public void createStudentAndAddToSupervisionGroup(String studentName, String enrollmentId,
+                                                      String street, String city, String zipOrPostcode) {
+        Student student = new Student(studentName, enrollmentId, street, city, zipOrPostcode);
         this.addStudentToSupervisionGroup(student);
-    }
-
-    public void doubleSalary() {
-        this.salary = this.salary * 2;
-    }
-
-    @Override
-    public void calculateReport() {
-        System.out.println("Report for tutor " + this.getName());
     }
 }

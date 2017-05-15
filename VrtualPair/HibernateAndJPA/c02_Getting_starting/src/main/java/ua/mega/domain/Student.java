@@ -7,38 +7,44 @@ import javax.persistence.*;
  * system (CMS)
  */
 @Entity
-public class Student extends Person {
+public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @Column(unique = true, nullable = false)
     private String enrollmentID;
+    private String name;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name="TUTOR_FK")
+    @JoinColumn(name = "TUTOR_FK")
     private Tutor supervisor;
 
     @Embedded
     private Address address;
 
-    /**
+    /*
      * Required by Hibernate
      */
     public Student() {
-        super(null, null);
+
     }
 
     /**
      * Initialises a student with no pre set tutor
      */
-    public Student(String name, String enrollmentID, String street, String city, String zipOrPostecode) {
-        super(enrollmentID, name);
+    public Student(String name, String enrollmentID, String street,
+                   String city, String zipOrPostcode) {
+        this.name = name;
         this.enrollmentID = enrollmentID;
         this.supervisor = null;
-        this.address = new Address(street, city, zipOrPostecode);
+        this.address = new Address(street, city, zipOrPostcode);
     }
 
-    public Student(String enrollmentID, String name) {
-        super(enrollmentID, name);
-        this.enrollmentID = enrollmentID;
+    public Student(String name, String enrollmentId) {
+        this.name = name;
+        this.enrollmentID = enrollmentId;
         this.address = null;
     }
 
@@ -50,56 +56,67 @@ public class Student extends Person {
         return 0;
     }
 
-    @Override
+    public void allocateSupervisor(Tutor newSupervisor) {
+        this.supervisor = newSupervisor;
+        newSupervisor.getModifiableSupervisionGroup().add(this);
+    }
+
+    public String getSupervisorName() {
+        return this.supervisor.getName();
+    }
+
     public String toString() {
-        return this.getName() + " lives at: " + this.address;
+        return this.name + " lives at: " + this.address;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public String getEnrollmentId() {
         return this.enrollmentID;
     }
 
-    public void allocateSupervisor(Tutor newSuperviser) {
-        this.supervisor = newSuperviser;
-        newSuperviser.getModifiableSupervisionGroup().add(this);
-    }
-    public String getSupervisorName(){
-        return this.supervisor.getName();
-    }
-
     public Tutor getSupervisor() {
         return this.supervisor;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public void setAddress(Address newAddress) {
+        this.address = newAddress;
+    }
 
-        Student student = (Student) o;
-
-        return enrollmentID != null ? enrollmentID.equals(student.enrollmentID) : student.enrollmentID == null;
+    public Address getAddress() {
+        return this.address;
     }
 
     @Override
     public int hashCode() {
-        return enrollmentID != null ? enrollmentID.hashCode() : 0;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public String getName() {
-        return super.getName();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((enrollmentID == null) ? 0 : enrollmentID.hashCode());
+        return result;
     }
 
     @Override
-    public void calculateReport() {
-        System.out.println("Report for student " + this.getName());
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Student other = (Student) obj;
+        if (enrollmentID == null) {
+            if (other.enrollmentID != null)
+                return false;
+        } else if (!enrollmentID.equals(other.enrollmentID))
+            return false;
+        return true;
     }
+
 }
