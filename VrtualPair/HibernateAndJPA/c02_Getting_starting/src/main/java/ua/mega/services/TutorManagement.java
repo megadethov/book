@@ -22,8 +22,11 @@ public class TutorManagement {
         tx.begin();
 
         Tutor newTutor = new Tutor(staffId, name, salary);
-//        em.persist(newTutor);
-        newTutor = em.merge(newTutor); // it's work the same as persist
+
+        // insert or update ?
+        // ID = 0 => insert
+        // ID >= 1 => update
+        newTutor = em.merge(newTutor); // bad performance
 
         // commit release any database connection
         tx.commit();
@@ -40,8 +43,6 @@ public class TutorManagement {
 
         // make the object be dirty checked again
         tutorToUpdate = em.merge(tutorToUpdate);
-
-        tutorToUpdate.setName("Wally Scott");
 
         // dirty check
         tx.commit();
