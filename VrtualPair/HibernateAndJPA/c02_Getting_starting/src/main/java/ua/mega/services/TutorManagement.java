@@ -38,8 +38,11 @@ public class TutorManagement {
         // tutorToUpdate will be dirty
 
         tx.commit();
-        em.close();
 
         return tutorToUpdate;
+    }
+
+    public void endProcess() {
+        em.close();
     }
 }
