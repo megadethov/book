@@ -72,7 +72,7 @@ public class TutorManagement {
         tx.begin();
 
         List<Object[]> namesAndSalarys = em.createQuery("select tutor.name, tutor.salary from Tutor as tutor")
-                .setLockMode(LockModeType.PESSIMISTIC_READ)
+                .setLockMode(LockModeType.PESSIMISTIC_WRITE)
                 .getResultList();
 
         for (Object[] next : namesAndSalarys) {
@@ -81,8 +81,6 @@ public class TutorManagement {
 
         long totalSalary = (long) em.createQuery("select sum(tutor.salary) from Tutor as tutor").getSingleResult();
         System.out.println("Total college salary is: " + totalSalary);
-
-        em.createQuery("update Tutor as tutor set tutor.salary = tutor.salary * 2").executeUpdate();
 
         tx.commit();
         em.close();
