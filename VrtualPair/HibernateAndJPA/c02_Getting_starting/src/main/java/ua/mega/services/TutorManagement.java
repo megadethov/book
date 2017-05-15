@@ -38,7 +38,9 @@ public class TutorManagement {
         tx.begin();
 
         // make the object be dirty checked again
-       tutorToUpdate = em.merge(tutorToUpdate);
+        tutorToUpdate = em.merge(tutorToUpdate);
+
+        tutorToUpdate.setName("Wally Scott");
 
         // dirty check
         tx.commit();

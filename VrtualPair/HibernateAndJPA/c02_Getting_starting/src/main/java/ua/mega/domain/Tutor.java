@@ -102,4 +102,8 @@ public class Tutor {
         Student student = new Student(studentName, enrollmentId, street, city, zipOrPostcode);
         this.addStudentToSupervisionGroup(student);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
