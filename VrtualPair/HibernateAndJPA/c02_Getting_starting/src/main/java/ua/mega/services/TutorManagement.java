@@ -22,7 +22,8 @@ public class TutorManagement {
         tx.begin();
 
         Tutor newTutor = new Tutor(staffId, name, salary);
-        em.persist(newTutor);
+//        em.persist(newTutor);
+        newTutor = em.merge(newTutor); // it's work the same as persist
 
         // commit release any database connection
         tx.commit();
@@ -38,7 +39,7 @@ public class TutorManagement {
         tx.begin();
 
         // make the object be dirty checked again
-        /*tutorToUpdate = */em.merge(tutorToUpdate);
+        tutorToUpdate = em.merge(tutorToUpdate);
 
         tutorToUpdate.setName("Wally Scott");
 
