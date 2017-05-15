@@ -26,6 +26,8 @@ public class TutorManagement {
 
         // commit release any database connection
         tx.commit();
+
+        // close will detach the tutor
         em.close();
         return newTutor;
     }
@@ -35,8 +37,10 @@ public class TutorManagement {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        // tutorToUpdate will be dirty
+        // make the object be dirty checked again
+       tutorToUpdate = em.merge(tutorToUpdate);
 
+        // dirty check
         tx.commit();
         em.close();
         return tutorToUpdate;
