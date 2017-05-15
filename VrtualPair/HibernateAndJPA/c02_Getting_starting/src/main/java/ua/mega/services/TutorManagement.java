@@ -15,10 +15,9 @@ import javax.persistence.Persistence;
 
 public class TutorManagement {
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
-    EntityManager em;
 
     public Tutor createNewTutor(String staffId, String name, int salary) {
-        em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
@@ -27,22 +26,19 @@ public class TutorManagement {
 
         // commit release any database connection
         tx.commit();
-
+        em.close();
         return newTutor;
     }
 
     public Tutor updateTutor(Tutor tutorToUpdate) {
+        EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
         // tutorToUpdate will be dirty
 
         tx.commit();
-
-        return tutorToUpdate;
-    }
-
-    public void endProcess() {
         em.close();
+        return tutorToUpdate;
     }
 }

@@ -14,6 +14,5 @@ public class HibernateTestHarness {
 
         tutorManagement.updateTutor(newTutor);
 
-        tutorManagement.endProcess();
     }
 }
