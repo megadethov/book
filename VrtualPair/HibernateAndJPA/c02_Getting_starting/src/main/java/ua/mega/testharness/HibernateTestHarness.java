@@ -7,13 +7,15 @@ import ua.mega.services.TutorManagement;
 public class HibernateTestHarness {
     public static void main(String[] args) {
         TutorManagement tutorManagement = new TutorManagement();
+
+        // STEP 1
         Tutor newTutor = tutorManagement.createNewTutor("1234567", "Clara Jones", 10000);
 
         // client will now sit and wait....
 
-        newTutor.createStudentAndAddToSupervisionGroup(new Student("StudentName-1", "1-STD"));
-        newTutor.createStudentAndAddToSupervisionGroup(new Student("StudentName-2", "2-STD"));
+        newTutor.setName("Clara Smith");
 
+        // STEP 2
         tutorManagement.updateTutor(newTutor);
 
     }

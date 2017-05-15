@@ -16,12 +16,15 @@ import javax.persistence.Persistence;
 public class TutorManagement {
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
 
+    // STEP 1
     public Tutor createNewTutor(String staffId, String name, int salary) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
         Tutor newTutor = new Tutor(staffId, name, salary);
+
+        // LOCK THE TUTOR
 
         em.persist(newTutor);
 
@@ -33,6 +36,7 @@ public class TutorManagement {
         return newTutor;
     }
 
+    // STEP 2
     public Tutor updateTutor(Tutor tutorToUpdate) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -40,6 +44,8 @@ public class TutorManagement {
 
         // make the object be dirty checked again
         tutorToUpdate = em.merge(tutorToUpdate);
+
+        // UNLOCK THE TUTOR
 
         // dirty check
         tx.commit();

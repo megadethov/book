@@ -16,12 +16,14 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor", cascade = {CascadeType.PERSIST/*, CascadeType.MERGE*/})
+    @OneToMany(mappedBy = "supervisor", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "qualifiedTutors")
     private Set<Subject> subjectsQualifiedToTeach;
 
+    @Version
+    private int version;
 
     // required by hibernate
     public Tutor() {
