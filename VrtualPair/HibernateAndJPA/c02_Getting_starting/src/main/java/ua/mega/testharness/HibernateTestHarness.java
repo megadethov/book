@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import ua.mega.domain.Student;
 import ua.mega.domain.Tutor;
 import ua.mega.services.TutorManagement;
 
@@ -10,7 +11,8 @@ public class HibernateTestHarness {
 
         // client will now sit and wait....
 
-        newTutor.doubleSalary();
+        newTutor.createStudentAndAddToSupervisionGroup(new Student("StudentName-1", "1-STD"));
+        newTutor.createStudentAndAddToSupervisionGroup(new Student("StudentName-2", "2-STD"));
 
         tutorManagement.updateTutor(newTutor);
 

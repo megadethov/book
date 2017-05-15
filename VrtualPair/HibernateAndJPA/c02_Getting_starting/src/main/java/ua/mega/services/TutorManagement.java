@@ -23,10 +23,7 @@ public class TutorManagement {
 
         Tutor newTutor = new Tutor(staffId, name, salary);
 
-        // insert or update ?
-        // ID = 0 => insert
-        // ID >= 1 => update
-        newTutor = em.merge(newTutor); // bad performance
+        em.persist(newTutor);
 
         // commit release any database connection
         tx.commit();
