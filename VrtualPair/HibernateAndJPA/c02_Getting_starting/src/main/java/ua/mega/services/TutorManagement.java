@@ -82,6 +82,8 @@ public class TutorManagement {
         long totalSalary = (long) em.createQuery("select sum(tutor.salary) from Tutor as tutor").getSingleResult();
         System.out.println("Total college salary is: " + totalSalary);
 
+        em.createQuery("update Tutor as tutor set tutor.salary = tutor.salary * 2").executeUpdate();
+
         tx.commit();
         em.close();
     }
