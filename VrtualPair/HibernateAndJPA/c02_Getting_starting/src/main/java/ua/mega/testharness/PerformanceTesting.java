@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
 
@@ -7,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class PerformanceTesting {
     public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
@@ -18,12 +20,10 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        // let's do some queries!
-        Tutor tutor = em.find(Tutor.class, 1);
-        System.out.println(tutor.getName() + "'s has a salary of: " + tutor.getSalary());
-
-        int numberOfStudents = tutor.getSupervisionGroup().size();
-        System.out.println("This tutor has " + numberOfStudents + " students");
+        List<Student> allStudents = em.createQuery("select student from Student as student").getResultList();
+        for (Student next : allStudents) {
+            System.out.println(next.getName());
+        }
 
         tx.commit();
         em.close();
