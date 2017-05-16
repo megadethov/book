@@ -13,22 +13,9 @@ public class HibernateTestHarness {
 
         // STEP 1
         Tutor newTutor = tutorManagement.findTutorById(1);
+        System.out.println("The name of the tutor " + newTutor.getName());
 
-        // client will now sit and wait....
-
-        newTutor.setName("Process-1 name");
-
-        System.out.println("Press enter to continue");
-        Scanner sc = new Scanner(System.in);
-        sc.nextLine();
-
-        // STEP 2 - because there's been, check for a stale object
-        try {
-            tutorManagement.updateTutor(newTutor);
-        } catch (OptimisticLockException e) {
-            // deal with the problem
-            System.out.println("Sorry, that tutor was updated while you where thinking. Please try again!");
-        }
+        System.out.println("The tutor has " + newTutor.getSupervisionGroup().size());
 
     }
 }
