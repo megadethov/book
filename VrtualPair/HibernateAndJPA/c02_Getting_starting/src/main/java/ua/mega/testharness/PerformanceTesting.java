@@ -22,11 +22,11 @@ public class PerformanceTesting {
         Tutor tutor = em.find(Tutor.class, 1);
         System.out.println(tutor.getName() + "'s has a salary of: " + tutor.getSalary());
 
-        int numberOfStudents = tutor.getSupervisionGroup().size();
-        System.out.println("This tutor has " + numberOfStudents + " students");
-
         tx.commit();
         em.close();
+
+        int numberOfStudents = tutor.getSupervisionGroup().size();
+        System.out.println("This tutor has " + numberOfStudents + " students");
     }
 
     public static void setUpData()
