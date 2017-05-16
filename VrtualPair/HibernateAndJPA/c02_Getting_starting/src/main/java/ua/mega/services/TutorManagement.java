@@ -55,7 +55,7 @@ public class TutorManagement {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Tutor foundTutor = (Tutor) em.createQuery("select tutor From Tutor as tutor join fetch tutor.supervisionGroup where tutor.id=:id")
+        Tutor foundTutor = (Tutor) em.createQuery("select tutor From Tutor as tutor left join fetch tutor.supervisionGroup where tutor.id=:id")
                 .setParameter("id", id)
                 .getSingleResult();
 
