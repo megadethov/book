@@ -112,4 +112,8 @@ public class Tutor {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getSalary() {
+        return salary;
+    }
 }

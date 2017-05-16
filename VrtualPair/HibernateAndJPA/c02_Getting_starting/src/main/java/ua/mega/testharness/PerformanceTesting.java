@@ -19,6 +19,8 @@ public class PerformanceTesting {
         tx.begin();
 
         // let's do some queries!
+        Tutor tutor = em.find(Tutor.class, 1);
+        System.out.println(tutor.getName() + "'s has a salary of: " + tutor.getSalary());
 
         tx.commit();
         em.close();
