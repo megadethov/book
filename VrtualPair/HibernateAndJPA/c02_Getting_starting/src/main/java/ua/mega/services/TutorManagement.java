@@ -34,12 +34,30 @@ public class TutorManagement {
         return newTutor;
     }
 
+    // Note: this method will only return Tutor data. Please don't
+    // try to access the students (subjects)
     public Tutor findTutorById(int id) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
         Tutor foundTutor = em.find(Tutor.class, id);
+
+        tx.commit();
+        em.close();
+
+        return foundTutor;
+    }
+
+    // returns a tutor AND their associated supervision group
+    public Tutor findTutorByIdWithSupervisionGroup(int id) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        Tutor foundTutor = (Tutor) em.createQuery("select tutor From Tutor as tutor left outer join fetch tutor.supervisionGroup where tutor.id=:id")
+                .setParameter("id", id)
+                .getSingleResult();
 
         tx.commit();
         em.close();

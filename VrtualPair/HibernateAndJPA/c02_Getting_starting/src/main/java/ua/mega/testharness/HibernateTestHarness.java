@@ -12,7 +12,9 @@ public class HibernateTestHarness {
         TutorManagement tutorManagement = new TutorManagement();
 
         // STEP 1
-        Tutor newTutor = tutorManagement.findTutorById(1);
+//        Tutor newTutor = tutorManagement.findTutorById(1);
+        Tutor newTutor = tutorManagement.findTutorByIdWithSupervisionGroup(1);
+
         System.out.println("The name of the tutor " + newTutor.getName());
 
         System.out.println("The tutor has " + newTutor.getSupervisionGroup().size());
