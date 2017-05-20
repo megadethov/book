@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Represents a Student enrolled in the college management
  * system (CMS)
  */
-@Entity
+//@Entity
 public class Student {
 
     @Id

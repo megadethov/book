@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Tue May 16 13:22:16 EEST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-015c-10c7-9c6f-0000043d87f8 
-on database directory D:\java\book\VrtualPair\HibernateAndJPA\MyDatabase  with class loader sun.misc.Launcher$AppClassLoader@14dad5dc 
-Loaded from file:/D:/java/soft/Maven_repo/org/apache/derby/derby/10.8.3.0/derby-10.8.3.0.jar
+Sat May 20 20:39:23 EEST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-015c-26f1-3d12-0000041ed848 
+on database directory /home/mega/java/book/VrtualPair/HibernateAndJPA/MyDatabase  with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/home/mega/soft/apache-maven-repo/org/apache/derby/derby/10.8.3.0/derby-10.8.3.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_66-b17
-user.dir=D:\java\book\VrtualPair\HibernateAndJPA
-os.name=Windows 7
+java.runtime.version=1.8.0_131-b11
+user.dir=/home/mega/java/book/VrtualPair/HibernateAndJPA
+os.name=Linux
 os.arch=amd64
-os.version=6.1
+os.version=4.4.0-78-generic
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

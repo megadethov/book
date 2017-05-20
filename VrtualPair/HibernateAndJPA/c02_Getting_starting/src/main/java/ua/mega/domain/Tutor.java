@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+//@Entity
 public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -2,6 +2,7 @@ package ua.mega.testharness;
 
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
+import ua.mega.domain.Test;
 import ua.mega.domain.Tutor;
 
 import javax.persistence.EntityManager;
@@ -15,15 +16,19 @@ public class PerformanceTesting {
 
     public static void main(String[] args)
     {
-        setUpData();
+//        setUpData();
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        List<Student> allStudents = em.createQuery("select student from Student as student").getResultList();
+        /*List<Student> allStudents = em.createQuery("select student from Student as student").getResultList();
         for (Student next : allStudents) {
             System.out.println(next.getName());
-        }
+        }*/
+
+        Test test = new Test("name", 33);
+        em.persist(test);
+        System.out.println("Test" + test);
 
         tx.commit();
         em.close();

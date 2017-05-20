@@ -3,7 +3,7 @@ package ua.mega.domain;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
+//@Embeddable
 public class Address {
     private String street;
     private String city;
