@@ -23,8 +23,13 @@ public class HibernateTestHarness {
 //        System.out.println(myStudent);
 
         // delete object
-        Student myStudent = (Student) session.get(Student.class, 8);
-        session.delete(myStudent); // delete from DB, not from memory
+//        Student myStudent = (Student) session.get(Student.class, 8);
+//        session.delete(myStudent); // delete from DB, not from memory
+//        System.out.println(myStudent);
+
+        // auto update - dirty check
+        Student myStudent = (Student) session.get(Student.class, 9);
+        myStudent.setTutor("TutorName-007");
         System.out.println(myStudent);
 
         tx.commit();
