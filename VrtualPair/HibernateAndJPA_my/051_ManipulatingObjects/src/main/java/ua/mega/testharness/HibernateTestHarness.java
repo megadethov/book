@@ -28,11 +28,11 @@ public class HibernateTestHarness {
 //        System.out.println(myStudent);
 
         // auto update - dirty check
-        Student myStudent = (Student) session.get(Student.class, 9);
-        myStudent.setTutor("TutorName-007");
+        Student myStudent = (Student) session.get(Student.class, 1);
+        myStudent.setTutorName("TutorName-007");
         System.out.println(myStudent);
 
-        tx.commit();
+        tx.commit(); // SQL execute here
         session.close();
     }
 
