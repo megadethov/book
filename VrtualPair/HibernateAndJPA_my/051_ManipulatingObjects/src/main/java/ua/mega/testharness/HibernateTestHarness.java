@@ -18,7 +18,13 @@ public class HibernateTestHarness {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        Student myStudent = (Student) session.get(Student.class, 7);
+        // find object
+//        Student myStudent = (Student) session.get(Student.class, 7);
+//        System.out.println(myStudent);
+
+        // delete object
+        Student myStudent = (Student) session.get(Student.class, 8);
+        session.delete(myStudent); // delete from DB, not from memory
         System.out.println(myStudent);
 
         tx.commit();
