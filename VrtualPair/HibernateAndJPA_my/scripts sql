@@ -1,0 +1,48 @@
+connect 'jdbc:derby://localhost/MyDatabase;create=true';
+connect 'jdbc:derby://localhost/MyDatabase';
+
+show tables;
+
+create table STUDENT (name varchar(300), enrollment_id varchar(30));
+create table STUDENT (id integer generated always as identity, name varchar(300), enrollment_id varchar(30));
+create table TUTOR (id integer generated always as identity, name varchar(300), salary integer);
+
+describe STUDENT;
+describe TUTOR;
+
+insert into STUDENT (name, enrollment_id) values ('Frank Jones', '1-Jon-2009');
+insert into STUDENT (name, enrollment_id) values ('Alan Matthews', '1-Mat-2008');
+insert into STUDENT (name, enrollment_id) values ('Clare Thompson', '1-THO-2007');
+insert into STUDENT (name, enrollment_id) values ('Suki Webster', '1-WEB-2006');
+insert into TUTOR (name, salary) values ('Mark Watson', 100000);
+insert into TUTOR (name, salary) values ('Pat Fay', 12000);
+insert into STUDENT (name, enrollment_id, tutor_FK) values ('Alan Matthews', '1-Mat-2008', 1);
+insert into STUDENT (name, enrollment_id, tutor_FK) values ('Clare Thompson', '1-THO-2007', 2);
+
+
+
+select name from STUDENT;
+select id, name from STUDENT;
+select * from STUDENT;
+select * from STUDENT where name = 'Frank Jones';
+select * from TUTOR;
+select name, tutor_FK from STUDENT;
+select id, name, tutor_FK from STUDENT;
+
+select s.name, t.name from student s, tutor t where s.tutor_fk = t.id;
+select s.name, t.name from student s inner join tutor t on s.tutor_fk = t.id;
+select s.name, t.name from student s left outer join tutor t on s.tutor_fk = t.id;
+
+
+update STUDENT set name = 'Francis Jones' where enrollment_id = '1-Jon-2009';
+update STUDENT set tutor_FK = 1 where id = 1;
+
+delete from STUDENT where id = 2;
+
+drop table STUDENT;
+
+alter table STUDENT add column tutor_FK integer;
+
+
+
+
