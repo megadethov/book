@@ -29,9 +29,26 @@ public class HibernateTestHarness {
         myStudent.allocateSupervisor(myTutor);
         // sout the Tutor name
         System.out.println("Tutor name is: " + myStudent.getSupervisorName());*/
-        Student foundStudent = (Student) session.get(Student.class, 1);
-        Tutor foundTutor = (Tutor) session.get(Tutor.class, 2);
-        foundStudent.allocateSupervisor(foundTutor);
+
+        Tutor tutor = new Tutor("111-STF", "nameTut-1", 10000);
+
+        Student student1 = new Student("nameSt-1");
+        Student student2 = new Student("nameSt-2");
+        Student student3 = new Student("nameSt-3");
+
+        session.save(student1);
+        session.save(student2);
+        session.save(student3);
+        session.save(tutor);
+
+        tutor.addStudentToSupervisionGroup(student1);
+        tutor.addStudentToSupervisionGroup(student2);
+        tutor.addStudentToSupervisionGroup(student3);
+
+        for (Student next : tutor.getSupervisionGroup()) {
+            System.out.println(next);
+        }
+
 
         tx.commit(); // SQL execute here
         session.close();
