@@ -30,10 +30,8 @@ public class HibernateTestHarness {
         // sout the Tutor name
         System.out.println("Tutor name is: " + myStudent.getSupervisorName());*/
         Student foundStudent = (Student) session.get(Student.class, 1);
-        System.out.println(foundStudent);
-
-        Tutor foundTutor = foundStudent.getSupervisor();
-        System.out.println(foundTutor.getName());
+        Tutor foundTutor = (Tutor) session.get(Tutor.class, 2);
+        foundStudent.allocateSupervisor(foundTutor);
 
         tx.commit(); // SQL execute here
         session.close();
