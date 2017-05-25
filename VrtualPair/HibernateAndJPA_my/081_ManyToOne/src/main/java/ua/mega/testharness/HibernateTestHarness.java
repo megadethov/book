@@ -15,9 +15,9 @@ public class HibernateTestHarness {
 
     public static void main(String[] args) {
 
-//        SessionFactory sf = getSessionFactory();
-//        Session session = sf.openSession();
-//        Transaction tx = session.beginTransaction();
+        SessionFactory sf = getSessionFactory();
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
 
         Student myStudent = new Student("StudentName-1");
         Tutor myTutor = new Tutor("101-STF", "TutorName-1", 10000);
@@ -26,9 +26,11 @@ public class HibernateTestHarness {
         // sout the Tutor name
         System.out.println("Tutor name is: " + myStudent.getSupervisorName());
 
+        session.save(myStudent);
+        session.save(myTutor);
 
-//        tx.commit(); // SQL execute here
-//        session.close();
+        tx.commit(); // SQL execute here
+        session.close();
     }
 
     public static SessionFactory getSessionFactory() {
