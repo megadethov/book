@@ -15,6 +15,7 @@ public class Tutor {
     private int salary;
 
     @OneToMany
+    @OrderBy("name")
     @JoinColumn(name = "TUTOR_FK")
     private List<Student> supervisionGroup;
 

@@ -32,21 +32,21 @@ public class HibernateTestHarness {
         myStudent.allocateSupervisor(myTutor);
         // sout the Tutor name
         System.out.println("Tutor name is: " + myStudent.getSupervisorName());*/
+/*
+        Tutor tutor = new Tutor("111-STF", "nameTut-1", 10000);
 
-       /* Tutor tutor = new Tutor("111-STF", "nameTut-1", 10000);
+        Student student1 = new Student("nameSt-2", "102-ENRID");
+        Student student2 = new Student("nameSt-3", "103-ENRID");
+        Student student3 = new Student("nameSt-1", "101-ENRID");
 
-        Student student1 = new Student("nameSt-1", "101-ENRID");
-        Student student2 = new Student("nameSt-2", "102-ENRID");
-        Student student3 = new Student("nameSt-3", "103-ENRID");
-
-        session.save(student1);
         session.save(student2);
         session.save(student3);
+        session.save(student1);
         session.save(tutor);
 
-        tutor.addStudentToSupervisionGroup(student1);
         tutor.addStudentToSupervisionGroup(student2);
-        tutor.addStudentToSupervisionGroup(student3);*/
+        tutor.addStudentToSupervisionGroup(student3);
+        tutor.addStudentToSupervisionGroup(student1);*/
 
         Tutor foundTutor = (Tutor) session.get(Tutor.class, 1);
         List<Student> students = foundTutor.getSupervisionGroup();
@@ -54,7 +54,6 @@ public class HibernateTestHarness {
         for (Student next : students) {
             System.out.println(next);
         }
-
         tx.commit(); // SQL execute here
         session.close();
     }
