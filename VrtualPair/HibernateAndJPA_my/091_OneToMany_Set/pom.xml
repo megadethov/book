@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega</groupId>
-    <artifactId>091_OneToMany</artifactId>
+    <artifactId>091_OneToMany_Set</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
