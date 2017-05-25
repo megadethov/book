@@ -16,6 +16,7 @@ public class Tutor {
 
     @OneToMany
     @OrderBy("name")
+//    @OrderColumn(name = "id")
     @JoinColumn(name = "TUTOR_FK")
     private List<Student> supervisionGroup;
 
