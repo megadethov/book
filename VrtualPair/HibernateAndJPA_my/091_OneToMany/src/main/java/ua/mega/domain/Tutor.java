@@ -18,6 +18,7 @@ public class Tutor {
     private int salary;
 
     @OneToMany
+    @JoinColumn(name = "TUTOR_FK")
     private Set<Student> supervisionGroup;
 
     public Tutor() {
