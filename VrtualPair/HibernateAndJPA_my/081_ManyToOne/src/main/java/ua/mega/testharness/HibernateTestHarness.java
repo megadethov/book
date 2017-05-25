@@ -19,15 +19,21 @@ public class HibernateTestHarness {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        Student myStudent = new Student("StudentName-1");
-        Tutor myTutor = new Tutor("101-STF", "TutorName-1", 10000);
-        // make the student be supervised by the tutor
-        myStudent.allocateSupervisor(myTutor);
-        // sout the Tutor name
-        System.out.println("Tutor name is: " + myStudent.getSupervisorName());
+       /* Student myStudent = new Student("StudentName-2");
+        Tutor myTutor = new Tutor("222-STF", "TutorName-2", 10000);
 
         session.save(myStudent);
         session.save(myTutor);
+
+        // make the student be supervised by the tutor
+        myStudent.allocateSupervisor(myTutor);
+        // sout the Tutor name
+        System.out.println("Tutor name is: " + myStudent.getSupervisorName());*/
+        Student foundStudent = (Student) session.get(Student.class, 1);
+        System.out.println(foundStudent);
+
+        Tutor foundTutor = foundStudent.getSupervisor();
+        System.out.println(foundTutor.getName());
 
         tx.commit(); // SQL execute here
         session.close();
