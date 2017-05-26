@@ -42,6 +42,9 @@ public class Tutor {
         List<Student> unmodifiableGroup = Collections.unmodifiableList(this.supervisionGroup);
         return unmodifiableGroup;
     }
+    public List<Student> getModifiableGroup() {
+        return this.supervisionGroup;
+    }
 
     @Override
     public String toString() {
