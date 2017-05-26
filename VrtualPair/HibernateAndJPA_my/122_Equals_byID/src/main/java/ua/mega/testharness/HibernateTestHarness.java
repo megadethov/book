@@ -23,19 +23,23 @@ public class HibernateTestHarness {
         Transaction tx = session.beginTransaction();
 
         Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
+        session.save(myTutor);
         Student myStudent = new Student("Vasya", "VAS-101");
+        session.save(myStudent);
         Student myStudent2 = new Student("Petya", "PET-273");
+        session.save(myStudent2);
         Student myStudent3 = new Student("Vova", "VOV-387");
+        session.save(myStudent3);
 
         myTutor.addStudentToSupervisionGroup(myStudent);
         myTutor.addStudentToSupervisionGroup(myStudent2);
         myTutor.addStudentToSupervisionGroup(myStudent3);
 
-        // it's a legal Hibernate to save here
-        session.save(myTutor);
+        // it's a legal Hibernate to save here, but collections works wrong
+       /* session.save(myTutor);
         session.save(myStudent);
         session.save(myStudent2);
-        session.save(myStudent3);
+        session.save(myStudent3);*/
 
         tx.commit();
         session.close();
@@ -47,7 +51,7 @@ public class HibernateTestHarness {
         Tutor getTutor = (Tutor) session.get(Tutor.class, 1);
         Set<Student> students = getTutor.getSupervisionGroup();
 
-        System.out.println(students.size()); // expected=3, actual=1;
+        System.out.println(students.size()); // NOW expected=3, actual=3;
 
         tx.commit();
         session.close();
