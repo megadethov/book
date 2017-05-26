@@ -35,6 +35,7 @@ public class Tutor {
 
     public void addStudentToSupervisionGroup(Student addStudent) {
         supervisionGroup.add(addStudent);
+        addStudent.allocateSupervisor(this);
     }
 
     public List<Student> getSupervisionGroup() {
