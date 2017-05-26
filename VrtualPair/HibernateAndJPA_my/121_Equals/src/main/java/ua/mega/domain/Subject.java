@@ -9,6 +9,7 @@ public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique = true, nullable = false)
     private String subjectName;
     private int numberOfSemesters;
     @ManyToMany(mappedBy = "taughtSubjects")
@@ -31,4 +32,18 @@ public class Subject {
         addTutor.getTaughtSubjects().add(this);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Subject subject = (Subject) o;
+
+        return subjectName != null ? subjectName.equals(subject.subjectName) : subject.subjectName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return subjectName != null ? subjectName.hashCode() : 0;
+    }
 }

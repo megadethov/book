@@ -9,7 +9,7 @@ public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    @Column(unique = true, nullable = false)
     private String stuffId;
     private String name;
     private int salary;
@@ -53,11 +53,25 @@ public class Tutor {
         Set<Student> unmodifiableGroup = Collections.unmodifiableSet(this.supervisionGroup);
         return unmodifiableGroup;
     }
+
     public Set<Student> getModifiableGroup() {
         return this.supervisionGroup;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Tutor tutor = (Tutor) o;
+
+        return stuffId != null ? stuffId.equals(tutor.stuffId) : tutor.stuffId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return stuffId != null ? stuffId.hashCode() : 0;
+    }
 
     @Override
     public String toString() {
