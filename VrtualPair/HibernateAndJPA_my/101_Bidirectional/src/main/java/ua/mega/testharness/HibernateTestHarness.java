@@ -43,8 +43,15 @@ public class HibernateTestHarness {
         session.save(tutor);
 
         tutor.addStudentToSupervisionGroup(student2);
+        student1.allocateSupervisor(tutor);
+
         tutor.addStudentToSupervisionGroup(student3);
+        student2.allocateSupervisor(tutor);
+
         tutor.addStudentToSupervisionGroup(student1);
+        student3.allocateSupervisor(tutor);
+
+        System.out.println(tutor);
 
         /*Tutor foundTutor = (Tutor) session.get(Tutor.class, 1);
         List<Student> students = foundTutor.getSupervisionGroup();
