@@ -82,4 +82,9 @@ public class Tutor {
     public int hashCode() {
         return stuffId != null ? stuffId.hashCode() : 0;
     }
+
+    public void createStudentAndAddToSupervisionGroup(String name, String enrollmentID) {
+        Student student = new Student(name, enrollmentID);
+        addStudentToSupervisionGroup(student);
+    }
 }
