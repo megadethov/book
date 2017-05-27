@@ -11,7 +11,7 @@ public class Subject {
     private int id;
     private String subjectName;
     private int numberOfSemesters;
-    @ManyToMany(mappedBy = "taughtSubjects")
+    @ManyToMany
     private Set<Tutor> subjectTeachers;
 
     public Subject() {
@@ -31,4 +31,18 @@ public class Subject {
         addTutor.getTaughtSubjects().add(this);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Subject subject = (Subject) o;
+
+        return subjectName != null ? subjectName.equals(subject.subjectName) : subject.subjectName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return subjectName != null ? subjectName.hashCode() : 0;
+    }
 }

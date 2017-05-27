@@ -53,11 +53,10 @@ public class Tutor {
         Set<Student> unmodifiableGroup = Collections.unmodifiableSet(this.supervisionGroup);
         return unmodifiableGroup;
     }
+
     public Set<Student> getModifiableGroup() {
         return this.supervisionGroup;
     }
-
-
 
     @Override
     public String toString() {
@@ -65,5 +64,20 @@ public class Tutor {
                 "stuffId='" + stuffId + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tutor tutor = (Tutor) o;
+
+        return stuffId != null ? stuffId.equals(tutor.stuffId) : tutor.stuffId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return stuffId != null ? stuffId.hashCode() : 0;
     }
 }

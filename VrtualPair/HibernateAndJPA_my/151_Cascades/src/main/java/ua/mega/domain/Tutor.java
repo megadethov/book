@@ -1,5 +1,6 @@
 package ua.mega.domain;
 
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -14,10 +15,10 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor")
+    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST })
     private Set<Student> supervisionGroup;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "subjectTeachers")
     private Set<Subject> taughtSubjects;
 
     public Tutor() {
@@ -65,5 +66,20 @@ public class Tutor {
                 "stuffId='" + stuffId + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tutor tutor = (Tutor) o;
+
+        return stuffId != null ? stuffId.equals(tutor.stuffId) : tutor.stuffId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return stuffId != null ? stuffId.hashCode() : 0;
     }
 }
