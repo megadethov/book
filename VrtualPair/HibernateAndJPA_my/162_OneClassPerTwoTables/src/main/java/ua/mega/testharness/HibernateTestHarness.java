@@ -17,11 +17,14 @@ public class HibernateTestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
+      /*  Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
         em.persist(myTutor);
-
         myTutor.createStudentAndAddToSupervisionGroup("Vasya Pupkin", "PUP-293", "City-1", "Street-1", "871010");
         myTutor.createStudentAndAddToSupervisionGroup("Petya Petrov", "PET-293", "City-2", "Street-2", "3982727");
+*/
+
+        Student findStudent = em.find(Student.class, 2);
+        System.out.println(findStudent);
 
         tx.commit();
         em.close();
