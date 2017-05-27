@@ -29,7 +29,7 @@ public class Tutor {
         this.stuffId = stuffId;
         this.name = name;
         this.salary = salary;
-        supervisionGroup = new HashSet<>();
+        supervisionGroup = new LinkedHashSet<>();
         taughtSubjects = new HashSet<>();
     }
 
