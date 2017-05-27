@@ -1,5 +1,6 @@
 package ua.mega.testharness;
 
+import ua.mega.domain.Address;
 import ua.mega.domain.Student;
 import ua.mega.domain.Tutor;
 
@@ -18,11 +19,21 @@ public class HibernateTestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
-        em.persist(myTutor);
+//        Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
+//        em.persist(myTutor);
+//        myTutor.createStudentAndAddToSupervisionGroup("Vasya Pupkin", "PUP-293", "City-1", "Street-1", "871010");
+//        myTutor.createStudentAndAddToSupervisionGroup("Petya Petrov", "PET-293", "City-2", "Street-2", "3982727");
 
-        myTutor.createStudentAndAddToSupervisionGroup("Vasya Pupkin", "PUP-293", "City-1", "Street-1", "871010");
-        myTutor.createStudentAndAddToSupervisionGroup("Petya Petrov", "PET-293", "City-2", "Street-2", "3982727");
+//        Student studentFromDb = new Student("Ben Rotvell", "735-BEN");
+//        em.persist(studentFromDb);
+
+        Student studentFromDb = em.find(Student.class, 3);
+
+        if (studentFromDb.getAddress() == null) {
+            studentFromDb.setAddress(new Address("DefaultCity", "DefaultStreet", "182938"));
+        }
+
+        System.out.println(studentFromDb);
 
         tx.commit();
         em.close();

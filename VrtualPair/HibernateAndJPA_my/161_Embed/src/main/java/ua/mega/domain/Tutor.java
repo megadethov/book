@@ -11,6 +11,7 @@ public class Tutor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(unique=true, nullable=false)
     private String stuffId;
     private String name;
     private int salary;
