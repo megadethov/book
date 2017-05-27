@@ -19,7 +19,7 @@ public class HibernateTestHarness {
         tx.begin();
 
         Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
-        em.persist(myTutor);
+//        em.persist(myTutor);
 
         Student myStudent = new Student("Vasya", "VAS-101");
         myTutor.addStudentToSupervisionGroup(myStudent);
@@ -31,9 +31,9 @@ public class HibernateTestHarness {
         Set<Student> students = myTutor.getSupervisionGroup();
         System.out.println(students.size());
 
-//        em.persist(myStudent);
-//        em.persist(myStudent2);
-//        em.persist(myStudent3);
+        em.persist(myStudent);
+        em.persist(myStudent2);
+        em.persist(myStudent3);
 
         tx.commit();
         em.close();
