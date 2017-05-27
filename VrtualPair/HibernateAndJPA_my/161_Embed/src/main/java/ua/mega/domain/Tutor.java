@@ -15,7 +15,7 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST/*, CascadeType.REMOVE*/ })
+    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST })
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "subjectTeachers")
@@ -83,8 +83,8 @@ public class Tutor {
         return stuffId != null ? stuffId.hashCode() : 0;
     }
 
-    public void createStudentAndAddToSupervisionGroup(String name, String enrollmentID) {
-        Student student = new Student(name, enrollmentID);
+    public void createStudentAndAddToSupervisionGroup(String name, String enrollmentID, String city, String street, String zipOrPosteCode) {
+        Student student = new Student(name, enrollmentID, city, street, zipOrPosteCode);
         addStudentToSupervisionGroup(student);
     }
 }
