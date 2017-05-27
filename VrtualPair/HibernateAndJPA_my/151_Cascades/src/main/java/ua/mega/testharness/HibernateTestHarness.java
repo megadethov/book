@@ -18,7 +18,7 @@ public class HibernateTestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
+       /* Tutor myTutor = new Tutor("111-VEN-ID", "Veniamin Vladimirivich", 10000);
         em.persist(myTutor);
 
         myTutor.createStudentAndAddToSupervisionGroup("Vasya Pupkin", "PUP-293");
@@ -26,11 +26,10 @@ public class HibernateTestHarness {
         myTutor.createStudentAndAddToSupervisionGroup("Ivan Ivanov", "IVA-293");
 
         Set<Student> students = myTutor.getSupervisionGroup();
-        System.out.println(students.size());
+        System.out.println(students.size());*/
 
-//        em.persist(myStudent);
-//        em.persist(myStudent2);
-//        em.persist(myStudent3);
+        Tutor tutor = em.find(Tutor.class, 1);
+        em.remove(tutor);
 
         tx.commit();
         em.close();
