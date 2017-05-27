@@ -45,6 +45,8 @@ public class HibernateTestHarness {
         Student myStudent = em.find(Student.class, 2);
         System.out.println(myStudent);
 
+        em.remove(myStudent);
+
         tx.commit();
         em.close();
     }
