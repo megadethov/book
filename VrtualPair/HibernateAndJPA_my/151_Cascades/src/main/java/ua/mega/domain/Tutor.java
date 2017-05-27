@@ -15,7 +15,7 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST })
+    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "subjectTeachers")
