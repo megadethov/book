@@ -84,7 +84,7 @@ public class Tutor {
         return stuffId != null ? stuffId.hashCode() : 0;
     }
 
-    public void createStudentAndAddToSupervisionGroup(String name, String enrollmentID, String city, String street, String zipOrPosteCode) {
+    public void createStudentAndAddToSupervisionGroup(String name, String enrollmentID, String street, String city, String zipOrPosteCode) {
         Student student = new Student(name, enrollmentID, city, street, zipOrPosteCode);
         addStudentToSupervisionGroup(student);
     }
