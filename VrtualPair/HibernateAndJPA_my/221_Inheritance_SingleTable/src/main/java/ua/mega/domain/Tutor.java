@@ -10,7 +10,7 @@ public class Tutor extends Person {
     private String stuffId;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST })
+    @OneToMany(mappedBy = "supervisor", cascade = {CascadeType.PERSIST})
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "subjectTeachers")
@@ -46,10 +46,10 @@ public class Tutor extends Person {
         Set<Student> unmodifiableGroup = Collections.unmodifiableSet(this.supervisionGroup);
         return unmodifiableGroup;
     }
+
     public Set<Student> getModifiableGroup() {
         return this.supervisionGroup;
     }
-
 
 
     @Override
@@ -81,7 +81,7 @@ public class Tutor extends Person {
     }
 
     @Override
-    void calculateReport() {
+    public void calculateReport() {
         System.out.println("Report fo Tutor: " + getName());
     }
 }

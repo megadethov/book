@@ -26,5 +26,5 @@ public abstract class Person {
         return name;
     }
 
-    abstract void calculateReport();
+    public abstract void calculateReport();
 }
