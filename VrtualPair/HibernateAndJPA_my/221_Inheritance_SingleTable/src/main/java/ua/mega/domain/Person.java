@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="PERSON_TYPE")
 public abstract class Person {
 
     @Id
