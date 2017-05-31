@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@DiscriminatorValue(value = "T")
 public class Tutor extends Person {
 
     private String stuffId;
