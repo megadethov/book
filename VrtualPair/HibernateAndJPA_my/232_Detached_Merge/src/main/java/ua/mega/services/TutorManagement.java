@@ -37,13 +37,13 @@ public class TutorManagement {
         tx.begin();
 
         // make the object be dirty checked again
-        Tutor tutorReAttach = em.merge(tutorToUpdate);
+        tutorToUpdate = em.merge(tutorToUpdate);
 
         // dirty check
         tx.commit();
         em.close();
 
-        return tutorReAttach;
+        return tutorToUpdate;
     }
 
 }
