@@ -7,6 +7,7 @@ import java.util.*;
 @Entity
 public class Tutor extends Person {
 
+    @Column(unique = true, nullable = false)
     private String stuffId;
     private int salary;
 
