@@ -21,7 +21,11 @@ public class TutorManagement {
         tx.begin();
 
         Tutor myTutor = new Tutor(stuffId, name, salary);
-        em.persist(myTutor);
+//        em.persist(myTutor);
+
+//        ID>=1 => update()
+//        ID=0 => insert()
+        myTutor = em.merge(myTutor); // instead persist()
 
         // commit realise any DB conn
         tx.commit();
@@ -37,7 +41,7 @@ public class TutorManagement {
         tx.begin();
 
         // make the object be dirty checked again
-        tutorToUpdate = em.merge(tutorToUpdate);
+        tutorToUpdate = em.merge(tutorToUpdate); // don't forget re-assign!!!
 
         // dirty check
         tx.commit();
