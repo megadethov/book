@@ -10,5 +10,11 @@ public class HibernateTestHarness {
         TutorManagement tutorManagement = new TutorManagement();
 
         Tutor tutor = tutorManagement.createTutor("12345", "Venya", 12000);
+
+        // client seat and wait...
+
+        tutor.doubleSalary();
+
+        tutorManagement.updateTutor(tutor);
     }
 }

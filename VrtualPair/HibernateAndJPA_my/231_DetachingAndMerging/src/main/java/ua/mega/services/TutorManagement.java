@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
  * not fo production style
  */
 
-public class TutorManagement {
+/*public class TutorManagement {
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
 
     public Tutor createTutor(String stuffId, String name, int salary) {
@@ -27,4 +27,34 @@ public class TutorManagement {
 
         return myTutor;
     }
+}*/
+
+public class TutorManagement {
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
+    private static EntityManager em = emf.createEntityManager();
+
+    public Tutor createTutor(String stuffId, String name, int salary) {
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        Tutor myTutor = new Tutor(stuffId, name, salary);
+        em.persist(myTutor);
+
+        tx.commit();
+
+        return myTutor;
+    }
+
+    public Tutor updateTutor(Tutor tutorToUpdate) {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        tx.commit();
+        em.close();
+
+        return tutorToUpdate;
+    }
 }
+
+

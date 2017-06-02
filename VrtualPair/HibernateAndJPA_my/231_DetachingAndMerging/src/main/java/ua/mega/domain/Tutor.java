@@ -11,12 +11,12 @@ public class Tutor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(unique=true, nullable=false)
+    @Column(unique = true, nullable = false)
     private String stuffId;
     private String name;
     private int salary;
 
-    @OneToMany(mappedBy = "supervisor", cascade = { CascadeType.PERSIST })
+    @OneToMany(mappedBy = "supervisor", cascade = {CascadeType.PERSIST})
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "subjectTeachers")
@@ -55,10 +55,10 @@ public class Tutor {
         Set<Student> unmodifiableGroup = Collections.unmodifiableSet(this.supervisionGroup);
         return unmodifiableGroup;
     }
+
     public Set<Student> getModifiableGroup() {
         return this.supervisionGroup;
     }
-
 
 
     @Override
@@ -87,5 +87,9 @@ public class Tutor {
     public void createStudentAndAddToSupervisionGroup(String name, String enrollmentID, String street, String city, String zipOrPosteCode) {
         Student student = new Student(name, enrollmentID, city, street, zipOrPosteCode);
         addStudentToSupervisionGroup(student);
+    }
+
+    public void doubleSalary() {
+        salary = salary * 2;
     }
 }
