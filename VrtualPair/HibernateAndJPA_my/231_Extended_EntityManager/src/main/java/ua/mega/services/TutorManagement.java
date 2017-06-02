@@ -55,6 +55,10 @@ public class TutorManagement {
 
         return tutorToUpdate;
     }
+
+    public void endProcess() {
+        em.close();
+    }
 }
 
 

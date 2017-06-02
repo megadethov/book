@@ -16,5 +16,7 @@ public class HibernateTestHarness {
         tutor.doubleSalary();
 
         tutorManagement.updateTutor(tutor);
+
+//        tutorManagement.endProcess();
     }
 }
