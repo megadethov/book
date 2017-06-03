@@ -16,7 +16,8 @@ public class HibernateTestHarness {
 
         System.out.println("Tutor name: " + tutor.getName());
 
-        int size = tutor.getSupervisionGroup().size(); // here LazyInitializationException
+        int size = tutor.getSupervisionGroup().size(); // here LazyInitializationException if FetchType.LAZY
+        System.out.println(size);
 
     }
 }
