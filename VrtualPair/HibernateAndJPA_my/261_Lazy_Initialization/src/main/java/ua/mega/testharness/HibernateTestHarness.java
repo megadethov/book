@@ -12,20 +12,11 @@ public class HibernateTestHarness {
 
         TutorManagement tutorManagement = new TutorManagement();
 
-        // Step 1
-//        Tutor tutor = tutorManagement.createTutor("12345", "Venya", 12000);
-        Tutor tutor = tutorManagement.findTutorById(1);
+        Tutor tutor = tutorManagement.findTutorById(1); // here em.close()
 
-        // client seat and wait...
-        tutor.setName("Clara Cetcin");
+        System.out.println("Tutor name: " + tutor.getName());
 
-        // Step 2 Because there is been a pause, check for a stale object
-        try {
-            tutorManagement.updateTutor(tutor);
-        } catch (OptimisticLockException e) {
-            // deal with the problem
-            System.out.println("Sorry, that tutor was updated while you are thinking! Please try again.");
-        }
+        int size = tutor.getSupervisionGroup().size(); // here LazyInitializationException
 
     }
 }
