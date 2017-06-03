@@ -88,6 +88,21 @@ public class TutorManagement {
         em.close();
     }
 
+    public void inMemoryQuery(int id) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        Tutor tutor = em.find(Tutor.class, id);
+
+        // if here other process something change in DB
+        // This does not concern us, because we work with in memory Object
+
+        tutor.setSalary(20000);
+
+        tx.commit();em.close();
+    }
+
 }
 
 

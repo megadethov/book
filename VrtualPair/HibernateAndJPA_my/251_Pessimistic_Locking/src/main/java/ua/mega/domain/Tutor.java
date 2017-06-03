@@ -99,4 +99,8 @@ public class Tutor {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 }
