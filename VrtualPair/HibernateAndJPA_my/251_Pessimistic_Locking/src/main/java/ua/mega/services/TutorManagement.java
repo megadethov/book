@@ -2,10 +2,7 @@ package ua.mega.services;
 
 import ua.mega.domain.Tutor;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -71,7 +68,14 @@ public class TutorManagement {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        List<Object[]> result = em.createQuery("select tutor.name, tutor.salary from Tutor as tutor").getResultList();
+        /*List<Object[]> result = em.createQuery("select tutor.name, tutor.salary from Tutor as tutor").getResultList();
+        for (Object[] next : result) {
+            System.out.println(next[0] + "---" + next[1]);
+        }*/
+
+        List<Object[]> result = em.createQuery("select tutor.name, tutor.salary from Tutor as tutor")
+                .setLockMode(LockModeType.PESSIMISTIC_READ)
+                .getResultList();
         for (Object[] next : result) {
             System.out.println(next[0] + "---" + next[1]);
         }
