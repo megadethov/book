@@ -12,11 +12,11 @@ public class HibernateTestHarness {
 
         TutorManagement tutorManagement = new TutorManagement();
 
-        Tutor tutor = tutorManagement.findTutorById(1); // here em.close()
-
+//        Tutor tutor = tutorManagement.findTutorById(1);
+        Tutor tutor = tutorManagement.findTutorByIdWithSupervisionGroup(1);
         System.out.println("Tutor name: " + tutor.getName());
 
-        int size = tutor.getSupervisionGroup().size(); // here LazyInitializationException if FetchType.LAZY
+        int size = tutor.getSupervisionGroup().size(); // no exception
         System.out.println(size);
 
     }

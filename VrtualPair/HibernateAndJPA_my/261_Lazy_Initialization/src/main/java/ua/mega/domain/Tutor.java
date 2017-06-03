@@ -16,7 +16,7 @@ public class Tutor {
     private String name;
     private int salary;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "supervisor", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(/*fetch = FetchType.EAGER, */mappedBy = "supervisor", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "subjectTeachers")
