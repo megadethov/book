@@ -21,11 +21,15 @@ public class PerformanceTesting {
         Tutor tutor = em.find(Tutor.class, 1); // Here Hibernate don't load Student and use Proxy Object
         System.out.println(tutor.getName() + "---" + tutor.getSalary());
 
-        int numberOfStudents = tutor.getSupervisionGroup().size(); // Here Hibernate load Student
-        System.out.println("This Tutor have " + numberOfStudents + " students");
+       /* int numberOfStudents = tutor.getSupervisionGroup().size(); // Here Hibernate load Student
+        System.out.println("This Tutor have " + numberOfStudents + " students");*/
 
         tx.commit();
         em.close();
+
+        // LazyInitializationException
+        int numberOfStudents = tutor.getSupervisionGroup().size(); // Here Hibernate load Student
+        System.out.println("This Tutor have " + numberOfStudents + " students");
     }
 
     public static void setUpData()
