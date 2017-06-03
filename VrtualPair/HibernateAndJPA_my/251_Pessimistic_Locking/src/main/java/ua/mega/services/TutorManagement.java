@@ -76,6 +76,10 @@ public class TutorManagement {
             System.out.println(next[0] + "---" + next[1]);
         }
 
+        long totalSalary = (Long) em.createQuery("select sum(tutor.salary) from Tutor as tutor").getSingleResult();
+
+        System.out.println("Total salary is: " + totalSalary);
+
         tx.commit();
         em.close();
     }
