@@ -18,7 +18,8 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        // let's do some queries!
+        Tutor tutor = em.find(Tutor.class, 1);
+        System.out.println(tutor.getName() + "---" + tutor.getSalary());
 
         tx.commit();
         em.close();
