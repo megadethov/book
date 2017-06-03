@@ -15,6 +15,8 @@ public class HibernateTestHarness {
         // Step 1
         Tutor tutor = tutorManagement.createTutor("12345", "Venya", 12000);
 
+        // TODO: 03.06.17 Concarrent change name
+
         // client seat and wait...
         tutor.setName("Clara Cetcin");
 
