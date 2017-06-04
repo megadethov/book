@@ -13,8 +13,7 @@ import java.util.List;
 public class PerformanceTesting {
     public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         setUpData();
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -30,17 +29,23 @@ public class PerformanceTesting {
             System.out.println(next.getName() + "---" + next.getSupervisorName());
         }*/
 
-        List<Student> students = em.createQuery("select student from Student as student").getResultList();
+        // work with @BatchSize
+       /* List<Student> students = em.createQuery("select student from Student as student").getResultList();
         for (Student next : students) {
             System.out.println(next.getName() + "---" + next.getSupervisorName());
+        }*/
+
+        // alternative: a report query
+        List<Object[]> students = em.createQuery("select student.name, student.supervisor.name from Student as student").getResultList();
+        for (Object[] next : students) {
+            System.out.println(next[0] + "---" + next[1 ]);
         }
 
         tx.commit();
         em.close();
     }
 
-    public static void setUpData()
-    {
+    public static void setUpData() {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -76,7 +81,7 @@ public class PerformanceTesting {
         Tutor t8 = new Tutor("ABCD1", "Mick Stenton", 15000);
         Tutor t9 = new Tutor("ABCD2", "Ian Winterburn", 15000);
         Tutor t10 = new Tutor("ABCD3", "Nicola Spinks", 15000);
-        Tutor t11= new Tutor("ABCD4", "Gareth Topham", 15000);
+        Tutor t11 = new Tutor("ABCD4", "Gareth Topham", 15000);
         Tutor t12 = new Tutor("ABCD5", "Nina Carberry", 15000);
         Tutor t13 = new Tutor("ABCD6", "Carrie Ford", 15000);
         Tutor t14 = new Tutor("ABCD7", "Jaqui Oliver", 15000);
