@@ -26,13 +26,19 @@ public class PerformanceTesting {
         System.out.println(t2);
         System.out.println("t1 == t2 :" + (t1 == t2));*/
 
-        Tutor t1 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
+        /*Tutor t1 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
         System.out.println(t1);
-
         Tutor t2 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
         System.out.println(t2);
+        System.out.println("t1 == t2: " + (t1 == t2));*/
 
-        System.out.println("t1 == t2: " + (t1 == t2));
+        List<Tutor> tutors = em.createQuery("select tutor from Tutor as tutor").getResultList();
+        System.out.println(tutors.get(0));
+
+        Tutor tutor = em.find(Tutor.class, 1);
+        System.out.println(tutor);
+
+        System.out.println(tutors.get(0) == tutor);
 
         tx.commit();
         em.close();
