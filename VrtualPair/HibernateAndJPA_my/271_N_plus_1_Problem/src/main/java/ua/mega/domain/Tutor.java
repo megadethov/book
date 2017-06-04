@@ -1,10 +1,13 @@
 package ua.mega.domain;
 
 
+import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@BatchSize(size = 10)
 public class Tutor {
 
     @Id
