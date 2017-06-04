@@ -19,7 +19,15 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
+        Tutor t1 = em.find(Tutor.class, 1);
+        System.out.println(t1);
 
+        // later on ...
+
+        Tutor t2 = em.find(Tutor.class, 1);
+        System.out.println(t2);
+
+        System.out.println("t1 == t2 :" + (t1 == t2));
 
         tx.commit();
         em.close();
