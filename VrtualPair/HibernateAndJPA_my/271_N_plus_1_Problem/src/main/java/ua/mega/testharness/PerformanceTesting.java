@@ -20,9 +20,14 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        List<Student> students = em.createQuery("select student from Student as student").getResultList();
+       /* List<Student> students = em.createQuery("select student from Student as student").getResultList();
         for (Student next : students) {
             System.out.println(next.getName());
+        }*/
+
+        List<Student> students = em.createQuery("select student from Student as student left outer join fetch student.supervisor").getResultList();
+        for (Student next : students) {
+            System.out.println(next.getName() + "---" + next.getSupervisorName());
         }
 
         tx.commit();
