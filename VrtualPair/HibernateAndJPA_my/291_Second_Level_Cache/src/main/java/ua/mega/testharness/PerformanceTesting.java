@@ -19,10 +19,22 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-
+        Tutor t1 = em.find(Tutor.class, 1);
+        System.out.println(t1);
 
         tx.commit();
         em.close();
+
+        // later, maybe mach later
+        EntityManager em2 = emf.createEntityManager();
+        EntityTransaction tx2 = em2.getTransaction();
+        tx2.begin();
+
+        Tutor t2 = em2.find(Tutor.class, 1);
+        System.out.println(t2);
+
+        tx2.commit();
+        em2.close();
     }
 
     public static void setUpData() {
