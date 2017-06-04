@@ -19,15 +19,20 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Tutor t1 = em.find(Tutor.class, 1);
+       /* Tutor t1 = em.find(Tutor.class, 1);
         System.out.println(t1);
-
         // later on ...
-
         Tutor t2 = em.find(Tutor.class, 1);
         System.out.println(t2);
+        System.out.println("t1 == t2 :" + (t1 == t2));*/
 
-        System.out.println("t1 == t2 :" + (t1 == t2));
+        Tutor t1 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
+        System.out.println(t1);
+
+        Tutor t2 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
+        System.out.println(t2);
+
+        System.out.println("t1 == t2: " + (t1 == t2));
 
         tx.commit();
         em.close();
