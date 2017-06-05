@@ -1,0 +1,20 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+    <cache name="ua.mega.domain.Tutor"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false" />
+
+    <cache name="ua.mega.domain.Student"
+           maxElementsInMemory="5000"
+           eternal="true"
+           overflowToDisk="false" />
+
+    <cache name="ua.mega.domain.Tutor.supervisionGroup"
+           maxElementsInMemory="1000"
+           eternal="true"
+           overflowToDisk="false" />
+
+</ehcache>
+
