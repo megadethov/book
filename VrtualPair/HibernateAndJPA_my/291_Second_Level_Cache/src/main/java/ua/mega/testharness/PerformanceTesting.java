@@ -1,5 +1,7 @@
 package ua.mega.testharness;
 
+import org.hibernate.Session;
+import org.hibernate.stat.Statistics;
 import ua.mega.domain.Student;
 import ua.mega.domain.Subject;
 import ua.mega.domain.Tutor;
@@ -16,6 +18,11 @@ public class PerformanceTesting {
     public static void main(String[] args) {
         setUpData();
         EntityManager em = emf.createEntityManager();
+
+        Session session = (Session) em.getDelegate();
+        Statistics statistics = session.getSessionFactory().getStatistics();
+        statistics.setStatisticsEnabled(true);
+
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
@@ -35,6 +42,8 @@ public class PerformanceTesting {
 
         tx2.commit();
         em2.close();
+
+        System.out.println(statistics.getSecondLevelCacheStatistics("ua.mega.domain.Tutor"));
     }
 
     public static void setUpData() {
