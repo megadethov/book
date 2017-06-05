@@ -28,7 +28,9 @@ public class PerformanceTesting {
         tx.begin();
 
         // Cache miss - Cache not used
-        Tutor t1 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
+        Tutor t1 = (Tutor) em.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'")
+                .setHint("org.hibernate.cacheable", true)
+                .getSingleResult();
 
         System.out.println(t1);
         Set<Student> students = t1.getSupervisionGroup();
@@ -45,7 +47,9 @@ public class PerformanceTesting {
         tx2.begin();
 
         // Cache hit ??? - cache not used
-        Tutor t2 = (Tutor) em2.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'").getSingleResult();
+        Tutor t2 = (Tutor) em2.createQuery("select tutor from Tutor as tutor where tutor.name='David Banks'")
+                .setHint("org.hibernate.cacheable", true)
+                .getSingleResult();
         System.out.println(t2);
 
         Set<Student> students2 = t2.getSupervisionGroup();

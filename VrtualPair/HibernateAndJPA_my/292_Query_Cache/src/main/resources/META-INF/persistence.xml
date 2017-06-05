@@ -29,6 +29,8 @@
                       value="ENABLE_SELECTIVE"/>
             <property name="hibernate.cache.region.factory_class"
                       value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+            <!--  Query Cache -->
+            <property name="hibernate.cache.use_query_cache" value="true"/>
 
         </properties>
 
