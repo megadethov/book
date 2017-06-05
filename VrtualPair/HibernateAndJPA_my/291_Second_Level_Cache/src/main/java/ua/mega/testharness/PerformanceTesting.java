@@ -40,10 +40,13 @@ public class PerformanceTesting {
         Tutor t2 = em2.find(Tutor.class, 1);
         System.out.println(t2);
 
+        t2.setName("not valid operation"); // if READ_ONLY - UnsupportedOperationException
+
         tx2.commit();
         em2.close();
 
         System.out.println(statistics.getSecondLevelCacheStatistics("ua.mega.domain.Tutor"));
+        statistics.getSecondLevelCacheHitCount();
     }
 
     public static void setUpData() {

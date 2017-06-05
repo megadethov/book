@@ -2,6 +2,7 @@ package ua.mega.domain;
 
 
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.util.*;
@@ -9,6 +10,7 @@ import java.util.*;
 @Entity
 @BatchSize(size = 10)
 @Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Tutor {
 
     @Id
