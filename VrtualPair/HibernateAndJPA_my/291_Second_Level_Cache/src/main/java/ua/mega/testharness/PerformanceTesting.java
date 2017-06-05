@@ -11,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
+import java.util.Set;
 
 public class PerformanceTesting {
     public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("myDatabaseConfig");
@@ -26,9 +27,14 @@ public class PerformanceTesting {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
+        // Cache miss
         Tutor t1 = em.find(Tutor.class, 1);
         System.out.println(t1);
-
+        Set<Student> students = t1.getSupervisionGroup();
+        for (Student next : students) {
+            System.out.println(next);
+        }
+        
         tx.commit();
         em.close();
 
@@ -37,16 +43,23 @@ public class PerformanceTesting {
         EntityTransaction tx2 = em2.getTransaction();
         tx2.begin();
 
+        // Cache hit !!!
         Tutor t2 = em2.find(Tutor.class, 1);
         System.out.println(t2);
 
-        t2.setName("not valid operation"); // if READ_ONLY - UnsupportedOperationException
+        Set<Student> students2 = t2.getSupervisionGroup();
+        for (Student next : students2) {
+            System.out.println(next);
+        }
+
+//        t2.setName("not valid operation"); // if READ_ONLY - UnsupportedOperationException
 
         tx2.commit();
         em2.close();
 
-        System.out.println(statistics.getSecondLevelCacheStatistics("ua.mega.domain.Tutor"));
-        statistics.getSecondLevelCacheHitCount();
+        System.out.println("Tutor cache: " + statistics.getSecondLevelCacheStatistics("ua.mega.domain.Tutor"));
+        System.out.println("Student cache: " + statistics.getSecondLevelCacheStatistics("ua.mega.domain.Student"));
+
     }
 
     public static void setUpData() {

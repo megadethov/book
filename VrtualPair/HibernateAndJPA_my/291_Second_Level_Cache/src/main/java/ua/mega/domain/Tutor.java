@@ -1,16 +1,17 @@
 package ua.mega.domain;
 
 
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import java.util.*;
 
 @Entity
 @BatchSize(size = 10)
 @Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Tutor {
 
     @Id
@@ -23,6 +24,7 @@ public class Tutor {
     private int salary;
 
     @OneToMany(/*fetch = FetchType.EAGER, */mappedBy = "supervisor", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Student> supervisionGroup;
 
     @ManyToMany(mappedBy = "subjectTeachers")
