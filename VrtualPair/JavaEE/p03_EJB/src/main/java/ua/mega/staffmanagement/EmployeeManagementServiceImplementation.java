@@ -2,9 +2,11 @@ package ua.mega.staffmanagement;
 
 import ua.mega.staffmanagement.domain.Employee;
 
+import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 public class EmployeeManagementServiceImplementation implements EmployeeManagementService {
     @Override
     public void registerEmployee(Employee newEmployee) {
