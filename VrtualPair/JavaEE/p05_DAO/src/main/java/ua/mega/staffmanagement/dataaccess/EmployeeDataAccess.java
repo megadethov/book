@@ -11,6 +11,6 @@ public interface EmployeeDataAccess {
 
     public List<Employee> findAllEmployee();
 
-    public List<Employee> findBySurname();
+    public List<Employee> findBySurname(String surname);
 
 }
