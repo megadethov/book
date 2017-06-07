@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega</groupId>
-    <artifactId>p05_DAO_DI</artifactId>
+    <artifactId>p052_No_Interface_EJB</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
