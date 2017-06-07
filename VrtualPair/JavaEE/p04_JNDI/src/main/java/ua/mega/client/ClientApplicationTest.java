@@ -13,8 +13,8 @@ public class ClientApplicationTest {
         try {
             Context jndi = new InitialContext();
 
-            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("ua.mega.staffmanagement.EmployeeManagementService");
-//            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("java:global/Employee/EmployeeManagementServiceImplementation");
+//            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("ua.mega.staffmanagement.EmployeeManagementService");
+            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("java:global/Employee/EmployeeManagementServiceImplementation");
 
             List<Employee> employees = service.getAllEmployees();
             for (Employee next : employees) {
