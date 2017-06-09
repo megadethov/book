@@ -31,4 +31,8 @@ public class Employee implements Serializable {
     public String toString() {
         return "Employee - " + firstName + " " + surname;
     }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }
