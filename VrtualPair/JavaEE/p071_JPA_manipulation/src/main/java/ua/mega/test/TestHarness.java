@@ -15,11 +15,8 @@ public class TestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        /*Employee employee = new Employee("Vasya", "Pupkun", "boss", 1000);
-        em.persist(employee);*/
-
-        Employee employee = em.find(Employee.class, 2);
-        System.out.println(employee);
+        Employee employee = new Employee("Vasya", "Pupkun", "boss", 1000);
+        em.persist(employee);
 
         tx.commit();
         em.close();
