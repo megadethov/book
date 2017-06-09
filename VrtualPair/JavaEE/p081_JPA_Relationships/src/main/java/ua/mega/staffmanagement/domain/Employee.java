@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Employee implements Serializable {
@@ -17,6 +19,8 @@ public class Employee implements Serializable {
     private String jobRole;
     private int salary;
 
+    private Set<Note> notes;
+
     public Employee() {
     }
 
@@ -25,6 +29,11 @@ public class Employee implements Serializable {
         this.surname = surname;
         this.jobRole = jobRole;
         this.salary = salary;
+        notes = new HashSet<>();
+    }
+
+    public void addNote(Note newNote) {
+        this.notes.add(newNote);
     }
 
     @Override

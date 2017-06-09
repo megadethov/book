@@ -1,5 +1,6 @@
 package ua.mega.test;
 
+import ua.mega.staffmanagement.domain.Employee;
 import ua.mega.staffmanagement.domain.Note;
 
 import javax.persistence.EntityManager;
@@ -15,8 +16,13 @@ public class TestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Note note = new Note("Something happened");
+        Employee employee = new Employee("Vasya", "Pupkin", "Java coder", 1000);
+        em.persist(employee);
+
+        Note note = new Note("Joined to Company");
         em.persist(note);
+
+        employee.addNote(note);
 
         tx.commit();
         em.close();
