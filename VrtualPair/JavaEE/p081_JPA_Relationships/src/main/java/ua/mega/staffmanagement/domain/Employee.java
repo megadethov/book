@@ -16,7 +16,8 @@ public class Employee implements Serializable {
     private String jobRole;
     private int salary;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="FK_EMPLOYEE_ID")
     private Set<Note> notes;
 
     public Employee() {
