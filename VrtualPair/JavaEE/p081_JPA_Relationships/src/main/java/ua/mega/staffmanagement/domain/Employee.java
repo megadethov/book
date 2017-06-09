@@ -1,9 +1,6 @@
 package ua.mega.staffmanagement.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +16,7 @@ public class Employee implements Serializable {
     private String jobRole;
     private int salary;
 
+    @OneToMany
     private Set<Note> notes;
 
     public Employee() {
@@ -34,6 +32,10 @@ public class Employee implements Serializable {
 
     public void addNote(Note newNote) {
         this.notes.add(newNote);
+    }
+
+    public Set<Note> getAllNotes() {
+        return this.notes;
     }
 
     @Override
