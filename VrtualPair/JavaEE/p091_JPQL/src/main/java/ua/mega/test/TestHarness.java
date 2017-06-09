@@ -17,7 +17,8 @@ public class TestHarness {
 
 //        dataPopulate(em);
 
-        Query q = em.createQuery("select employee from Employee employee");
+//        Query q = em.createQuery("select employee from Employee employee");
+        Query q = em.createQuery("select employee from Employee employee where employee.surname='surname-5'");
         List<Employee> employees = q.getResultList();
         for (Employee next : employees) {
             System.out.println(next);
