@@ -18,8 +18,11 @@ public class TestHarness {
         /*Employee employee = new Employee("Vasya", "Pupkun", "boss", 1000);
         em.persist(employee);*/
 
+        /*Employee findEmployee = em.find(Employee.class, 1);
+        findEmployee.setSurname("DirtySurname");*/
+
         Employee findEmployee = em.find(Employee.class, 1);
-        findEmployee.setSurname("DirtySurname");
+        em.remove(findEmployee);
 
         tx.commit();
         em.close();
