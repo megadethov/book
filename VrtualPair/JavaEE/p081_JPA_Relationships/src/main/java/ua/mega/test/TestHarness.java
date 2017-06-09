@@ -1,6 +1,6 @@
 package ua.mega.test;
 
-import ua.mega.staffmanagement.domain.Employee;
+import ua.mega.staffmanagement.domain.Note;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,14 +15,8 @@ public class TestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        /*Employee employee = new Employee("Vasya", "Pupkun", "boss", 1000);
-        em.persist(employee);*/
-
-        /*Employee findEmployee = em.find(Employee.class, 1);
-        findEmployee.setSurname("DirtySurname");*/
-
-        Employee findEmployee = em.find(Employee.class, 1);
-        em.remove(findEmployee);
+        Note note = new Note("Something happened");
+        em.persist(note);
 
         tx.commit();
         em.close();
