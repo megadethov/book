@@ -18,7 +18,8 @@ public class TestHarness {
 //        dataPopulate(em);
 
 //        Query q = em.createQuery("select employee from Employee employee");
-        Query q = em.createQuery("select employee from Employee employee where employee.surname='surname-5'");
+//        Query q = em.createQuery("select employee from Employee employee where employee.surname='xurname-7'");
+        Query q = em.createQuery("select employee from Employee employee where employee.surname like 's%'");
         List<Employee> employees = q.getResultList();
         for (Employee next : employees) {
             System.out.println(next);
@@ -29,16 +30,16 @@ public class TestHarness {
     }
 
     private static void dataPopulate(EntityManager em) {
-        Employee employee = new Employee("first-1", "surname-1", "role-1", 1000);
-        Employee employee2 = new Employee("first-2", "surname-2", "role-2", 2000);
-        Employee employee3 = new Employee("first-3", "surname-3", "role-3", 3000);
-        Employee employee4 = new Employee("first-4", "surname-4", "role-4", 4000);
+        Employee employee = new Employee("hirst-1", "surname-1", "role-1", 1000);
+        Employee employee2 = new Employee("first-2", "durname-2", "role-2", 1000);
+        Employee employee3 = new Employee("eirst-3", "surname-3", "role-3", 1000);
+        Employee employee4 = new Employee("cirst-4", "durname-4", "role-4", 4000);
         Employee employee5 = new Employee("first-5", "surname-5", "role-5", 5000);
-        Employee employee6 = new Employee("first-6", "surname-6", "role-6", 6000);
-        Employee employee7 = new Employee("first-7", "surname-7", "role-7", 7000);
-        Employee employee8 = new Employee("first-8", "surname-8", "role-8", 8000);
-        Employee employee9 = new Employee("first-9", "surname-9", "role-9", 9000);
-        Employee employee10 = new Employee("first-10", "surname-10", "role-10", 10000);
+        Employee employee6 = new Employee("first-6", "surname-6", "role-5", 5000);
+        Employee employee7 = new Employee("airst-7", "xurname-7", "role-7", 7000);
+        Employee employee8 = new Employee("airst-8", "xurname-7", "role-7", 7000);
+        Employee employee9 = new Employee("first-9", "xurname-7", "role-7", 7000);
+        Employee employee10 = new Employee("cirst-4", "surname-10", "role-8", 10000);
         em.persist(employee);
         em.persist(employee2);
         em.persist(employee3);
