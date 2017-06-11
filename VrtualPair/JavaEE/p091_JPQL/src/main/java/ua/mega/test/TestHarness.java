@@ -21,10 +21,15 @@ public class TestHarness {
 //        Query q = em.createQuery("select employee from Employee employee where employee.surname='xurname-7'");
 //        Query q = em.createQuery("select employee from Employee employee where employee.surname like 's%'");
 
-        String requiredName = "xurname-7";
+        /*String requiredName = "xurname-7";
         Query q = em.createQuery("select employee from Employee employee where employee.surname=:name");
         q.setParameter("name", requiredName);
-        List<Employee> employees = q.getResultList();
+        List<Employee> employees = q.getResultList();*/
+
+        String requiredName = "xurname-7";
+        List<Employee> employees = em.createQuery("select employee from Employee employee where employee.surname=:name")
+                .setParameter("name", requiredName)
+                .getResultList();
         for (Employee next : employees) {
             System.out.println(next);
         }
