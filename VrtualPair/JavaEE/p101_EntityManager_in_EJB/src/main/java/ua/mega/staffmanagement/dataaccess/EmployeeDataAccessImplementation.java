@@ -3,28 +3,29 @@ package ua.mega.staffmanagement.dataaccess;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
 public class EmployeeDataAccessImplementation {
 
-    public void insert(Employee newEmployee) {
+    @PersistenceContext
+    EntityManager em;
 
+    public void insert(Employee newEmployee) {
+        em.persist(newEmployee);
     }
 
     public List<Employee> findAllEmployee() {
-        List<Employee> tempList = new ArrayList<>();
-        tempList.add(new Employee("Vasya", "Pupkin", "manager", 10000));
-        tempList.add(new Employee("Ivan", "Ivanov", "boss", 500000));
-        return tempList;
+        return em.createQuery("select employee from Employee employee").getResultList();
     }
 
     public List<Employee> findBySurname(String surname) {
-        List<Employee> tempList = new ArrayList<>();
-        tempList.add(new Employee("Vasya", "Pupkin", "manager", 10000));
-        tempList.add(new Employee("Ivan", "Ivanov", "boss", 500000));
-        return tempList;
+       return em.createQuery("select employee from Employee employee where employee.surname=:surname")
+                .setParameter("surname", surname)
+                .getResultList();
     }
 
 
