@@ -26,8 +26,13 @@ public class TestHarness {
         q.setParameter("name", requiredName);
         List<Employee> employees = q.getResultList();*/
 
-        String requiredName = "xurname-7";
+        /*String requiredName = "xurname-7";
         List<Employee> employees = em.createQuery("select employee from Employee employee where employee.surname=:name")
+                .setParameter("name", requiredName)
+                .getResultList();*/
+
+        String requiredName = "xurname-7";
+        List<Employee> employees = em.createNamedQuery("searchByName")
                 .setParameter("name", requiredName)
                 .getResultList();
         for (Employee next : employees) {
