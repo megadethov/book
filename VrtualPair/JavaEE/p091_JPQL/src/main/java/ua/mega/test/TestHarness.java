@@ -31,13 +31,19 @@ public class TestHarness {
                 .setParameter("name", requiredName)
                 .getResultList();*/
 
-        String requiredName = "xurname-7";
+        /*String requiredName = "xurname-7";
         List<Employee> employees = em.createNamedQuery("searchByName")
                 .setParameter("name", requiredName)
                 .getResultList();
         for (Employee next : employees) {
             System.out.println(next);
-        }
+        }*/
+
+       /* List<Employee> employees = em.createQuery("select employee from Employee employee").getResultList();
+        System.out.println("There are " + employees.size() + " employees.");*/
+
+        long count = (long) em.createQuery("select count(employee.surname) from Employee employee").getSingleResult();
+        System.out.println("There are " + count + " employees.");
 
         tx.commit();
         em.close();
