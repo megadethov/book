@@ -16,6 +16,7 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
     @Override
     public void registerEmployee(Employee newEmployee) {
         dao.insert(newEmployee);
+        throw new NullPointerException(); // server crash imitation
     }
 
     @Override
