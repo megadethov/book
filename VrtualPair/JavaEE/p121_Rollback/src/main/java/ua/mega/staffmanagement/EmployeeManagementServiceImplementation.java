@@ -18,17 +18,16 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
     @EJB
     ExternalPayrollSystem payrollSystem;
 
-    @Resource
-    SessionContext glassfish;
-
-    /*@Override
-    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
-        dao.insert(newEmployee);
-//        throw new NullPointerException(); // server crash imitation
-      if (true) payrollSystem.enrollEmployee(newEmployee);
-    }*/
+   /* @Resource
+    SessionContext glassfish;*/
 
     @Override
+    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
+        dao.insert(newEmployee);
+      if (true) payrollSystem.enrollEmployee(newEmployee);
+    }
+
+/*    @Override
     public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
         try {
             dao.insert(newEmployee);
@@ -37,7 +36,7 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
             glassfish.setRollbackOnly();
             throw e;
         }
-    }
+    }*/
 
 
     @Override
