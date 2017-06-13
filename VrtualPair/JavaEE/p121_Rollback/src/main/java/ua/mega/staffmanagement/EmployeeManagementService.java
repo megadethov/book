@@ -8,7 +8,7 @@ import java.util.List;
 
 @Remote
 public interface EmployeeManagementService {
-    public void registerEmployee(Employee newEmployee);
+    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException;
 
     public List<Employee> getAllEmployees();
 

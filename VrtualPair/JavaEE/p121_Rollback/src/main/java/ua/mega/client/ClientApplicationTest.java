@@ -1,12 +1,12 @@
 package ua.mega.client;
 
 import ua.mega.staffmanagement.EmployeeManagementService;
+import ua.mega.staffmanagement.SystemUnavailableException;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import java.util.List;
 
 public class ClientApplicationTest {
     public static void main(String[] args) {
@@ -15,17 +15,11 @@ public class ClientApplicationTest {
 
             EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("java:global/Employee/EmployeeManagementServiceImplementation");
 
-            service.registerEmployee(new Employee("Richard", "Chesterwood", "Programmer", 0));
-            List<Employee> employees = service.getAllEmployees();
-            for (Employee next : employees) {
-                System.out.println(next);
+            try {
+                service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));
+            } catch (SystemUnavailableException e) {
+                System.out.println("Sorry, the payroll system is unavailable. Try again later.");
             }
-
-            /*List<Employee> employees = service.searchBySurname("Chesterwood");
-            for (Employee next : employees) {
-                System.out.println(next);
-            }*/
-
         } catch (NamingException e) {
             e.printStackTrace();
         }

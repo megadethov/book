@@ -13,10 +13,14 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
     @EJB
     EmployeeDataAccessImplementation dao;
 
+    @EJB
+    ExternalPayrollSystem payrollSystem;
+
     @Override
-    public void registerEmployee(Employee newEmployee) {
+    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
         dao.insert(newEmployee);
-        throw new NullPointerException(); // server crash imitation
+//        throw new NullPointerException(); // server crash imitation
+      if (true) payrollSystem.enrollEmployee(newEmployee);
     }
 
     @Override
