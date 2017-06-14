@@ -2,13 +2,14 @@ package ua.mega.backingbeans;
 
 import ua.mega.staffmanagement.EmployeeManagementServiceImplementation;
 import ua.mega.staffmanagement.EmployeeManagementServiceLocal;
+import ua.mega.staffmanagement.SystemUnavailableException;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "employee")
-public class EmployeeBean {
+public class EnterEmployeePageBean {
     private String firstName;
     private String surname;
     private String jobRole;
@@ -17,9 +18,15 @@ public class EmployeeBean {
     @EJB
     private EmployeeManagementServiceLocal serviceLocal;
 
-    public String addEmployee() {
-        serviceLocal.registerEmployee(new Employee(firstName, surname, jobRole, salary));
-        return "welcome_employee";
+    public String createEmployee() {
+        try {
+            serviceLocal.registerEmployee(new Employee(firstName, surname, jobRole, salary));
+            return "thankyou";
+        } catch (SystemUnavailableException e) {
+            System.out.println("System Unavailable. Sorry.");
+            return "systemDown";
+        }
+
     }
 
     public String getFirstName() {

@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Enter New Employee Form</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h3>Hello, please enter Employee details</h3>
+
+        <label>First Name</label>
+        <p><h:inputText value="#{employee.firstName}"/></p>
+
+        <label>Surname</label>
+        <p><h:inputText value="#{employee.surname}"/></p>
+
+        <label>Job Role</label>
+        <p><h:inputText value="#{employee.jobRole}"/></p>
+
+        <label>Salary</label>
+        <p><h:inputText value="#{employee.salary}"/></p>
+
+        <p><h:commandButton value="Go to the welcome page" action="#{employee.createEmployee}"/></p>
+    </h:form>
+</h:body>
+
+</html>
