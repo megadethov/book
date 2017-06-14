@@ -17,9 +17,9 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
     ExternalPayrollSystem payrollSystem;
 
     @Override
-    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
+    public void registerEmployee(Employee newEmployee)/* throws SystemUnavailableException*/ {
         dao.insert(newEmployee);
-      if (true) payrollSystem.enrollEmployee(newEmployee);
+//      if (true) payrollSystem.enrollEmployee(newEmployee);
     }
 
     @Override
