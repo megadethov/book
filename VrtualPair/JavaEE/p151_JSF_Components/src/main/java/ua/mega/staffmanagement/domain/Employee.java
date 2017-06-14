@@ -44,7 +44,35 @@ public class Employee implements Serializable {
         return "Employee - " + firstName + " " + surname;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getJobRole() {
+        return jobRole;
+    }
+
+    public void setJobRole(String jobRole) {
+        this.jobRole = jobRole;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }

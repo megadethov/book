@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>All employees</title>
+</h:head>
+
+<h:body>
+    <h1>All Employees</h1>
+    <h:dataTable value="#{allEmployeesPageBean.allEmployees}" var="employee">
+        <h:column>#{employee.firstName}</h:column>
+        <h:column>#{employee.surname}</h:column>
+        <h:column>#{employee.jobRole}</h:column>
+        <h:column>#{employee.salary}</h:column>
+    </h:dataTable>
+</h:body>
+
+</html>
