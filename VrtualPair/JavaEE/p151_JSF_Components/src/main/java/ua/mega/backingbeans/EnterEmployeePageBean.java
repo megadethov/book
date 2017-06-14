@@ -21,7 +21,7 @@ public class EnterEmployeePageBean {
     public String createEmployee() {
         try {
             serviceLocal.registerEmployee(new Employee(firstName, surname, jobRole, salary));
-            return "thankyou";
+            return "all-employees";
          } catch (SystemUnavailableException e) {
             System.out.println("System Unavailable. Sorry.");
             return "systemDown";
