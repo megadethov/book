@@ -1,6 +1,6 @@
 package ua.mega.client;
 
-import ua.mega.staffmanagement.EmployeeManagementService;
+import ua.mega.staffmanagement.EmployeeManagementServiceRemote;
 import ua.mega.staffmanagement.SystemUnavailableException;
 import ua.mega.staffmanagement.domain.Employee;
 
@@ -13,7 +13,7 @@ public class ClientApplicationTest {
         try {
             Context jndi = new InitialContext();
 
-            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("java:global/Employee/EmployeeManagementServiceImplementation");
+            EmployeeManagementServiceRemote service = (EmployeeManagementServiceRemote) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementServiceImplementation!ua.mega.staffmanagement.EmployeeManagementServiceRemote");
 
             try {
                 service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));
