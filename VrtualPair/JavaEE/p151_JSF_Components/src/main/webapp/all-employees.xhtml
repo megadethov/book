@@ -7,28 +7,39 @@
 
 <h:body>
     <h1>All Employees</h1>
-    <h:dataTable value="#{allEmployeesPageBean.allEmployees}" var="employee">
-        <h:column>
-            <f:facet name="header">First Name</f:facet>
-            <f:facet name="footer">First Name</f:facet>
-            #{employee.firstName}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Surname</f:facet>
-            <f:facet name="footer">Surname</f:facet>
-            #{employee.surname}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Jobrole</f:facet>
-            <f:facet name="footer">Jobrole</f:facet>
-            #{employee.jobRole}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Salary</f:facet>
-            <f:facet name="footer">Salary</f:facet>
-            #{employee.salary}
-        </h:column>
-    </h:dataTable>
+
+    <h:form>
+
+        <h:dataTable value="#{allEmployeesPageBean.allEmployees}" var="employee"
+                     binding="#{allEmployeesPageBean.dataTable}">
+            <h:column>
+                <f:facet name="header">First Name</f:facet>
+                <f:facet name="footer">First Name</f:facet>
+                <h:commandLink action="#{allEmployeesPageBean.showEmployee}">
+                    #{employee.firstName}
+                </h:commandLink>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Surname</f:facet>
+                <f:facet name="footer">Surname</f:facet>
+                <h:commandLink action="#{allEmployeesPageBean.showEmployee}">
+                    #{employee.surname}
+                </h:commandLink>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Jobrole</f:facet>
+                <f:facet name="footer">Jobrole</f:facet>
+                #{employee.jobRole}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Salary</f:facet>
+                <f:facet name="footer">Salary</f:facet>
+                #{employee.salary}
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
+
 </h:body>
 
 </html>
