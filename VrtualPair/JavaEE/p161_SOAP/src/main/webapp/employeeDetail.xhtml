@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Employee detail</title>
+</h:head>
+
+<h:body>
+    <h1>Employee Detail:</h1>
+
+    <p>User name: #{allEmployeesPageBean.selectedEmployee.firstName}</p>
+    <p>User surname: #{allEmployeesPageBean.selectedEmployee.surname}</p>
+    <p>User job role: #{allEmployeesPageBean.selectedEmployee.jobRole}</p>
+    <p>User salary: $#{allEmployeesPageBean.selectedEmployee.salary}</p>
+</h:body>
+
+</html>
