@@ -7,7 +7,7 @@ import java.util.List;
 
 @Local
 public interface EmployeeManagementServiceLocal {
-    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException;
+    public void registerEmployee(Employee newEmployee) /*throws SystemUnavailableException*/;
 
     public List<Employee> getAllEmployees();
 

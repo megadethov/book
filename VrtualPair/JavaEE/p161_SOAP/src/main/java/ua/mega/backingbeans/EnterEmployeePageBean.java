@@ -1,6 +1,5 @@
 package ua.mega.backingbeans;
 
-import ua.mega.staffmanagement.EmployeeManagementServiceImplementation;
 import ua.mega.staffmanagement.EmployeeManagementServiceLocal;
 import ua.mega.staffmanagement.SystemUnavailableException;
 import ua.mega.staffmanagement.domain.Employee;
@@ -22,7 +21,7 @@ public class EnterEmployeePageBean {
         try {
             serviceLocal.registerEmployee(new Employee(firstName, surname, jobRole, salary));
             return "all-employees";
-         } catch (SystemUnavailableException e) {
+         } catch (Exception e) {
             System.out.println("System Unavailable. Sorry.");
             return "systemDown";
         }

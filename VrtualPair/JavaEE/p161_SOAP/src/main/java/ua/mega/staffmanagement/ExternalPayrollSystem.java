@@ -6,7 +6,12 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class ExternalPayrollSystem {
-    public void enrollEmployee(Employee newEmployee) throws SystemUnavailableException {
-         throw new SystemUnavailableException();
+
+    public void enrollEmployee(Employee newEmployee) /*throws SystemUnavailableException*/ {
+       /* if (Math.random() > 0.5) {
+            throw new SystemUnavailableException();
+        } else {
+            // do something
+        }*/
     }
 }

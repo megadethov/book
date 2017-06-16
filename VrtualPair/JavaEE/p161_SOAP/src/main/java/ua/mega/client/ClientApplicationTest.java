@@ -13,7 +13,7 @@ public class ClientApplicationTest {
        /* try {
             Context jndi = new InitialContext();
 
-            EmployeeManagementServiceRemote service = (EmployeeManagementServiceRemote) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementServiceImplementation!ua.mega.staffmanagement.EmployeeManagementServiceRemote");
+            EmployeeManagementServiceRemote service = (EmployeeManagementServiceRemote) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementImplementation!ua.mega.staffmanagement.EmployeeManagementServiceRemote");
 
             try {
                 service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));

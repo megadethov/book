@@ -5,10 +5,12 @@ import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 import java.util.List;
 
 @Stateless
-public class EmployeeManagementServiceImplementation implements EmployeeManagementServiceLocal, EmployeeManagementServiceRemote{
+@WebService(name = "employeeManagementWebservice")
+public class EmployeeManagementImplementation implements EmployeeManagementServiceLocal, EmployeeManagementServiceRemote {
 
     @EJB
     EmployeeDataAccessImplementation dao;
@@ -17,9 +19,9 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
     ExternalPayrollSystem payrollSystem;
 
     @Override
-    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
+    public void registerEmployee(Employee newEmployee) /*throws SystemUnavailableException*/ {
         dao.insert(newEmployee);
-//      if (true) payrollSystem.enrollEmployee(newEmployee); // crash system
+        payrollSystem.enrollEmployee(newEmployee); // crash system
     }
 
     @Override
