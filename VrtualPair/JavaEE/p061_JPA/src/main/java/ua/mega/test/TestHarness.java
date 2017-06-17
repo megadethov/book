@@ -15,14 +15,14 @@ public class TestHarness {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        /*Employee employee = new Employee("Vasya", "Pupkun", "boss", 1000);
+       /* Employee employee = new Employee("Vasya", "Pupkun", "boss", 1000);
         em.persist(employee);*/
 
-        /*Employee findEmployee = em.find(Employee.class, 1);
-        findEmployee.setSurname("DirtySurname");*/
-
         Employee findEmployee = em.find(Employee.class, 1);
-        em.remove(findEmployee);
+        findEmployee.setSurname("DirtySurname");
+
+        /*Employee findEmployee = em.find(Employee.class, 1);
+        em.remove(findEmployee);*/
 
         tx.commit();
         em.close();
