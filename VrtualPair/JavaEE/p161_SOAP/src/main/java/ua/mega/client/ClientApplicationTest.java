@@ -10,7 +10,7 @@ import javax.naming.NamingException;
 
 public class ClientApplicationTest {
     public static void main(String[] args) {
-       /* try {
+        try {
             Context jndi = new InitialContext();
 
             EmployeeManagementServiceRemote service = (EmployeeManagementServiceRemote) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementImplementation!ua.mega.staffmanagement.EmployeeManagementServiceRemote");
@@ -22,6 +22,6 @@ public class ClientApplicationTest {
             }
         } catch (NamingException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }

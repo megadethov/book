@@ -14,7 +14,7 @@ public class ClientApplicationTest {
             Context jndi = new InitialContext();
 
 //            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("ua.mega.staffmanagement.EmployeeManagementService");
-            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("java:global/Employee/EmployeeManagementServiceImplementation");
+            EmployeeManagementService service = (EmployeeManagementService) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementServiceImplementation");
 
             /*service.registerEmployee(new Employee("Richard", "Chesterwood", "Programmer", 0));
             List<Employee> employees = service.getAllEmployees();
