@@ -10,7 +10,7 @@ import java.util.List;
 
 @Stateless
 @WebService(name = "employeeManagementWebservice")
-public class EmployeeManagementImplementation implements EmployeeManagementServiceLocal, EmployeeManagementServiceRemote {
+public class EmployeeManagementImplementation implements EmployeeManagementServiceLocal/*, EmployeeManagementServiceRemote*/ {
 
     @EJB
     EmployeeDataAccessImplementation dao;
@@ -19,7 +19,7 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
     ExternalPayrollSystem payrollSystem;
 
     @Override
-    public void registerEmployee(Employee newEmployee) /*throws SystemUnavailableException*/ {
+    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
         dao.insert(newEmployee);
         payrollSystem.enrollEmployee(newEmployee); // crash system
     }
