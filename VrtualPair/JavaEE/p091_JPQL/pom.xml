@@ -30,7 +30,6 @@
                     <encoding>${source-code.encoding}</encoding>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
