@@ -10,18 +10,18 @@ import javax.naming.NamingException;
 
 public class ClientApplicationTest {
     public static void main(String[] args) {
-       /* try {
+        try {
             Context jndi = new InitialContext();
 
             EmployeeManagementServiceRemote service = (EmployeeManagementServiceRemote) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementServiceImplementation!ua.mega.staffmanagement.EmployeeManagementServiceRemote");
 
             try {
-                service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));
+                service.registerEmployee(new Employee("Richard3", "Chesterwood3", "Programmer3", 333));
             } catch (SystemUnavailableException e) {
                 System.out.println("Sorry, the payroll system is unavailable. Try again later.");
             }
         } catch (NamingException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }
