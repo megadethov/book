@@ -24,20 +24,9 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
     @Override
     public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
         dao.insert(newEmployee);
-      if (true) payrollSystem.enrollEmployee(newEmployee);
+        payrollSystem.enrollEmployee(newEmployee); // throw SystemUnavailableException
+//        throw new NullPointerException(); // auto rollback
     }
-
-/*    @Override
-    public void registerEmployee(Employee newEmployee) throws SystemUnavailableException {
-        try {
-            dao.insert(newEmployee);
-            if (true) payrollSystem.enrollEmployee(newEmployee);
-        } catch (SystemUnavailableException e) {
-            glassfish.setRollbackOnly();
-            throw e;
-        }
-    }*/
-
 
     @Override
     public List<Employee> getAllEmployees() {
