@@ -1,10 +1,11 @@
 package ua.mega.staffmanagement.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Note {
+public class Note implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

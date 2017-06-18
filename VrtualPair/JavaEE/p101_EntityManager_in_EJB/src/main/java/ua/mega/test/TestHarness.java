@@ -42,7 +42,7 @@ public class TestHarness {
        /* List<Employee> employees = em.createQuery("select employee from Employee employee").getResultList();
         System.out.println("There are " + employees.size() + " employees.");*/
 
-        long count = (long) em.createQuery("select count(employee) from Employee employee").getSingleResult();
+        long count = (Long) em.createQuery("select count(employee) from Employee employee").getSingleResult();
         System.out.println("There are " + count + " employees.");
 
         tx.commit();

@@ -28,7 +28,7 @@ public class Employee implements Serializable {
         this.surname = surname;
         this.jobRole = jobRole;
         this.salary = salary;
-        notes = new HashSet<>();
+        notes = new HashSet<Note>();
     }
 
     public void addNote(Note newNote) {
