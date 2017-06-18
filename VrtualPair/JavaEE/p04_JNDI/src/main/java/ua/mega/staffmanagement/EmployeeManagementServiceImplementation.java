@@ -15,7 +15,7 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
 
     @Override
     public List<Employee> getAllEmployees() {
-        List<Employee> tempList = new ArrayList<>();
+        List<Employee> tempList = new ArrayList<Employee>();
         tempList.add(new Employee("Vasya", "Pupkin", "manager", 10000));
         tempList.add(new Employee("Ivan", "Ivanov", "boss", 500000));
         return tempList;
@@ -23,7 +23,7 @@ public class EmployeeManagementServiceImplementation implements EmployeeManageme
 
     @Override
     public List<Employee> searchBySurname(String surname) {
-        List<Employee> tempList = new ArrayList<>();
+        List<Employee> tempList = new ArrayList<Employee>();
         tempList.add(new Employee("temp", "temp", "temp", 100));
         return tempList;
     }
