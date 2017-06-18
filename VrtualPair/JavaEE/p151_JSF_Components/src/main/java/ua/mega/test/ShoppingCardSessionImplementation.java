@@ -10,7 +10,7 @@ public class ShoppingCardSessionImplementation implements ShoppingCardSession {
     private List<String> items;
 
     public ShoppingCardSessionImplementation() {
-        this.items = new ArrayList<>();
+        this.items = new ArrayList<String>();
     }
 
     @Override
