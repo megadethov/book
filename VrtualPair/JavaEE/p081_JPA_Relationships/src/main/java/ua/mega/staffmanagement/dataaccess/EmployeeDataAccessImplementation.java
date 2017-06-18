@@ -14,14 +14,14 @@ public class EmployeeDataAccessImplementation {
     }
 
     public List<Employee> findAllEmployee() {
-        List<Employee> tempList = new ArrayList<>();
+        List<Employee> tempList = new ArrayList<Employee>();
         tempList.add(new Employee("Vasya", "Pupkin", "manager", 10000));
         tempList.add(new Employee("Ivan", "Ivanov", "boss", 500000));
         return tempList;
     }
 
     public List<Employee> findBySurname(String surname) {
-        List<Employee> tempList = new ArrayList<>();
+        List<Employee> tempList = new ArrayList<Employee>();
         tempList.add(new Employee("Vasya", "Pupkin", "manager", 10000));
         tempList.add(new Employee("Ivan", "Ivanov", "boss", 500000));
         return tempList;
