@@ -12,5 +12,14 @@ public class WebserviceClientTest {
         for (Employee next : allEmployees) {
             System.out.println(next.getFirstName() + " " + next.getSurname());
         }
+
+        Employee newEmployee = new Employee();
+        newEmployee.setFirstName("Lena");
+        newEmployee.setSurname("Shpak");
+        newEmployee.setJobRole("manager");
+        newEmployee.setSalary(11);
+
+        service.registerEmployee(newEmployee);
+
     }
 }
