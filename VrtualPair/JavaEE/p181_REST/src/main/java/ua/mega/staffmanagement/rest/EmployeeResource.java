@@ -4,6 +4,7 @@ import ua.mega.staffmanagement.EmployeeManagementServiceLocal;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -11,6 +12,7 @@ import javax.ws.rs.Produces;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 @Path("/employees")
 public class EmployeeResource {
 
