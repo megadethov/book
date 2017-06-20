@@ -1,7 +1,9 @@
 package ua.mega.staffmanagement.rest;
 
+import ua.mega.staffmanagement.EmployeeManagementServiceLocal;
 import ua.mega.staffmanagement.domain.Employee;
 
+import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -12,13 +14,13 @@ import java.util.List;
 @Path("/employees")
 public class EmployeeResource {
 
+    @EJB
+    EmployeeManagementServiceLocal service;
+
     @GET
     @Produces("application/xml")
     public List<Employee> getAllEmployees() {
-        List<Employee> result = new ArrayList<Employee>();
-        result.add(new Employee("Vasya", "Pupkin", "boss", 100000));
-        result.add(new Employee("Petr", "Petrov", "driver", 200));
-        return result;
+      return service.getAllEmployees();
     }
 
     @GET
