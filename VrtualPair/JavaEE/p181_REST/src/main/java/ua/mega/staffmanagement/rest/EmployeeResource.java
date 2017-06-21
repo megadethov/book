@@ -3,6 +3,7 @@ package ua.mega.staffmanagement.rest;
 import com.sun.jersey.api.client.ClientResponse;
 import ua.mega.staffmanagement.EmployeeManagementServiceLocal;
 import ua.mega.staffmanagement.SystemUnavailableException;
+import ua.mega.staffmanagement.dataaccess.EmployeeNotFoundException;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
@@ -28,8 +29,12 @@ public class EmployeeResource {
     @GET
     @Produces("application/xml")
     @Path("{id}")
-    public Employee findEmployeeById(@PathParam("id") String id) {
-        return new Employee("Stub", "Stub", "Stub", 1);
+    public Employee findEmployeeById(@PathParam("id") int id) {
+        try {
+          return service.getEmployeeById(id);
+        } catch (EmployeeNotFoundException e) {
+            return null;
+        }
     }
 
     @POST
