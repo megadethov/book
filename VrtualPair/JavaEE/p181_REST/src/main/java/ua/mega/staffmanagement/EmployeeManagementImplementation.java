@@ -33,4 +33,9 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
     public List<Employee> searchBySurname(String surname) {
         return dao.findBySurname(surname);
     }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+        return dao.findById(id);
+    }
 }

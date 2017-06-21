@@ -28,5 +28,9 @@ public class EmployeeDataAccessImplementation {
                 .getResultList();
     }
 
+    public Employee findById(int id) {
+        return em.find(Employee.class, id);
+    }
+
 
 }

@@ -12,4 +12,6 @@ public interface EmployeeManagementServiceRemote {
     public List<Employee> getAllEmployees();
 
     public List<Employee> searchBySurname(String surname);
+
+    public Employee getEmployeeById(int id);
 }

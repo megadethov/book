@@ -16,7 +16,11 @@ public class ClientApplicationTest {
             EmployeeManagementServiceRemote service = (EmployeeManagementServiceRemote) jndi.lookup("java:global/EmployeeManagement/EmployeeManagementImplementation!ua.mega.staffmanagement.EmployeeManagementServiceRemote");
 
             try {
-                service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));
+//                service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));
+
+               Employee foundEmployee = service.getEmployeeById(1);
+                System.out.println(foundEmployee);
+
             } catch (SystemUnavailableException e) {
                 System.out.println("Sorry, the payroll system is unavailable. Try again later.");
             }
