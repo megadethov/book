@@ -40,7 +40,7 @@ public class EmployeeResource {
             service.registerEmployee(employee);
 //            return employee; // not work
             return Response.ok().entity(employee).build();
-        } catch (SystemUnavailableException e) {
+        } catch (Exception e) {
             return Response.status(ClientResponse.Status.SERVICE_UNAVAILABLE).build();
         }
     }
