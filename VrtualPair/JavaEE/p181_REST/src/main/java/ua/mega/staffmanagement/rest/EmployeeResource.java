@@ -1,11 +1,14 @@
 package ua.mega.staffmanagement.rest;
 
+import com.sun.jersey.api.client.ClientResponse;
 import ua.mega.staffmanagement.EmployeeManagementServiceLocal;
+import ua.mega.staffmanagement.SystemUnavailableException;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +22,7 @@ public class EmployeeResource {
     @GET
     @Produces("application/xml")
     public List<Employee> getAllEmployees() {
-      return service.getAllEmployees();
+        return service.getAllEmployees();
     }
 
     @GET
@@ -32,8 +35,13 @@ public class EmployeeResource {
     @POST
     @Produces("application/xml")
     @Consumes("application/xml")
-    public Employee createNewEmployee(Employee employee) {
-        service.registerEmployee(employee);
-        return employee;
+    public /*Employee*/ Response createNewEmployee(Employee employee) {
+        try {
+            service.registerEmployee(employee);
+//            return employee; // not work
+            return Response.ok().entity(employee).build();
+        } catch (SystemUnavailableException e) {
+            return Response.status(ClientResponse.Status.SERVICE_UNAVAILABLE).build();
+        }
     }
 }
