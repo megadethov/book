@@ -25,11 +25,13 @@ public class ClientApp {
 //        ++++++++++ create new Employee +++++++++++++
         web = client.resource("http://localhost:8080/webapp/webservice/employees");
         Employee newEmployee = new Employee();
-        newEmployee.setFirstName("James");
-        newEmployee.setSurname("Gosling");
-        newEmployee.setJobRole("Java Creator");
-        newEmployee.setSalary(1000000);
+        newEmployee.setFirstName("James3");
+        newEmployee.setSurname("Gosling3");
+        newEmployee.setJobRole("Java Creator3");
+        newEmployee.setSalary(3000000);
 
-        web.post(Employee.class, newEmployee);
+        Employee registeredEmployee = web.post(Employee.class, newEmployee);
+
+        System.out.println(registeredEmployee.getId());
     }
 }

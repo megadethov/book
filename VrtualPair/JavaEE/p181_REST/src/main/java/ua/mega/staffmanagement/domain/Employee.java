@@ -77,4 +77,12 @@ public class Employee implements Serializable {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
 }

@@ -2,10 +2,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Employee {
+    private int id;
     private String firstName;
     private String surname;
     private String jobRole;
     private int salary;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
