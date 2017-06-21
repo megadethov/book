@@ -5,10 +5,7 @@ import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +27,13 @@ public class EmployeeResource {
     @Path("{id}")
     public Employee findEmployeeById(@PathParam("id") String id) {
         return new Employee("Stub", "Stub", "Stub", 1);
+    }
+
+    @POST
+    @Produces("application/xml")
+    @Consumes("application/xml")
+    public Employee createNewEmployee(Employee employee) {
+        service.registerEmployee(employee);
+        return employee;
     }
 }
