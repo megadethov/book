@@ -31,7 +31,7 @@ public class EmployeeResource {
     @Path("{id}")
     public Employee findEmployeeById(@PathParam("id") int id) {
         try {
-          return service.getEmployeeById(id);
+            return service.getEmployeeById(id);
         } catch (EmployeeNotFoundException e) {
             return null;
         }
@@ -47,6 +47,17 @@ public class EmployeeResource {
             return Response.ok().entity(employee).build();
         } catch (Exception e) {
             return Response.status(ClientResponse.Status.SERVICE_UNAVAILABLE).build();
+        }
+    }
+
+    @DELETE
+    @Path("{id}")
+    public /*void*/ Response deleteEmployeeById(@PathParam("id") int id) {
+        try {
+            service.deleteEmployeeById(id);
+            return Response.ok().build();
+        } catch (EmployeeNotFoundException e) {
+            return Response.status(ClientResponse.Status.NOT_FOUND).build();
         }
     }
 }
