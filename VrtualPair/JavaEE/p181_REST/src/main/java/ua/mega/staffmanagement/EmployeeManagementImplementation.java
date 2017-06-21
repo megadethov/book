@@ -39,4 +39,9 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
     public Employee getEmployeeById(int id) throws EmployeeNotFoundException {
         return dao.findById(id);
     }
+
+    @Override
+    public void deleteEmployeeById(int id) throws EmployeeNotFoundException {
+        dao.deleteById(id);
+    }
 }

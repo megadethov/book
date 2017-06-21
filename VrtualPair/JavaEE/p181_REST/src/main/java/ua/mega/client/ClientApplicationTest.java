@@ -19,8 +19,10 @@ public class ClientApplicationTest {
             try {
 //                service.registerEmployee(new Employee("Richard2", "Chesterwood2", "Programmer2", 0));
 
-                Employee foundEmployee = service.getEmployeeById(2);
-                System.out.println(foundEmployee);
+                /*Employee foundEmployee = service.getEmployeeById(2);
+                System.out.println(foundEmployee);*/
+
+                service.deleteEmployeeById(501);
 
             } catch (SystemUnavailableException e) {
                 System.out.println("Sorry, the payroll system is unavailable. Try again later.");

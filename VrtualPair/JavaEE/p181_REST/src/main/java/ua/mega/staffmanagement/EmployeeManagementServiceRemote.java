@@ -15,4 +15,6 @@ public interface EmployeeManagementServiceRemote {
     public List<Employee> searchBySurname(String surname);
 
     public Employee getEmployeeById(int id) throws EmployeeNotFoundException;
+
+    public void deleteEmployeeById(int id) throws EmployeeNotFoundException;
 }

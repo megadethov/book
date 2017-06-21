@@ -35,5 +35,11 @@ public class EmployeeDataAccessImplementation {
         return employee;
     }
 
+    public void deleteById(int id) throws EmployeeNotFoundException {
+        Employee foundEmployee = findById(id);
+        if(foundEmployee == null) throw new EmployeeNotFoundException();
+        em.remove(foundEmployee);
+    }
+
 
 }
