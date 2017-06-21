@@ -1,5 +1,6 @@
 package ua.mega.staffmanagement;
 
+import ua.mega.staffmanagement.dataaccess.EmployeeNotFoundException;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.Remote;
@@ -13,5 +14,5 @@ public interface EmployeeManagementServiceRemote {
 
     public List<Employee> searchBySurname(String surname);
 
-    public Employee getEmployeeById(int id);
+    public Employee getEmployeeById(int id) throws EmployeeNotFoundException;
 }

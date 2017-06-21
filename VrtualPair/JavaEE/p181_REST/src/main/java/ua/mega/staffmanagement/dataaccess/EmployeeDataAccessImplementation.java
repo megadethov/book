@@ -5,7 +5,6 @@ import ua.mega.staffmanagement.domain.Employee;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -28,8 +27,12 @@ public class EmployeeDataAccessImplementation {
                 .getResultList();
     }
 
-    public Employee findById(int id) {
-        return em.find(Employee.class, id);
+    public Employee findById(int id) throws EmployeeNotFoundException {
+       Employee employee = em.find(Employee.class, id);
+        if (employee == null) {
+            throw new EmployeeNotFoundException();
+        }
+        return employee;
     }
 
 

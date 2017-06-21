@@ -1,6 +1,7 @@
 package ua.mega.staffmanagement;
 
 import ua.mega.staffmanagement.dataaccess.EmployeeDataAccessImplementation;
+import ua.mega.staffmanagement.dataaccess.EmployeeNotFoundException;
 import ua.mega.staffmanagement.domain.Employee;
 
 import javax.ejb.EJB;
@@ -35,7 +36,7 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
     }
 
     @Override
-    public Employee getEmployeeById(int id) {
+    public Employee getEmployeeById(int id) throws EmployeeNotFoundException {
         return dao.findById(id);
     }
 }
