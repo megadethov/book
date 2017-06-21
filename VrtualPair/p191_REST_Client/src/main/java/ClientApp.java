@@ -1,4 +1,5 @@
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
 
@@ -30,8 +31,15 @@ public class ClientApp {
         newEmployee.setJobRole("Java Creator3");
         newEmployee.setSalary(3000000);
 
-        Employee registeredEmployee = web.post(Employee.class, newEmployee);
+//        Employee registeredEmployee = web.post(Employee.class, newEmployee);
+        ClientResponse response = web.post(ClientResponse.class, newEmployee);
 
-        System.out.println(registeredEmployee.getId());
+        System.out.println("The response code was: " + response.getStatus());
+
+        if (response.getStatus() == 200) {
+            System.out.println(response.getEntity(Employee.class).getId());
+        }
+
+
     }
 }
