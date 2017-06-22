@@ -4,6 +4,7 @@ import ua.mega.staffmanagement.dataaccess.EmployeeDataAccessImplementation;
 import ua.mega.staffmanagement.dataaccess.EmployeeNotFoundException;
 import ua.mega.staffmanagement.domain.Employee;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Stateless
 @WebService(name = "employeeManagementWebservice")
+@RolesAllowed("admin")
 public class EmployeeManagementImplementation implements EmployeeManagementServiceLocal, EmployeeManagementServiceRemote {
 
     @EJB
