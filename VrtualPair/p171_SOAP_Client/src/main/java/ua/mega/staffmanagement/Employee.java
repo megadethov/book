@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="jobRole" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="salary" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="surname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "employee", propOrder = {
     "firstName",
+    "id",
     "jobRole",
     "salary",
     "surname"
@@ -38,6 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Employee {
 
     protected String firstName;
+    protected int id;
     protected String jobRole;
     protected int salary;
     protected String surname;
@@ -64,6 +67,22 @@ public class Employee {
      */
     public void setFirstName(String value) {
         this.firstName = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
     }
 
     /**

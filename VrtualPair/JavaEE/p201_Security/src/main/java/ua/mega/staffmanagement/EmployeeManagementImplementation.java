@@ -11,7 +11,7 @@ import javax.jws.WebService;
 import java.util.List;
 
 @Stateless
-@WebService(name = "employeeManagementWebservice")
+@WebService(name = "employeeManagementWebService")
 @RolesAllowed("admin")
 public class EmployeeManagementImplementation implements EmployeeManagementServiceLocal, EmployeeManagementServiceRemote {
 

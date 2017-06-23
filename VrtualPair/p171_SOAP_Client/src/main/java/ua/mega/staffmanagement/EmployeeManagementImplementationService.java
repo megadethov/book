@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "EmployeeManagementImplementationService", targetNamespace = "http://staffmanagement.mega.ua/", wsdlLocation = "http://127.0.0.1:8080/EmployeeManagementImplementationService/employeeManagementWebservice?wsdl")
+@WebServiceClient(name = "EmployeeManagementImplementationService", targetNamespace = "http://staffmanagement.mega.ua/", wsdlLocation = "http://127.0.0.1:8080/EmployeeManagementImplementationService/employeeManagementWebService?wsdl")
 public class EmployeeManagementImplementationService
     extends Service
 {
@@ -30,7 +30,7 @@ public class EmployeeManagementImplementationService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://127.0.0.1:8080/EmployeeManagementImplementationService/employeeManagementWebservice?wsdl");
+            url = new URL("http://127.0.0.1:8080/EmployeeManagementImplementationService/employeeManagementWebService?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -42,34 +42,34 @@ public class EmployeeManagementImplementationService
         super(__getWsdlLocation(), EMPLOYEEMANAGEMENTIMPLEMENTATIONSERVICE_QNAME);
     }
 
-/*    public EmployeeManagementImplementationService(WebServiceFeature... features) {
-        super(__getWsdlLocation(), EMPLOYEEMANAGEMENTIMPLEMENTATIONSERVICE_QNAME, features);
-    }*/
+//    public EmployeeManagementImplementationService(WebServiceFeature... features) {
+//        super(__getWsdlLocation(), EMPLOYEEMANAGEMENTIMPLEMENTATIONSERVICE_QNAME, features);
+//    }
 
     public EmployeeManagementImplementationService(URL wsdlLocation) {
         super(wsdlLocation, EMPLOYEEMANAGEMENTIMPLEMENTATIONSERVICE_QNAME);
     }
 
-    /*public EmployeeManagementImplementationService(URL wsdlLocation, WebServiceFeature... features) {
-        super(wsdlLocation, EMPLOYEEMANAGEMENTIMPLEMENTATIONSERVICE_QNAME, features);
-    }*/
+//    public EmployeeManagementImplementationService(URL wsdlLocation, WebServiceFeature... features) {
+//        super(wsdlLocation, EMPLOYEEMANAGEMENTIMPLEMENTATIONSERVICE_QNAME, features);
+//    }
 
     public EmployeeManagementImplementationService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
 
-   /* public EmployeeManagementImplementationService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
-        super(wsdlLocation, serviceName, features);
-    }*/
+//    public EmployeeManagementImplementationService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+//        super(wsdlLocation, serviceName, features);
+//    }
 
     /**
      * 
      * @return
-     *     returns EmployeeManagementWebservice
+     *     returns EmployeeManagementWebService
      */
-    @WebEndpoint(name = "employeeManagementWebservicePort")
-    public EmployeeManagementWebservice getEmployeeManagementWebservicePort() {
-        return super.getPort(new QName("http://staffmanagement.mega.ua/", "employeeManagementWebservicePort"), EmployeeManagementWebservice.class);
+    @WebEndpoint(name = "employeeManagementWebServicePort")
+    public EmployeeManagementWebService getEmployeeManagementWebServicePort() {
+        return super.getPort(new QName("http://staffmanagement.mega.ua/", "employeeManagementWebServicePort"), EmployeeManagementWebService.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class EmployeeManagementImplementationService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns EmployeeManagementWebservice
+     *     returns EmployeeManagementWebService
      */
-    @WebEndpoint(name = "employeeManagementWebservicePort")
-    public EmployeeManagementWebservice getEmployeeManagementWebservicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://staffmanagement.mega.ua/", "employeeManagementWebservicePort"), EmployeeManagementWebservice.class, features);
+    @WebEndpoint(name = "employeeManagementWebServicePort")
+    public EmployeeManagementWebService getEmployeeManagementWebServicePort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://staffmanagement.mega.ua/", "employeeManagementWebServicePort"), EmployeeManagementWebService.class, features);
     }
 
     private static URL __getWsdlLocation() {

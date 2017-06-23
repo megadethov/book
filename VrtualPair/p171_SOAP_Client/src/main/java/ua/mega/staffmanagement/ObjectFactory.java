@@ -24,11 +24,17 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Employee_QNAME = new QName("http://staffmanagement.mega.ua/", "employee");
     private final static QName _RegisterEmployeeResponse_QNAME = new QName("http://staffmanagement.mega.ua/", "registerEmployeeResponse");
     private final static QName _SearchBySurname_QNAME = new QName("http://staffmanagement.mega.ua/", "searchBySurname");
+    private final static QName _EmployeeNotFoundException_QNAME = new QName("http://staffmanagement.mega.ua/", "EmployeeNotFoundException");
     private final static QName _GetAllEmployees_QNAME = new QName("http://staffmanagement.mega.ua/", "getAllEmployees");
     private final static QName _RegisterEmployee_QNAME = new QName("http://staffmanagement.mega.ua/", "registerEmployee");
     private final static QName _SearchBySurnameResponse_QNAME = new QName("http://staffmanagement.mega.ua/", "searchBySurnameResponse");
+    private final static QName _DeleteEmployeeById_QNAME = new QName("http://staffmanagement.mega.ua/", "deleteEmployeeById");
+    private final static QName _GetEmployeeById_QNAME = new QName("http://staffmanagement.mega.ua/", "getEmployeeById");
+    private final static QName _GetEmployeeByIdResponse_QNAME = new QName("http://staffmanagement.mega.ua/", "getEmployeeByIdResponse");
+    private final static QName _DeleteEmployeeByIdResponse_QNAME = new QName("http://staffmanagement.mega.ua/", "deleteEmployeeByIdResponse");
     private final static QName _GetAllEmployeesResponse_QNAME = new QName("http://staffmanagement.mega.ua/", "getAllEmployeesResponse");
 
     /**
@@ -39,11 +45,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeleteEmployeeById }
+     * 
+     */
+    public DeleteEmployeeById createDeleteEmployeeById() {
+        return new DeleteEmployeeById();
+    }
+
+    /**
+     * Create an instance of {@link GetEmployeeById }
+     * 
+     */
+    public GetEmployeeById createGetEmployeeById() {
+        return new GetEmployeeById();
+    }
+
+    /**
+     * Create an instance of {@link GetEmployeeByIdResponse }
+     * 
+     */
+    public GetEmployeeByIdResponse createGetEmployeeByIdResponse() {
+        return new GetEmployeeByIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteEmployeeByIdResponse }
+     * 
+     */
+    public DeleteEmployeeByIdResponse createDeleteEmployeeByIdResponse() {
+        return new DeleteEmployeeByIdResponse();
+    }
+
+    /**
      * Create an instance of {@link GetAllEmployeesResponse }
      * 
      */
     public GetAllEmployeesResponse createGetAllEmployeesResponse() {
         return new GetAllEmployeesResponse();
+    }
+
+    /**
+     * Create an instance of {@link Employee }
+     * 
+     */
+    public Employee createEmployee() {
+        return new Employee();
     }
 
     /**
@@ -60,6 +106,14 @@ public class ObjectFactory {
      */
     public SearchBySurname createSearchBySurname() {
         return new SearchBySurname();
+    }
+
+    /**
+     * Create an instance of {@link EmployeeNotFoundException }
+     * 
+     */
+    public EmployeeNotFoundException createEmployeeNotFoundException() {
+        return new EmployeeNotFoundException();
     }
 
     /**
@@ -87,11 +141,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Employee }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Employee }{@code >}}
      * 
      */
-    public Employee createEmployee() {
-        return new Employee();
+    @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "employee")
+    public JAXBElement<Employee> createEmployee(Employee value) {
+        return new JAXBElement<Employee>(_Employee_QNAME, Employee.class, null, value);
     }
 
     /**
@@ -110,6 +165,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "searchBySurname")
     public JAXBElement<SearchBySurname> createSearchBySurname(SearchBySurname value) {
         return new JAXBElement<SearchBySurname>(_SearchBySurname_QNAME, SearchBySurname.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EmployeeNotFoundException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "EmployeeNotFoundException")
+    public JAXBElement<EmployeeNotFoundException> createEmployeeNotFoundException(EmployeeNotFoundException value) {
+        return new JAXBElement<EmployeeNotFoundException>(_EmployeeNotFoundException_QNAME, EmployeeNotFoundException.class, null, value);
     }
 
     /**
@@ -137,6 +201,42 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "searchBySurnameResponse")
     public JAXBElement<SearchBySurnameResponse> createSearchBySurnameResponse(SearchBySurnameResponse value) {
         return new JAXBElement<SearchBySurnameResponse>(_SearchBySurnameResponse_QNAME, SearchBySurnameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteEmployeeById }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "deleteEmployeeById")
+    public JAXBElement<DeleteEmployeeById> createDeleteEmployeeById(DeleteEmployeeById value) {
+        return new JAXBElement<DeleteEmployeeById>(_DeleteEmployeeById_QNAME, DeleteEmployeeById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEmployeeById }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "getEmployeeById")
+    public JAXBElement<GetEmployeeById> createGetEmployeeById(GetEmployeeById value) {
+        return new JAXBElement<GetEmployeeById>(_GetEmployeeById_QNAME, GetEmployeeById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEmployeeByIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "getEmployeeByIdResponse")
+    public JAXBElement<GetEmployeeByIdResponse> createGetEmployeeByIdResponse(GetEmployeeByIdResponse value) {
+        return new JAXBElement<GetEmployeeByIdResponse>(_GetEmployeeByIdResponse_QNAME, GetEmployeeByIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteEmployeeByIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://staffmanagement.mega.ua/", name = "deleteEmployeeByIdResponse")
+    public JAXBElement<DeleteEmployeeByIdResponse> createDeleteEmployeeByIdResponse(DeleteEmployeeByIdResponse value) {
+        return new JAXBElement<DeleteEmployeeByIdResponse>(_DeleteEmployeeByIdResponse_QNAME, DeleteEmployeeByIdResponse.class, null, value);
     }
 
     /**
