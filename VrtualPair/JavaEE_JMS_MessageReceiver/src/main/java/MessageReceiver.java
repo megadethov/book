@@ -4,7 +4,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Date;
 
-public class MessageSender {
+public class MessageReceiver {
 
     public static void main(String[] args) {
 

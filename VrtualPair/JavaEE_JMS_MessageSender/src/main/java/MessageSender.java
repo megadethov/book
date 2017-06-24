@@ -24,7 +24,12 @@ public class MessageSender {
             message.setStringProperty("surname", "Pupkin");
             message.setInt("salary", 100);
 
-            messageProducer.send(message);
+//            messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT); // switch Message Persistence off
+//            messageProducer.send(message);
+
+//            messageProducer.setPriority(7);
+            messageProducer.send(message, DeliveryMode.PERSISTENT, 1, 0);
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
