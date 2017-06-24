@@ -16,7 +16,7 @@ public class MessageSender {
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
             MessageConsumer consumer = session.createConsumer(queue);
-            consumer.setMessageListener(new TextMessageListener());
+            consumer.setMessageListener(new MapMessageListener());
 
             connection.start();
 
