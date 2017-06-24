@@ -16,8 +16,14 @@ public class MessageSender {
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             MessageProducer messageProducer = session.createProducer(queue);
 
-            TextMessage message = session.createTextMessage();
-            message.setText("The time is now " + new Date());
+            /*TextMessage message = session.createTextMessage();
+            message.setText("The time is now " + new Date());*/
+
+            MapMessage message = session.createMapMessage();
+            message.setStringProperty("firstName", "Vasya");
+            message.setStringProperty("surname", "Pupkin");
+            message.setInt("salary", 100);
+
             messageProducer.send(message);
         } catch (Exception e) {
             e.printStackTrace();
