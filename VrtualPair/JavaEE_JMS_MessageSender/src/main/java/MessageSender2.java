@@ -12,7 +12,7 @@ public class MessageSender2 {
             ConnectionFactory cf = (ConnectionFactory) ctx.lookup("jms/ConnectionFactory");
             connection = cf.createConnection();
 //            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
+            Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE); // true=batch
             MessageProducer messageProducer = session.createProducer(queue);
 
             MapMessage message = session.createMapMessage();
@@ -25,6 +25,8 @@ public class MessageSender2 {
             messageProducer.send(message, DeliveryMode.PERSISTENT, 7, 10000);
             messageProducer.send(message, DeliveryMode.PERSISTENT, 7, 10000);
             messageProducer.send(message, DeliveryMode.PERSISTENT, 7, 10000);
+
+            session.commit();
 
         } catch (Exception e) {
             e.printStackTrace();
