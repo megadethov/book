@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega</groupId>
-    <artifactId>p021_Intro_Messaging</artifactId>
+    <artifactId>p061_Sending_from_EJB</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
