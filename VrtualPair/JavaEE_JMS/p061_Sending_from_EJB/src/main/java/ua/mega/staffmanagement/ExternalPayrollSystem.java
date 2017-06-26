@@ -8,10 +8,10 @@ import javax.ejb.Stateless;
 public class ExternalPayrollSystem {
 
     public void enrollEmployee(Employee newEmployee) throws SystemUnavailableException {
-        if (Math.random() > 1.0) {
-            throw new SystemUnavailableException();
-        } else {
-            // do something
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            //NOP
         }
     }
 }

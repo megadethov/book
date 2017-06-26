@@ -1,7 +1,7 @@
 package ua.mega.client;
 
 
-import com.sun.appserv.security.ProgrammaticLogin;
+//import com.sun.appserv.security.ProgrammaticLogin;
 import ua.mega.staffmanagement.EmployeeManagementServiceRemote;
 import ua.mega.staffmanagement.SystemUnavailableException;
 import ua.mega.staffmanagement.domain.Employee;
@@ -21,8 +21,8 @@ public class ClientApplicationTest201 {
             try {
 
                 // for security
-                ProgrammaticLogin pl = new ProgrammaticLogin();
-                pl.login("mega", "mega");
+               /* ProgrammaticLogin pl = new ProgrammaticLogin();
+                pl.login("mega", "mega");*/
 
                 List<Employee> allEmployees = service.getAllEmployees();
 
