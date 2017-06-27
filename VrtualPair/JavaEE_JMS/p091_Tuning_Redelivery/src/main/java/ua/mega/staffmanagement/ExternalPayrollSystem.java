@@ -15,10 +15,10 @@ import javax.jms.MessageListener;
 
                 // add in more properties here if desired.
         } )
-public class ExternalPayrollSystem implements MessageListener {
+public class ExternalPayrollSystem /*implements MessageListener*/ {
 
-    @Override
-    public void onMessage(Message message) {
+//    @Override
+    public void onMessage(Message message) throws SystemUnavailableException {
 
         MapMessage msg = (MapMessage) message;
 
@@ -37,7 +37,8 @@ public class ExternalPayrollSystem implements MessageListener {
 
             // external System not available at 50% of time
             if (Math.random() > 0.5)
-                throw new NullPointerException();
+//                throw new NullPointerException();
+                throw new SystemUnavailableException();
 
         } catch (JMSException e) {
             throw new RuntimeException(e);
