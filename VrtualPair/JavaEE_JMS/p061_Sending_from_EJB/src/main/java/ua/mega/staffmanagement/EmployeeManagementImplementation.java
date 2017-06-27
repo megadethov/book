@@ -47,10 +47,10 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
             message.setInt("salary", 100);
             messageProducer.send(message);
 
-            session.close();
+            connection.close();
 
         } catch (JMSException e) {
-//            throw new SystemUnavailableException();
+            throw new SystemUnavailableException();
         }
     }
 
