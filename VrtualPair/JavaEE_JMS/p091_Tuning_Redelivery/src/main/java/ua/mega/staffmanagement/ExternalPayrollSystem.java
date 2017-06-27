@@ -1,12 +1,20 @@
 package ua.mega.staffmanagement;
 
+import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 
-@MessageDriven(mappedName = "jms/EmployeeManagementQueue")
+@MessageDriven(mappedName="jms/EmployeeManagementQueue",
+        messageListenerInterface=MessageListener.class,
+        activationConfig = {
+                @ActivationConfigProperty( propertyName="endpointExceptionRedeliveryAttempts",
+                        propertyValue="10" )
+
+                // add in more properties here if desired.
+        } )
 public class ExternalPayrollSystem implements MessageListener {
 
     @Override
@@ -27,8 +35,9 @@ public class ExternalPayrollSystem implements MessageListener {
 
             System.out.println(firstName + " " + surname + " salary = " + salary);
 
-            // System crush emulation
-//            throw new NullPointerException();
+            // external System not available at 50% of time
+            if (Math.random() > 0.5)
+                throw new NullPointerException();
 
         } catch (JMSException e) {
             throw new RuntimeException(e);
