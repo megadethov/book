@@ -27,6 +27,9 @@ public class ExternalPayrollSystem implements MessageListener {
 
             System.out.println(firstName + " " + surname + " salary = " + salary);
 
+            // System crush emulation
+            throw new NullPointerException();
+
         } catch (JMSException e) {
             throw new RuntimeException(e);
         }
