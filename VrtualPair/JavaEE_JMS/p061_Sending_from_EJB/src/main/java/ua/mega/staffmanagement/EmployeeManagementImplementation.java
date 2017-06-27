@@ -21,8 +21,8 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
     @EJB
     EmployeeDataAccessImplementation dao;
 
-    @EJB
-    ExternalPayrollSystem payrollSystem;
+/*    @EJB
+    ExternalPayrollSystem payrollSystem;*/
 
     @Resource(mappedName = "jms/EmployeeManagementQueue")
     private Queue queue;
@@ -42,9 +42,9 @@ public class EmployeeManagementImplementation implements EmployeeManagementServi
             Session session = connection.createSession(false, 0);
             MessageProducer messageProducer = session.createProducer(queue);
             MapMessage message = session.createMapMessage();
-            message.setStringProperty("firstName", "Vasya");
-            message.setStringProperty("surname", "Pupkin");
-            message.setInt("salary", 100);
+            message.setString("firstName", newEmployee.getFirstName());
+            message.setString("surname", newEmployee.getSurname());
+            message.setInt("salary", newEmployee.getSalary());
             messageProducer.send(message);
 
             connection.close();

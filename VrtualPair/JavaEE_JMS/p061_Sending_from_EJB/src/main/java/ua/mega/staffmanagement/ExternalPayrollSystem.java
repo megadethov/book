@@ -1,17 +1,35 @@
 package ua.mega.staffmanagement;
 
-import ua.mega.staffmanagement.domain.Employee;
+import javax.ejb.MessageDriven;
+import javax.jms.JMSException;
+import javax.jms.MapMessage;
+import javax.jms.Message;
+import javax.jms.MessageListener;
 
-import javax.ejb.Stateless;
+@MessageDriven(mappedName = "jms/EmployeeManagementQueue")
+public class ExternalPayrollSystem implements MessageListener {
 
-@Stateless
-public class ExternalPayrollSystem {
+    @Override
+    public void onMessage(Message message) {
 
-    public void enrollEmployee(Employee newEmployee) throws SystemUnavailableException {
+        MapMessage msg = (MapMessage) message;
+
         try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            //NOP
+            String firstName = msg.getString("firstName");
+            String surname = msg.getString("surname");
+            int salary = msg.getInt("salary");
+
+            try {
+                Thread.sleep(20000);
+            } catch (InterruptedException e) {
+                //NOP
+            }
+
+            System.out.println(firstName + " " + surname + " salary = " + salary);
+
+        } catch (JMSException e) {
+            throw new RuntimeException(e);
         }
+
     }
 }
