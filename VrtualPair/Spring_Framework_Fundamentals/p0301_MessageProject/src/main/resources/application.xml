@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="motdServise" class="ua.mega.motd.MessageOfTheDayBasicImpl">
-        <property name="message" value="Hello World"/>
+    <bean id="motdServise" class="ua.mega.motd.MessageOfTheDayDaylyDynamicImpl">
+        <property name="message" value="Hello World Change!!!"/>
     </bean>
 </beans>
