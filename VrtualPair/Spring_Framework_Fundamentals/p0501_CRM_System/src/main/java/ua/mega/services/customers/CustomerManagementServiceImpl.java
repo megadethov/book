@@ -14,9 +14,9 @@ public class CustomerManagementServiceImpl implements CustomerManagementService 
 
     public CustomerManagementServiceImpl() {
         customers = new HashMap<>();
-        customers.put("C2040", new Customer("C2041", "Disney", "Note-1"));
-        customers.put("C2041", new Customer("C2042", "Home", "Note-2"));
-        customers.put("C2042", new Customer("C2043", "Sclep", "Note-3"));
+        customers.put("C2040", new Customer("C2040", "Disney", "Note-1"));
+        customers.put("C2041", new Customer("C2041", "Home", "Note-2"));
+        customers.put("C2042", new Customer("C2042", "Sclep", "Note-3"));
     }
 
     @Override
