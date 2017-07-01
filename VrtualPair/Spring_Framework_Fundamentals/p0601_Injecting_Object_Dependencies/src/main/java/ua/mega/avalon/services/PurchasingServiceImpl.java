@@ -6,11 +6,6 @@ public class PurchasingServiceImpl implements PurchasingService {
     private AccountsService accounts;
     private BookService books;
 
-    public PurchasingServiceImpl(AccountsService accountsService, BookService booksService) {
-        this.accounts = accountsService;
-        this.books = booksService;
-    }
-
     public PurchasingServiceImpl() {
     }
 
