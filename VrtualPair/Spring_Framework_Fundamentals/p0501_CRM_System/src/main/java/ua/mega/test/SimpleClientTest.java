@@ -17,8 +17,8 @@ public class SimpleClientTest {
 
         List<Customer> allCustomers = customerManagementService.getAllCustomers();
         for (Customer next : allCustomers) {
-            System.out.println( next.toString());
+            System.out.println(next);
         }
-
+        container.close();
     }
 }
