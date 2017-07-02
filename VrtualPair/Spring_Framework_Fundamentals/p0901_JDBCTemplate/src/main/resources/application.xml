@@ -3,10 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--DAO beans-->
     <bean id="bookDao" class="ua.mega.avalon.data.BookDaoHorridJdbcImpl"/>
 
     <!--Services beans-->
-    <bean id="bookService" class="ua.mega.avalon.services.BookServiceMockImpl"/>
+    <bean id="bookService" class="ua.mega.avalon.services.BookServiceProductionImpl">
+        <constructor-arg ref="bookDao"/>
+    </bean>
 
     <bean id="accountsService" class="ua.mega.avalon.services.AccountsServiceMockImpl"/>
 
