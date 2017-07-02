@@ -7,6 +7,7 @@ public class PurchasingServiceImpl implements PurchasingService {
     private BookService books;
 
     public PurchasingServiceImpl() {
+        System.out.println("Cteate instance of PurchasingServiceImpl..." + this);
     }
 
     public void setAccounts(AccountsService accounts) {

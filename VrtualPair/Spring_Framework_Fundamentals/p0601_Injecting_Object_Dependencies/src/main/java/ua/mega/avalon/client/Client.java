@@ -23,6 +23,9 @@ public class Client {
 		}*/
 
         PurchasingService purchasingService = container.getBean("purchasingService", PurchasingService.class);
+        PurchasingService purchasingService2 = container.getBean("purchasingService", PurchasingService.class);
+        PurchasingService purchasingService3 = container.getBean("purchasingService", PurchasingService.class);
+
         purchasingService.buyBook(requiredIsbn);
 
         container.close();

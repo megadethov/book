@@ -7,7 +7,7 @@
 
     <bean id="accountsService" class="ua.mega.avalon.services.AccountsServiceMockImpl"/>
 
-    <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl">
+    <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl" scope="prototype">
         <property name="books" ref="bookService"/>
         <property name="accounts" ref="accountsService"/>
     </bean>
