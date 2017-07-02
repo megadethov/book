@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookDao" class="ua.mega.avalon.data.BookDaoHorridJdbcImpl"/>
+
+    <!--Services beans-->
+    <bean id="bookService" class="ua.mega.avalon.services.BookServiceMockImpl"/>
+
+    <bean id="accountsService" class="ua.mega.avalon.services.AccountsServiceMockImpl"/>
+
+    <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl">
+        <constructor-arg index="0" ref="accountsService"/>
+        <constructor-arg ref="bookService"/>
+    </bean>
+
+</beans>
