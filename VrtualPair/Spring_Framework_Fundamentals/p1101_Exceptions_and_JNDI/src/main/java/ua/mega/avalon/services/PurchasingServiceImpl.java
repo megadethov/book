@@ -1,5 +1,6 @@
 package ua.mega.avalon.services;
 
+import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
 public class PurchasingServiceImpl implements PurchasingService {
@@ -23,7 +24,7 @@ public class PurchasingServiceImpl implements PurchasingService {
     }*/
 
     @Override
-    public void buyBook(String isbn) {
+    public void buyBook(String isbn) throws BookNotFoundException {
         // find the correct book
         Book requiredBook = books.getBookByIsbn(isbn);
 

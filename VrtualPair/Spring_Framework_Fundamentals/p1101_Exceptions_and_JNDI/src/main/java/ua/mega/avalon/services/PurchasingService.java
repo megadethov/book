@@ -1,6 +1,8 @@
 package ua.mega.avalon.services;
 
-public interface PurchasingService 
+import ua.mega.avalon.data.BookNotFoundException;
+
+public interface PurchasingService
 {
-	public void buyBook(String isbn);
+	public void buyBook(String isbn) throws BookNotFoundException;
 }

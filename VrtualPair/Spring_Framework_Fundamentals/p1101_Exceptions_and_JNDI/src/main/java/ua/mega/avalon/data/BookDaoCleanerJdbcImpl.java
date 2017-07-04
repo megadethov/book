@@ -1,5 +1,7 @@
 package ua.mega.avalon.data;
 
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import ua.mega.avalon.domain.Book;
@@ -24,7 +26,7 @@ public class BookDaoCleanerJdbcImpl implements BookDao {
     public void createTables() {
         try {
             jdbcTemplate.update(CREATE_TABLE_SQL);
-        } catch (Exception e) {
+        } catch (BadSqlGrammarException e) {
             System.out.println("Assuming that the table already exists");
         }
     }
@@ -35,8 +37,12 @@ public class BookDaoCleanerJdbcImpl implements BookDao {
     }
 
     @Override
-    public Book findByIsbn(String isbn) {
-        return jdbcTemplate.queryForObject("SELECT * FROM BOOK WHERE ISBN=?", new BookMapper(), isbn);
+    public Book findByIsbn(String isbn) throws BookNotFoundException {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM BOOK WHERE ISBN=?", new BookMapper(), isbn);
+        } catch (EmptyResultDataAccessException e) {
+            throw new BookNotFoundException();
+        }
     }
 
     @Override

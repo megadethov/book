@@ -1,6 +1,7 @@
 package ua.mega.avalon.services;
 
 import ua.mega.avalon.data.BookDao;
+import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class BookServiceProductionImpl implements BookService {
     }
 
     @Override
-    public Book getBookByIsbn(String isbn) {
+    public Book getBookByIsbn(String isbn) throws BookNotFoundException {
         return dao.findByIsbn(isbn);
     }
 
