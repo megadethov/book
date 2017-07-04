@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DiaryManagementServiceImpl implements DiaryManagementService {
+public class DiaryManagementServiceMockImpl implements DiaryManagementService {
 
     private Set<Action> allActions = new HashSet<Action>();
 

@@ -6,10 +6,11 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import ua.mega.domain.Action;
 import ua.mega.domain.Call;
+import ua.mega.domain.Customer;
 import ua.mega.services.calls.CallHandlingService;
+import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 import ua.mega.services.diary.DiaryManagementService;
 
@@ -19,8 +20,11 @@ public class SimpleClientTest {
 	{
 		ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
 		
+		CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
 		CallHandlingService callService = container.getBean(CallHandlingService.class);
 		DiaryManagementService diaryService = container.getBean(DiaryManagementService.class);
+		
+		customerService.newCustomer(new Customer("CS03939", "Acme", "Good Customer"));
 		
 		Call newCall = new Call("Larry Wall called from Acme Corp");
 		Action action1 = new Action("Call back Larry to ask how things are going", new GregorianCalendar(2016, 0, 0), "rac");
@@ -32,7 +36,7 @@ public class SimpleClientTest {
 		
 		try
 		{
-			callService.recordCall("C2040", newCall, actions);
+			callService.recordCall("CS03939", newCall, actions);
 		}
 		catch (CustomerNotFoundException e)
 		{
@@ -45,8 +49,7 @@ public class SimpleClientTest {
 		{
 			System.out.println(next);
 		}
-		
-		
+				
 		container.close();
 	}
 

@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomerManagementServiceImpl implements CustomerManagementService {
+public class CustomerManagementServiceMockImpl implements CustomerManagementService {
 
     private Map<String, Customer> customers;
 
-    public CustomerManagementServiceImpl() {
+    public CustomerManagementServiceMockImpl() {
         customers = new HashMap<>();
         customers.put("C2040", new Customer("C2040", "Disney", "Note-1"));
         customers.put("C2041", new Customer("C2041", "Home", "Note-2"));

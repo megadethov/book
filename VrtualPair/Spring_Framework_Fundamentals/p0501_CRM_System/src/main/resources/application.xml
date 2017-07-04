@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="customerManagementService" class="ua.mega.services.customers.CustomerManagementServiceImpl"/>
+    <bean id="customerManagementService" class="ua.mega.services.customers.CustomerManagementServiceMockImpl"/>
 
-    <bean id="diaryManagementService" class="ua.mega.services.diary.DiaryManagementServiceImpl"/>
+    <bean id="diaryManagementService" class="ua.mega.services.diary.DiaryManagementServiceMockImpl"/>
 </beans>
