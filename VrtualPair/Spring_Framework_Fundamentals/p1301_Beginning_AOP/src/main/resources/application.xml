@@ -26,7 +26,7 @@
     </bean>
 
     <!--Services beans-->
-    <bean id="bookService" class="ua.mega.avalon.services.BookServiceProductionImpl">
+    <bean id="bookServiceTarget" class="ua.mega.avalon.services.BookServiceProductionImpl">
         <constructor-arg ref="bookDao"/>
     </bean>
 
@@ -35,6 +35,11 @@
     <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl">
         <constructor-arg index="0" ref="accountsService"/>
         <constructor-arg ref="bookService"/>
+    </bean>
+
+    <!-- Timing Bean -->
+    <bean id="bookService" class="ua.mega.avalon.services.BookServiceTimingProxy">
+        <property name="originalBookService" ref="bookServiceTarget"/>
     </bean>
 
 </beans>
