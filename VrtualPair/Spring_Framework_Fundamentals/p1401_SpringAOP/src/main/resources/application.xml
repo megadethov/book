@@ -34,12 +34,20 @@
 
     <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl">
         <constructor-arg index="0" ref="accountsService"/>
-        <constructor-arg ref="bookService"/>
+        <constructor-arg ref="bookServiceTarget"/>
     </bean>
 
-    <!-- Timing Bean -->
-    <bean id="bookService" class="ua.mega.avalon.services.BookServiceTimingProxy">
-        <property name="originalBookService" ref="bookServiceTarget"/>
+    <!--Advice-->
+    <bean id="loggingAdvice" class="ua.mega.avalon.advice.SimpleLoggingAdvice"/>
+    <!--Proxy-->
+    <bean id="bookService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="ua.mega.avalon.services.BookService"/>
+        <property name="interceptorNames">
+            <list>
+                <value>loggingAdvice</value>
+            </list>
+        </property>
+        <property name="target" ref="bookServiceTarget"/>
     </bean>
 
 </beans>
