@@ -38,13 +38,13 @@
     </bean>
 
     <!--Advice-->
-    <bean id="loggingAdvice" class="ua.mega.avalon.advice.SimpleLoggingAdvice"/>
+    <bean id="performanceTimingAdvice" class="ua.mega.avalon.advice.PerformanceTimingAdvice"/>
     <!--Proxy-->
     <bean id="bookService" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces" value="ua.mega.avalon.services.BookService"/>
         <property name="interceptorNames">
             <list>
-                <value>loggingAdvice</value>
+                <value>performanceTimingAdvice</value>
             </list>
         </property>
         <property name="target" ref="bookServiceTarget"/>

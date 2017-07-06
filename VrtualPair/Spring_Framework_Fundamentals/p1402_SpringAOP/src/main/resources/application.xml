@@ -38,7 +38,7 @@
     </bean>
 
     <!--Advice-->
-    <bean id="loggingAdvice" class="ua.mega.avalon.advice.SimpleLoggingAdvice"/>
+    <bean id="loggingAdvice" class="ua.mega.avalon.advice.PerformanceTimingAdvice"/>
     <!--Proxy-->
     <bean id="bookService" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces" value="ua.mega.avalon.services.BookService"/>
