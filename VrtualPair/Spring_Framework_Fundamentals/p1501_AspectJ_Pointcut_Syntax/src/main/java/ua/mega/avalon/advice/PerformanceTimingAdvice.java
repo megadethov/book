@@ -2,13 +2,14 @@ package ua.mega.avalon.advice;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 public class PerformanceTimingAdvice {
 
     public Object performTimingMeasurement(ProceedingJoinPoint method) throws Throwable {
 
-       // before
+        // before
         long startTime = System.nanoTime();
 
         try {
@@ -23,7 +24,9 @@ public class PerformanceTimingAdvice {
         }
     }
 
-    public void beforeAdviceLogging() {
-        System.out.println("Start the method ...");
+    //    public void beforeAdviceLogging() {
+    public void beforeAdviceLogging(JoinPoint jp) {
+//        System.out.println("Start the method ...");
+        System.out.println("Start the method ..." + jp.getSignature().getName());
     }
 }
