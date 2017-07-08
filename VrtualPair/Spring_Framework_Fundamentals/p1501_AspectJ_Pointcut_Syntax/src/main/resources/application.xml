@@ -44,6 +44,8 @@
         <aop:aspect ref="performanceTimingAdvice">
             <aop:around method="performTimingMeasurement"
                         pointcut="execution(* ua.mega.avalon.services.*.*(..))"/>
+            <aop:before method="beforeAdviceLogging"
+                        pointcut="execution(* ua.mega.avalon.services.*.*(..))"/>
         </aop:aspect>
     </aop:config>
 

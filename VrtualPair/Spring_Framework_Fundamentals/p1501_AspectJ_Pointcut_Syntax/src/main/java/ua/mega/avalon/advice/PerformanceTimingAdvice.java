@@ -22,4 +22,8 @@ public class PerformanceTimingAdvice {
             System.out.println("The method " + method.getSignature().getName() + " took " + timer + " nanoseconds");
         }
     }
+
+    public void beforeAdviceLogging() {
+        System.out.println("Start the method ...");
+    }
 }
