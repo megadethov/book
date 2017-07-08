@@ -4,9 +4,20 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
+@Aspect
 public class PerformanceTimingAdvice {
 
+    @Pointcut("execution(* ua.mega.avalon.services.*.*(..))")
+    public void allServiceMethods() {
+
+    }
+
+    @Around("allServiceMethods()")
     public Object performTimingMeasurement(ProceedingJoinPoint method) throws Throwable {
 
         // before
@@ -24,9 +35,8 @@ public class PerformanceTimingAdvice {
         }
     }
 
-    //    public void beforeAdviceLogging() {
+    @Before("allServiceMethods()")
     public void beforeAdviceLogging(JoinPoint jp) {
-//        System.out.println("Start the method ...");
         System.out.println("Start the method ..." + jp.getSignature().getName());
     }
 }
