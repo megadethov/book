@@ -1,8 +1,10 @@
 package ua.mega.avalon.services;
 
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
+@Transactional
 public class PurchasingServiceImpl implements PurchasingService {
     private AccountsService accounts;
     private BookService books;

@@ -1,11 +1,13 @@
 package ua.mega.avalon.services;
 
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.avalon.data.BookDao;
 import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
 import java.util.List;
 
+@Transactional
 public class BookServiceProductionImpl implements BookService {
 
     private BookDao dao;
