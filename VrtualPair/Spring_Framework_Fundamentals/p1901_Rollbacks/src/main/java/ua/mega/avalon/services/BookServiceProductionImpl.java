@@ -8,7 +8,7 @@ import ua.mega.avalon.domain.Book;
 
 import java.util.List;
 
-@Transactional(propagation = Propagation.MANDATORY)
+@Transactional
 public class BookServiceProductionImpl implements BookService {
 
     private BookDao dao;

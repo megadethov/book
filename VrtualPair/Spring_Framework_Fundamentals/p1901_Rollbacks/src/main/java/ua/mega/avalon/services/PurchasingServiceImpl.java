@@ -1,6 +1,7 @@
 package ua.mega.avalon.services;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
@@ -26,7 +27,7 @@ public class PurchasingServiceImpl implements PurchasingService {
     }*/
 
     @Override
-    public void buyBook(String isbn) throws BookNotFoundException {
+    public void buyBook(String isbn) throws BookNotFoundException, CustomerCreditExcededException {
         // find the correct book
         Book requiredBook = books.getBookByIsbn(isbn);
 
@@ -34,7 +35,11 @@ public class PurchasingServiceImpl implements PurchasingService {
         books.deleteFromStock(requiredBook);
 
         // now raise the invoice
-        accounts.raiseInvoice(requiredBook);
-
+        try {
+            accounts.raiseInvoice(requiredBook);
+        } catch (CustomerCreditExcededException e) {
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            throw e;
+        }
     }
 }
