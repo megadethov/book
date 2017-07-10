@@ -1,5 +1,6 @@
 package ua.mega.avalon.services;
 
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.avalon.data.BookDao;
 import ua.mega.avalon.data.BookNotFoundException;
@@ -7,7 +8,7 @@ import ua.mega.avalon.domain.Book;
 
 import java.util.List;
 
-@Transactional
+@Transactional(propagation = Propagation.MANDATORY)
 public class BookServiceProductionImpl implements BookService {
 
     private BookDao dao;
@@ -21,6 +22,7 @@ public class BookServiceProductionImpl implements BookService {
         return dao.findBooksByAuthor(author);
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<Book> getAllRecommendedBooks(String userId) {
         throw new UnsupportedOperationException();
