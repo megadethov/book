@@ -1,5 +1,6 @@
 package ua.mega.avalon.services;
 
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import ua.mega.avalon.data.BookNotFoundException;
@@ -26,7 +27,7 @@ public class PurchasingServiceImpl implements PurchasingService {
         this.books = books;
     }*/
 
-    @Transactional(rollbackFor = {CustomerCreditExcededException.class, BookNotFoundException.class}, timeout = 10)
+    @Transactional(rollbackFor = {CustomerCreditExcededException.class, BookNotFoundException.class}, timeout = 10, isolation = Isolation.SERIALIZABLE)
     @Override
     public void buyBook(String isbn) throws BookNotFoundException, CustomerCreditExcededException {
         // find the correct book
