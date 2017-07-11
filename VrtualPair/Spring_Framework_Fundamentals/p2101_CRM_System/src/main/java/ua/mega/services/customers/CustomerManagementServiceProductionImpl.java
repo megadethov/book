@@ -1,5 +1,6 @@
 package ua.mega.services.customers;
 
+import org.springframework.transaction.annotation.Transactional;
 import ua.mega.dataaccess.CustomerDao;
 import ua.mega.dataaccess.RecordNotFoundException;
 import ua.mega.domain.Call;
@@ -7,6 +8,7 @@ import ua.mega.domain.Customer;
 
 import java.util.List;
 
+@Transactional
 public class CustomerManagementServiceProductionImpl implements CustomerManagementService {
 
     private CustomerDao dao;
