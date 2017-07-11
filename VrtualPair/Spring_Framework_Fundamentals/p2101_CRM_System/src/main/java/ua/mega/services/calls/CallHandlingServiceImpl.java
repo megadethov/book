@@ -29,6 +29,8 @@ public class CallHandlingServiceImpl implements CallHandlingService {
         for (Action nextAction : actions) {
             diaryService.recordAction(nextAction);
         }
+        // crash simulation
+        throw new NullPointerException();
     }
 
 }
