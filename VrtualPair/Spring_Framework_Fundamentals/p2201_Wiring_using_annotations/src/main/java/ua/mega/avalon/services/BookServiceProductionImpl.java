@@ -1,6 +1,7 @@
 package ua.mega.avalon.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.avalon.data.BookDao;
@@ -10,6 +11,7 @@ import ua.mega.avalon.domain.Book;
 import java.util.List;
 
 @Transactional
+@Component("bookService")
 public class BookServiceProductionImpl implements BookService {
 
     @Autowired

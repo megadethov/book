@@ -22,7 +22,6 @@
     <bean id="bookDao" class="ua.mega.avalon.data.BookDaoCleanerJdbcImpl" init-method="createTables"/>
 
     <!--Services beans-->
-    <bean id="bookService" class="ua.mega.avalon.services.BookServiceProductionImpl"/>
 
     <bean id="accountsService" class="ua.mega.avalon.services.AccountsServiceMockImpl"/>
 
