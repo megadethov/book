@@ -6,6 +6,7 @@ import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ua.mega.avalon.domain.Book;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-@Component("bookDao")
+@Repository("bookDao")
 public class BookDaoCleanerJdbcImpl implements BookDao {
 
     // SQL
