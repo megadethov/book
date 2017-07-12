@@ -14,27 +14,20 @@ public class Client {
     public static void main(String[] args) {
 
         ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
-
         try {
             PurchasingService purchasing = container.getBean(PurchasingService.class);
-            BookService bookService = container.getBean(BookService.class);
+            BookService bookService = (BookService) container.getBean("bookService");
 
-            // begin
-            bookService.registerNewBook(new Book("10003993939", "Test Title", "Author", 10.99));
-            // commit
+            bookService.registerNewBook(new Book("494949484748", "Java Programming", "Gary Cornell", 10.99));
 
-            // begin
-            try {
-                purchasing.buyBook("10003993939");
-            } catch (BookNotFoundException e) {
-                System.out.println("Sorry, that book doesn't exist");
-            } catch (CustomerCreditExcededException e) {
-                System.out.println("You can't do this");
+            List<Book> allBooks = bookService.getAllBooksByAuthor("Josh Bloch");
+
+            for (Book book : allBooks) {
+                System.out.println(book);
             }
-            // commit
-
         } finally {
             container.close();
         }
+
     }
 }

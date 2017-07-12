@@ -13,6 +13,7 @@
         <maven.test.skip>true</maven.test.skip>
         <source-code.version>1.7</source-code.version>
         <spring-version>4.1.6.RELEASE</spring-version>
+        <hibernate-version>4.3.11.Final</hibernate-version>
         <source-code.encoding>UTF-8</source-code.encoding>
     </properties>
 
@@ -74,6 +75,26 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.10</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
