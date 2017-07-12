@@ -9,13 +9,15 @@ import ua.mega.avalon.data.BookDao;
 import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 @Transactional
-@Service("bookService")
+@Named("bookService")
 public class BookServiceProductionImpl implements BookService {
 
-    @Autowired
+    @Inject
     private BookDao dao;
 
     @Override
