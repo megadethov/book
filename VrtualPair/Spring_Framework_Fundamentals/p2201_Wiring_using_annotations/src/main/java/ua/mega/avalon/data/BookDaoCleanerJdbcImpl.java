@@ -5,12 +5,15 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import ua.mega.avalon.domain.Book;
 
+import javax.annotation.PostConstruct;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Component("bookDao")
 public class BookDaoCleanerJdbcImpl implements BookDao {
 
     // SQL
@@ -21,6 +24,7 @@ public class BookDaoCleanerJdbcImpl implements BookDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @PostConstruct
     public void createTables() {
         try {
             jdbcTemplate.update(CREATE_TABLE_SQL);

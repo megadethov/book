@@ -18,9 +18,6 @@
     <!--Templates-->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"/>
 
-    <!--DAO beans-->
-    <bean id="bookDao" class="ua.mega.avalon.data.BookDaoCleanerJdbcImpl" init-method="createTables"/>
-
     <!--Services beans-->
 
     <bean id="accountsService" class="ua.mega.avalon.services.AccountsServiceMockImpl"/>
