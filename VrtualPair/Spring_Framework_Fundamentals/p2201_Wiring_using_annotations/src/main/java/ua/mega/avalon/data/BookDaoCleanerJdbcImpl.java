@@ -1,5 +1,6 @@
 package ua.mega.avalon.data;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,11 +18,8 @@ public class BookDaoCleanerJdbcImpl implements BookDao {
     private static final String CREATE_TABLE_SQL = "create table BOOK(ISBN VARCHAR(20), TITLE VARCHAR(50), AUTHOR VARCHAR(50), PRICE DOUBLE)";
     private static final String GET_ALL_BOOKS_SQL = "select * from BOOK";
 
+    @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    public BookDaoCleanerJdbcImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     public void createTables() {
         try {

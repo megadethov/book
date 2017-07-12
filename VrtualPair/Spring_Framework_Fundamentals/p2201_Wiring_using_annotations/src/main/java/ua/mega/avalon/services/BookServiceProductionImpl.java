@@ -1,5 +1,6 @@
 package ua.mega.avalon.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.avalon.data.BookDao;
@@ -11,11 +12,8 @@ import java.util.List;
 @Transactional
 public class BookServiceProductionImpl implements BookService {
 
+    @Autowired
     private BookDao dao;
-
-    public BookServiceProductionImpl(BookDao dao) {
-        this.dao = dao;
-    }
 
     @Override
     public List<Book> getAllBooksByAuthor(String author) {

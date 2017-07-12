@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Transaction Manager for the Project -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" autowire="byType"/>
 
     <!--DataSources-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -18,26 +16,17 @@
     </bean>
 
     <!--Templates-->
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <constructor-arg ref="dataSource"/>
-    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"/>
 
     <!--DAO beans-->
-    <bean id="bookDao" class="ua.mega.avalon.data.BookDaoCleanerJdbcImpl" init-method="createTables">
-        <constructor-arg ref="jdbcTemplate"/>
-    </bean>
+    <bean id="bookDao" class="ua.mega.avalon.data.BookDaoCleanerJdbcImpl" init-method="createTables"/>
 
     <!--Services beans-->
-    <bean id="bookService" class="ua.mega.avalon.services.BookServiceProductionImpl">
-        <constructor-arg ref="bookDao"/>
-    </bean>
+    <bean id="bookService" class="ua.mega.avalon.services.BookServiceProductionImpl"/>
 
     <bean id="accountsService" class="ua.mega.avalon.services.AccountsServiceMockImpl"/>
 
-    <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl">
-        <constructor-arg index="0" ref="accountsService"/>
-        <constructor-arg ref="bookService"/>
-    </bean>
+    <bean id="purchasingService" class="ua.mega.avalon.services.PurchasingServiceImpl"/>
 
     <!--Advice-->
     <bean id="performanceTimingAdvice" class="ua.mega.avalon.advice.PerformanceTimingAdvice"/>
@@ -46,5 +35,7 @@
 
     <!--  Transaction Configuration -->
     <tx:annotation-driven/>
+
+    <context:component-scan base-package="ua.mega"/>
 
 </beans>

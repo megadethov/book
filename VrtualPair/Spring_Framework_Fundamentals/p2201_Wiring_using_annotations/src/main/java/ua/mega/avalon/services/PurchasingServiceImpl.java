@@ -1,5 +1,6 @@
 package ua.mega.avalon.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
@@ -8,24 +9,11 @@ import ua.mega.avalon.domain.Book;
 
 @Transactional
 public class PurchasingServiceImpl implements PurchasingService {
+
+    @Autowired
     private AccountsService accounts;
+    @Autowired
     private BookService books;
-
-    public PurchasingServiceImpl(AccountsService accounts, BookService books) {
-        this.accounts = accounts;
-        this.books = books;
-    }
-
-   /* public PurchasingServiceImpl() {
-        System.out.println("Cteate instance of PurchasingServiceImpl..." + this);
-    }*/
-
-   /* public void setAccounts(AccountsService accounts) {
-        this.accounts = accounts;
-    }
-    public void setBooks(BookService books) {
-        this.books = books;
-    }*/
 
     @Transactional(rollbackFor = {CustomerCreditExcededException.class, BookNotFoundException.class}, timeout = 10, isolation = Isolation.SERIALIZABLE)
     @Override
