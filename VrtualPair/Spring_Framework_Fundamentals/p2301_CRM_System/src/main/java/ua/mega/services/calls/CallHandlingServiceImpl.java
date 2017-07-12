@@ -2,6 +2,8 @@ package ua.mega.services.calls;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.domain.Action;
 import ua.mega.domain.Call;
@@ -10,10 +12,12 @@ import ua.mega.services.customers.CustomerNotFoundException;
 import ua.mega.services.diary.DiaryManagementService;
 
 @Transactional
+@Service("callHandlingService")
 public class CallHandlingServiceImpl implements CallHandlingService {
     private CustomerManagementService customerService;
     private DiaryManagementService diaryService;
 
+    @Autowired
     public CallHandlingServiceImpl(CustomerManagementService cms, DiaryManagementService dms) {
         this.customerService = cms;
         this.diaryService = dms;

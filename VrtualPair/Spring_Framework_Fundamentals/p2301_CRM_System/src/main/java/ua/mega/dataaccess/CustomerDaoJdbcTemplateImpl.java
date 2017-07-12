@@ -1,17 +1,21 @@
 package ua.mega.dataaccess;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 import ua.mega.domain.Call;
 import ua.mega.domain.Customer;
 
+import javax.annotation.PostConstruct;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+@Repository("customerDao")
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     private static final String INSERT_CALL_SQL = "INSERT INTO TBL_CALL(NOTES, TIME_AND_DATE, CUSTOMER_ID) VALUES (?, ?, ?)";
@@ -24,10 +28,12 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     private JdbcTemplate template;
 
+    @Autowired
     public CustomerDaoJdbcTemplateImpl(JdbcTemplate template) {
         this.template = template;
     }
 
+    @PostConstruct
     private void createTables() {
         try {
             template.update(CREATE_CUSTOMER_TABLE_SQL);
