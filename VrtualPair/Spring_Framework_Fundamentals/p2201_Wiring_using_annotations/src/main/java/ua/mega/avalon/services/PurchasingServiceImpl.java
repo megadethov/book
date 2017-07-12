@@ -1,6 +1,8 @@
 package ua.mega.avalon.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
@@ -8,6 +10,7 @@ import ua.mega.avalon.data.BookNotFoundException;
 import ua.mega.avalon.domain.Book;
 
 @Transactional
+@Service("purchasingService")
 public class PurchasingServiceImpl implements PurchasingService {
 
     @Autowired
