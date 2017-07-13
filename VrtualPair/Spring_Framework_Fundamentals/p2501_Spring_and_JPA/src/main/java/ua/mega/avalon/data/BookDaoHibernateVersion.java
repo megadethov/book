@@ -7,7 +7,6 @@ import ua.mega.avalon.domain.Book;
 
 import java.util.List;
 
-@Repository("bookDao")
 public class BookDaoHibernateVersion implements BookDao {
 
     @Autowired
@@ -34,8 +33,8 @@ public class BookDaoHibernateVersion implements BookDao {
 
     @Override
     public void delete(Book redundantBook) {
-       Book foundBook = template.get(Book.class, redundantBook.getId());
-       template.delete(foundBook);
+        Book foundBook = template.get(Book.class, redundantBook.getId());
+        template.delete(foundBook);
     }
 
     @Override
