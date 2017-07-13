@@ -19,6 +19,7 @@ public class Client {
             BookService bookService = (BookService) container.getBean("bookService");
 
             bookService.registerNewBook(new Book("494949484748", "Java Programming", "Gary Cornell", 10.99));
+            bookService.registerNewBook(new Book("5151515484748", "Effective Java", "Josh Bloch", 20.99));
 
             List<Book> allBooks = bookService.getAllBooksByAuthor("Josh Bloch");
 

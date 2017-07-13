@@ -14,10 +14,10 @@ import javax.inject.Named;
 import java.util.List;
 
 @Transactional
-@Named("bookService")
+@Service("bookService")
 public class BookServiceProductionImpl implements BookService {
 
-    @Inject
+    @Autowired
     private BookDao dao;
 
     @Override
