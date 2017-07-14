@@ -36,4 +36,13 @@
 
     <context:component-scan base-package="ua.mega"/>
 
+    <!--  SpEL testing -->
+    <bean id="simpleBeanA" class="speltesting.SimpleBeanA">
+        <property name="simpleValue" value="TEST_NAME"/>
+    </bean>
+
+    <bean id="simpleBeanB" class="speltesting.SimpleBeanB">
+        <property name="simpleValue" value="#{simpleBeanA.SimpleValue}"/>
+    </bean>
+
 </beans>
