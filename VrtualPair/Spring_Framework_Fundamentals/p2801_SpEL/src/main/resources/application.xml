@@ -43,6 +43,7 @@
 
     <bean id="simpleBeanB" class="speltesting.SimpleBeanB">
         <property name="simpleValue" value="#{simpleBeanA.SimpleValue}"/>
+        <property name="random" value="#{(T(java.lang.Math).random()*10) + 1}"/>
     </bean>
 
 </beans>
