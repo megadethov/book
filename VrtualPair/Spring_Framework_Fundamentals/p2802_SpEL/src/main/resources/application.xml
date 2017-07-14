@@ -34,16 +34,6 @@
     <!--  Transaction Configuration -->
     <tx:annotation-driven/>
 
-    <context:component-scan base-package="ua.mega"/>
-
-    <!--  SpEL testing -->
-    <bean id="simpleBeanA" class="speltesting.SimpleBeanA">
-        <property name="simpleValue" value="TEST_NAME"/>
-    </bean>
-
-    <bean id="simpleBeanB" class="speltesting.SimpleBeanB">
-        <property name="simpleValue" value="#{simpleBeanA.SimpleValue}"/>
-        <property name="random" value="#{(T(java.lang.Math).random()*10) + 1}"/>
-    </bean>
+    <context:component-scan base-package="ua.mega, speltesting"/>
 
 </beans>
