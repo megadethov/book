@@ -2,7 +2,11 @@ package ua.mega.avalon.data;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ua.mega.avalon.domain.Book;
 import ua.mega.avalon.services.BookService;
 
@@ -12,16 +16,20 @@ import static org.junit.Assert.*;
  * A JUnit4 test to integration test the Spring Container setup
  */
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/application.xml")
 public class BookDaoJpaImplTest {
 
+    @Autowired
     BookService bookService;
-
+/*
     @Before
     public void setUp() {
         // arrange
         ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
         bookService = (BookService) container.getBean("bookService");
     }
+*/
 
     @Test
     public void testFindByIsbn() throws Exception {
