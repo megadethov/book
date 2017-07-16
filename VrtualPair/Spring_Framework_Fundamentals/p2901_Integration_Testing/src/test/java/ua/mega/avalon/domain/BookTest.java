@@ -17,4 +17,16 @@ public class BookTest {
         // assert
         assertTrue(areTheyEqual);
     }
+
+    @Test
+    public void testFormatOfTheToStringIsCorrect() throws Exception {
+        // arrange
+        Book bookOne = new Book("7326837268237", "Java Puzzles", "Josh Bloch", 10.99);
+
+        // act
+        String toStringResult = bookOne.toString();
+
+        // assert
+        assertEquals("Java Puzzles by Josh Bloch", toStringResult);
+    }
 }
