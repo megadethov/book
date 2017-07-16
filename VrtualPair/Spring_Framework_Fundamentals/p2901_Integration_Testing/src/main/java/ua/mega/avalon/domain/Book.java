@@ -50,4 +50,19 @@ public class Book {
     public int getId() {
         return id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        return isbn != null ? isbn.equals(book.isbn) : book.isbn == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return isbn != null ? isbn.hashCode() : 0;
+    }
 }
