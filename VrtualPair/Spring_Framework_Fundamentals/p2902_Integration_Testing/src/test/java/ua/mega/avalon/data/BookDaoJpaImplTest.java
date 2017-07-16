@@ -1,5 +1,6 @@
 package ua.mega.avalon.data;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.mega.avalon.domain.Book;
@@ -13,12 +14,17 @@ import static org.junit.Assert.*;
 
 public class BookDaoJpaImplTest {
 
-    @Test
-    public void testFindByIsbn() throws Exception {
+    BookService bookService;
+
+    @Before
+    public void setUp() {
         // arrange
         ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
-        BookService bookService = (BookService) container.getBean("bookService");
+        bookService = (BookService) container.getBean("bookService");
+    }
 
+    @Test
+    public void testFindByIsbn() throws Exception {
         String isbn = "7326837268237";
         Book addingBook = new Book(isbn, "Java Puzzles", "Josh Bloch", 10.99);
         bookService.registerNewBook(addingBook);
@@ -30,10 +36,6 @@ public class BookDaoJpaImplTest {
 
     @Test
     public void testAddingBooks() throws Exception {
-        // arrange
-        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
-        BookService bookService = (BookService) container.getBean("bookService");
-
         bookService.registerNewBook(new Book("494949484748", "Java Programming", "Gary Cornell", 10.99));
         bookService.registerNewBook(new Book("5151515484748", "Effective Java", "Josh Bloch", 20.99));
         // act
@@ -44,9 +46,6 @@ public class BookDaoJpaImplTest {
 
     @Test(expected = BookNotFoundException.class)
     public void testFindingNonExistentBook() throws BookNotFoundException {
-        // arrange
-        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
-        BookService bookService = (BookService) container.getBean("bookService");
         // act
         Book fakeIsbn = bookService.getBookByIsbn("fake isbn"); // BookNotFoundException
         // assert
