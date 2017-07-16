@@ -15,10 +15,10 @@ public class BookDaoJpaImplTest {
 
     @Test
     public void testFindByIsbn() throws Exception {
-
         // arrange
         ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
         BookService bookService = (BookService) container.getBean("bookService");
+
         String isbn = "7326837268237";
         Book addingBook = new Book(isbn, "Java Puzzles", "Josh Bloch", 10.99);
         bookService.registerNewBook(addingBook);
@@ -30,6 +30,16 @@ public class BookDaoJpaImplTest {
 
     @Test
     public void testAddingBooks() throws Exception {
+        // arrange
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
+        BookService bookService = (BookService) container.getBean("bookService");
+
+        bookService.registerNewBook(new Book("494949484748", "Java Programming", "Gary Cornell", 10.99));
+        bookService.registerNewBook(new Book("5151515484748", "Effective Java", "Josh Bloch", 20.99));
+        // act
+        int booksInDb = bookService.getEntireCatalogue().size();
+        // assert
+        assertEquals(2, booksInDb);
     }
 
     @Test
