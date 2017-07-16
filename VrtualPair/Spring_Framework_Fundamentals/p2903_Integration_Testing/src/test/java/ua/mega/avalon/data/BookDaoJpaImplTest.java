@@ -1,10 +1,8 @@
 package ua.mega.avalon.data;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +16,7 @@ import static org.junit.Assert.*;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/application.xml")
+@ContextConfiguration({"/other-tiers.xml", "/datasource-test.xml"})
 @Transactional
 public class BookDaoJpaImplTest {
 
@@ -28,7 +26,7 @@ public class BookDaoJpaImplTest {
     @Before
     public void setUp() {
         // arrange
-        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("other-tiers.xml");
         bookService = (BookService) container.getBean("bookService");
     }
 */
