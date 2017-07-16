@@ -42,7 +42,13 @@ public class BookDaoJpaImplTest {
         assertEquals(2, booksInDb);
     }
 
-    @Test
-    public void testFindingNonExistentBook() throws Exception {
+    @Test(expected = BookNotFoundException.class)
+    public void testFindingNonExistentBook() throws BookNotFoundException {
+        // arrange
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
+        BookService bookService = (BookService) container.getBean("bookService");
+        // act
+        Book fakeIsbn = bookService.getBookByIsbn("fake isbn"); // BookNotFoundException
+        // assert
     }
 }

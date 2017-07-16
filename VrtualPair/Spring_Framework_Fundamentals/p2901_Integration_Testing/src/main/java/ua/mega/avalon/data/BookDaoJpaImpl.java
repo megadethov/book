@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import ua.mega.avalon.domain.Book;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -20,7 +21,11 @@ public class BookDaoJpaImpl implements BookDao {
 
     @Override
     public Book findByIsbn(String isbn) throws BookNotFoundException {
-        return (Book) em.createQuery("select book from Book as book where book.isbn = :isbn").setParameter("isbn", isbn).getSingleResult();
+        try {
+            return (Book) em.createQuery("select book from Book as book where book.isbn = :isbn").setParameter("isbn", isbn).getSingleResult();
+        }catch (NoResultException e){
+            throw new BookNotFoundException();
+        }
     }
 
     @Override
