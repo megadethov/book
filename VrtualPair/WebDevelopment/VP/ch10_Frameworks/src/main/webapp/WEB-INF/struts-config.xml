@@ -1,10 +1,17 @@
-<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 <struts-config>
- 	<!--  add your config here -->
-    
+    <!--  add your config here -->
+    <action-mappings>
+        <action path="/all-books" type="ua.mega.control.DisplayAllBooksAction">
+            <forward name="viewBooks" path="/displayAllBooks.jsp"/>
+        </action>
+    </action-mappings>
+
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-       <set-property property="pathnames" value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validator-rules.xml"/>
-	</plug-in>
-    
+        <set-property property="pathnames"
+                      value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validator-rules.xml"/>
+    </plug-in>
+
 </struts-config>
