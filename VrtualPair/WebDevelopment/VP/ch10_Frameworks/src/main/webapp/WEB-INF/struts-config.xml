@@ -9,7 +9,7 @@
     
     <action-mappings>
         <action path="/addNewBook" type="ua.mega.control.AddBookAction" input="add-new-book.jsp" name="bookForm">
-            <forward name="addBookSuccessful" path="bookAddedSuccessfully.jsp"/>
+            <forward name="addBookSuccessful" path="/bookAddedSuccessfully.jsp"/>
         </action>
         
         <action path="/all-books" type="ua.mega.control.DisplayAllBooksAction">
