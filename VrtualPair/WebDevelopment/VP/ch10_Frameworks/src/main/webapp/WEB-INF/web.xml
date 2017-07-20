@@ -3,63 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    
-    <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>ua.mega.servlets.HelloServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello-everyone.html</url-pattern>
-    </servlet-mapping>
 
     <servlet>
-        <servlet-name>DisplayAllBooksServlet</servlet-name>
-        <servlet-class>ua.mega.servlets.DisplayAllBooksServlet</servlet-class>
+        <servlet-name>StrutsServlet</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>DisplayAllBooksServlet</servlet-name>
-        <url-pattern>/all-books.html</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>FindBooksByAuthorServlet</servlet-name>
-        <servlet-class>ua.mega.servlets.FindBooksByAuthorServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FindBooksByAuthorServlet</servlet-name>
-        <url-pattern>/FindBooksByAuthor.html</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>AddNewBookServlet</servlet-name>
-        <servlet-class>ua.mega.servlets.AddNewBookServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddNewBookServlet</servlet-name>
-        <url-pattern>/AddNewBook.html</url-pattern>
-    </servlet-mapping>
 
-    <servlet>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <servlet-class>ua.mega.servlets.AddToCartServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <url-pattern>/AddToCart.html</url-pattern>
+        <servlet-name>StrutsServlet</servlet-name>
+        <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ViewCartServlet</servlet-name>
-        <servlet-class>ua.mega.servlets.ViewCartServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ViewCartServlet</servlet-name>
-        <url-pattern>/viewCart.html</url-pattern>
-    </servlet-mapping>
-
-    <session-config>
-        <session-timeout>4000</session-timeout> <!-- (0) - never expired session -->
-    </session-config>
     
 </web-app>
