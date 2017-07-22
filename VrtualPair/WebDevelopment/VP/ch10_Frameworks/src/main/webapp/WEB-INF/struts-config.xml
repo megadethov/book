@@ -6,17 +6,23 @@
     <form-beans>
         <form-bean name="bookForm" type="ua.mega.forms.BookForm"/>
     </form-beans>
-    
+
     <action-mappings>
-        <action path="/addNewBook" type="ua.mega.control.AddBookAction" input="add-new-book.jsp" name="bookForm">
+        <action path="/addNewBook" type="ua.mega.control.AddBookAction" input="/add-new-book.jsp" name="bookForm"
+                validate="true">
             <forward name="addBookSuccessful" path="/bookAddedSuccessfully.jsp"/>
         </action>
-        
+
         <action path="/all-books" type="ua.mega.control.DisplayAllBooksAction">
             <forward name="viewBooks" path="/displayAllBooks.jsp"/>
         </action>
     </action-mappings>
 
     <message-resources parameter="messages"/>
+
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames"
+                      value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validator-rules.xml"/>
+    </plug-in>
 
 </struts-config>

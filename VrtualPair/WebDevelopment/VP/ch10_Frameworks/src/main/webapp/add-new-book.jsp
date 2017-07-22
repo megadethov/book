@@ -4,18 +4,27 @@
 
 <html>
 <head>
+    <link href="styles.css" rel="Stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <title>Add a new Book</title>
 </head>
 <body>
-<h2><bean:message key="title.addbook"/></h2>
-<html:form action="/addNewBook.do">
-    <p><bean:message key="book.isbn"/> : <html:text property="isbn"/></p>
-    <p><bean:message key="book.title"/> : <html:text property="title"/></p>
-    <p><bean:message key="book.author"/> : <html:text property="author"/></p>
-    <p><bean:message key="book.price"/> : <html:text property="price"/></p>
+<jsp:include page="header.jsp"/>
+<h1><bean:message key="title.addbook"/></h1>
+<div id="addBook">
+    <html:form action="/addNewBook.do">
+        <label><bean:message key="book.isbn"/></label><html:text property="isbn"/><p class="error"><html:errors
+            property="isbn"/></p>
+        <label><bean:message key="book.title"/></label><html:text property="title"/><p class="error"><html:errors
+            property="title"/></p>
+        <label><bean:message key="book.author"/></label><html:text property="author"/><p class="error"><html:errors
+            property="author"/></p>
+        <label><bean:message key="book.price"/></label><html:text property="price"/><p class="error"><html:errors
+            property="price"/></p>
 
-    <input type="submit" value="<bean:message key="form.submit"/>"/>
-</html:form>
+        <input type="submit" value="<bean:message key="form.submit"/>"/>
+    </html:form>
+</div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

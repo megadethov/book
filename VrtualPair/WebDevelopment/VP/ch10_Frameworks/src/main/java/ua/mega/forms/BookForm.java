@@ -1,8 +1,10 @@
 package ua.mega.forms;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.validator.ValidatorForm;
 
-public class BookForm extends ActionForm {
+//public class BookForm extends ActionForm {
+public class BookForm extends ValidatorForm {
 
     private String isbn;
     private String title;
