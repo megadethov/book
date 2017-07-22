@@ -13,7 +13,7 @@ public class SpringClient
 {
 	public static void main(String[] args)
 	{
-		AbstractApplicationContext factory = new ClassPathXmlApplicationContext("application.xml");		
+		AbstractApplicationContext factory = new ClassPathXmlApplicationContext("WEB-INF/application.xml");
 		BookService books = (BookService)factory.getBean("bookService");
 		
 		// recommended books for this course!
