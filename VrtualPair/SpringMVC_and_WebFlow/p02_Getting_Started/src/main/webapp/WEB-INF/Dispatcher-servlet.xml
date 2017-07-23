@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <import resource="/application.xml"/>
+    <import resource="application.xml"/>
 
     <bean name="/viewAllBooks.do" class="ua.mega.control.ViewAllBooksController">
         <property name="bookService" ref="bookService"/>
