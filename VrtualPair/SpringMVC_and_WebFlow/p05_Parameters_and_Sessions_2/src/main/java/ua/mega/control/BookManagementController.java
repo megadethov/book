@@ -10,7 +10,7 @@ import ua.mega.services.BookService;
 import java.util.List;
 
 @Controller
-public class ViewAllBooksController {
+public class BookManagementController {
 
     @Autowired
     private BookService bookService;
@@ -18,6 +18,12 @@ public class ViewAllBooksController {
     @RequestMapping("/viewAllBooks")
     public ModelAndView viewAllBooks() {
         List<Book> allBooks = bookService.getEntireCatalogue();
+        return new ModelAndView("/displayAllBooks.jsp", "allBooks", allBooks);
+    }
+
+    @RequestMapping("/findByAuthor")
+    public ModelAndView findByAuthor(/*@RequestParam("author")*/ String author) {
+        List<Book> allBooks = bookService.getAllBooksByAuthor(author);
         return new ModelAndView("/displayAllBooks.jsp", "allBooks", allBooks);
     }
 }
