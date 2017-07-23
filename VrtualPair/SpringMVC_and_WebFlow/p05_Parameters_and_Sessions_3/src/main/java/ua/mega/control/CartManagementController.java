@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,31 +17,23 @@ import ua.mega.domain.ShoppingCart;
 import ua.mega.services.BookService;
 
 @Controller
+@Scope("session")
 public class CartManagementController {
     @Autowired
+    @Qualifier("bookService")
     private BookService bookService;
+    private ShoppingCart cart = new ShoppingCart();
 
     @RequestMapping("/addToCart")
-    public ModelAndView addToCart(@RequestParam("id") int id, HttpSession session) {
-
+    public ModelAndView addToCart(@RequestParam("id") int id) {
         Book requiredBook = bookService.getBookById(id);
-
-        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-        if (cart == null) {
-            cart = new ShoppingCart();
-        }
         cart.addItem(requiredBook);
-        session.setAttribute("cart", cart);
-
         return new ModelAndView("/bookAddedToCart.jsp", "title", requiredBook.getTitle());
     }
 
     @RequestMapping("/viewCart")
-    public ModelAndView viewCart(HttpSession session) {
-
-        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+    public ModelAndView viewCart() {
         List<Book> allItems = cart.getAllItems();
-
         return new ModelAndView("/cartContents.jsp", "cart", allItems);
     }
 
