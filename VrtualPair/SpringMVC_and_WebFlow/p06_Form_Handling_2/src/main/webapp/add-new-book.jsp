@@ -18,7 +18,7 @@
         <label>Enter Price</label><form:input path="price"/>
 
         <input type="submit" value="Add New Book"/>
-        <input type="reset"/>
+        <input type="reset"
     </form:form>
 </div>
 
