@@ -14,12 +14,8 @@ public class CreateBookController {
     BookService bookService;
 
     @RequestMapping("addNewBook")
-    public ModelAndView addNewBook(String isbn, String title, String author, String price) {
-        double doublePrice = new Double(price);
-        Book theBook = new Book(isbn, title, author, doublePrice);
-        bookService.registerNewBook(theBook);
-
-        return new ModelAndView("/book-added.jsp", "title", title);
+    public ModelAndView show() {
+        return new ModelAndView("/add-new-book.jsp", "book", new Book());
     }
 
 }
