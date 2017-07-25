@@ -19,7 +19,7 @@
         <label><fmt:message key="book.price"/></label><form:input path="price"/> <form:errors path="price" cssClass="error"/>
 
         <input type="submit" value="Add New Book"/>
-        <input type="reset"
+        <input type="reset"/>
     </form:form>
 </div>
 
