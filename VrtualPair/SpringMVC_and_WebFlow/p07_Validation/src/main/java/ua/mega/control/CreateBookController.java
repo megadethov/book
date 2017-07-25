@@ -2,6 +2,7 @@ package ua.mega.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,7 +22,10 @@ public class CreateBookController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView processForm(Book newBook) {
+    public ModelAndView processForm(Book newBook, Errors result) {
+        if (result.hasErrors()) {
+            return new ModelAndView("/add-new-book.jsp", "book", new Book());
+        }
         bookService.registerNewBook(newBook);
         return new ModelAndView("/book-added.jsp", "title", newBook.getTitle());
     }
