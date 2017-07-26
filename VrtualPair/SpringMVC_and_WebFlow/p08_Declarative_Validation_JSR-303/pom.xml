@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.mega</groupId>
-    <artifactId>p08_Declarative_Validation(JSR-303)</artifactId>
+    <artifactId>p08_Declarative_Validation_JSR-303</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -13,12 +13,14 @@
         <maven.test.skip>true</maven.test.skip>
         <source-code.version>1.7</source-code.version>
         <spring-version>4.1.6.RELEASE</spring-version>
-        <hibernate-version>4.3.11.Final</hibernate-version>
+        <hibernate-version>4.3.1.Final</hibernate-version>
         <servlet-version>3.1.0</servlet-version>
+        <validation-api-version>1.0.0.GA</validation-api-version>
         <source-code.encoding>UTF-8</source-code.encoding>
     </properties>
 
     <build>
+        <finalName>mywebapp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -176,6 +178,20 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring-version}</version>
+        </dependency>
+
+        <!-- JSR 303 Dependencies -->
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api-version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-version}</version>
         </dependency>
 
     </dependencies>
