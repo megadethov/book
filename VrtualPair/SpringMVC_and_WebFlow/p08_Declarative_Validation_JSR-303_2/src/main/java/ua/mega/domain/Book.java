@@ -1,6 +1,7 @@
 package ua.mega.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import ua.mega.validation.ISBN;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
@@ -11,14 +12,14 @@ public class Book implements java.io.Serializable {
     private static int nextId = 1;
     private int id;
     @NotEmpty
-    @Pattern(regexp="[0-9]*[xX0-9]")
+    @ISBN
     private String isbn;
     @NotEmpty
     private String title;
     @NotEmpty
     private String author;
     @Min(value = 0)
-    @Digits(integer=3, fraction=2)
+    @Digits(integer = 3, fraction = 2)
     private double price;
 
     public Book(String isbn, String title, String author, double price) {
