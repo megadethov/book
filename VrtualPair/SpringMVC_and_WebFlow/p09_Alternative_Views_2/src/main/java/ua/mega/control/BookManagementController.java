@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ua.mega.domain.Book;
 import ua.mega.services.BookService;
+import ua.mega.views.BookReportExcel;
 import ua.mega.views.BookReportPdf;
 
 import java.util.List;
@@ -35,5 +36,12 @@ public class BookManagementController {
     {
         List<Book> allBooks = bookService.getEntireCatalogue();
         return new ModelAndView(new BookReportPdf(),"allBooks",allBooks);
+    }
+
+    @RequestMapping("/viewAllBooksExcel")
+    public ModelAndView viewAllBooksExcel()
+    {
+        List<Book> allBooks = bookService.getEntireCatalogue();
+        return new ModelAndView(new BookReportExcel(),"allBooks",allBooks);
     }
 }
