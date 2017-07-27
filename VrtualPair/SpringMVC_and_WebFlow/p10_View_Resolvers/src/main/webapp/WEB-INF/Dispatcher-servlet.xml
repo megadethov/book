@@ -17,8 +17,14 @@
 
     </bean>
 
-    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+<!--    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
         <property name="basename" value="views"/>
+    </bean>-->
+
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <import resource="application.xml"/>
