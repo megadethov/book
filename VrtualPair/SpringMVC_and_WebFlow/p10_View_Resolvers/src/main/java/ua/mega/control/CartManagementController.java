@@ -29,13 +29,13 @@ public class CartManagementController {
     public ModelAndView addToCart(@RequestParam("id") int id) {
         Book requiredBook = bookService.getBookById(id);
         cart.addItem(requiredBook);
-        return new ModelAndView("/bookAddedToCart.jsp", "title", requiredBook.getTitle());
+        return new ModelAndView("bookAddedToCart", "title", requiredBook.getTitle());
     }
 
     @RequestMapping("/viewCart")
     public ModelAndView viewCart() {
         List<Book> allItems = cart.getAllItems();
-        return new ModelAndView("/cartContents.jsp", "cart", allItems);
+        return new ModelAndView("cartContents", "cart", allItems);
     }
 
 }

@@ -17,6 +17,10 @@
 
     </bean>
 
+    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="basename" value="views"/>
+    </bean>
+
     <import resource="application.xml"/>
 
     <!--scan for all Controllers in the applications-->
