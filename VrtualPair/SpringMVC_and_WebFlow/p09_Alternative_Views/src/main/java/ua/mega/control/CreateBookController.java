@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class CreateBookController {
 
     @Autowired
-    BookService bookService;
+    private BookService bookService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView show() {

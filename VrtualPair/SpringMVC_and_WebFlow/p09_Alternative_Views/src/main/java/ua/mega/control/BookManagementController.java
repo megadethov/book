@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ua.mega.domain.Book;
 import ua.mega.services.BookService;
+import ua.mega.views.BookReportPdf;
 
 import java.util.List;
 
@@ -27,5 +28,12 @@ public class BookManagementController {
     public ModelAndView findByAuthor(/*@RequestParam("author")*/ String author) {
         List<Book> allBooks = bookService.getAllBooksByAuthor(author);
         return new ModelAndView("/displayAllBooks.jsp", "allBooks", allBooks);
+    }
+
+    @RequestMapping("/viewAllBooksPDF")
+    public ModelAndView viewAllBooksPDF()
+    {
+        List<Book> allBooks = bookService.getEntireCatalogue();
+        return new ModelAndView(new BookReportPdf(),"allBooks",allBooks);
     }
 }
