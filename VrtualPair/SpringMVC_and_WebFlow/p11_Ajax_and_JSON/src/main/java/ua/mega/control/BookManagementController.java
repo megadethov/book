@@ -44,4 +44,13 @@ public class BookManagementController {
         List<Book> allBooks = bookService.getEntireCatalogue();
         return new ModelAndView("BookReportExcel","allBooks",allBooks);
     }
+
+    /*@RequestMapping("/looseSearch")
+    public @ResponseBody List<Book> performLooseSearch(@RequestParam("CHARS")String chars)
+    {
+        if (chars.length() < 3)
+            return null;
+
+        return bookService.searchBooksByLooseMatch(chars);
+    }*/
 }
