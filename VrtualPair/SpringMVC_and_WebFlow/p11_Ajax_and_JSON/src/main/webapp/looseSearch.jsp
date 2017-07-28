@@ -8,10 +8,14 @@
         function doSearch() {
             $.getJSON( "looseSearch.do",
 
-                { CHARS: $('#searchBox').val()},
+                 { CHARS: $('#searchBox').val()},
 
                 function(data) {
-                   alert('response recived ' + data)
+                    $('#results').text('');
+
+                    for (var index in data) {
+                        $('#results').append('<p>' + data[index].title + '</p>');
+                    }
                 });
         }
     </script>

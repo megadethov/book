@@ -46,9 +46,9 @@ public class BookManagementController {
     }
 
     @RequestMapping("/looseSearch")
-    public @ResponseBody List<Book> performLooseSearch(@RequestParam("CHARS") String chars) {
-/*        if (chars.length() < 3)
-            return null;*/
+    public @ResponseBody
+    List<Book> performLooseSearch(@RequestParam("CHARS") String chars) {
+        if (chars.length() < 3) return null;
 
         return bookService.searchBooksByLooseMatch(chars);
     }
