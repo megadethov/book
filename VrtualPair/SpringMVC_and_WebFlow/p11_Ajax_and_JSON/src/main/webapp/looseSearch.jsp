@@ -6,7 +6,13 @@
 
     <script type="text/javascript">
         function doSearch() {
-            alert("Hello");
+            $.getJSON( "looseSearch.do",
+
+                { CHARS: $('#searchBox').val()},
+
+                function(data) {
+                   alert('response recived ' + data)
+                });
         }
     </script>
 
