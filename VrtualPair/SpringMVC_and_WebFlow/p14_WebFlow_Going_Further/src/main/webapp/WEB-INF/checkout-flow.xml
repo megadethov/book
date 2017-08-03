@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+
+      start-state="enterCustomerId">
+
+    <var name="order" class="ua.mega.domain.Order"/>
+
+    <on-start>
+        <evaluate expression="order.setBooksOrdered(shoppingCart.allItems)"/>
+    </on-start>
+
+    <view-state id="enterCustomerId" view="/enterCustomerId.jsp">
+        <transition on="findCustomer" to="lookUpCustomer"/>
+    </view-state>
+
+    <action-state id="lookUpCustomer">
+        <evaluate expression="accountsService.findCustomer(requestParameters.accountId)"
+                  result="requestScope.customer"/>
+        <transition on="success" to="showOrder">
+            <evaluate expression="order.setCustomer(customer)"/>
+        </transition>
+        <transition on-exception="ua.mega.services.CustomerNotFoundException"
+                    to="enterCustomerId">
+        </transition>
+    </action-state>
+
+    <view-state id="showOrder" view="/showOrder.jsp">
+        <!-- <transition on="removeBook" to="removeBook"/>
+         <transition on="nextStep" to="confirmOrder" />-->
+    </view-state>
+
+    <on-end>
+        <evaluate expression="shoppingCart.clear()"/>
+    </on-end>
+
+</flow>
+		
