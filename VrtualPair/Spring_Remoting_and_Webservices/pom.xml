@@ -11,6 +11,7 @@
 
     <modules>
         <module>p0201_Springs_RMI_Support</module>
+        <module>p0301_RMI_on_the_Client</module>
     </modules>
 
 </project>
