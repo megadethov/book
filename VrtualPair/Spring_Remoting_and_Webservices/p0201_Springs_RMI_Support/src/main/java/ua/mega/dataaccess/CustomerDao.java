@@ -1,11 +1,13 @@
 package ua.mega.dataaccess;
 
+import java.util.List;
+
 import ua.mega.domain.Call;
 import ua.mega.domain.Customer;
 
-import java.util.List;
+// FOR USE IN A LATER CHAPTER - PLEASE IGNORE UNTIL THEN
 
-public interface CustomerDao
+public interface CustomerDao 
 {
 	/**
 	 * Creates a new customer record in the database
@@ -51,5 +53,5 @@ public interface CustomerDao
 	/**
 	 * Links the specifed call to the customer in the database.
 	 */
-	public void addCall(Call newCall, String customerId) throws RecordNotFoundException;
+	public void addCall (Call newCall, String customerId) throws RecordNotFoundException;
 }

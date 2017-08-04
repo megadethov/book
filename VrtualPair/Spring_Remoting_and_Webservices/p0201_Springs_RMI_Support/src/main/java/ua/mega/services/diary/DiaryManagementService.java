@@ -1,11 +1,13 @@
  package ua.mega.services.diary;
 
-import ua.mega.domain.Action;
-
 import java.util.List;
+
+import ua.mega.domain.Action;
 
 /**
  * This interface defines the functionality required in the Diary Management Service.
+ *
+ * @author Richard Chesterwood
  */
 public interface DiaryManagementService 
 {

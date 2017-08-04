@@ -1,9 +1,10 @@
 package ua.mega.services.customers;
 
+import java.util.List;
+
+import ua.mega.dataaccess.RecordNotFoundException;
 import ua.mega.domain.Call;
 import ua.mega.domain.Customer;
-
-import java.util.List;
 
 /**
  * This interface defines the functionality we want the Customer Management Service
@@ -21,11 +22,14 @@ public interface CustomerManagementService
 	
 	/**
 	 * The specified customer is updated in the database.
+	 * @throws CustomerNotFoundException 
 	 */
 	public void updateCustomer(Customer changedCustomer) throws CustomerNotFoundException;
 	
 	/**
 	 * The specified customer is removed from the database
+	 * @throws CustomerNotFoundException 
+	 * @throws RecordNotFoundException 
 	 */
 	public void deleteCustomer(Customer oldCustomer) throws CustomerNotFoundException;
 	
@@ -39,7 +43,7 @@ public interface CustomerManagementService
 	 * probably offer more sophisticated searching functionality, but for the
 	 * practical this will do for now.
 	 */
-	public List<Customer> findCustomersByName(String name);
+	public List<Customer> findCustomersByName (String name);
 
 	/**
 	 * Returns a complete list of the customers in the system.

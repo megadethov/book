@@ -6,10 +6,16 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
 import ua.mega.domain.Action;
 
+@Repository
 public class ActionDaoJdbcImpl implements ActionDao
 {
 	private static final String DELETE_SQL = "DELETE FROM ACTION WHERE ACTION_ID=?";
@@ -19,17 +25,18 @@ public class ActionDaoJdbcImpl implements ActionDao
 	
 	private JdbcTemplate template;
 	
+	@Autowired
 	public ActionDaoJdbcImpl(JdbcTemplate template)
 	{
 		this.template = template;
 	}
 
-	@Override
-	public void create(Action newAction)
+	public void create(Action newAction) 
 	{
 		template.update(INSERT_SQL,newAction.getDetails(), newAction.isComplete(),newAction.getOwningUser(),  newAction.getRequiredBy());					
 	}
 
+	@PostConstruct
 	private void createTables()
 	{
 		try
@@ -42,20 +49,17 @@ public class ActionDaoJdbcImpl implements ActionDao
 		}
 	}
 	
-	@Override
-	public List<Action> getIncompleteActions(String userId)
+	public List<Action> getIncompleteActions(String userId) 
 	{		
 		return this.template.query(GET_INCOMPLETE_SQL, new ActionRowMapper(), userId, false);
 	}
 
-	@Override
-	public void update(Action actionToUpdate) throws RecordNotFoundException
+	public void update(Action actionToUpdate) throws RecordNotFoundException 
 	{
 		this.template.update(UPDATE_SQL,actionToUpdate.getDetails(),actionToUpdate.isComplete(), actionToUpdate.getOwningUser(), actionToUpdate.getRequiredBy().getTime(),  actionToUpdate.getActionId() );
 	}
 
-	@Override
-	public void delete(Action oldAction) throws RecordNotFoundException
+	public void delete(Action oldAction) throws RecordNotFoundException 
 	{
 		this.template.update(DELETE_SQL, oldAction.getActionId());
 	}
@@ -64,8 +68,7 @@ public class ActionDaoJdbcImpl implements ActionDao
 
 class ActionRowMapper implements RowMapper<Action>
 {
-	@Override
-	public Action mapRow(ResultSet rs, int arg1) throws SQLException
+	public Action mapRow(ResultSet rs, int arg1) throws SQLException 
 	{
 		int actionId = rs.getInt(1);
 		String details = rs.getString(2);

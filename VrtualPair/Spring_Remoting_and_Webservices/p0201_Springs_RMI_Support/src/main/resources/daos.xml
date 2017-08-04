@@ -3,9 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<import resource="/daos.xml"/>
-	<import resource="/services.xml"/>
-	<import resource="/datasource-production.xml"/>
-	<import resource="/misc-beans.xml"/>	
+	
+	<!--  DAOs -->
+	<bean id="customerDao" class="ua.mega.dataaccess.CustomerDaoJpaImpl">
+	</bean>
+	
+	<bean id="actionDao" class="ua.mega.dataaccess.ActionDaoJpaImpl">
+	</bean>
+
+	
 
 </beans>
