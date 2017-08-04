@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  Transaction Manager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!--  Data source -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+        <property name="url" value="jdbc:hsqldb:file:database.dat;shutdown=true"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true"/>
+                <property name="generateDdl" value="true"/>
+            </bean>
+        </property>
+
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--  DAOs -->
+    <bean id="customerDao" class="ua.mega.dataaccess.CustomerDaoJpaImpl"/>
+
+    <bean id="actionDao" class="ua.mega.dataaccess.ActionDaoJpaImpl"/>
+
+    <!--  Service Beans -->
+    <bean id="customerManagementService" class="ua.mega.services.customers.CustomerManagementServiceProductionImpl">
+        <constructor-arg ref="customerDao"/>
+    </bean>
+
+    <bean id="diaryManagementService" class="ua.mega.services.diary.DiaryManagementServiceProductionImpl">
+        <constructor-arg ref="actionDao"/>
+    </bean>
+
+    <bean id="callHandlingService" class="ua.mega.services.calls.CallHandlingServiceImpl">
+        <constructor-arg ref="customerManagementService"/>
+        <constructor-arg ref="diaryManagementService"/>
+    </bean>
+
+    <!--  Transaction Configuration -->
+    <tx:annotation-driven/>
+
+    <context:annotation-config/>
+
+</beans>
