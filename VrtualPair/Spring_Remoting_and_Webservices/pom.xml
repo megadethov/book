@@ -13,6 +13,7 @@
         <module>p0201_Springs_RMI_Support</module>
         <module>p0301_RMI_on_the_Client</module>
         <module>p0301_RMI_on_the_Client2_CLIENT</module>
+        <module>p0401_HttpInvoker</module>
     </modules>
 
 </project>
