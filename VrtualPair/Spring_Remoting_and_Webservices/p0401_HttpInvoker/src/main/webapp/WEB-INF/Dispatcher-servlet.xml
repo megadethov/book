@@ -14,6 +14,8 @@
 	<import resource="classpath:services.xml"/>
 	<import resource="classpath:datasource-webapp.xml"/>
 	<import resource="classpath:misc-beans.xml"/>
+	<!--  add in a remoting layer using HTTP -->
+	<import resource="classpath:remoting-server.xml"/>
 		
 	<!--  also, we need to autowire the controllers -->
 	<context:component-scan base-package="ua.mega.controllers"/>

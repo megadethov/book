@@ -16,4 +16,9 @@
        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>Dispatcher</servlet-name>
+        <url-pattern>/remote/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
