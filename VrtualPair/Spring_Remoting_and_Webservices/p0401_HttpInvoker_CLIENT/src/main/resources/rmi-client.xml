@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="customerService" 
-		  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+		  class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
 		  
-		<property name="serviceUrl" value="rmi://localhost/CustomerService"/>
+		<property name="serviceUrl" value="http://localhost:8080/mywebapp/remote/customerServiceRemote"/>
 		<property name="serviceInterface" value="ua.mega.services.customers.CustomerManagementService"/>
     </bean>
 

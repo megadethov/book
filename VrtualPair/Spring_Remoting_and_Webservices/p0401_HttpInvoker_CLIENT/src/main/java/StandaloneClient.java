@@ -15,6 +15,9 @@ public class StandaloneClient {
 
         CustomerManagementService service = container.getBean(CustomerManagementService.class);
 
+//        service.newCustomer(new Customer("1", "Sclep", "dddd"));
+        service.newCustomer(new Customer("2", "Sclep", "dddd"));
+
         // This is a NETWORK call!
         List<Customer> allCustomers = service.getAllCustomers();
         for (Customer next : allCustomers) {
@@ -23,7 +26,7 @@ public class StandaloneClient {
 
 		try
 		{
-			Customer fullCustomer = service.getFullCustomerDetail("shajhfahfa");
+			Customer fullCustomer = service.getFullCustomerDetail("2");
 			System.out.println(fullCustomer.getCalls().size() + " calls");
 		}
 		catch (CustomerNotFoundException e)

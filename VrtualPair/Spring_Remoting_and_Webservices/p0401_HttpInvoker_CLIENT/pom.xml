@@ -38,7 +38,7 @@
     <dependencies>
         <dependency>
             <groupId>ua.mega</groupId>
-            <artifactId>p0301_RMI_on_the_Client</artifactId>
+            <artifactId>p0401_HttpInvoker</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
