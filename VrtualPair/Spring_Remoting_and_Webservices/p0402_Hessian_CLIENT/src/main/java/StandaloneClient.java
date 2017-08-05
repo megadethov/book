@@ -15,7 +15,7 @@ public class StandaloneClient {
 
         CustomerManagementService service = container.getBean(CustomerManagementService.class);
 
-//        service.newCustomer(new Customer("1", "Sclep", "dddd"));
+        service.newCustomer(new Customer("1", "Sclep", "dddd"));
         service.newCustomer(new Customer("2", "Sclep", "dddd"));
 
         // This is a NETWORK call!
