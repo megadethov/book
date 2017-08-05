@@ -14,6 +14,7 @@
         <module>p0301_RMI_on_the_Client</module>
         <module>p0301_RMI_on_the_Client2_CLIENT</module>
         <module>p0401_HttpInvoker</module>
+        <module>p0401_HttpInvoker_CLIENT</module>
     </modules>
 
 </project>
