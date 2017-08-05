@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--  reuse the existing business tiers - note we're using a special database for the web version
+	      (actually one that we've embedded into Tomcat. -->
+	          
+	<import resource="classpath:daos.xml"/>
+	<import resource="classpath:services.xml"/>
+	<import resource="classpath:datasource-webapp.xml"/>
+	<import resource="classpath:misc-beans.xml"/>
+
+	<!--  also, we need to autowire the controllers -->
+	<context:component-scan base-package="ua.mega.controllers"/>
+
+	<!--  add in a remoting layer using HTTP -->
+	<import resource="classpath:remoting-server.xml"/>
+
+</beans>
