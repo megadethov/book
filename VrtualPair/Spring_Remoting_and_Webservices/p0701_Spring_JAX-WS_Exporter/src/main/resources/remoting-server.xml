@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <import resource="/application.xml"/>
 
-	<import resource="/application.xml"/>
-	
-	<bean id="crm-remoting"
-	      class="org.springframework.remoting.rmi.RmiServiceExporter">
-	      
-	      <property name="service" ref="customerService"/>
-	      <property name="serviceName" value="CustomerService"/>
-	      <property name="serviceInterface" value="ua.mega.services.customers.CustomerManagementService"/>
-	      
-	</bean>
+    <bean class="org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter">
+    </bean>
+
+    <bean id="customersEndpoint" class="ua.mega.webservices.CustomerEndpoint">
+        <property name="service" ref="customerService"/>
+    </bean>
 
 </beans>

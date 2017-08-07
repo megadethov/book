@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class RmiServer {
+public class SOAPServer {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("remoting-server.xml");
