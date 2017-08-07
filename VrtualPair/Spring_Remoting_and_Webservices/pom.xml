@@ -18,6 +18,8 @@
         <module>p0402_Hessian</module>
         <module>p0402_Hessian_CLIENT</module>
         <module>p0601_JAX-WS_Test_Server</module>
+        <module>p0602_JAX-WS_Test_Client</module>
+        <module>p0701_Spring_JAX-WS_Exporter</module>
     </modules>
 
 </project>
