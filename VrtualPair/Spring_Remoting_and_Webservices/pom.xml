@@ -15,6 +15,9 @@
         <module>p0301_RMI_on_the_Client2_CLIENT</module>
         <module>p0401_HttpInvoker</module>
         <module>p0401_HttpInvoker_CLIENT</module>
+        <module>p0402_Hessian</module>
+        <module>p0402_Hessian_CLIENT</module>
+        <module>p0601_JAX-WS_Test_Server</module>
     </modules>
 
 </project>
