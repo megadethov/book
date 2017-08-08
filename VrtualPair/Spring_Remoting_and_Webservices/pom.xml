@@ -20,6 +20,7 @@
         <module>p0601_JAX-WS_Test_Server</module>
         <module>p0602_JAX-WS_Test_Client</module>
         <module>p0701_Spring_JAX-WS_Exporter</module>
+        <module>p0801_Spring_SOAP_Clients_SERVER</module>
     </modules>
 
 </project>
