@@ -7,6 +7,7 @@ import ua.mega.services.customers.CustomerNotFoundException;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebService(serviceName = "customerService")
@@ -46,7 +47,12 @@ public class CustomerEndpoint implements CustomerManagementService {
 
     @Override
     public List<Customer> getAllCustomers() {
-        return service.getAllCustomers();
+       /* List<Customer> allCustomers = service.getAllCustomers();
+        for (Customer next : allCustomers) {
+            next.setCalls(null);
+        }
+        return allCustomers;*/
+        return new ArrayList<>();
     }
 
     @Override
