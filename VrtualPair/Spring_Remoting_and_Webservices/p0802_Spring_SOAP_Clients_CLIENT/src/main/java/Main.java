@@ -16,8 +16,8 @@ public class Main {
 
         try {
             System.out.println(service.getFullCustomerDetail("1").getCompanyName());
-           /* List<Customer> customers = service.getAllCustomers(); // NOT WORK
-            System.out.println(customers.size());*/
+            List<Customer> customers = service.getAllCustomers(); // NOT WORK
+            System.out.println(customers.size());
         } catch (CustomerNotFoundException_Exception e) {
             System.out.println("Customer not found...");
         }

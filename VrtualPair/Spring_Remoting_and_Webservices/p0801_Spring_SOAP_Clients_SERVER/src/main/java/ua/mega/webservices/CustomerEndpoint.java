@@ -47,12 +47,11 @@ public class CustomerEndpoint implements CustomerManagementService {
 
     @Override
     public List<Customer> getAllCustomers() {
-       /* List<Customer> allCustomers = service.getAllCustomers();
+        List<Customer> allCustomers = service.getAllCustomers();
         for (Customer next : allCustomers) {
             next.setCalls(null);
         }
-        return allCustomers;*/
-        return new ArrayList<>();
+        return allCustomers;
     }
 
     @Override
