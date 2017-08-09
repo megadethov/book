@@ -6,7 +6,7 @@
 	<bean id="customerService" 
 		  class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
 		  
-		<property name="wsdlDocumentUrl" value="http://localhost:8080/customerService?wsdl"/>
+		<property name="wsdlDocumentUrl" value="http://localhost:8080/mywebapp/webservice?wsdl"/>
 		<property name="serviceInterface" value="ua.mega.webservices.CustomerEndpoint"/>
 		<property name="namespaceUri" value="http://webservices.mega.ua/"/>
 		<property name="serviceName" value="customerService"/>

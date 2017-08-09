@@ -29,6 +29,26 @@ public interface CustomerEndpoint {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns ua.mega.webservices.Customer
+     * @throws CustomerNotFoundException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findCustomerById", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.FindCustomerById")
+    @ResponseWrapper(localName = "findCustomerByIdResponse", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.FindCustomerByIdResponse")
+    @Action(input = "http://webservices.mega.ua/CustomerEndpoint/findCustomerByIdRequest", output = "http://webservices.mega.ua/CustomerEndpoint/findCustomerByIdResponse", fault = {
+        @FaultAction(className = CustomerNotFoundException_Exception.class, value = "http://webservices.mega.ua/CustomerEndpoint/findCustomerById/Fault/CustomerNotFoundException")
+    })
+    public Customer findCustomerById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0)
+        throws CustomerNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
      */
     @WebMethod
     @RequestWrapper(localName = "newCustomer", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.NewCustomer")
@@ -76,26 +96,6 @@ public interface CustomerEndpoint {
      * 
      * @param arg0
      * @return
-     *     returns ua.mega.webservices.Customer
-     * @throws CustomerNotFoundException_Exception
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findCustomerById", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.FindCustomerById")
-    @ResponseWrapper(localName = "findCustomerByIdResponse", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.FindCustomerByIdResponse")
-    @Action(input = "http://webservices.mega.ua/CustomerEndpoint/findCustomerByIdRequest", output = "http://webservices.mega.ua/CustomerEndpoint/findCustomerByIdResponse", fault = {
-        @FaultAction(className = CustomerNotFoundException_Exception.class, value = "http://webservices.mega.ua/CustomerEndpoint/findCustomerById/Fault/CustomerNotFoundException")
-    })
-    public Customer findCustomerById(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0)
-        throws CustomerNotFoundException_Exception
-    ;
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns java.util.List<ua.mega.webservices.Customer>
      */
     @WebMethod
@@ -106,26 +106,6 @@ public interface CustomerEndpoint {
     public List<Customer> findCustomersByName(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @throws CustomerNotFoundException_Exception
-     */
-    @WebMethod
-    @RequestWrapper(localName = "recordCall", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.RecordCall")
-    @ResponseWrapper(localName = "recordCallResponse", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.RecordCallResponse")
-    @Action(input = "http://webservices.mega.ua/CustomerEndpoint/recordCallRequest", output = "http://webservices.mega.ua/CustomerEndpoint/recordCallResponse", fault = {
-        @FaultAction(className = CustomerNotFoundException_Exception.class, value = "http://webservices.mega.ua/CustomerEndpoint/recordCall/Fault/CustomerNotFoundException")
-    })
-    public void recordCall(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Call arg1)
-        throws CustomerNotFoundException_Exception
-    ;
 
     /**
      * 
@@ -156,6 +136,26 @@ public interface CustomerEndpoint {
     public Customer getFullCustomerDetail(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0)
+        throws CustomerNotFoundException_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @throws CustomerNotFoundException_Exception
+     */
+    @WebMethod
+    @RequestWrapper(localName = "recordCall", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.RecordCall")
+    @ResponseWrapper(localName = "recordCallResponse", targetNamespace = "http://webservices.mega.ua/", className = "ua.mega.webservices.RecordCallResponse")
+    @Action(input = "http://webservices.mega.ua/CustomerEndpoint/recordCallRequest", output = "http://webservices.mega.ua/CustomerEndpoint/recordCallResponse", fault = {
+        @FaultAction(className = CustomerNotFoundException_Exception.class, value = "http://webservices.mega.ua/CustomerEndpoint/recordCall/Fault/CustomerNotFoundException")
+    })
+    public void recordCall(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Call arg1)
         throws CustomerNotFoundException_Exception
     ;
 
