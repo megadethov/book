@@ -21,7 +21,9 @@
         <module>p0602_JAX-WS_Test_Client</module>
         <module>p0701_Spring_JAX-WS_Exporter</module>
         <module>p0801_Spring_SOAP_Clients_SERVER</module>
-        <module></module>
+        <module>p0802_Spring_SOAP_Clients_CLIENT</module>
+        <module>p0901_JAX-WS_Metro</module>
+        <module>p0902_JAX-WS_Metro_CLIENT</module>
     </modules>
 
 </project>
