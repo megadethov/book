@@ -9,13 +9,16 @@
 
 	<!--  reuse the existing business tiers - note we're using a special database for the web version
 	      (actually one that we've embedded into Tomcat. -->
-	          
-	<import resource="/daos.xml"/>
-	<import resource="/services.xml"/>
-	<import resource="/datasource-webapp.xml"/>
-	<import resource="/misc-beans.xml"/>	
+
+	<import resource="classpath:daos.xml"/>
+	<import resource="classpath:services.xml"/>
+	<import resource="classpath:datasource-webapp.xml"/>
+	<import resource="classpath:misc-beans.xml"/>
 		
 	<!--  also, we need to autowire the controllers -->
 	<context:component-scan base-package="ua.mega.controllers"/>
+
+	<!--set up the webservices-->
+	<!--<import resource="classpath:remoting-server.xml"/>-->
 
 </beans>

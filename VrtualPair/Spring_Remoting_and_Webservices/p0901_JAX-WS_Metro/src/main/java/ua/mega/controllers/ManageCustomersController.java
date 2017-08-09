@@ -10,10 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 
+import javax.annotation.Resource;
+
 @Controller
 public class ManageCustomersController 
 {
-	@Autowired
+	@Resource(name = "customerService")
 	private CustomerManagementService customers;
 	
 	@RequestMapping("/all-customers")
