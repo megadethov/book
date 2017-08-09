@@ -19,6 +19,6 @@
 	<context:component-scan base-package="ua.mega.controllers"/>
 
 	<!--set up the webservices-->
-	<!--<import resource="classpath:remoting-server.xml"/>-->
+	<import resource="classpath:remoting-server.xml"/>
 
 </beans>
