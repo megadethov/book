@@ -19,7 +19,7 @@
     <sws:dynamic-wsdl id="customers"
                       portTypeName="CustomerService"
                       locationUri="/CustomerService"
-                      targetNamespace="http://www.mega.ua/crm"><!---->
+                      targetNamespace="http://www.mega.ua/crm">
 
             <sws:xsd location="/WEB-INF/CRMSchema.xsd"/>
 

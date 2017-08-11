@@ -17,18 +17,22 @@ import ua.mega.services.diary.DiaryManagementService;
 
 public class SimpleClientTest {
 
-	public static void main(String[] args) 
-	{
-		ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
 
-		try
-		{
-			CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
-			CallHandlingService callService = container.getBean(CallHandlingService.class);
-			DiaryManagementService diaryService = container.getBean(DiaryManagementService.class);
+        try {
+            CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
+            CallHandlingService callService = container.getBean(CallHandlingService.class);
+            DiaryManagementService diaryService = container.getBean(DiaryManagementService.class);
 
-			try
-			{
+            try {
+                System.out.println(customerService.findCustomerById("12345").getCompanyName());
+            } catch (CustomerNotFoundException e) {
+                e.printStackTrace();
+            }
+
+			/*try
+            {
 			Customer oldCustomer = customerService.findCustomerById("CS03939");
 			customerService.deleteCustomer(oldCustomer);
 			}
@@ -65,12 +69,10 @@ public class SimpleClientTest {
 			for (Action next: incompleteActions)
 			{
 				System.out.println(next);
-			}
-		}
-		finally
-		{
-			container.close();
-		}
-	}
+			}*/
+        } finally {
+            container.close();
+        }
+    }
 
 }

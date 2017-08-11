@@ -24,8 +24,8 @@
     		<xs:element name="customerId" type="tns:customerIdType"></xs:element>
     		<xs:element name="companyName" type="xs:string"></xs:element>    		
     		<xs:element name="email" type="xs:string" ></xs:element>
-   			<xs:element name="notes" type="xs:string"  minOccurs="0" maxOccurs="1"></xs:element>
-   			<xs:element name="phone" type="xs:string"  minOccurs="0" maxOccurs="1"/>
+   			<xs:element name="notes" type="xs:string"  minOccurs="0" maxOccurs="10"></xs:element>
+   			<xs:element name="phone" type="xs:string"  minOccurs="0" maxOccurs="10"/>
     	</xs:sequence>
     </xs:complexType>
 
