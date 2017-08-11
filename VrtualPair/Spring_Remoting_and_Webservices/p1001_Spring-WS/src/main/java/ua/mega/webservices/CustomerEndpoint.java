@@ -1,66 +1,44 @@
 package ua.mega.webservices;
 
-import ua.mega.domain.Call;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-import java.util.ArrayList;
-import java.util.List;
+@Endpoint
+public class CustomerEndpoint {
 
-@WebService(serviceName = "customerService")
-public class CustomerEndpoint implements CustomerManagementService {
-
+    @Autowired
     CustomerManagementService service;
 
-    @WebMethod(exclude = true)
-    public void setService(CustomerManagementService service) {
-        this.service = service;
-    }
+    @PayloadRoot(namespace="http://www.mega.ua/crm", localPart="getCustomerByIdRequest")
+    @ResponsePayload
+    public Element fetchTheCustomerDetailsJDomVersion(@RequestPayload Element incoming) throws CustomerNotFoundException {
+        Element idElement = incoming.getChild("id");
+        String id = idElement.getText();
 
-    @Override
-    public void newCustomer(Customer newCustomer) {
-        service.newCustomer(newCustomer);
-    }
+        Customer found = service.findCustomerById(id);
 
-    @Override
-    public void updateCustomer(Customer changedCustomer) throws CustomerNotFoundException {
-        service.updateCustomer(changedCustomer);
-    }
+        Element outgoing = new Element("getCustomerByIdResponse");
+        outgoing.addNamespaceDeclaration(Namespace.getNamespace("tns", "http://www.mega.ua/crm"));
 
-    @Override
-    public void deleteCustomer(Customer oldCustomer) throws CustomerNotFoundException {
-        deleteCustomer(oldCustomer);
-    }
+        Element customer = new Element("customer");
 
-    @Override
-    public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
-        return service.findCustomerById(customerId);
-    }
+        customer.addContent(new Element("customerId").setText(found.getCustomerId()));
+        customer.addContent(new Element("companyName").setText(found.getCompanyName()));
+        customer.addContent(new Element("email").setText(found.getEmail()));
+        if (found.getNotes() != null) customer.addContent(new Element("notes").setText(found.getNotes()));
+        if (found.getTelephone() != null) customer.addContent(new Element("phone").setText(found.getTelephone()));
 
-    @Override
-    public List<Customer> findCustomersByName(String name) {
-        return service.findCustomersByName(name);
-    }
+        outgoing.addContent(customer);
 
-    @Override
-    public List<Customer> getAllCustomers() {
-        List<Customer> allCustomers = service.getAllCustomers();
-        for (Customer next : allCustomers) {
-            next.setCalls(null);
-        }
-        return allCustomers;
-    }
+        return outgoing;
 
-    @Override
-    public Customer getFullCustomerDetail(String customerId) throws CustomerNotFoundException {
-        return service.getFullCustomerDetail(customerId);
-    }
-
-    @Override
-    public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
-        service.recordCall(customerId, callDetails);
     }
 }

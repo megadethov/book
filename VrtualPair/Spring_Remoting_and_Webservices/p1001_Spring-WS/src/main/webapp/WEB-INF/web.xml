@@ -5,7 +5,7 @@
          version="3.1">
 
     <!--  we've already configured Spring-MVC for you - nothing to do here! -->
-      <servlet>
+     <!-- <servlet>
          <servlet-name>Dispatcher</servlet-name>
          <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
          <load-on-startup>1</load-on-startup>
@@ -14,26 +14,31 @@
       <servlet-mapping>
          <servlet-name>Dispatcher</servlet-name>
          <url-pattern>*.html</url-pattern>
-      </servlet-mapping>
+      </servlet-mapping>-->
 
-    <context-param>
+    <!--<context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:remoting-server.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    </listener>-->
 
     <servlet>
-        <servlet-name>webservice</servlet-name>
+        <servlet-name>spring-ws</servlet-name>
         <servlet-class>
-            com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+            org.springframework.ws.transport.http.MessageDispatcherServlet
         </servlet-class>
-        <load-on-startup>1</load-on-startup>
+
+        <init-param>
+            <param-name>transformWsdlLocations</param-name>
+            <param-value>true</param-value>
+        </init-param>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>webservice</servlet-name>
-        <url-pattern>/webservice</url-pattern>
+        <servlet-name>spring-ws</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
