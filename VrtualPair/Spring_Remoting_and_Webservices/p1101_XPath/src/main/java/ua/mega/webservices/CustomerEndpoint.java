@@ -2,6 +2,8 @@ package ua.mega.webservices;
 
 import org.jdom2.Element;
 import org.jdom2.Namespace;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.ws.server.endpoint.annotation.*;
@@ -10,6 +12,7 @@ import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 @Endpoint
 public class CustomerEndpoint {
@@ -20,8 +23,15 @@ public class CustomerEndpoint {
     CustomerManagementService service;
 
     @PayloadRoot(namespace = NAMESPACE, localPart = "getCustomerByIdRequest")
+    @org.springframework.ws.server.endpoint.annotation.Namespace(prefix = "mega", uri = NAMESPACE)
     @ResponsePayload
-    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("//id") String id) throws CustomerNotFoundException {
+    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("/mega:getCustomerByIdRequest/id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
+
+        try {
+            new XMLOutputter(Format.getPrettyFormat()).output(incoming, System.out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Customer found = service.findCustomerById(id);
 
