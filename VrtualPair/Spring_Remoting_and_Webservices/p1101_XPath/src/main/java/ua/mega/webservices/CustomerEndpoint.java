@@ -23,15 +23,16 @@ public class CustomerEndpoint {
     CustomerManagementService service;
 
     @PayloadRoot(namespace = NAMESPACE, localPart = "getCustomerByIdRequest")
-    @org.springframework.ws.server.endpoint.annotation.Namespace(prefix = "mega", uri = NAMESPACE)
+//    @org.springframework.ws.server.endpoint.annotation.Namespace(prefix = "mega", uri = NAMESPACE)
     @ResponsePayload
-    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("/mega:getCustomerByIdRequest/id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
+//    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("/mega:getCustomerByIdRequest/id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
+    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("//id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
 
-        try {
+/*        try {
             new XMLOutputter(Format.getPrettyFormat()).output(incoming, System.out);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         Customer found = service.findCustomerById(id);
 
