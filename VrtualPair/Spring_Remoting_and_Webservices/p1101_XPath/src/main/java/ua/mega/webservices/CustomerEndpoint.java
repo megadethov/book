@@ -4,10 +4,7 @@ import org.jdom2.Element;
 import org.jdom2.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.ws.server.endpoint.annotation.Endpoint;
-import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
-import org.springframework.ws.server.endpoint.annotation.RequestPayload;
-import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import org.springframework.ws.server.endpoint.annotation.*;
 import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
@@ -19,14 +16,12 @@ public class CustomerEndpoint {
 
     public static final String NAMESPACE = "http://www.mega.ua/crm";
 
-    @Resource(name="customerService")
+    @Resource(name = "customerService")
     CustomerManagementService service;
 
-    @PayloadRoot(namespace= NAMESPACE, localPart="getCustomerByIdRequest")
+    @PayloadRoot(namespace = NAMESPACE, localPart = "getCustomerByIdRequest")
     @ResponsePayload
-    public Element fetchTheCustomerDetailsJDomVersion(@RequestPayload Element incoming) throws CustomerNotFoundException {
-        Element idElement = incoming.getChild("id");
-        String id = idElement.getText();
+    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("//id") String id) throws CustomerNotFoundException {
 
         Customer found = service.findCustomerById(id);
 
