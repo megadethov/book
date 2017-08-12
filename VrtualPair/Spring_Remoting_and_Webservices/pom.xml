@@ -28,6 +28,8 @@
         <module>p1002_Spring-WS_CLIENT</module>
         <module>p1101_XPath</module>
         <module>p1102_XPath_CLIENT</module>
+        <module>p1103_JAXB</module>
+        <module>p1103_JAXB_CLIENT</module>
     </modules>
 
 </project>
