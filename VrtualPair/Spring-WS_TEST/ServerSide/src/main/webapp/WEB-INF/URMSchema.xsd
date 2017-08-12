@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.mega.ua/urm"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:tns="http://www.mega.ua/urm">
+	
+	<xs:element name="getUserByIdRequest">
+  	   <xs:complexType>
+  	   	  <xs:sequence>
+	      	<xs:element name="id" type="xs:string"/>
+	      </xs:sequence>
+	   </xs:complexType>		
+	</xs:element>
+	
+	<xs:element name="getUserByIdResponse">
+		<xs:complexType>
+  	   	  <xs:sequence>	
+			<xs:element name="user" type="tns:user"/>
+		  </xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    
+    <xs:complexType name="user">
+    	<xs:sequence>
+    		<xs:element name="userId" type="xs:string"></xs:element>
+    		<xs:element name="userName" type="xs:string"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+</xs:schema>
