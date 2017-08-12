@@ -26,6 +26,8 @@
         <module>p0902_JAX-WS_Metro_CLIENT</module>
         <module>p1001_Spring-WS</module>
         <module>p1002_Spring-WS_CLIENT</module>
+        <module>p1101_XPath</module>
+        <module>p1102_XPath_CLIENT</module>
     </modules>
 
 </project>
