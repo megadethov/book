@@ -33,7 +33,7 @@ public class SimpleClientTest {
 
 			/*try
             {
-			Customer oldCustomer = customerService.findCustomerById("CS03939");
+			CustomerXML oldCustomer = customerService.findCustomerById("CS03939");
 			customerService.deleteCustomer(oldCustomer);
 			}
 			catch (CustomerNotFoundException e)
@@ -42,7 +42,7 @@ public class SimpleClientTest {
 			}
 			
 			// begin
-			customerService.newCustomer(new Customer("CS03939", "Acme", "Good Customer"));
+			customerService.newCustomer(new CustomerXML("CS03939", "Acme", "Good CustomerXML"));
 			// commit
 
 			Call newCall = new Call("Larry Wall called from Acme Corp");

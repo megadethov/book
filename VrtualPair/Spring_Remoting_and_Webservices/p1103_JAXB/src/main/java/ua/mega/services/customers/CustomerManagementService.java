@@ -7,11 +7,11 @@ import ua.mega.domain.Call;
 import ua.mega.domain.Customer;
 
 /**
- * This interface defines the functionality we want the Customer Management Service
+ * This interface defines the functionality we want the CustomerXML Management Service
  * to offer. 
  * <p/>
  * Your job is to implement it. In the early sessions you will write a "Mock" to simulate 
- * a Customer Management Service. In later sessions you'll provide a Database backed implementation.
+ * a CustomerXML Management Service. In later sessions you'll provide a Database backed implementation.
  */
 public interface CustomerManagementService 
 {

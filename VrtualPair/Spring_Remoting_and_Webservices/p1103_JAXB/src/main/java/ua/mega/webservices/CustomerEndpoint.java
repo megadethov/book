@@ -10,6 +10,8 @@ import org.springframework.ws.server.endpoint.annotation.*;
 import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
+import ua.mega.xml.GetCustomerByIdRequest;
+import ua.mega.xml.GetCustomerByIdResponse;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -23,16 +25,19 @@ public class CustomerEndpoint {
     CustomerManagementService service;
 
     @PayloadRoot(namespace = NAMESPACE, localPart = "getCustomerByIdRequest")
-//    @org.springframework.ws.server.endpoint.annotation.Namespace(prefix = "mega", uri = NAMESPACE)
     @ResponsePayload
-//    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("/mega:getCustomerByIdRequest/id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
-    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("//id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
+    public GetCustomerByIdResponse fetchTheCustomerDetailsJaxBVersion(@RequestPayload GetCustomerByIdRequest request) throws CustomerNotFoundException {
+        String id = request.getId();
 
-/*        try {
-            new XMLOutputter(Format.getPrettyFormat()).output(incoming, System.out);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        Customer customerDomain = service.findCustomerById(id);
+
+        GetCustomerByIdResponse response = new GetCustomerByIdResponse(customerDomain);
+        return response;
+    }
+
+/*    @PayloadRoot(namespace = NAMESPACE, localPart = "getCustomerByIdRequest")
+    @ResponsePayload
+    public Element fetchTheCustomerDetailsJDomVersion(@XPathParam("//id") String id, @RequestPayload Element incoming) throws CustomerNotFoundException {
 
         Customer found = service.findCustomerById(id);
 
@@ -50,5 +55,5 @@ public class CustomerEndpoint {
         outgoing.addContent(customer);
 
         return outgoing;
-    }
+    }*/
 }

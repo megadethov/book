@@ -44,7 +44,7 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 		}
 		catch (BadSqlGrammarException e)
 		{
-			System.out.println("Assuming the Customer table already exists.");
+			System.out.println("Assuming the CustomerXML table already exists.");
 		}
 
 		try
