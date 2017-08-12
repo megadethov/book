@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         UserService service = new UserServiceService().getUserServiceSoap11();
         GetUserByIdRequest getUserByIdRequest = new GetUserByIdRequest();
-        getUserByIdRequest.setId("1");
+        getUserByIdRequest.setId("100");
         GetUserByIdResponse response = service.getUserById(getUserByIdRequest);
 
         System.out.println(response.getUser().getUserName());

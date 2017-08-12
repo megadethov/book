@@ -20,7 +20,7 @@ public class CustomerManagementMockImpl implements CustomerManagementService
 		customerMap.put("CS03940", new Customer("CS03940", "VirtualPairProgrammers", "Some notes."));
 		customerMap.put("CS03941", new Customer("CS03941", "Microsoft", "Some notes."));
 	}
-	
+
 	@Override
 	public void newCustomer(Customer newCustomer) {
 		customerMap.put(newCustomer.getCustomerId(), newCustomer);

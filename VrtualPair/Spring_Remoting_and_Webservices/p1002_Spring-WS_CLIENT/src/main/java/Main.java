@@ -6,7 +6,7 @@ public class Main {
         CustomerService service = new CustomerServiceService().getCustomerServiceSoap11();
 
         GetCustomerByIdRequest getCustomerByIdRequest = new GetCustomerByIdRequest();
-        getCustomerByIdRequest.setId("1");
+        getCustomerByIdRequest.setId("666");
 
         GetCustomerByIdResponse response = service.getCustomerById(getCustomerByIdRequest);
         System.out.println(response.getCustomer().getCompanyName());

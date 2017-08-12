@@ -8,19 +8,21 @@ import java.util.List;
 
 public class UserDaoMockImpl implements UserDao {
 
-    private static List<User> usersDB = new ArrayList<User>();
+    private List<User> usersDB = new ArrayList<User>();
 
     public void createUser(User user) {
         usersDB.add(user);
     }
 
     public User readUser(String id) throws UserNotFound {
-        /*User foundUser = null;
+        System.out.println(id);
+        /*if (Integer.getInteger(id) / 2 == 0) */usersDB.add(new User(id, "Name " + id));
+
+        User foundUser = null;
         for (User next : usersDB) {
-            if (next.getId()==id) foundUser = next;
+            if (next.getId() == id) foundUser = next;
         }
         if (foundUser != null) return foundUser;
-        else throw new UserNotFound();*/
-        return new User("1", "First");
+        else throw new UserNotFound();
     }
 }
