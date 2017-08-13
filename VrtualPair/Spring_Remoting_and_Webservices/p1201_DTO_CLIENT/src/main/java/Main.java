@@ -10,6 +10,8 @@ public class Main {
 
         GetCustomerByIdResponse response = service.getCustomerById(getCustomerByIdRequest);
         System.out.println(response.getCustomer().getCompanyName());
+        System.out.println(response.getCustomer().getEmail());
+        System.out.println(response.getCustomer().getPhone());
 
     }
 }
