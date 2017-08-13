@@ -30,6 +30,8 @@
         <module>p1102_XPath_CLIENT</module>
         <module>p1103_JAXB</module>
         <module>p1103_JAXB_CLIENT</module>
+        <module>p1201_DTO</module>
+        <module>p1201_DTO_CLIENT</module>
     </modules>
 
 </project>
