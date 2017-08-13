@@ -22,7 +22,10 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     @Override
     public Customer getById(String customerId) throws RecordNotFoundException {
         try {
-            return new Customer(customerId, "NAME " + customerId, "");
+            Customer customer = new Customer(customerId, "NAME " + customerId, "");
+            customer.setEmail("mail@bla.com");
+            customer.setTelephone("11-11-111");
+            return customer;
             /*return (Customer) em.createQuery("select customer from Customer as customer where customer.customerId=:customerId")
                     .setParameter("customerId", customerId)
                     .getSingleResult();*/

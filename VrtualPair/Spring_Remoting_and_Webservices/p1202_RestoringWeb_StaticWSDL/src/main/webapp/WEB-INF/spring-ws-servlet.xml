@@ -6,26 +6,23 @@
   http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <import resource="classpath:application.xml"/>
-
     <!-- pick up the endpoint class, through autowiring -->
     <context:component-scan base-package="ua.mega.webservices"/>
 
     <!-- read in the Sring-WS annotations -->
     <sws:annotation-driven/>
 
-
     <!-- now add in your endpoint/url mappings -->
-    <sws:dynamic-wsdl id="customers"
+  <!--  <sws:dynamic-wsdl id="customers"
                       portTypeName="CustomerService"
                       locationUri="/CustomerService"
                       targetNamespace="http://www.mega.ua/crm">
 
             <sws:xsd location="/WEB-INF/CRMSchema.xsd"/>
 
-    </sws:dynamic-wsdl>
+    </sws:dynamic-wsdl>-->
 
-    <!--<sws:static-wsdl location="/WEB-INF/crm.wsdl"
-                     id="customers"/>-->
+    <sws:static-wsdl location="/WEB-INF/crm.wsdl"
+                     id="customers"/>
 
 </beans>

@@ -10,6 +10,5 @@ public class Main {
 
         GetCustomerByIdResponse response = service.getCustomerById(getCustomerByIdRequest);
         System.out.println(response.getCustomer().getCompanyName());
-
     }
 }

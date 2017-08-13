@@ -8,6 +8,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * Represents a customer in the CRM system.
@@ -18,128 +21,123 @@ import javax.persistence.OneToMany;
  * @author Richard Chesterwood
  */
 @Entity
-public class Customer implements Serializable
-{
-	/**
-	 * A simple unique value for the customer - note this is determined
-	 * by the business and is not necessarily the database primary key.
-	 */
-	@Id
-	private String customerId;
-	
-	/**
-	 * The company name
-	 */
-	private String companyName;
-	
-	/**
-	 * The contact's email address
-	 */
-	private String email;
-	
-	/**
-	 * The contact's telephone number
-	 */
-	private String telephone;
-	
-	/**
-	 * Any notes associated with this customer
-	 */
-	private String notes;
-	
-	/**
-	 * References to any Calls this customer has made
-	 */
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Call> calls;	
-	
-	/**
-	 * Constructor - id, notes and name are required
-	 */
-	public Customer(String customerId, String companyName, String email,
-			        String telephone, String notes)
-	{
-		this(customerId, companyName, notes);
-		this.email = email;
-		this.telephone = telephone;
-	}
-	
-	/**
-	 * Constructor - email and telephone are optional
-	 */
-	public Customer(String customerId, String companyName, String notes)
-	{
-		this.customerId = customerId;
-		this.companyName = companyName;
-		this.notes = notes;
-		this.calls = new ArrayList<Call>();
-	}
-	
-	/**
-	 * Add a new call for this customer
-	 */
-	public void addCall(Call callDetails) 
-	{
-		this.calls.add(callDetails);		
-	}
-	
-	/**
-	 * A Simple toString implementation
-	 */
-	public String toString()
-	{
-		return this.customerId + ": " + this.companyName ;
-	}
+public class Customer implements Serializable {
+    /**
+     * A simple unique value for the customer - note this is determined
+     * by the business and is not necessarily the database primary key.
+     */
+    @Id
+    private String customerId;
 
-	public String getCustomerId() 
-	{
-		return this.customerId;
-	}
+    /**
+     * The company name
+     */
+    private String companyName;
 
-	public String getCompanyName() {
-		return companyName;
-	}
+    /**
+     * The contact's email address
+     */
+    private String email;
 
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * The contact's telephone number
+     */
+    private String telephone;
 
-	public String getTelephone() {
-		return telephone;
-	}
+    /**
+     * Any notes associated with this customer
+     */
+    private String notes;
 
-	public String getNotes() {
-		return notes;
-	}
+    /**
+     * References to any Calls this customer has made
+     */
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Call> calls;
 
-	public List<Call> getCalls() {
-		return calls;
-	}
+    /**
+     * Constructor - id, notes and name are required
+     */
+    public Customer(String customerId, String companyName, String email,
+                    String telephone, String notes) {
+        this(customerId, companyName, notes);
+        this.email = email;
+        this.telephone = telephone;
+    }
 
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
+    /**
+     * Constructor - email and telephone are optional
+     */
+    public Customer(String customerId, String companyName, String notes) {
+        this.customerId = customerId;
+        this.companyName = companyName;
+        this.notes = notes;
+        this.calls = new ArrayList<Call>();
+    }
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
+    /**
+     * Add a new call for this customer
+     */
+    public void addCall(Call callDetails) {
+        this.calls.add(callDetails);
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * A Simple toString implementation
+     */
+    public String toString() {
+        return this.customerId + ": " + this.companyName;
+    }
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
+    public String getCustomerId() {
+        return this.customerId;
+    }
 
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
+    public String getCompanyName() {
+        return companyName;
+    }
 
-	public void setCalls(List<Call> calls) {
-		this.calls = calls;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	// needed for JPA - ignore until then
-	public Customer() {}
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public List<Call> getCalls() {
+        return calls;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public void setCalls(List<Call> calls) {
+        this.calls = calls;
+    }
+
+    // needed for JPA - ignore until then
+    public Customer() {
+    }
 }
