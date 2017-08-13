@@ -32,6 +32,8 @@
         <module>p1103_JAXB_CLIENT</module>
         <module>p1201_DTO</module>
         <module>p1201_DTO_CLIENT</module>
+        <module>p1202_RestoringWeb_StaticWSDL</module>
+        <module>p1202_RestoringWeb_StaticWSDL_CLIENT</module>
     </modules>
 
 </project>
