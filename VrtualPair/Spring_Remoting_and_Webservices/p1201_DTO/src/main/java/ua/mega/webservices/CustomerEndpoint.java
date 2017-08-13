@@ -30,8 +30,11 @@ public class CustomerEndpoint {
         String id = request.getId();
 
         Customer customerDomain = service.findCustomerById(id);
+        customerDomain.setCalls(null);
 
-        GetCustomerByIdResponse response = new GetCustomerByIdResponse(customerDomain);
+        GetCustomerByIdResponse response = new GetCustomerByIdResponse();
+        response.setCustomer(customerDomain);
+
         return response;
     }
 

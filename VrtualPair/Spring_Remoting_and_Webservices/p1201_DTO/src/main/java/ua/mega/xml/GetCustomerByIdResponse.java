@@ -37,17 +37,17 @@ import javax.xml.bind.annotation.XmlType;
 public class GetCustomerByIdResponse {
 
     @XmlElement(required = true)
-    protected CustomerXML customer;
+    protected Customer customer;
 
     /**
      * Gets the value of the customer property.
      * 
      * @return
      *     possible object is
-     *     {@link CustomerXML }
+     *     {@link Customer }
      *     
      */
-    public CustomerXML getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
@@ -56,20 +56,13 @@ public class GetCustomerByIdResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link CustomerXML }
+     *     {@link Customer }
      *     
      */
-    public void setCustomer(CustomerXML value) {
+    public void setCustomer(Customer value) {
         this.customer = value;
     }
 
     public GetCustomerByIdResponse() {
-    }
-
-    public GetCustomerByIdResponse(Customer customerDomain) {
-        this.customer = new CustomerXML();
-        customer.setCustomerId(customerDomain.getCustomerId());
-        customer.setCompanyName(customerDomain.getCompanyName());
-        customer.setEmail(customerDomain.getEmail());
     }
 }

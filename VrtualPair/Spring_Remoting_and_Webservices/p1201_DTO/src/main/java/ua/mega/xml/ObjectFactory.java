@@ -1,6 +1,8 @@
 
 package ua.mega.xml;
 
+import ua.mega.domain.Customer;
+
 import javax.xml.bind.annotation.XmlRegistry;
 
 
@@ -46,11 +48,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CustomerXML }
+     * Create an instance of {@link Customer }
      * 
      */
-    public CustomerXML createCustomer() {
-        return new CustomerXML();
+    public Customer createCustomer() {
+        return new Customer();
     }
 
 }
