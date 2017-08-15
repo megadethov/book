@@ -1,4 +1,4 @@
-package ua.mega.controllers;
+package ua.mega.webcontrollers;
 
 import java.util.List;
 

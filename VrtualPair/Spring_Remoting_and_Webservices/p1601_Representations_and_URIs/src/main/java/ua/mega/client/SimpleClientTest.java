@@ -29,7 +29,7 @@ public class SimpleClientTest {
 
 			try
 			{
-			Customer oldCustomer = customerService.findCustomerById("CS03939");
+			Customer oldCustomer = customerService.findCustomerById("102");
 			customerService.deleteCustomer(oldCustomer);
 			}
 			catch (CustomerNotFoundException e)
