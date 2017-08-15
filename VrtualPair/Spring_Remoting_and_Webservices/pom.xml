@@ -34,6 +34,7 @@
         <module>p1201_DTO_CLIENT</module>
         <module>p1202_RestoringWeb_StaticWSDL</module>
         <module>p1202_RestoringWeb_StaticWSDL_CLIENT</module>
+        <module>p1601_Representations_and_URIs</module>
     </modules>
 
 </project>
