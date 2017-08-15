@@ -35,6 +35,8 @@
         <module>p1202_RestoringWeb_StaticWSDL</module>
         <module>p1202_RestoringWeb_StaticWSDL_CLIENT</module>
         <module>p1601_Representations_and_URIs</module>
+        <module>p1701_REST_SERVER</module>
+        <module>p1702_REST_CLIENT</module>
     </modules>
 
 </project>
