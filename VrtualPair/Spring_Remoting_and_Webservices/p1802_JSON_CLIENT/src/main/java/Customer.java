@@ -1,4 +1,5 @@
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 @XmlRootElement
 public class Customer {
@@ -7,6 +8,7 @@ public class Customer {
     private String email;
     private String notes;
     private String telephone;
+    private List<CallClientVersion> calls;
 
     public String getCustomerId() {
         return customerId;
