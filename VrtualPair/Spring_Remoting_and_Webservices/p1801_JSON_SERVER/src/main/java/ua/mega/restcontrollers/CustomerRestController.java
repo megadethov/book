@@ -15,7 +15,7 @@ public class CustomerRestController {
     @Autowired
     private CustomerManagementService customerService;
 
-    @RequestMapping("/customer/{id}")
+    @RequestMapping(value="/customer/{id}", headers={"Accept=application/json"})
     public Customer findCustomerById(@PathVariable String id) {
         try {
             return customerService.getFullCustomerDetail(id);
