@@ -33,7 +33,8 @@ public class RestClient {
         HttpEntity requestEntity = new HttpEntity(headers);
 
         HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customer/102", HttpMethod.GET, requestEntity, String.class);
-        System.out.println(response);
+//        System.out.println(response);
+        System.out.println(response.getBody());
 
         Customer customer = template.getForObject("http://localhost:8080/mywebapp/customer/102", Customer.class);
         System.out.println(customer.getCustomerId());
