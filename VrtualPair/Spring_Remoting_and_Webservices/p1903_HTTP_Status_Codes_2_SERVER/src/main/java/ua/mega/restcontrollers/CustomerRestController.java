@@ -18,13 +18,11 @@ public class CustomerRestController {
     private CustomerManagementService customerService;
 
     @RequestMapping(value = "/customer/{id}")
-    public ResponseEntity<Customer> findCustomerById(@PathVariable String id) {
-        try {
-            Customer foundCustomer = customerService.getFullCustomerDetail(id);
-            return new ResponseEntity<>(foundCustomer, HttpStatus.OK);
-        } catch (CustomerNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Customer findCustomerById(@PathVariable String id) throws CustomerNotFoundException {
+
+        Customer foundCustomer = customerService.getFullCustomerDetail(id);
+        return customerService.getFullCustomerDetail(id);
+
     }
 
 }
