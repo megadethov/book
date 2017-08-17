@@ -39,6 +39,10 @@
         <module>p1702_REST_CLIENT</module>
         <module>p1801_JSON_SERVER</module>
         <module>p1802_JSON_CLIENT</module>
+        <module>p1803_Negotiation_SERVER</module>
+        <module>p1804_Negotiation_CLIENT</module>
+        <module>p1901_HTTP_Status_Codes_1_SERVER</module>
+        <module>p1902_HTTP_Status_Codes_1_CLIENT</module>
     </modules>
 
 </project>
