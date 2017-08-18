@@ -47,6 +47,8 @@
         <module>p1904_HTTP_Status_Codes_2_CLIENT</module>
         <module>p1905_HTTP_Status_Codes_3_SERVER</module>
         <module>p1906_HTTP_Status_Codes_3_CLIENT</module>
+        <module>p1907_Representations_of_Errors_SERVER</module>
+        <module>p1908_Representations_of_Errors_CLIENT</module>
     </modules>
 
 </project>
