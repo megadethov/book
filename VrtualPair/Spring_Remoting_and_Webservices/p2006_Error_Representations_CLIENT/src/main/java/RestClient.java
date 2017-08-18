@@ -12,13 +12,13 @@ public class RestClient {
     public static void main(String[] args) throws IOException {
 
         RestTemplate template = new RestTemplate();
-        template.setErrorHandler(new CustomExceptionHandler());
+        template.setErrorHandler(new CustomExceptionHandler(template));
 
         HttpHeaders headers = new HttpHeaders();
         List<MediaType> acceptableMediaTypes = new ArrayList<MediaType>();
         acceptableMediaTypes.add(MediaType.IMAGE_JPEG);
-//        acceptableMediaTypes.add(MediaType.APPLICATION_XML);
-        acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
+        acceptableMediaTypes.add(MediaType.APPLICATION_XML);
+//        acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
         headers.setAccept(acceptableMediaTypes);
 
         HttpEntity requestEntity = new HttpEntity(headers);
@@ -28,6 +28,7 @@ public class RestClient {
             System.out.println(response.getBody());
         } catch (ResourceNotFoundException e) { // definitely a 404
             System.out.println("Sorry, the customer was not found...");
+            System.out.println("The message returned back was " + e.getErrorObject().getMessage());
         }
     }
 }

@@ -53,6 +53,8 @@
         <module>p2002_Simple_Catches_CLIENT</module>
         <module>p2003_ErrorHandler_SERVER</module>
         <module>p2004_ErrorHandler_CLIENT</module>
+        <module>p2005_Error_Representations_SERVER</module>
+        <module>p2006_Error_Representations_CLIENT</module>
     </modules>
 
 </project>
