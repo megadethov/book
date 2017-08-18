@@ -1,7 +1,5 @@
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
@@ -12,14 +10,6 @@ import java.util.List;
 
 public class RestClient {
     public static void main(String[] args) throws IOException {
-
-        //IO approach
-/*        URL url = new URL("http://localhost:8080/mywebapp/customer/102");
-        InputStream is = url.openStream();
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader br = new BufferedReader(isr);
-        System.out.println(br.readLine());
-        br.close();*/
 
         RestTemplate template = new RestTemplate();
 
@@ -32,12 +22,17 @@ public class RestClient {
 
         HttpEntity requestEntity = new HttpEntity(headers);
 
-        HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customer/102", HttpMethod.GET, requestEntity, String.class);
-//        System.out.println(response);
-        System.out.println(response.getBody());
+        try {
+            HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customer/122132341", HttpMethod.GET, requestEntity, String.class);
+            System.out.println(response.getBody());
+        } catch (HttpClientErrorException e) {
+//            System.out.println("Sorry, the customer was not found...");
 
-        Customer customer = template.getForObject("http://localhost:8080/mywebapp/customer/102", Customer.class);
-        System.out.println(customer.getCustomerId());
-
+            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                System.out.println("Sorry, the customer was not found " + e.getResponseBodyAsString());
+            } else {
+                System.out.println("Some other error occured " + e.getStatusCode());
+            }
+        }
     }
 }
