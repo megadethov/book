@@ -9,16 +9,18 @@ import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 @RestController
 public class CustomerRestController {
 
     @Autowired
     private CustomerManagementService customerService;
 
-    @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="The customer wasn't found")
     @ExceptionHandler(CustomerNotFoundException.class)
-    public void rulesForCustomerNotFound() {
-
+    public ResponseEntity<ClientErrorInformation> rulesForCustomerNotFound() {
+        ClientErrorInformation error = new ClientErrorInformation("The customer wasn't found");
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "/customer/{id}")
