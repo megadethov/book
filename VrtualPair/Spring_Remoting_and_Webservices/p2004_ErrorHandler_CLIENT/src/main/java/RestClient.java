@@ -12,6 +12,7 @@ public class RestClient {
     public static void main(String[] args) throws IOException {
 
         RestTemplate template = new RestTemplate();
+        template.setErrorHandler(new CustomExceptionHandler());
 
         HttpHeaders headers = new HttpHeaders();
         List<MediaType> acceptableMediaTypes = new ArrayList<MediaType>();
@@ -25,14 +26,8 @@ public class RestClient {
         try {
             HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customer/122132341", HttpMethod.GET, requestEntity, String.class);
             System.out.println(response.getBody());
-        } catch (HttpClientErrorException e) {
-//            System.out.println("Sorry, the customer was not found...");
-
-            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
-                System.out.println("Sorry, the customer was not found " + e.getResponseBodyAsString());
-            } else {
-                System.out.println("Some other error occured " + e.getStatusCode());
-            }
+        } catch (ResourceNotFoundException e) { // definitely a 404
+            System.out.println("Sorry, the customer was not found...");
         }
     }
 }
