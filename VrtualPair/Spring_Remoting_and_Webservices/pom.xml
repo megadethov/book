@@ -51,6 +51,8 @@
         <module>p1908_Representations_of_Errors_CLIENT</module>
         <module>p2001_Simple_Catches_SERVER</module>
         <module>p2002_Simple_Catches_CLIENT</module>
+        <module>p2003_ErrorHandler_SERVER</module>
+        <module>p2004_ErrorHandler_CLIENT</module>
     </modules>
 
 </project>
