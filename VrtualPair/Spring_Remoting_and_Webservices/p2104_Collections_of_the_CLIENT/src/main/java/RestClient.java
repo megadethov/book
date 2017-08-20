@@ -23,12 +23,12 @@ public class RestClient {
 
         HttpEntity requestEntity = new HttpEntity(headers);
 
-        try {
-            HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customer/122132341", HttpMethod.GET, requestEntity, String.class);
-            System.out.println(response.getBody());
-        } catch (ResourceNotFoundException e) { // definitely a 404
-            System.out.println("Sorry, the customer was not found...");
-            System.out.println("The message returned back was " + e.getErrorObject().getMessage());
-        }
+       /* HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customers", HttpMethod.GET, requestEntity, String.class);
+        System.out.println(response.getBody());*/
+
+        HttpEntity<CustomerCollectionRepresentation> response = template.exchange("http://localhost:8080/mywebapp/customers", HttpMethod.GET, requestEntity, CustomerCollectionRepresentation.class);
+        CustomerCollectionRepresentation results = response.getBody();
+        System.out.println(results);
+
     }
 }
