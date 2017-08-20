@@ -58,7 +58,7 @@
         <module>p2101_URI_for_Collections_SERVER</module>
         <module>p2102_URI_for_Collections_CLIENT</module>
         <module>p2103_Ranges_SERVER</module>
-        <module>p2104_Ranges_CLIENT</module>
+        <module>p2104_Collections_of_the_CLIENT</module>
     </modules>
 
 </project>

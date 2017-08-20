@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>p2104_Ranges_CLIENT</artifactId>
+    <artifactId>p2104_Collections_of_the_CLIENT</artifactId>
     <packaging>jar</packaging>
 
     <properties>
