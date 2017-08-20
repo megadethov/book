@@ -10,6 +10,7 @@ import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 @RestController
 public class CustomerRestController {
@@ -29,6 +30,15 @@ public class CustomerRestController {
         Customer foundCustomer = customerService.getFullCustomerDetail(id);
         return customerService.getFullCustomerDetail(id);
 
+    }
+
+    @RequestMapping(value = "/customers")
+    public CustomerCollectionRepresentation returnAllCustomers() {
+        List<Customer> allCustomers = customerService.getAllCustomers();
+        for (Customer next : allCustomers) {
+            next.setCalls(null);
+        }
+        return new CustomerCollectionRepresentation(allCustomers);
     }
 
 }

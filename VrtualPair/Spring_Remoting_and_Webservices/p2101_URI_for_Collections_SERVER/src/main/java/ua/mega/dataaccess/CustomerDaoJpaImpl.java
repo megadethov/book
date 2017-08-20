@@ -1,5 +1,6 @@
 package ua.mega.dataaccess;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -51,7 +52,18 @@ public class CustomerDaoJpaImpl implements CustomerDao {
 
     @Override
     public List<Customer> getAllCustomers() {
-        return em.createQuery("select customer from Customer as customer").getResultList();
+
+        ArrayList<Customer> allCustomers = new ArrayList<>();
+        Customer customer1 = new Customer("101", "sclep101", "mail@101.com");
+        Customer customer2 = new Customer("102", "sclep102", "mail@102.com");
+        Customer customer3 = new Customer("103", "sclep103", "mail@103.com");
+        allCustomers.add(customer1);
+        allCustomers.add(customer2);
+        allCustomers.add(customer3);
+
+        return allCustomers;
+
+//        return em.createQuery("select customer from Customer as customer").getResultList();
     }
 
     @Override
