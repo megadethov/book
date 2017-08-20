@@ -55,6 +55,8 @@
         <module>p2004_ErrorHandler_CLIENT</module>
         <module>p2005_Error_Representations_SERVER</module>
         <module>p2006_Error_Representations_CLIENT</module>
+        <module>p2101_URI_for_Collections_SERVER</module>
+        <module>p2102_URI_for_Collections_CLIENT</module>
     </modules>
 
 </project>
