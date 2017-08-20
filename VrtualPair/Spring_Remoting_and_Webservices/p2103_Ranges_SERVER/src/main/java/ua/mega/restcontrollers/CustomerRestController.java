@@ -32,13 +32,20 @@ public class CustomerRestController {
 
     }
 
+    /**
+     * Requirement: ONLY return customers.
+     * @return
+     */
     @RequestMapping(value = "/customers")
-    public CustomerCollectionRepresentation returnAllCustomers() {
+    public CustomerCollectionRepresentation returnAllCustomers(@RequestParam(required = false) Integer first, @RequestParam(value = "last", required = false) Integer last) {
         List<Customer> allCustomers = customerService.getAllCustomers();
         for (Customer next : allCustomers) {
             next.setCalls(null);
         }
-        return new CustomerCollectionRepresentation(allCustomers);
+        if (first != null && last != null) {
+            return new CustomerCollectionRepresentation(allCustomers.subList(first - 1, last));
+        } else {
+            return new CustomerCollectionRepresentation(allCustomers);
+        }
     }
-
 }
