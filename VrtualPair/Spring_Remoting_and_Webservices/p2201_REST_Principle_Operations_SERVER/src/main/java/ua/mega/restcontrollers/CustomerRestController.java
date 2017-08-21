@@ -24,7 +24,7 @@ public class CustomerRestController {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value = "/customer/{id}")
+    @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET)
     public Customer findCustomerById(@PathVariable String id) throws CustomerNotFoundException {
 
         Customer foundCustomer = customerService.getFullCustomerDetail(id);
@@ -36,7 +36,7 @@ public class CustomerRestController {
      * Requirement: ONLY return customers.
      * @return
      */
-    @RequestMapping(value = "/customers")
+    @RequestMapping(value = "/customers", method = RequestMethod.GET)
     public CustomerCollectionRepresentation returnAllCustomers(@RequestParam(required = false) Integer first, @RequestParam(value = "last", required = false) Integer last) {
         List<Customer> allCustomers = customerService.getAllCustomers();
         for (Customer next : allCustomers) {
@@ -47,5 +47,24 @@ public class CustomerRestController {
         } else {
             return new CustomerCollectionRepresentation(allCustomers);
         }
+    }
+
+    @RequestMapping(value = "/customers", method = RequestMethod.POST)
+    @ResponseStatus(value=HttpStatus.CREATED)
+    public Customer createNewCustomer(@RequestBody Customer newCustomer) {
+        return customerService.newCustomer(newCustomer);
+    }
+
+    @RequestMapping(value="/customer/{id}", method=RequestMethod.DELETE)
+    public void deleteById(@PathVariable String id) throws CustomerNotFoundException
+    {
+        Customer oldCustomer = customerService.findCustomerById(id);
+        customerService.deleteCustomer(oldCustomer);
+    }
+
+    @RequestMapping(value="/customer/{id}", method=RequestMethod.PUT)
+    public void updateCustomer(@RequestBody Customer customerToUpdate) throws CustomerNotFoundException
+    {
+        customerService.updateCustomer(customerToUpdate);
     }
 }

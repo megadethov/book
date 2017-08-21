@@ -17,9 +17,20 @@ public class RestClient {
         HttpHeaders headers = new HttpHeaders();
         List<MediaType> acceptableMediaTypes = new ArrayList<MediaType>();
         acceptableMediaTypes.add(MediaType.IMAGE_JPEG);
-        acceptableMediaTypes.add(MediaType.APPLICATION_XML);
-//        acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
+//        acceptableMediaTypes.add(MediaType.APPLICATION_XML);
+        acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
         headers.setAccept(acceptableMediaTypes);
+
+        //a new customer
+        CustomerClientVersion customer = new CustomerClientVersion();
+        customer.setCompanyName("sclep");
+        customer.setNotes("some notes");
+
+//        customer = template.postForObject("http://localhost:8080/mywebapp/customers", customer, CustomerClientVersion.class);
+//        System.out.println(customer.getCustomerId());
+
+        ResponseEntity<CustomerClientVersion> customerEntity = template.postForEntity("http://localhost:8080/mywebapp/customers", customer, CustomerClientVersion.class);
+        System.out.println(customerEntity.getStatusCode());
 
         HttpEntity requestEntity = new HttpEntity(headers);
 

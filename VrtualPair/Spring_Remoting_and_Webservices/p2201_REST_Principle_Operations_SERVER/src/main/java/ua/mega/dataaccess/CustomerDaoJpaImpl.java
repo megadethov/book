@@ -22,13 +22,17 @@ public class CustomerDaoJpaImpl implements CustomerDao {
 
     @Override
     public Customer getById(String customerId) throws RecordNotFoundException {
-        try {
+
+        if (Integer.valueOf(customerId) != 102) throw new RecordNotFoundException();
+        return new Customer(customerId, "sclep-102", "email@102.com", "12-34-567", "some notes");
+
+        /*try {
             return (Customer) em.createQuery("select customer from Customer as customer where customer.customerId=:customerId")
                     .setParameter("customerId", customerId)
                     .getSingleResult();
         } catch (NoResultException e) {
             throw new RecordNotFoundException();
-        }
+        }*/
     }
 
     @Override
@@ -39,15 +43,17 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     }
 
     @Override
-    public void update(Customer customerToUpdate)
-            throws RecordNotFoundException {
-        em.merge(customerToUpdate);
+    public void update(Customer customerToUpdate) throws RecordNotFoundException {
+        System.out.println("Customer with id: " + customerToUpdate.getCustomerId() + " is update...");
+//        em.merge(customerToUpdate);
     }
 
     @Override
     public void delete(Customer oldCustomer) throws RecordNotFoundException {
-        oldCustomer = em.merge(oldCustomer);
-        em.remove(oldCustomer);
+
+        System.out.println("Customer with id: " + oldCustomer.getCustomerId() + " is delete...");
+/*        oldCustomer = em.merge(oldCustomer);
+        em.remove(oldCustomer);*/
     }
 
     @Override
@@ -67,10 +73,9 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     }
 
     @Override
-    public Customer getFullCustomerDetail(String customerId)
-            throws RecordNotFoundException {
-//        return new Customer(customerId, "sclep", "mail@mail.com", "1234567", "balbla");
-        throw new RecordNotFoundException();
+    public Customer getFullCustomerDetail(String customerId) throws RecordNotFoundException {
+        if (Integer.valueOf(customerId) != 102) throw new RecordNotFoundException();
+        return new Customer(customerId, "sclep-102", "mail@mail.com", "1234567", "balbla");
 
 /*		return (Customer)em.createQuery("select customer from Customer as customer left join fetch customer.calls where customer.customerId=:customerId")
                 .setParameter("customerId", customerId)

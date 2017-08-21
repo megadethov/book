@@ -1,7 +1,7 @@
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement(name = "customer")
 public class CustomerClientVersion {
     private String customerId;
     private String companyName;
