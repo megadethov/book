@@ -61,6 +61,8 @@
         <module>p2104_Collections_of_the_CLIENT</module>
         <module>p2201_REST_Principle_Operations_SERVER</module>
         <module>p2202_REST_Principle_Operations_CLIENT</module>
+        <module>p2301_Optimistic_Lock_SERVER</module>
+        <module>p2302_Optimistic_Lock_CLIENT</module>
     </modules>
 
 </project>
