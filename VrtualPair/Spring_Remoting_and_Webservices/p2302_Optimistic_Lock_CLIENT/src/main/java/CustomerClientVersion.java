@@ -10,6 +10,16 @@ public class CustomerClientVersion {
     private String telephone;
     private List<CallClientVersion> calls;
 
+    private int version;
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
     public String getCustomerId() {
         return customerId;
     }

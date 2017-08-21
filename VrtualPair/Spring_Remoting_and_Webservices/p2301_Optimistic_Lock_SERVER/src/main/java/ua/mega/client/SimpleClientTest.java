@@ -29,8 +29,8 @@ public class SimpleClientTest {
 
 			try
 			{
-			Customer oldCustomer = customerService.findCustomerById("102");
-			customerService.deleteCustomer(oldCustomer);
+			Customer oldCustomer = customerService.getFullCustomerDetail("102");
+				System.out.println(oldCustomer.getCompanyName());
 			}
 			catch (CustomerNotFoundException e)
 			{

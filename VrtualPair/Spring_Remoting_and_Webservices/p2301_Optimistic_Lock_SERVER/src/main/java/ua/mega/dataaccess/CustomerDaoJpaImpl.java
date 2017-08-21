@@ -23,21 +23,22 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     @Override
     public Customer getById(String customerId) throws RecordNotFoundException {
 
-        if (Integer.valueOf(customerId) != 102) throw new RecordNotFoundException();
+        /*if (Integer.valueOf(customerId) != 102) throw new RecordNotFoundException();
         return new Customer(customerId, "sclep-102", "email@102.com", "12-34-567", "some notes");
+*/
 
-        /*try {
+        try {
             return (Customer) em.createQuery("select customer from Customer as customer where customer.customerId=:customerId")
                     .setParameter("customerId", customerId)
                     .getSingleResult();
         } catch (NoResultException e) {
             throw new RecordNotFoundException();
-        }*/
+        }
     }
 
     @Override
     public List<Customer> getByName(String name) {
-        return em.createQuery("select customer from Customer where customer.companyName=:companyName")
+        return em.createQuery("select customer from Customer as customer where customer.companyName=:companyName")
                 .setParameter("companyName", name)
                 .getResultList();
     }
@@ -74,12 +75,17 @@ public class CustomerDaoJpaImpl implements CustomerDao {
 
     @Override
     public Customer getFullCustomerDetail(String customerId) throws RecordNotFoundException {
-        if (Integer.valueOf(customerId) != 102) throw new RecordNotFoundException();
-        return new Customer(customerId, "sclep-102", "mail@mail.com", "1234567", "balbla");
 
-/*		return (Customer)em.createQuery("select customer from Customer as customer left join fetch customer.calls where customer.customerId=:customerId")
+        if (Integer.valueOf(customerId) != 102) throw new RecordNotFoundException();
+        return new Customer(customerId, "sclep", "mail@mail.com", "1234567", "balbla");
+
+/*        System.out.println("DEbAG - 1 " + customerId);
+        Customer customer = (Customer)em.createQuery("select customer from Customer as customer left join fetch customer.calls where customer.customerId=:customerId")
                 .setParameter("customerId", customerId)
-				.getSingleResult();*/
+				.getSingleResult();
+        System.out.println("DEbAG - 2");
+		customer.setCalls(null);
+        return customer;*/
     }
 
     @Override

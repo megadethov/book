@@ -24,11 +24,15 @@ public class CustomerRestController {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(javax.persistence.OptimisticLockException.class)
+    @ResponseStatus(value=HttpStatus.CONFLICT)
+    public void handleConflicts() {}
+
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET)
     public Customer findCustomerById(@PathVariable String id) throws CustomerNotFoundException {
 
         Customer foundCustomer = customerService.getFullCustomerDetail(id);
-        return customerService.getFullCustomerDetail(id);
+                return foundCustomer;
 
     }
 
@@ -37,7 +41,7 @@ public class CustomerRestController {
      * @return
      */
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
-    public CustomerCollectionRepresentation returnAllCustomers(@RequestParam(required = false) Integer first, @RequestParam(value = "last", required = false) Integer last) {
+    public CustomerCollectionRepresentation returnAllCustomers(@RequestParam(required = false) Integer first, @RequestParam(required = false) Integer last) {
         List<Customer> allCustomers = customerService.getAllCustomers();
         for (Customer next : allCustomers) {
             next.setCalls(null);

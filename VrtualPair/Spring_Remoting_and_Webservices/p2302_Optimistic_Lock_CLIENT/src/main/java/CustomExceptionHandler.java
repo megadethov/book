@@ -36,6 +36,11 @@ public class CustomExceptionHandler extends DefaultResponseErrorHandler {
             throw new ResourceNotFoundException(error);
         }
 
+        if (resp.getStatusCode() == HttpStatus.CONFLICT)
+        {
+            throw new EditingConflictException();
+        }
+
         throw new UnknownHttpErrorException();
     }
 }

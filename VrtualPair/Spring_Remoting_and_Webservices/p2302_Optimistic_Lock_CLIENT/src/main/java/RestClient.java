@@ -14,32 +14,28 @@ public class RestClient {
         RestTemplate template = new RestTemplate();
         template.setErrorHandler(new CustomExceptionHandler(template));
 
-        HttpHeaders headers = new HttpHeaders();
-        List<MediaType> acceptableMediaTypes = new ArrayList<MediaType>();
-        acceptableMediaTypes.add(MediaType.IMAGE_JPEG);
-//        acceptableMediaTypes.add(MediaType.APPLICATION_XML);
-        acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
-        headers.setAccept(acceptableMediaTypes);
+        CustomerClientVersion customer;
+        customer = template.getForObject("http://localhost:8080/mywebapp/customer/102", CustomerClientVersion.class);
 
-        //a new customer
-        CustomerClientVersion customer = new CustomerClientVersion();
-        customer.setCompanyName("sclep");
-        customer.setNotes("some notes");
+        System.out.println(customer.getCustomerId() + " " + customer.getCompanyName());
 
-//        customer = template.postForObject("http://localhost:8080/mywebapp/customers", customer, CustomerClientVersion.class);
-//        System.out.println(customer.getCustomerId());
+        // Seat and wait...
 
-        ResponseEntity<CustomerClientVersion> customerEntity = template.postForEntity("http://localhost:8080/mywebapp/customers", customer, CustomerClientVersion.class);
-        System.out.println(customerEntity.getStatusCode());
+        // update
+        customer.setCompanyName("Apple");
+        try
+        {
+            template.put("http://localhost:8080/mywebapp/customer/102", customer);
+        }
+        catch (EditingConflictException e)
+        {
+            System.out.println("Sorry, someone else got in first, please try again.");
+        }
+        // Final step
+        customer = template.getForObject("http://localhost:8080/mywebapp/customer/100029",
+                CustomerClientVersion.class);
 
-        HttpEntity requestEntity = new HttpEntity(headers);
-
-       /* HttpEntity response = template.exchange("http://localhost:8080/mywebapp/customers", HttpMethod.GET, requestEntity, String.class);
-        System.out.println(response.getBody());*/
-
-        HttpEntity<CustomerCollectionRepresentation> response = template.exchange("http://localhost:8080/mywebapp/customers", HttpMethod.GET, requestEntity, CustomerCollectionRepresentation.class);
-        CustomerCollectionRepresentation results = response.getBody();
-        System.out.println(results);
+        System.out.println("To confirm, the customers company is now " + customer.getCompanyName());
 
     }
 }
