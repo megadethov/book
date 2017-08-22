@@ -1,4 +1,5 @@
 import org.springframework.http.*;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,6 +13,7 @@ public class RestClient {
     public static void main(String[] args) throws IOException {
 
         RestTemplate template = new RestTemplate();
+        template.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         template.setErrorHandler(new CustomExceptionHandler(template));
 
         CustomerClientVersion customer;
@@ -37,5 +39,13 @@ public class RestClient {
 
         System.out.println("To confirm, the customers company is now " + customer.getCompanyName());
 
+        // patch
+        CustomerClientVersion partCustomer = new CustomerClientVersion();
+        partCustomer.setCompanyName("Ramsden International");
+
+        HttpEntity<CustomerClientVersion> requestEntity = new HttpEntity<CustomerClientVersion> (partCustomer);
+
+        template.exchange("http://localhost:8080/mywebapp/customer/100029", HttpMethod.PATCH,
+                requestEntity, Void.class);
     }
 }

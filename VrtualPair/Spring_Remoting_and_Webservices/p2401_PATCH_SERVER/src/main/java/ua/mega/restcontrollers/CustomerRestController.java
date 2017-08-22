@@ -25,19 +25,21 @@ public class CustomerRestController {
     }
 
     @ExceptionHandler(javax.persistence.OptimisticLockException.class)
-    @ResponseStatus(value=HttpStatus.CONFLICT)
-    public void handleConflicts() {}
+    @ResponseStatus(value = HttpStatus.CONFLICT)
+    public void handleConflicts() {
+    }
 
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET)
     public Customer findCustomerById(@PathVariable String id) throws CustomerNotFoundException {
 
         Customer foundCustomer = customerService.getFullCustomerDetail(id);
-                return foundCustomer;
+        return foundCustomer;
 
     }
 
     /**
      * Requirement: ONLY return customers.
+     *
      * @return
      */
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
@@ -54,21 +56,36 @@ public class CustomerRestController {
     }
 
     @RequestMapping(value = "/customers", method = RequestMethod.POST)
-    @ResponseStatus(value=HttpStatus.CREATED)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Customer createNewCustomer(@RequestBody Customer newCustomer) {
         return customerService.newCustomer(newCustomer);
     }
 
-    @RequestMapping(value="/customer/{id}", method=RequestMethod.DELETE)
-    public void deleteById(@PathVariable String id) throws CustomerNotFoundException
-    {
+    @RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
+    public void deleteById(@PathVariable String id) throws CustomerNotFoundException {
         Customer oldCustomer = customerService.findCustomerById(id);
         customerService.deleteCustomer(oldCustomer);
     }
 
-    @RequestMapping(value="/customer/{id}", method=RequestMethod.PUT)
-    public void updateCustomer(@RequestBody Customer customerToUpdate) throws CustomerNotFoundException
-    {
+    @RequestMapping(value = "/customer/{id}", method = RequestMethod.PUT)
+    public void updateCustomer(@RequestBody Customer customerToUpdate) throws CustomerNotFoundException {
+        customerService.updateCustomer(customerToUpdate);
+    }
+
+    @RequestMapping(value = "/customer/{id}", method = RequestMethod.PATCH)
+    public void partiallyUpdateCustomer(@RequestBody Customer customerToUpdate,
+                                        @PathVariable String id) throws CustomerNotFoundException {
+        Customer existingCustomer = customerService.findCustomerById(id);
+
+        // check every field, if it's null, go with the value the customer had before....
+        if (customerToUpdate.getCustomerId() == null) {
+            customerToUpdate.setCustomerId(id);
+        }
+
+        if (customerToUpdate.getNotes() == null) {
+            customerToUpdate.setNotes(existingCustomer.getNotes());
+        }
+
         customerService.updateCustomer(customerToUpdate);
     }
 }
