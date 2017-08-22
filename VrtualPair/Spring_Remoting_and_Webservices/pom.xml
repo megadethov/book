@@ -63,6 +63,8 @@
         <module>p2202_REST_Principle_Operations_CLIENT</module>
         <module>p2301_Optimistic_Lock_SERVER</module>
         <module>p2302_Optimistic_Lock_CLIENT</module>
+        <module>p2401_PATCH_SERVER</module>
+        <module>p2402_PATCH_CLIENT</module>
     </modules>
 
 </project>
