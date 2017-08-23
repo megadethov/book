@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
@@ -60,12 +61,15 @@ public class CustomerRestController {
     }
 
     @RequestMapping(value = "/customers", method = RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.CREATED)
+//    @ResponseStatus(value = HttpStatus.CREATED)
     public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer newCustomer) {
         Customer createdCustomer = customerService.newCustomer(newCustomer);
         HttpHeaders headers = new HttpHeaders();
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/customer/").path(createdCustomer.getCustomerId()).build().toUri();
+//        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/customer/").path(createdCustomer.getCustomerId()).build().toUri();
+
+        URI uri = MvcUriComponentsBuilder.fromMethodName(CustomerRestController.class, "findCustomerById", createdCustomer.getCustomerId()).build().toUri();
+
         headers.setLocation(uri);
 
         return new ResponseEntity<Customer>(createdCustomer, headers, HttpStatus.CREATED);
