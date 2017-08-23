@@ -65,6 +65,8 @@
         <module>p2302_Optimistic_Lock_CLIENT</module>
         <module>p2401_PATCH_SERVER</module>
         <module>p2402_PATCH_CLIENT</module>
+        <module>p2501_HATEOAS_SERVER</module>
+        <module>p2502_HATEOAS_CLIENT</module>
     </modules>
 
 </project>
