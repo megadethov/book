@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
@@ -63,11 +64,10 @@ public class CustomerRestController {
     public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer newCustomer) {
         Customer createdCustomer = customerService.newCustomer(newCustomer);
         HttpHeaders headers = new HttpHeaders();
-        try {
-            headers.setLocation(new URI("http://localhost:8080/mywebapp/customer" + createdCustomer.getCustomerId()));
-        } catch (URISyntaxException e) {
-            throw new RuntimeException();
-        }
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/customer/").path(createdCustomer.getCustomerId()).build().toUri();
+        headers.setLocation(uri);
+
         return new ResponseEntity<Customer>(createdCustomer, headers, HttpStatus.CREATED);
     }
 

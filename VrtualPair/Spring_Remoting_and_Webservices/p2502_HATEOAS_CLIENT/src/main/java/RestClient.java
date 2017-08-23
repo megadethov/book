@@ -5,6 +5,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,36 +17,15 @@ public class RestClient {
         template.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         template.setErrorHandler(new CustomExceptionHandler(template));
 
-        CustomerClientVersion customer;
-        customer = template.getForObject("http://localhost:8080/mywebapp/customer/102", CustomerClientVersion.class);
-
-        System.out.println(customer.getCustomerId() + " " + customer.getCompanyName());
-
-        // Seat and wait...
-
-        // update
+        CustomerClientVersion customer = new CustomerClientVersion();
         customer.setCompanyName("Apple");
-        try
-        {
-            template.put("http://localhost:8080/mywebapp/customer/102", customer);
-        }
-        catch (EditingConflictException e)
-        {
-            System.out.println("Sorry, someone else got in first, please try again.");
-        }
-        // Final step
-        customer = template.getForObject("http://localhost:8080/mywebapp/customer/100029",
-                CustomerClientVersion.class);
+        customer.setNotes("something");
 
-        System.out.println("To confirm, the customers company is now " + customer.getCompanyName());
+        URI finalLocation = template.postForLocation("http://localhost:8080/mywebapp/customers", customer);
+        System.out.println(finalLocation);
 
-        // patch
-        CustomerClientVersion partCustomer = new CustomerClientVersion();
-        partCustomer.setCompanyName("Ramsden International");
-
-        HttpEntity<CustomerClientVersion> requestEntity = new HttpEntity<CustomerClientVersion> (partCustomer);
-
-        template.exchange("http://localhost:8080/mywebapp/customer/100029", HttpMethod.PATCH,
-                requestEntity, Void.class);
+        // rest of the code, we do something with the URI
+/*        CustomerClientVersion foundCustomer = template.getForObject(finalLocation, CustomerClientVersion.class);
+        System.out.println(foundCustomer);*/
     }
 }
