@@ -1,6 +1,7 @@
 package ua.mega.restcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -57,8 +60,15 @@ public class CustomerRestController {
 
     @RequestMapping(value = "/customers", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Customer createNewCustomer(@RequestBody Customer newCustomer) {
-        return customerService.newCustomer(newCustomer);
+    public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer newCustomer) {
+        Customer createdCustomer = customerService.newCustomer(newCustomer);
+        HttpHeaders headers = new HttpHeaders();
+        try {
+            headers.setLocation(new URI("http://localhost:8080/mywebapp/customer" + createdCustomer.getCustomerId()));
+        } catch (URISyntaxException e) {
+            throw new RuntimeException();
+        }
+        return new ResponseEntity<Customer>(createdCustomer, headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
