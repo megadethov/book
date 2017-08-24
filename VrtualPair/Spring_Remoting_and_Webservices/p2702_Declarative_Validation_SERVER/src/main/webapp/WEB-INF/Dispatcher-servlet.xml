@@ -21,7 +21,7 @@
 
     <context:component-scan base-package="ua.mega.restcontrollers"/>
 
-    <!--switch on Message Converters-->
+    <!--switch on Message Converters and JSR-303-->
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
 
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">

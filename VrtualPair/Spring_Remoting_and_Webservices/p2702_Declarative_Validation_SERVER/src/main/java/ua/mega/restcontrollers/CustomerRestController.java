@@ -11,6 +11,7 @@ import ua.mega.domain.Customer;
 import ua.mega.services.customers.CustomerManagementService;
 import ua.mega.services.customers.CustomerNotFoundException;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -22,9 +23,6 @@ public class CustomerRestController {
 
     @Autowired
     private CustomerManagementService customerService;
-
-    @Autowired
-    private CustomerValidator validator;
 
     @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<ClientErrorInformation> rulesForCustomerNotFound() {
@@ -72,16 +70,7 @@ public class CustomerRestController {
 
     @RequestMapping(value = "/customers", method = RequestMethod.POST)
 //    @ResponseStatus(value = HttpStatus.CREATED)
-    public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer newCustomer, Errors errors) throws CustomerNotFoundException {
-
-        // validation
-        validator.validate(newCustomer, errors);
-
-        if (errors.hasErrors())
-        {
-            // return a http status code
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Customer> createNewCustomer(@RequestBody @Valid Customer newCustomer) throws CustomerNotFoundException {
 
         Customer createdCustomer = customerService.newCustomer(newCustomer);
         HttpHeaders headers = new HttpHeaders();

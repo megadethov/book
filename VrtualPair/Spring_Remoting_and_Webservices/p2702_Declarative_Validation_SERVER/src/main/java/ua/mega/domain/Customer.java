@@ -1,5 +1,6 @@
 package ua.mega.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.hateoas.ResourceSupport;
 
 import java.io.Serializable;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -30,6 +32,7 @@ public class Customer extends ResourceSupport implements Serializable {
     /**
      * The company name
      */
+    @NotEmpty
     private String companyName;
 
     /**
@@ -45,6 +48,7 @@ public class Customer extends ResourceSupport implements Serializable {
     /**
      * Any notes associated with this customer
      */
+    @NotEmpty
     private String notes;
 
     /**
