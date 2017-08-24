@@ -1,6 +1,7 @@
 package ua.mega.restcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,10 +47,15 @@ public class CustomerRestController {
      * @return
      */
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
-    public CustomerCollectionRepresentation returnAllCustomers(@RequestParam(required = false) Integer first, @RequestParam(required = false) Integer last) {
+    public CustomerCollectionRepresentation returnAllCustomers(@RequestParam(required = false) Integer first, @RequestParam(required = false) Integer last) throws CustomerNotFoundException {
         List<Customer> allCustomers = customerService.getAllCustomers();
         for (Customer next : allCustomers) {
             next.setCalls(null);
+
+//            URI uri = linkTo(methodOn(CustomerRestController.class).findCustomerById(next.getCustomerId())).toUri();
+            Link link = linkTo(methodOn(CustomerRestController.class).findCustomerById(next.getCustomerId())).withSelfRel();
+            next.add(link);
+
         }
         if (first != null && last != null) {
             return new CustomerCollectionRepresentation(allCustomers.subList(first - 1, last));
@@ -67,6 +73,8 @@ public class CustomerRestController {
 //        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/customer/").path(createdCustomer.getCustomerId()).build().toUri();
 
 //        URI uri = MvcUriComponentsBuilder.fromMethodName(CustomerRestController.class, "findCustomerById", createdCustomer.getCustomerId()).build().toUri();
+
+//        URI uri = linkTo(methodOn(CustomerRestController.class).findCustomerById("102")).toUri();
 
         URI uri = linkTo(methodOn(CustomerRestController.class).findCustomerById("102")).toUri();
 

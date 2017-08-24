@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>p2602_Spring HATEOAS_CLIENT</artifactId>
+    <artifactId>p2602_Spring_HATEOAS_CLIENT</artifactId>
     <packaging>jar</packaging>
 
     <properties>

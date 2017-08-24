@@ -67,8 +67,8 @@
         <module>p2402_PATCH_CLIENT</module>
         <module>p2501_HATEOAS_SERVER</module>
         <module>p2502_HATEOAS_CLIENT</module>
-        <module>p2601_Spring HATEOAS_SERVER</module>
-        <module>p2602_Spring HATEOAS_CLIENT</module>
+        <module>p2601_Spring_HATEOAS_SERVER</module>
+        <module>p2602_Spring_HATEOAS_CLIENT</module>
     </modules>
 
 </project>

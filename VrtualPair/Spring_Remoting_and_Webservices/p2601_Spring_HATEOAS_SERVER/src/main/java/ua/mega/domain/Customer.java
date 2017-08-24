@@ -1,5 +1,7 @@
 package ua.mega.domain;
 
+import org.springframework.hateoas.ResourceSupport;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-public class Customer implements Serializable {
+public class Customer extends ResourceSupport implements Serializable {
     /**
      * A simple unique value for the customer - note this is determined
      * by the business and is not necessarily the database primary key.
