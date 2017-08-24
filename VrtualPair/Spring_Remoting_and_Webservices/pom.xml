@@ -71,6 +71,7 @@
         <module>p2602_Spring_HATEOAS_CLIENT</module>
         <module>p2603_Spring_HATEOAS_Paging_SERVER</module>
         <module>p2604_Spring_HATEOAS_Paging_CLIENT</module>
+        <module>p2701_Programmatic_Validation_SERVER</module>
     </modules>
 
 </project>
