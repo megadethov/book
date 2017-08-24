@@ -58,7 +58,9 @@ public class CustomerRestController {
 
         }
         if (first != null && last != null) {
-            return new CustomerCollectionRepresentation(allCustomers.subList(first - 1, last));
+            CustomerCollectionRepresentation page = new CustomerCollectionRepresentation(allCustomers.subList(first - 1, last));
+            page.add(linkTo(methodOn(CustomerRestController.class).returnAllCustomers(last+1, last+2)).withRel("next"));
+            return page;
         } else {
             return new CustomerCollectionRepresentation(allCustomers);
         }

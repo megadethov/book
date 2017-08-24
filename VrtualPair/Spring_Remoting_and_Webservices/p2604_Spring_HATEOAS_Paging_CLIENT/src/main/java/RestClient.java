@@ -1,3 +1,4 @@
+import org.springframework.hateoas.Link;
 import org.springframework.http.*;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.HttpClientErrorException;
@@ -12,20 +13,15 @@ import java.util.List;
 
 public class RestClient {
     public static void main(String[] args) throws IOException {
-
         RestTemplate template = new RestTemplate();
         template.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         template.setErrorHandler(new CustomExceptionHandler(template));
 
-        CustomerClientVersion customer = new CustomerClientVersion();
-        customer.setCompanyName("Apple");
-        customer.setNotes("something");
+        CustomerCollectionRepresentation allCustomers = template.getForObject("http://localhost:8080/mywebapp/customers?first=1&last=2", CustomerCollectionRepresentation.class);
 
-        URI finalLocation = template.postForLocation("http://localhost:8080/mywebapp/customers", customer);
-        System.out.println(finalLocation);
+        Link link = allCustomers.getLink("next");
+        System.out.println("the next page will be at " + link);
 
-        // rest of the code, we do something with the URI
-/*        CustomerClientVersion foundCustomer = template.getForObject(finalLocation, CustomerClientVersion.class);
-        System.out.println(foundCustomer);*/
+        System.out.println(allCustomers);
     }
 }
