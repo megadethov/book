@@ -12,6 +12,7 @@
     <modules>
         <module>p02_a_Basic_authentication</module>
         <module>p02_b_Form_based_authentication</module>
+        <module>p03_a_Ordering_of_Interception</module>
     </modules>
 
 </project>
