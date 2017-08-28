@@ -9,8 +9,11 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
+        <csrf disabled="true"/>
         <intercept-url pattern="/addNewBook.do" access="hasRole('ROLE_ADMIN')"/>
-        <http-basic/>
+        <!--<http-basic/>-->
+        <form-login/>
+        <logout logout-success-url="/viewAllBooks.do"/> <!-- /logout; automatically logout -->
     </http>
 
     <authentication-manager>
