@@ -32,7 +32,7 @@
         <property name="order" value="2"/>
     </bean>
 
-    <import resource="application.xml"/>
+    <!--<import resource="application.xml"/>-->
 
     <!--scan for all Controllers in the applications-->
     <context:component-scan base-package="ua.mega"/>

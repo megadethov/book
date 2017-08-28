@@ -11,7 +11,7 @@
     </parent>
 
 
-    <artifactId>p02_Securing_URL</artifactId>
+    <artifactId>p02_Basic_authentication</artifactId>
         <packaging>war</packaging>
 
     <properties>
@@ -257,6 +257,12 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-openid</artifactId>
             <version>${spring-security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.4.01</version>
         </dependency>
 
     </dependencies>
