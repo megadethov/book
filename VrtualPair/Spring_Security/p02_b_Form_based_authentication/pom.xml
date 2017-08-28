@@ -11,7 +11,7 @@
     </parent>
 
 
-    <artifactId>p02_Basic_authentication</artifactId>
+    <artifactId>p02_b_Form_based_authentication</artifactId>
         <packaging>war</packaging>
 
     <properties>
