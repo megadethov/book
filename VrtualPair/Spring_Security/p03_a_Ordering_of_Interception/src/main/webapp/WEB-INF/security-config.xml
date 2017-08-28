@@ -11,7 +11,7 @@
     <http>
         <csrf disabled="true"/>
         <intercept-url pattern="/addNewBook.do" access="hasRole('ROLE_ADMIN')"/>
-        <!--<http-basic/>-->
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <form-login/>
         <logout logout-success-url="/viewAllBooks.do"/> <!-- /logout; automatically logout -->
     </http>
