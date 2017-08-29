@@ -8,6 +8,10 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <beans:bean id="myFailureHandler" class="ua.mega.security.UsernameRememberingAuthenticationFailureHandler" autowire="byType">
+        <!--<beans:property name="redirectTarget" value="/login.jsp"/>-->
+    </beans:bean>
+
     <http pattern="/styles.css" security="none"/>
 
     <http>
@@ -19,7 +23,7 @@
                     username-parameter="vppUsername"
                     password-parameter="vppPassword"
                     login-page="/login.jsp"
-                    authentication-failure-url="/login.jsp?error"/>
+                    authentication-failure-handler-ref="myFailureHandler"/>
         <logout logout-success-url="/viewAllBooks.do"/> <!-- /logout; automatically logout -->
     </http>
 
