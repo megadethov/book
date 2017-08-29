@@ -14,6 +14,7 @@
         <module>p02_b_Form_based_authentication</module>
         <module>p03_a_Ordering_of_Interception</module>
         <module>p03_b_Custom_Login_Form</module>
+        <module>p04_a_AuthenticationFailureHandler</module>
     </modules>
 
 </project>
