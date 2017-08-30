@@ -146,6 +146,13 @@
             <version>1.4</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.derby/derbyclient -->
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.8.1.2</version>
+        </dependency>
+
         <!--DOP DEPENDENCY FOR THIS COURSE-->
 
         <dependency>
