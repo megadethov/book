@@ -46,7 +46,9 @@
     <authentication-manager>
         <authentication-provider>
 
-            <jdbc-user-service data-source-ref="datasource"/>
+            <jdbc-user-service data-source-ref="datasource"
+                               users-by-username-query="select name, pass, true from tbl_users where name=?"
+                               authorities-by-username-query="select name, role from tbl_roles where name=?"/>
 
         </authentication-provider>
     </authentication-manager>
