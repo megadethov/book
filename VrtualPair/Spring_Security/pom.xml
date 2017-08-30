@@ -16,6 +16,7 @@
         <module>p03_b_Custom_Login_Form</module>
         <module>p04_a_AuthenticationFailureHandler</module>
         <module>p04_b_Filter_Chain</module>
+        <module>p05_a_JDBC_User_Service</module>
     </modules>
 
 </project>
