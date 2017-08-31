@@ -33,6 +33,7 @@
     <http>
         <csrf disabled="true"/>
         <intercept-url pattern="/login.jsp" access="permitAll"/>
+        <intercept-url pattern="/createAccount.do" access="permitAll"/>
         <intercept-url pattern="/addNewBook.do" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <form-login login-processing-url="/performLogin"
@@ -43,7 +44,7 @@
         <logout logout-success-url="/viewAllBooks.do"/> <!-- /logout; automatically logout -->
     </http>
 
-    <authentication-manager>
+    <authentication-manager alias="vppAuthenticator">
         <authentication-provider>
 
             <jdbc-user-service data-source-ref="datasource"/>
