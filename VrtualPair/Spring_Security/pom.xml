@@ -18,6 +18,8 @@
         <module>p04_b_Filter_Chain</module>
         <module>p05_a_JDBC_User_Service</module>
         <module>p05_b_Overriding_the_Defaults</module>
+        <module>p06_a_Creating_Users_Programmatically</module>
+        <module>p07_a_BCrypt</module>
     </modules>
 
 </project>
