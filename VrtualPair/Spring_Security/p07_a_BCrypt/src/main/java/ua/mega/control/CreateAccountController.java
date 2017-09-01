@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -33,6 +34,9 @@ public class CreateAccountController {
     @Qualifier("vppAuthenticator")
     AuthenticationManager authenticationManager;
 
+    @Autowired
+    BCryptPasswordEncoder encoder;
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView show() {
         return new ModelAndView("create-account", "userFormObject", new UserFormObject());
@@ -48,7 +52,8 @@ public class CreateAccountController {
         List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
         roles.add(new SimpleGrantedAuthority("ROLE_USER"));
 
-        User user = new User(newUser.getUsername(), newUser.getPassword(), roles);
+        String encoderPassword = encoder.encode(newUser.getPassword());
+        User user = new User(newUser.getUsername(), encoderPassword, roles);
         try {
             userManager.createUser(user);
         } catch (DuplicateKeyException e) {
@@ -59,7 +64,7 @@ public class CreateAccountController {
 
         System.out.println("Password is " + user.getPassword());
 
-        Authentication credentials = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+        Authentication credentials = new UsernamePasswordAuthenticationToken(user.getUsername(), newUser.getPassword());
         credentials = authenticationManager.authenticate(credentials);
         if (credentials.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(credentials);
