@@ -44,13 +44,13 @@
         <logout logout-success-url="/viewAllBooks.do"/> <!-- /logout; automatically logout -->
     </http>
 
-    <!--<beans:bean name="bcryptEncoding" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>-->
-
     <authentication-manager alias="vppAuthenticator">
         <authentication-provider>
 
-            <!--<password-encoder ref="bcryptEncoding"/>-->
-            <password-encoder hash="sha-256"/>
+            <password-encoder hash="sha-256">
+                <!--<salt-source system-wide=":somerandomsalt"/>-->
+                <salt-source user-property="username"/>
+            </password-encoder>
 
             <jdbc-user-service data-source-ref="datasource"/>
 
