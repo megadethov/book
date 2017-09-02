@@ -50,8 +50,8 @@ public class CreateAccountController {
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority("ROLE_USER"));
 
-        ShaPasswordEncoder encoder = new ShaPasswordEncoder(256);
-        String encoderPassword = encoder.encodePassword(newUser.getPassword(), newUser.getUsername());
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encoderPassword = encoder.encode(newUser.getPassword());
         User user = new User(newUser.getUsername(), encoderPassword, roles);
         try {
             userManager.createUser(user);

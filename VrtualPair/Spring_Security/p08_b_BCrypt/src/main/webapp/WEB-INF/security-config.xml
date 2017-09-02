@@ -47,10 +47,7 @@
     <authentication-manager alias="vppAuthenticator">
         <authentication-provider>
 
-            <password-encoder hash="sha-256">
-                <!--<salt-source system-wide=":somerandomsalt"/>-->
-                <salt-source user-property="username"/>
-            </password-encoder>
+            <password-encoder hash="bcrypt"/>
 
             <jdbc-user-service data-source-ref="datasource"/>
 
