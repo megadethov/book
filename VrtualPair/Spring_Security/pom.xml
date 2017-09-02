@@ -21,6 +21,7 @@
         <module>p06_a_Creating_Users_Programmatically</module>
         <module>p07_a_BCrypt</module>
         <module>p08_a_SHA-256</module>
+        <module>p08_b_BCrypt</module>
     </modules>
 
 </project>
