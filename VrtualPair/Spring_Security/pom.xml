@@ -20,6 +20,7 @@
         <module>p05_b_Overriding_the_Defaults</module>
         <module>p06_a_Creating_Users_Programmatically</module>
         <module>p07_a_BCrypt</module>
+        <module>p08_a_SHA-256</module>
     </modules>
 
 </project>
