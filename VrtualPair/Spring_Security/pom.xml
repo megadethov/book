@@ -22,6 +22,7 @@
         <module>p07_a_BCrypt</module>
         <module>p08_a_SHA-256</module>
         <module>p08_b_BCrypt</module>
+        <module>p09_a_Spring_Tag_Library</module>
     </modules>
 
 </project>
