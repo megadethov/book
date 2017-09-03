@@ -23,6 +23,7 @@
         <module>p08_a_SHA-256</module>
         <module>p08_b_BCrypt</module>
         <module>p09_a_Spring_Tag_Library</module>
+        <module>p09_b_CSRF</module>
     </modules>
 
 </project>
