@@ -17,7 +17,13 @@
             <li><a href='addNewBook.do'>Add a New Book</a></li>
         </sec:authorize>
         <sec:authorize access="!isAnonymous()">
-            <li><a href='<c:url value="logout"/>'>Logout</a></li>
+            <li>
+                <c:url value="/logout" var="logoutUrl"/>
+                <form method="post" action="${logoutUrl}">
+                    <input type="submit" value="Logout"/>
+                    <sec:csrfInput />
+                </form>
+            </li>
         </sec:authorize>
         <sec:authorize access="isAnonymous()">
             <li><a href='createAccount.do'>Create Account</a></li>

@@ -31,7 +31,7 @@
     <http pattern="/styles.css" security="none"/>
 
     <http>
-        <csrf disabled="true"/>
+        <!--<csrf disabled="true"/>-->
         <intercept-url pattern="/login.jsp" access="permitAll"/>
         <intercept-url pattern="/createAccount.do" access="permitAll"/>
         <intercept-url pattern="/addNewBook.do" access="hasRole('ROLE_ADMIN')"/>
