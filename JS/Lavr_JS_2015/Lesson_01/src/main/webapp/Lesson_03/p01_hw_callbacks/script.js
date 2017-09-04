@@ -36,7 +36,7 @@ window.onload = function(){
         }, (1000 / fps));
    }
    
-   var elem = document.querySelector('.button'); 
+   var elem = document.querySelector('.button');
    fade(elem, 2000, 50, function(){
         console.log('скрыты кнопки');
         fade(elem1, 3000, 50, function(){
@@ -44,7 +44,7 @@ window.onload = function(){
        });
    });
 
-   var elem1 = document.querySelector('.slider'); 
+   var elem1 = document.querySelector('.slider');
    
 
 
