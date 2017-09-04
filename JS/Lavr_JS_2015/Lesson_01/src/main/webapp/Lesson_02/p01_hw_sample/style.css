@@ -1,0 +1,30 @@
+.slider {
+    width: 600px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider img{
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+
+.slider img:first-child{
+    display: block;
+}
+
+.button {
+    width: 600px;
+    
+}
+
+.button button {
+    width: 50%;
+    cursor: pointer;
+}
+
+.button .button_back {
+    float: left;
+}
