@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Моя страница</h1>
+<script>
+    // Просто спец. значения
+    var a = null; // НЕ ССЫЛКА !!!
+    var b = undefined;
+
+    // Странности
+    //    var x = null;
+    //    alert(x > 0); // false
+    //    alert(x == 0); // false
+    //    alert(x >= 0); // true
+
+    //    var x = undefined;
+    //    alert(x > 0); // false
+    //    alert(x == 0); // false
+    //    alert(x < 0); // true
+
+    // АХТУНГ, если нужно проверить на спец. значения - ===
+    alert(a === null); // true
+    alert(b === undefined); // true
+
+
+</script>
+Вот такая страница...
+</body>
+</html>
