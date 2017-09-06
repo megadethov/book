@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Моя страница</h1>
+Вот такая страница...
+<script>
+
+    function sayHi(name, age) { // если параметр не задать = undefined
+
+        if (age === undefined) age = 50; // юзают для задания умолчаний, если параметр не передан в ф-цию.
+        age = age || 50; // сокращенный вариант предыдущего
+
+
+        var message;
+        if (age > 18) {
+            message = "Здравствуйте, " + name;
+        } else {
+            message = "Привет, " + name;
+        }
+        alert(message);
+    }
+
+//    sayHi("Василий Иванович", 50);
+    sayHi("Василий Иванович"); // без 2-го параметра
+
+
+</script>
+</body>
+</html>
