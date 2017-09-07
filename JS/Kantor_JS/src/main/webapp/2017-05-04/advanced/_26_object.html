@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var person = new Object; // создан объект
+    person = {}; // аналог создания объекта
+    person.age = 25; // создано поле у объекта age=25
+//    alert(person.age); // 25
+
+    delete person.age; // удалено поле у объекта
+//    alert(person.age); // undefined
+
+// У такого срособа(точечного) - ограничения на имена - без пробелов. Есть другой способ для пробелов.
+
+    person2 = {};
+    person2["age"] = 25;
+    person2["мой день рождения"] = "20.05.1975";
+//    person2.age == person2["age"]; // true
+//    alert(person2.age);
+//    alert(person2["мой день рождения"]);
+    // Можно получить с-ва по ключу.
+    let key = "мой день рождения";
+//    alert(person2[key]); // 20.05.1975
+
+    var person3 = {age: 30, name: "Вася"};
+    // Для перебора св-в исп. спец. конструкция - for in
+//    for(key in person3) console.log(key); // age name
+//    for(var key in person3) console.log(key); // age name
+    for(let key in person3) console.log(key + ": " + person3[key]); // age: 30 name: Вася
+
+
+</script>
+</body>
+</html>
