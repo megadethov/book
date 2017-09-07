@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var person = {};
+    person["age"] = 25;
+    person["мой день рождения"] = "20.05.1975";
+
+    person[5] = true;
+//    alert(person[5]); // true
+    person["5"] = {test: 10}; // затрет поле 5 и положит туда объект
+
+   // __proto__:Object - фича для наследования
+
+    person[true] = 1;
+    alert(person.true); // 1
+    alert(person["true"]); // 1
+
+
+
+</script>
+</body>
+</html>
