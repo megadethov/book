@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // 1) Преобразование строк.
+    alert(true); // авто преобразование в строку.
+    String(true); // явное преобразование в строку = "true"
+    1 + ""; // способ преобразования к строке
+
+    // 2) Численное преобразование
+    1 + "5" // 15
+    "1" - "0" // 1 Знак минус не работает со строками и преобразовал их к числам.
+    + "123" // 123 Преобразует в строку число.
+    Number("1") // 1
+    Number(undefined) // NaN
+    Number(blabla) // Error
+    Number("blabla") // NaN
+    Number(null) // 0
+    Number(true) // 1
+    Number(false) // 0
+
+    + "" // 0
+    + "0" // 0
+    + false // 0
+    + null // 0
+    + undefined // NaN
+    + true // 1
+    + "2e5" // 200000
+    + "0xff" // 255
+
+    true > false // true
+    true - false // 1
+    true + NaN // NaN
+    "Петя" > "Пеня" // true
+
+    null == undefined // true
+
+    "1" == true // true
+
+    // 3) Логическое преобразование - возвращается не boolean, а последнее значение.
+    undefined, null, NaN, 0, "" // false
+    числа, строки, "0", " " // true
+    Объекты // {}, []  объекты всегда true, даже пустые.
+
+    Boolean(0) // false
+    Boolean(null) // false
+
+    // !! аналог Boolean(value)
+    !!0 // false
+    !!null // false
+
+</script>
+</body>
+</html>
