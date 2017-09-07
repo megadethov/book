@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*    var codes = {
+     "7": "Россия",
+     "38": "Украина",
+     "1": "США"
+     };
+
+     for (var next in codes) console.log(next); // 1, 7, 38 - в отсортированном порядке. (зависит от браузера)
+     */
+
+    // Можно юзать числовые массивы или ...
+    // Воспользоваться хитрым хаком (проще числовых массивов)
+
+    var codes = {
+        "+7": "Россия",
+        "+38": "Украина",
+        "+1": "США"
+    };
+    for (var next in codes) console.log(+next); // +next - приводим к числу (убирает +)
+
+
+
+</script>
+</body>
+</html>
