@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let calc = {
+        read(){
+            this.num1 = +prompt("Enter num 1", "");
+            this.num2 = +prompt("Enter num 2", "");
+        },
+        sum(){
+            alert(this.num1+this.num2);
+        }
+    }
+
+    calc.read();
+    calc.sum();
+</script>
+</body>
+</html>
