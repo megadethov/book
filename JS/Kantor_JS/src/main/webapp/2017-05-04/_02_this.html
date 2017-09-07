@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // В JS this - не привязан не к какому конкретному объекту. Он может быть прописан в ф-ции.
+    // И в зависимости от того кто ее юзает к тому контексту он и относится.
+
+    function sayHi() { // при вызове напрямую, без объекта - TypeError - name undefined
+        alert(this.name);
+    }
+
+    let person1 = {
+        name: "Vasya"
+    };
+
+    let person2 = {
+        name: "Petya"
+    };
+
+    person1.sayHi = person2.sayHi = sayHi; // Создаем переменную - sayHi в объектах и ложим в нее ф-цию.
+    // АХТУНГ - sayHi - это просто ф-ция. sayHi() - а это уже ее вызов.
+
+    person1.sayHi(); // Vasya
+    person2.sayHi(); // Petya
+
+</script>
+</body>
+</html>
