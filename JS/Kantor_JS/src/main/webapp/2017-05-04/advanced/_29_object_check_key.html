@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var person = {age: 30};
+//    alert(person.fullName); // undefined
+    person.fullName = undefined; // НЕ РЕКОМЕНДУЕТСЯ, лучше - null.
+//    alert(person.fulname === undefined); // true
+
+    // Как же определить наличие св-ва? Оператор - in
+    alert("age" in person); // true
+    alert("lalala" in person); // false
+
+    // Проверки
+//    person.age === undefined;
+//    person.age == undefined;
+//    if(person.age);
+
+
+</script>
+</body>
+</html>
