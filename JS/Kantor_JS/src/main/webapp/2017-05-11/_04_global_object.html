@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // window - глобальный объект. В старом стандарте он же явл. и - Глобальный LexicalEnvironment.
+    // В современном стандарте эти понятия разделены.
+    // Соответственно я могу вызвать объявленную ф-цию ч/з window
+
+    function say(word) {
+        alert(word);
+    }
+
+    window.say("HELLO"); // HELLO
+
+    let phrase = "BYE";
+    var phrase2 = "BYE 2";
+
+    alert(window.phrase); // undefine - Т.е. в объекте window такого св-ва нет - let не доступен.
+    alert(window.phrase2); // BYE 2 -  А var в объекте window есть.
+
+    // Раньше window широко использовался в JS разработке, но сейчас его юзать НЕ РЕКОМЕНДУЕТСЯ !
+    // Поэтому свежие новинки, такие как - let, const никак в глобальном объекте window не светятся.
+
+    //Резюме - window - обеспечивает доступ к var, function и встроенным браузерным объектам.
+    // let, const - доступны в Глобальном LexicalEnvironment.
+    // Доступа к LexicalEnvironment нет. Это служебный объект.
+
+    // ===Closures=== - это понимание того, что из ф-ции доступны внешние переменные, а также механизма их создания и доступности.
+
+    // Если скриптовых файлов несколько в одном html, то у них общий на всех - Глобальный LexicalEnvironment.
+</script>
+</body>
+</html>
