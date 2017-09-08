@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Иногда нужна ф-ция с произвольным числом арг-тов.
+    Math.max(1, 2, 3, 4, 100); // пример такой ф-ции, встроенной
+    // В JS можно передавать не все параметры в ф-цию, получат - undefined
+    function go(a, b) {
+//        alert("a = " + a + ", b = " + b);
+        alert(arguments.length);
+        alert(arguments[2]);
+    }
+
+    go(1);            // a = 1, b = undefined;
+    go(1, 2);         // a = 1, b = 2;
+    go(1, 2, 3);      // a = 1, b = 2; как принять 3-й аргумент?
+    // Для этого внутри каждой ф-ции есть спец. объект - arguments(типа массива) -
+    // The syntax function.arguments is deprecated !!!!!
+
+
+</script>
+</body>
+</html>
