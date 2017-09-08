@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3, 4, 5];
+    let sum = arr.reduce((a, b) => a + b); // 15
+//    sum = [].reduce((a, b) => a + b); // Uncaught TypeError: Reduce of empty array with no initial value
+    sum = [].reduce((a, b) => a + b, 0); // добавляем начальное значение для пустого массива = 0
+</script>
+</body>
+</html>
