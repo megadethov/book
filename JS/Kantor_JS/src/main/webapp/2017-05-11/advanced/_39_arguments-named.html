@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Ф-ция может иметь дефолт значения для параметров и мы можем передавать не все.
+    function showWarning(width, height, title, content, showYesNo) {
+        width = width || 200;
+        height = height || 100;
+        title = title || "Предупреждение";
+    }
+
+    showWarning(null, null, "Осторожно", "Злые собаки", true); // проблема помнить их. Что значат первые аргументы?
+
+    // Для этого юзается спец объект - options
+    function showWarning2(options) {
+        let width = options.width || 200;
+        let height = options.height || 100;
+        let title = options.title || "Предупреждение";
+    }
+
+    // И теперь при вызове ф-ции мы передаем не пачку параметров, а 1 объект и все параметры переместили в его поля.
+    // Необязательные аргументы - не нужно указывать, не нужно помнить порядок аргументов.
+    showWarning2({
+        title: "Осторожно",
+        content: "Злые собаки",
+        showYesNo: true
+    });
+
+    // УДОБСТВО. Я могу сохранить объект с парметрами в отдельную переменную и удобно делать повторные вызовы
+
+    let options = {
+        title: "Осторожно",
+        content: "Злые собаки",
+        showYesNo: true
+    };
+
+    options.width = 250; // внести нужные изменения в наьор аргументов
+
+    showWarning2(options); // удобный вызов
+
+</script>
+</body>
+</html>
