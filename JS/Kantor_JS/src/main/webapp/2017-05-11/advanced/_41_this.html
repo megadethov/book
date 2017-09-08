@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // this - не преивязан жестко к объекту и определяется в момент запуска ф-ции
+    // this - объект перед точкой.
+    // пишем отдельно ф-цию, затем копируем ее в объект и она работает в контексте объекта.
+
+    // ф-ция конструктор
+    function User(name) {
+        this.name = name;
+    }
+
+    // отдельная универсальная ф-ция с - this. Может быть записана в несколько объектов
+    function sayHi() {
+//        alert(this.name);
+    }
+
+    let vasya = new User("Василий"); // новый объект
+    let petya = new User("Петр"); // новый объект
+    vasya.sayHi = sayHi; // скопипастили ф-цию в наш объект
+    petya.sayHi = sayHi;
+
+    vasya.sayHi(); // Василий. this указанный в ф-ции работает в контексте нашего объекта.
+    petya.sayHi(); // Петр
+
+    // Если же заюзать ф-цию с this в чистом виде, то в старом стандарте this=window,
+    // а на современном(use strict) = undefined
+    //    sayHi();
+
+    //    ===============================================================
+
+    // call, apply - Еще один способ указать ф-ции this.
+    // В предыдущих вар-тах JS устанавливал this исходя из своих собственных правил, смотря как запущена ф-ция.
+    // Здесь же this передается явно
+
+    let person = {
+        firstName: "Вася",
+        surname: "Петров",
+        patronymic: "Иванович"
+    }
+
+    function showName() {
+//        alert(this.firstName);
+    }
+
+    // обычный вызов
+    /*    person.showName = showName;
+     person.showName();*/
+
+    // call альтернатива
+    showName.call(person); // this указывается в параметре call
+
+    // После указания this, далее ч/з зпт можно указать эл-ты, к-ые перейдут в ф-цию (ФИКСИРОВАНО - соотв. ф-ции)
+    function showFullName(first, last) {
+//        alert(this[first] + " " + this[last]);
+    }
+    showFullName.call(person, "firstName", "surname");
+
+    // call - аргумента ФИКСИРОВАНО - соотв. ф-ции
+    // apply - сколько положишь в массив, столько и будет аргументов.
+    showFullName.apply(person, ["firstName", "surname", "patronymic"]);
+
+    // В современном JS в аргументы можно передать все, даже null и undefined, а в страром, если передать undefined - то будет window
+    function f() {
+        alert(this);
+    }
+
+    //    f.call(undefined); // undefined (c use strict)
+    f.call(undefined); // object Window (без use strict)
+    f.call(null); // object Window (без use strict)
+
+    // Так методы в JS жестко не привязаны к объектам - можно взять и скопировать из одного объекта в другой.
+    // Это называется - одалживание метода. Интересно, что одолжить можно даже встроенный в JS метод.
+    // Допустим у нас есть User. И тут появляется Admin. Чтобы избежать дублирования общих методов в конструкторах - одалживание.
+
+    function Userrr(firstName, surname) {
+        this.firstName = firstName;
+        this.surname = surname;
+        //....
+    }
+    // Появляется конструктор для Admin, есть такие же поля
+    function Admin(firstName, surname) {
+        Userrr.call(this, firstName, surname); // не пишем наново, а одалживаем у User
+    }
+
+    // Отдельная ф-ция
+    let sayBy = function () {
+        alert(this.firstName + " " + this.surname);
+    }
+
+    let userrr = new Userrr("Вася", "Пупкин");
+    let admin = new Admin("Дуся", "Иванова");
+
+    sayBy.call(userrr); // Вася Пупкин
+    sayBy.call(admin); // Дуся Иванова
+
+
+</script>
+</body>
+</html>
