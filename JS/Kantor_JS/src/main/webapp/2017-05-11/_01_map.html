@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = "Лунтик, Ася, Зося".split(",").sort().map(elem => elem.toUpperCase());
+    // split - возвращает массив с именами
+    // sort - сортирует их
+    // map - Нам нужны имена в ВЕРХНЕМ РЕГИСТРЕ. Но у массива нет такого метода, есть у строки.
+    // Чтобы применить его к каждлму эл-ту массива и нужен - map.
+
+    for (let next in arr) {
+        console.log(arr[next]); // АСЯ, ЗОСЯ, ЛУНТИК
+    }
+</script>
+</body>
+</html>
