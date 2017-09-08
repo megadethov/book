@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Для получения даты нужно создать объект
+    let today = new Date(); // Fri Sep 08 2017 07:42:30 GMT+0300 (EEST) - Всегда для текущей зоны.
+    // Можно задать дату в конструкторе. АХТУНГ - месяц с 0-11 !!!
+    let date = new Date(1975, 4, 20, 17, 0, 0, 1000); // Tue May 20 1975 17:00:01 GMT+0200 (MSK)
+    date = new Date(1975, 4, 20); // Tue May 20 1975 00:00:00 GMT+0200 (MSK)
+    date = new Date("1975-04-20"); // Sun Apr 20 1975 02:00:00 GMT+0200 (MSK) - А строкой месяцы 1-12 !!!!!
+    date = new Date(0); // Thu Jan 01 1970 02:00:00 GMT+0200 (MSK)
+    date = new Date(86400 * 1000); // Thu Jan 02 1970 02:00:00 GMT+0200 (MSK) - В сутках мс = 86400 * 1000
+
+    // Сетим дату
+    date.setFullYear(2020, 4, 20); // Wed May 20 2020 02:00:00 GMT+0300 (EEST)
+    // Геттеры
+    today.getHours(); // 8 integer number 0-23
+    let utcHours = today.getUTCHours(); // 5 универсальное время
+
+    // Автокоррекция времени
+    date.setHours(0); // установили часы в 0 - Wed May 20 2020 00:00:00 GMT+0300 (EEST)
+    date.setHours(-2); // -2 часа от текущей даты - Tue May 19 2020 22:00:00 GMT+0300 (EEST)
+
+    // Даты можно вычитать
+/*   let func = function f() {
+        for(let i = 0; i < 1000000; i++) {
+           let d = new Date();
+        }
+    };
+    let start = new Date().getMilliseconds();
+    func();
+    let end = new Date().getMilliseconds();
+    let timer = end - start;*/
+
+    // getTimezoneOffset() - сдвиг текущей таймзоны от нулевого меридиана - В МИНУТАХ !!!
+    let offset = new Date().getTimezoneOffset(); // -180 минут отнять и получим время UTC.
+
+    // parse - Парсинг строковых дат
+    Date.parse("1970-01-02"); // 86400000 - кол-во мс с 1970-01-01
+    // Так можно создавать даты
+    new Date(Date.parse("1970-01-02")); // Fri Jan 02 1970 02:00:00 GMT+0200 (MSK)
+    // аналог
+    new Date("1970-01-02"); // Fri Jan 02 1970 02:00:00 GMT+0200 (MSK)
+
+    // Z - означает UTC
+
+</script>
+</body>
+</html>
