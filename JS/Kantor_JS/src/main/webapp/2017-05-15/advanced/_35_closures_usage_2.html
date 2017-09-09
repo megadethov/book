@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Требуется - чтобы вызов счетчика без параметров работал в штатном режиме инкремента,
+    // а если передать в параметр число - устанавливал его как значение счетчика.
+
+    function myCounter() {
+        let currentCount = 0;
+
+        return  function (newValue) {
+            if (newValue != undefined) {
+                currentCount = +newValue;
+                return currentCount;
+            }
+            currentCount++;
+            return currentCount;
+        }
+    }
+    let counter = myCounter();
+
+    // каждый вызов увеличивает счетчик
+    alert(counter()); // 1
+    alert(counter(5)); // 5
+
+// А что, если нужно расширить функционал myCounter? В таком случае он может уже возвращать целый объект.  - SEE NEXT...
+
+
+
+</script>
+</body>
+</html>
