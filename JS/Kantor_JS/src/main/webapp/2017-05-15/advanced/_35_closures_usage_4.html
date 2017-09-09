@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // А покороче нельзя? Можно. Нужно вернуть снова ф-цию для инкремента, но что делать с доп. методами? Прикрутим их к ф-ции.
+
+    function myCounter() {
+        let currentCount = 0;
+
+        function counter() {
+            return ++currentCount;
+        }
+
+        counter.set = function (value) {
+            currentCount = value;
+        };
+
+       counter.reset = function () {
+           currentCount = 0;
+       }
+
+       return counter;
+    }
+    let count = myCounter();
+
+// Теперь покороче
+    alert(count()); // 1
+    alert(count()); // 2
+
+    count.reset();
+    alert(count()); // 1
+
+// Такое хранение данных типично для JS и используется во многих FW.
+
+</script>
+</body>
+</html>
