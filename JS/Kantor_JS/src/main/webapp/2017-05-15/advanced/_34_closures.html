@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+function outer() {
+   return function inner() {}; // эта ф-ция видит переменные outer
+//   return new Function(); // эта ф-ция НЕ видит переменные outer
+}
+
+</script>
+</body>
+</html>
