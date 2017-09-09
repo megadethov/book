@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Создание модулей - еще одно примение замыканий.
+    // Пример - Пишем свою либу для создания меню
+    //============================================================
+
+    // инициализация ......
+    let browserSupportsNativeModalWindow = /*init*/
+
+        // внутренняя ф-ция
+        function showModalBox(left, top, width, height) {
+            // private
+        }
+
+    // внешние ф-ции
+    function createMenu() {
+        // public
+    }
+    function createDialog() {
+        // public
+    }
+
+    //============================================================
+
+    // Хотелось бы как-то скрыть внутреннюю реализацию от Юзера и оставить внешнюю
+    // Для этого используется прием проектирования - Модуль
+    // Для этого я весь код заверну в ф-цию, к-ая выполняется тут же.
+    // Но ф-ция выполнится и все ее содержимое умрет, поэтому добавляем экспорт в window
+
+    (function () {
+
+        let browserSupportsNativeModalWindow = /*init*/
+
+            // внутренняя ф-ция
+            function showModalBox(left, top, width, height) {
+                // private
+            }
+
+        // внешние ф-ции
+        function createMenu() {
+            // public
+        }
+
+        function createDialog() {
+            // public
+        }
+
+        window.createMenu = createMenu; // добавляем экспорт в window
+        window.createMenu = createDialog(); // добавляем экспорт в window
+
+    })(); // выполняется тут же.
+
+    // Теперь внешний код, к-ый подключится к этой либе увидит только то, что мы подключили к window.
+    // А createMenu, createDialog уже под капотом имеют доступ ко всему коду либы. Все это доступно ч/з замыкание.
+
+    //============================================================
+
+    // Выставлять ф-ции в window(делать их глобальными) - это дурной тон\, обычно делают по другому.
+    // Объявляем переменную и в нее присваиваем результат выполнения ф-ции. А из самой ф-ции возвращаем объект.
+    // И уже в объект ложим то, что хотим выставить Юзеру..
+
+    let myWindowLibrary = (function () {
+
+        let browserSupportsNativeModalWindow = /*init*/
+
+            // внутренняя ф-ция
+            function showModalBox(left, top, width, height) {
+                // private
+            }
+
+        // внешние ф-ции
+        function createMenu() {
+            // public
+        }
+
+        function createDialog() {
+            // public
+        }
+
+        return { // Возвращает наружу
+            createMenu: createMenu,
+            createDialog: createDialog
+        }
+
+    })();
+
+    // Снаружи эту либу юзаем так:
+    myWindowLibrary.createMenu();
+
+    // Такой подход юзается в FW. Как вариант - можно возвращать не объект а ф-цию. А на нее нацеплять нужные св-ва.
+    // См. предыдущее - 35_closures_usage_4
+</script>
+</body>
+</html>
