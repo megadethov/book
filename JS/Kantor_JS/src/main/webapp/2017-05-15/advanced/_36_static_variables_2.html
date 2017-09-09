@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // А как же сделать ее статической? В JS нет слова - static.
+    // Вариант 1 - с помощью замыкания.
+    // function sayHi - не просто объявляется, записывается как результат выполнения промежуточной ф-ции в переменную.
+
+    let sayHi = (function () {
+        let count = 0; // теперь это статик переменная, тк она используется внутренней ф-цией.
+
+        // вся логика заворачивается в return function
+        return function () { // эта ф-ция использует внешнюю переменную count
+            count++;
+            alert("Привет " + count);
+        };
+    })();
+
+    sayHi(); // Привет 1
+    sayHi(); // Привет 2 // теперь count общая
+
+    // Следующий вариант - SEE NEXT
+
+</script>
+</body>
+</html>
