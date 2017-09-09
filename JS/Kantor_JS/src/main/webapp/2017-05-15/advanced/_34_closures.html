@@ -9,7 +9,7 @@
 
 function outer() {
    return function inner() {}; // эта ф-ция видит переменные outer
-//   return new Function(); // эта ф-ция НЕ видит переменные outer
+//   return new Function(); // эта ф-ция НЕ видит переменные outer. Видит только - Глобальную область видимости.
 }
 
 </script>

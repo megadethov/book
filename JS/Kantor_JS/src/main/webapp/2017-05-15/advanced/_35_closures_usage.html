@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function myCounter() {
+        let currentCount = 0; // ф-ция тоже объект, а это ее поле
+
+        return  function () {
+            currentCount++;
+            return currentCount;
+        }
+    }
+    let counter = myCounter();
+    let counter2 = myCounter(); // так мы получили второй неЗАВИСИМЫЙ объект со своим полем - currentCount.
+
+    // каждый вызов увеличивает счетчик
+    counter();
+    counter();
+    alert(counter()); // 3
+
+    counter2();
+    alert(counter2()); // 2
+
+    // АХТУНГ - ч/з let counter я никак не могу напрямую менять поле currentCount. Это делает ф-ция myCounter()
+
+    // Требуется - чтобы вызов счетчика без параметров работал в штатном режиме инкремента,
+    // а если передать в параметр число - устанавливал его как значение счетчика. - SEE NEXT...
+
+
+</script>
+</body>
+</html>
