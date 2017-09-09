@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // А что, если нужно расширить функционал myCounter? В таком случае он может уже возвращать целый объект.
+
+    function myCounter() {
+        let currentCount = 0;
+
+        return {
+            getNext: function () {
+                return ++currentCount;
+            },
+            set: function (value) {
+                currentCount = value;
+            },
+            reset: function () {
+                currentCount = 0;
+            }
+        };
+    }
+    let counter = myCounter();
+
+    // каждый вызов увеличивает счетчик
+    alert(counter.getNext()); // 1
+    alert(counter.getNext()); // 2
+
+    counter.reset();
+    alert(counter.getNext()); // 1
+
+    // А покороче нельзя? Можно. SEE NEXT...
+
+</script>
+</body>
+</html>
