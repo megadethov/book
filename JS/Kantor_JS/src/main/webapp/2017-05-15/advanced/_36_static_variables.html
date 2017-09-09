@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Статик переменная(поле) - сохраняет свое значение при повторных вызовах ф-ции
+
+    //
+    function sayHi() {
+        let count = 0; // обычное поле для каждого вызова ф-ции свое
+
+        count++;
+        alert("Привет " + count);
+    }
+
+    sayHi(); // Привет 1
+    sayHi(); // Привет 1
+
+    // А как же сделать ее статической? В JS нет слова - static.
+    // Вариант 1 - с помощью замыкания. SEE NEXT...
+
+</script>
+</body>
+</html>
