@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Context</title>
+    <script>
+        function ContextTest3() {
+            console.log(this instanceof ContextTest3);
+        }
+
+        // При вызове ф-ции с ключевым словом new контекстом будет новый пустой объект
+        new ContextTest3(); // true
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
