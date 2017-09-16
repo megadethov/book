@@ -1,0 +1,13 @@
+package ua.mega;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ValidateISBNTest {
+
+    @Test
+    public void checkAValidISBN() {
+        fail();
+    }
+}
