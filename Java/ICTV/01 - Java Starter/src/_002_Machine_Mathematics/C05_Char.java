@@ -1,4 +1,4 @@
-package com.itvdn.javaStarter;
+package _002_Machine_Mathematics;
 
 public class C05_Char {
     public static void main(String[] args) {
