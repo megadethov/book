@@ -1,0 +1,1 @@
+Can not deploy MDB because of service jboss.ejb.default-resource-adapter-name-service not found

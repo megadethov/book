@@ -31,7 +31,7 @@ public class OuterClass { // класс
     }
 
     public static void main(String[] args) {
-        OuterClass outerClass = new OuterClass(); // инстанс Outer лласса
+        OuterClass outerClass = new OuterClass(); // инстанс Outer класса
         outerClass.outerMethod(); // вызов метода Outer объекта
 
         System.out.println("-----------------------");
