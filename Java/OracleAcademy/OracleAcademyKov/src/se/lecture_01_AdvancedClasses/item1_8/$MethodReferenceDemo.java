@@ -17,8 +17,9 @@ public class $MethodReferenceDemo {
         funcPrint.print("Hello");
 
         // var 3
-        funcPrint = System.out::println;
+        funcPrint = System.out::println; // здесь мы не пишем реализацию, а указываем готовую кдасс::метод
         funcPrint.print("Hello");
+
     }
 }
 

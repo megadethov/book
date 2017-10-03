@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println("Operator's code is " + byDigit[1]); // Operator's code is 093
 
-        System.out.println("Phone number without code " + byDigit[2]);// Phone number without code 1816482
+        System.out.println("Phone number without code " + byDigit[2]);// Phone number without code 1234567
 
     }
 }
