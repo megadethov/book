@@ -1,4 +1,4 @@
-package ua.mega.concurrency._01_Not_thread_safe;
+package ua.mega.concurrency._02_synchronized_bouth_account;
 
 import javax.naming.InsufficientResourcesException;
 
@@ -24,8 +24,14 @@ public class Operations {
         if (acc1.getBalance() < amount) {
             throw new InsufficientResourcesException();
         }
+        // теперь только один поток может работать с обеими аккаунтами
+        // но возможен - DeadLock
+        synchronized (acc1){
+            synchronized (acc2){
+                acc1.withdraw(amount);
+                acc2.deposit(amount);
+            }
+        }
 
-        acc1.withdraw(amount);
-        acc2.deposit(amount);
     }
 }
