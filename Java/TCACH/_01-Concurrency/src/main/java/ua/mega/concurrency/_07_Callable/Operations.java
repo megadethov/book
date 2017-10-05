@@ -1,4 +1,4 @@
-package ua.mega.concurrency._05_Failed_Transfer_Counter;
+package ua.mega.concurrency._07_Callable;
 
 import javax.naming.InsufficientResourcesException;
 import java.util.concurrent.TimeUnit;
@@ -44,11 +44,10 @@ public class Operations {
                 }
             } else {
                 System.out.println("Sorry - не удалось выполнить трансфер");
-                // здесь снова не thread safe, тк много потоков могут инкрементить
-                // volatile работает только для атомарных операций, например запись-чтение - true/false, increment - не атомарная
-                // делать снова lock - не хорошо. Как сделать инкремент атомарным? - Atomic - не блокирует другие потоки. Есть для разных типов.
-                acc1.incFailedTransferCount();
-                acc2.incFailedTransferCount();
+                // заменим инкремент на атомик, не блокирующий работает очень быстро
+                // аналог volatile, но для не атомик операций.
+                acc1.getFailCounter().incrementAndGet();
+                acc2.getFailCounter().incrementAndGet();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
