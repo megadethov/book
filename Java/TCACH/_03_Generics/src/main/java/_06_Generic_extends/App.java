@@ -1,4 +1,4 @@
-package _06_Generic_inheritance;
+package _06_Generic_extends;
 
 public class App {
     public static void main(String[] args) {
