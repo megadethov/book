@@ -1,6 +1,6 @@
 package _01_Creational.Builder.Stage_01;
 
-public class WebSiteBuilder {
+public class App {
     public static void main(String[] args) {
 
         Website website = new Website();
@@ -10,5 +10,7 @@ public class WebSiteBuilder {
         website.setPrice(500);
 
         System.out.println(website);
+
+        // Предположим, что мы хотим делать несколько сайтов (Студия).
     }
 }
