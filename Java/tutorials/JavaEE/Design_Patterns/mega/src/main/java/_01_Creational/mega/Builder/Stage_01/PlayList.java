@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PlayList {
 
-   private List<String> listTracks = new ArrayList<>();
+    private List<String> listTracks = new ArrayList<>();
 
     public void addTrackToPlayList(String track) {
         listTracks.add(track);
