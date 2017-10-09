@@ -1,4 +1,4 @@
-package _02_Structural.Composite;
+package _02_Structural.Composite.Stage_01;
 
 import java.util.ArrayList;
 import java.util.List;

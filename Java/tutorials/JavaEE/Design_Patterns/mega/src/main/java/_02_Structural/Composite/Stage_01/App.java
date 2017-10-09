@@ -1,4 +1,4 @@
-package _02_Structural.Composite;
+package _02_Structural.Composite.Stage_01;
 
 public class App {
     public static void main(String[] args) {
