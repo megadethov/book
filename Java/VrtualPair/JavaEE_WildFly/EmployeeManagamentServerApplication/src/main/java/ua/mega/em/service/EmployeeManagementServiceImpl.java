@@ -2,9 +2,11 @@ package ua.mega.em.service;
 
 import ua.mega.em.domain.Employee;
 
+import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 public class EmployeeManagementServiceImpl implements EmployeeManagementService {
     @Override
     public void registerEmployee(Employee newEmployee) {
