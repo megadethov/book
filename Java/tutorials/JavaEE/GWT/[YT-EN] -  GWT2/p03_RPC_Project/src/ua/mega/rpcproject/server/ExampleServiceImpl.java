@@ -7,11 +7,13 @@ public class ExampleServiceImpl extends RemoteServiceServlet implements ExampleS
 
     @Override
     public String sayHello(String name) {
-        return null;
+        String greeting = "Hello " + name;
+        return greeting;
     }
 
     @Override
     public int addTwoNums(int a, int b) {
-        return 0;
+        int sum = a + b;
+        return sum;
     }
 }
