@@ -45,6 +45,9 @@ public class ExampleServiceClientImpl implements ExampleServiceClient {
             if (result instanceof String) {
                 String greeting = (String) result;
                 mainGUI.updateLabel(greeting);
+            } else if (result instanceof Integer) {
+                int sum = (int) result;
+                mainGUI.updateSumLabel(sum);
             }
         }
     }

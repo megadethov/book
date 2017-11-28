@@ -11,6 +11,10 @@ public class MainGUI extends Composite {
     private TextBox txt1;
     private Label resultLbl;
 
+    private TextBox txtNum1;
+    private TextBox txtNum2;
+    private Label sumLbl;
+
     ExampleServiceClientImpl serviceImpl;
 
     public MainGUI(ExampleServiceClientImpl serviceImpl) {
@@ -32,9 +36,35 @@ public class MainGUI extends Composite {
 
         this.resultLbl = new Label("Result will be here");
         this.vPanel.add(resultLbl);
+
+        // add 2 nums
+        this.txtNum1 = new TextBox();
+        this.vPanel.add(txtNum1);
+
+        this.txtNum2 = new TextBox();
+        this.vPanel.add(txtNum2);
+
+        Button btn2 = new Button("Add two numbers");
+        btn2.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                int num1 = Integer.valueOf(txtNum1.getText());
+                int num2 = Integer.valueOf(txtNum2.getText());
+
+                serviceImpl.addTwoNums(num1, num2);
+            }
+        });
+        this.vPanel.add(btn2);
+
+        this.sumLbl = new Label("Sum will be here");
+        this.vPanel.add(sumLbl);
+
     }
 
     public void updateLabel (String greeting){
         this.resultLbl.setText(greeting);
+    }
+    public void updateSumLabel (int sum){
+        this.sumLbl.setText("" + sum);
     }
 }
