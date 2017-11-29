@@ -29,6 +29,16 @@ public class ExampleServiceClientImpl implements ExampleServiceClient {
         service.addTwoNums(a, b, new DefaultCallback());
     }
 
+    @Override
+    public void getPersonalInfo(String familyName) {
+        this.service.getPersonalInfo(familyName, new DefaultCallback());
+    }
+
+    @Override
+    public void getImages() {
+        this.service.getImages(new DefaultCallback());
+    }
+
     public MainGUI getMainGUI() {
         return this.mainGUI;
     }
