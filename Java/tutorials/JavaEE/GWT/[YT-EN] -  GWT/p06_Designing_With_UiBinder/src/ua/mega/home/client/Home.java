@@ -9,12 +9,9 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 public class Home implements EntryPoint {
 
-    private Label msg = new Label("Hello, World");
-    private Button btn = new Button("Click me");
+    private LittleForm form = new LittleForm();
 
     public void onModuleLoad() {
-        RootPanel.get().add(msg);
-        RootPanel.get().add(btn);
-
+        RootPanel.get().add(form);
     }
 }
