@@ -14,7 +14,8 @@ public class Home implements EntryPoint {
 
     public void onModuleLoad() {
 
-        menu = new MenuBar();
+//        menu = new MenuBar(); // horizontal menu
+        menu = new MenuBar(true); // vertical menu
         Command cmd = new Command() {
             @Override
             public void execute() {
@@ -22,6 +23,8 @@ public class Home implements EntryPoint {
             }
         };
         menu.addItem(new MenuItem("File", cmd));
+        menu.addItem(new MenuItem("Edit", cmd));
+        menu.addItem(new MenuItem("Refactor", cmd));
 
         RootPanel.get().add(menu);
     }
