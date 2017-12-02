@@ -47,7 +47,7 @@ public class Home implements EntryPoint {
             }
         });
 
-        RootPanel.get().add(btn);
-        RootPanel.get().add(btn2);
+        RootPanel.get("btndiv").add(btn);
+        RootPanel.get("btndiv").add(btn2);
     }
 }
