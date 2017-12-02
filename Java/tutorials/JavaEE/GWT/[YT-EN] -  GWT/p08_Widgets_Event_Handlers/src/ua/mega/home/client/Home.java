@@ -9,7 +9,10 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 public class Home implements EntryPoint {
 
-    public void onModuleLoad() {
+    private Button btn;
 
+    public void onModuleLoad() {
+        btn = new Button("Click me!");
+        RootPanel.get().add(btn);
     }
 }
