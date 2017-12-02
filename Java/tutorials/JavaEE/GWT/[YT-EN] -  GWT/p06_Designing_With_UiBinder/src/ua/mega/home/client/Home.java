@@ -12,6 +12,7 @@ public class Home implements EntryPoint {
     private LittleForm form = new LittleForm();
 
     public void onModuleLoad() {
+//        form.setText("New Text");  // Bad style - use ui.xml
         RootPanel.get().add(form);
     }
 }

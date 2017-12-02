@@ -14,4 +14,9 @@ public class LittleForm extends Composite {
     public LittleForm() {
         initWidget(ourUiBinder.createAndBindUi(this));
     }
+
+    // Bad style - use ui.xml
+/*   public void setText(String text) {
+        // set text
+    }*/
 }
