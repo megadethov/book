@@ -7,12 +7,15 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.MenuBar;
 import com.google.gwt.user.client.ui.MenuItem;
 import com.google.gwt.user.client.ui.RootPanel;
+import ua.mega.home.shared.Person;
 
 public class Home implements EntryPoint {
 
     public void onModuleLoad() {
 
-        Label lbl = new Label("Hello World!");
+        Person person = new Person();
+
+        Label lbl = new Label("Hello! My name is " + person.getFirstName() + " " + person.getLastName());
 
         RootPanel.get().add(lbl);
     }
