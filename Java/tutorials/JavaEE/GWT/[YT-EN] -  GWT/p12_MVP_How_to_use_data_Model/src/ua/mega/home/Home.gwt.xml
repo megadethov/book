@@ -1,0 +1,21 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+        "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
+<module rename-to="Home">
+
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.google.gwt.user.theme.standard.Standard"/>
+    <!--<inherits name="com.google.gwt.user.theme.chrome.Chrome"/>-->
+    <!--<inherits name="com.google.gwt.user.theme.dark.Dark"/>-->
+
+    <!--it is compile to the JS-->
+    <source path="client"/>
+    <source path="shared"/> <!--Model from this pack accessible in the browser-->
+
+    <!-- Specify the app entry point class.                   -->
+    <entry-point class='ua.mega.home.client.Home'/>
+
+    <!-- Specify the app servlets.                   -->
+    <!--<servlet path='/HomeService' class='ua.mega.home.server.HomeServiceImpl'/>-->
+
+</module>
