@@ -10,7 +10,7 @@
 
     <!--it is compile to the JS-->
     <source path="client"/>
-    <source path="shared"/>
+    <source path="shared"/> <!--Model from this pack accessible in the browser-->
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='ua.mega.home.client.Home'/>
