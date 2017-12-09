@@ -3,7 +3,9 @@
 <module rename-to="BaseGwt">
 
     <!-- Inherit the core Web Toolkit stuff.                  -->
-    <inherits name='com.google.gwt.user.User'/>
+    <!--<inherits name='com.google.gwt.user.User'/>-->
+    <!--GXT-->
+    <inherits name='com.sencha.gxt.ui.GXT'/>
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='ua.mega.baseGwt.client.BaseGwt'/>

@@ -3,12 +3,5 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <servlet>
-        <servlet-name>ua.mega.baseGwt.BaseGwt BaseGwtService</servlet-name>
-        <servlet-class>ua.mega.baseGwt.server.BaseGwtServiceImpl</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ua.mega.baseGwt.BaseGwt BaseGwtService</servlet-name>
-        <url-pattern>/BaseGwt/BaseGwtService</url-pattern>
-    </servlet-mapping>
+
 </web-app>
