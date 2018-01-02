@@ -1,0 +1,23 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+        "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
+<module rename-to="VerticalLayoutUiBinder">
+
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+    <!--GXT-->
+    <inherits name='com.sencha.gxt.ui.GXT'/>
+
+    <!-- GXT stylesheet -->
+    <stylesheet src="reset.css" /> <!-- Sets up the GXT default stylesheet -->
+
+    <!-- Neptune Theme -->
+    <!--<inherits name="com.sencha.gxt.theme.neptune.Theme" />-->
+
+    <!-- Specify the app entry point class.                   -->
+    <entry-point class='ua.mega.VerticalLayoutUiBinder.client.VerticalLayoutUiBinder'/>
+
+    <!-- Specify the paths for translatable code -->
+    <source path='client' />
+    <source path='shared' />
+
+</module>
