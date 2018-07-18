@@ -1,4 +1,4 @@
-package ua.mega.verticalLayout.client;
+package ua.mega.VerticalLayoutUiBinder.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.IsWidget;
