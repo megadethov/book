@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <h2>
+        <input type="text" v-on:keyup="alertValue">
+    </h2>
+
+    <hr>
+
+    <!--варик функция без ифа всегда на enter-->
+    <!--варики клавиш:  space... можно собирать в цепочку, создавать кастомные, см офдок Vue-->
+    <h2>
+        <input type="text" v-on:keyup.enter="alertValue">
+    </h2>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+            alertValue: function (event) {
+//                alert(event.target.value)
+                if(event.keyCode === 13) {  13 - /*enter key code*/
+                    alert(event.target.value)
+                }
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
