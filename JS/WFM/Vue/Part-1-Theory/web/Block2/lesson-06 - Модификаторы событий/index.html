@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--вариант чистого JS-->
+
+    <h2>
+        <a href="http://google.com" target="_blank" v-on:click="clickOnGoogle">Google</a>
+    </h2>
+
+    <hr>
+
+    <!--вариант Vue модификатора без метода-->
+
+    <h2>
+        <a href="http://google.com" target="_blank" v-on:click.prevent>Google</a>
+    </h2>
+
+    <hr>
+
+    <!--обработка мыши-->
+
+    <h2 v-on:mousemove="mouseMoveHandler">
+        X: {{ x }} / Y: {{ y }}
+
+        <span v-on:mousemove.stop>Не изменять</span>
+    </h2>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0
+        },
+        methods: {
+            clickOnGoogle: function (event) {
+                event.preventDefault()
+            },
+            mouseMoveHandler: function (event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
