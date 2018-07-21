@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <h2>
+        <a v-bind:href="url">Google</a>
+
+        <!--чтобы не писать v-bind - ярлык, те просто :-->
+        <a :href="url">Google</a>
+    </h2>
+
+    <hr>
+
+    <h2>
+        counter: {{ counter }}
+    </h2>
+    <button v-on:click="counter++">Rise</button>
+
+    <!--ярлыком для событий v-on будет @ без :-->
+    <button @click="counter++">Rise</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            url: 'http://google.com',
+            counter: 0
+        },
+        methods: {
+            alertValue: function (event) {
+//                alert(event.target.value)
+                if (event.keyCode === 13) {
+                    13 - /*enter key code*/
+                    alert(event.target.value)
+                }
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
