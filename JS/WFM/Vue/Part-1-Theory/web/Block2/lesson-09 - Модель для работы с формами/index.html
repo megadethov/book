@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--хрень-->
+    <!--<input type="text" @input="inputValue = $event.target.value">-->
+
+    <!--модно - two way model binding-->
+    <input type="text" v-model="inputValue">
+
+    <!--модно - two way model binding + lazy Сработает только после потери фокуса на инпуте-->
+    <!--<input type="text" v-model.lazy="inputValue">-->
+
+    <h2>{{ inputValue }}</h2>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            inputValue: 'InitialValue'
+        }
+    })
+
+</script>
+</body>
+</html>
