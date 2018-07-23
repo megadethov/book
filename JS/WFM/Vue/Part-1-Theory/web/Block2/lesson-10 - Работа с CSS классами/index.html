@@ -30,10 +30,37 @@
 
 <div id="app">
 
-    <div
+<!--    <div
             class="circle"
             @click="isActive = !isActive"
             :class="{'red': isActive}"
+    ></div>-->
+
+<!--    <div
+            class="circle"
+            @click="isActive = !isActive"
+            :class="{'red': isActive, 'green': !isActive}"
+    ></div>-->
+
+<!--    <div class="circle" :class="color"></div>
+    <input type="text" v-model="color">--> <!--задаем 1 из 3-х классов прямо в инпуте-->
+
+    <!--здесь передается массив (приоритет выполнения слева-направо)-->
+<!--    <div class="circle" :class="[color, {'red': isActive}]"></div>
+    <input type="text" v-model="color">-->
+
+    <!--метод getCssClasses() позволяет сократить запись :class="{'red': isActive, 'green': !isActive}"-->
+<!--        <div
+            class="circle"
+            @click="isActive = !isActive"
+            :class="getCssClasses()"
+    ></div>-->
+
+    <!--юзать каждый раз метод - накладно. Для этого есть - computed - вызывается как переменная без ()-->
+    <div
+            class="circle"
+            @click="isActive = !isActive"
+            :class="getCssClasses"
     ></div>
 
 </div>
@@ -44,7 +71,24 @@
     new Vue({
         el: '#app',
         data: {
-            isActive: false
+            isActive: false,
+            color: 'blue'
+        },
+        computed: {
+            getCssClasses: function() {
+                return {
+                    'red': this.isActive,
+                    'green': !this.isActive
+                }
+            }
+        },
+        methods: {
+/*            getCssClasses: function () {
+               return {
+                   'red': this.isActive,
+                   'green': !this.isActive
+               }
+            }*/
         }
     })
 
