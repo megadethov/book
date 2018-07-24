@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 40px;
+        }
+
+        .red {
+            background: red;
+        }
+
+        .blue {
+            background: blue;
+        }
+
+        .green {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+
+    <!--<div class="circle" :style="{'background': color}"></div>--> <!--теперь в инпуте можем указывать любой цвет-->
+    <!--теперь мы управляем еще и высотой-->
+    <!--<div class="circle" :style="{'background': color, 'height': height + 'px'}"></div>-->  <!--отсюда стиль можно вынести в computed:-->
+    <div class="circle" :style="getCssClasses"></div>  <!--отсюда стиль можно вынести в computed:-->
+
+    <!--также можем задать массивом стили-->
+    <div class="circle" :style="[getCssClasses, {'width': height + 'px'}]"></div>
+
+    <input type="text" v-model="color">
+    <input type="text" v-model="height">
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            isActive: false,
+            color: 'blue',
+            height: 180
+        },
+        computed: {
+            getCssClasses: function () {
+                return {
+                    'background': this.color,
+                    'height': this.height + 'px'
+                }
+            }
+        }
+
+    })
+
+</script>
+</body>
+</html>
