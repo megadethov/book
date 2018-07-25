@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--покажет либо один либо др. заголовок (в исходнике страницы)-->
+<!--    <h1 v-if="isVisible">I'm visible</h1>
+    <h2 v-else>You can't see me</h2>-->
+
+    <!--v-show же просто стилями скрывает заголовок - display: none (в исходнике оба есть)-->
+    <h1 v-show="isVisible">I'm visible</h1>
+    <h2 v-show="!isVisible">You can't see me</h2>
+
+    <hr>
+
+    <button @click="isVisible = !isVisible">Toggle</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            isVisible: true
+        }
+    })
+
+</script>
+</body>
+</html>
