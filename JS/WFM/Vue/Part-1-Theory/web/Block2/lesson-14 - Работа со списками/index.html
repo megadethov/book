@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--вывод массива списком втупую-->
+    <ul>
+        <li>{{ people[0] }}</li>
+        <li>{{ people[1] }}</li>
+        <li>{{ people[2] }}</li>
+    </ul>
+
+    <!--v-for деректива-->
+    <ul>
+        <li v-for="person in people">{{ person }}</li>
+    </ul>
+
+    <!--варик с 2-мя переменными-->
+    <ul>
+        <li v-for="(person, index) in people">{{ index }} {{ person }}</li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            people: [
+                'Vlad',
+                'Max',
+                'Elena',
+                'Masha'
+            ]
+        }
+    })
+
+</script>
+</body>
+</html>
