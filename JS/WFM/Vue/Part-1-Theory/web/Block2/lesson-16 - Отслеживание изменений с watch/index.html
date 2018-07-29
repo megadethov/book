@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <h2> counter {{ counter }}</h2>
+
+    <button @click="add">Add</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            }
+        },
+        computed: {
+
+        },
+        /*отслеживаем данные из блока data - нужно создать одноименную ф-цию*/
+        watch: {
+/*            counter: function () {
+              alert(this.counter)
+            }*/
+/*варик - на входе значение, отслеживаемого св-ва*/
+            counter: function (val) {
+                alert(val)
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
