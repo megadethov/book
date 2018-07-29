@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--варик с массивом объектов-->
+    <ul>
+        <li v-for="(person, index) in people">{{ index }}. {{ person.name }} - <b>{{ person.age }}</b></li>
+    </ul>
+
+    <!--варик(ECMA6) in -> of-->
+    <ul>
+        <li v-for="(person, index) of people">{{ index + 1 }}. {{ person.name }} - <b>{{ person.age }}</b></li>
+    </ul>
+
+    <!--варик числа без массива-->
+    <ul>
+        <li v-for="num of 5">{{ num }}</li>
+    </ul>
+
+    <!--v-for работает не только с массивами, но и с объектами-->
+    <ul>
+        <li v-for="value in person">{{ value }}</li>
+    </ul>
+
+    <!--v-for работает не только с массивами, но и с объектами
+    варик с выводом ключей-->
+    <ul>
+        <li v-for="(value, key) in person"><b>{{ key }}</b> - {{ value }}</li>
+    </ul>
+
+    <!--v-for работает не только с массивами, но и с объектами
+варик с выводом ключей и индексом-->
+    <ul>
+        <li v-for="(value, key, index) in person">{{ index + 1 }}. <b>{{ key }}</b> - {{ value }}</li>
+    </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            people: [
+                {name: 'Vlad', age: 20},
+                {name: 'Max', age: 25},
+                {name: 'Olga', age: 30}
+            ],
+            person: {
+                name: 'Max',
+                age: 50,
+                job: 'developer'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
