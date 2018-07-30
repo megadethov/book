@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <h2> {{ title }}</h2>
+
+<!--    Если просто вывести переменную, созданную вне блока app - не сработает
+    А вот если ее проинитить из app2 - то она отрисуется-->
+    <h3>{{ newField }}</h3>
+
+    <button @click="title = 'Updated Title'">Update Title</button>
+
+</div>
+
+<hr>
+
+<!--2-ой инстанс Vue-->
+<div id="app2">
+    <h2> {{ title }}</h2>
+    <button @click="updateAppTitleFromApp2">Update first title</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    //    Для того, чтобы обращаться из одного инстанса к другому, положим его в переменную
+    var vue1 = new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello I am Vue'
+        },
+        methods: {
+            alertFast: function () {
+                alert('I am from vue1')
+            }
+        }
+    })
+
+    //    в консоли можем посмотреть из чего состоит объект Vue
+    console.log(vue1)
+
+    vue1.newField = "Random Text"
+
+    new Vue({
+        el: '#app2 ',
+        data: {
+            title: 'Hello from Vue 2'
+        },
+        methods: {
+            updateAppTitleFromApp2: function () {
+                vue1.title = 'Updated vue1.title from App 2'
+                vue1.newField = "Init vue1.newField form App 2"
+
+//                так мы можем обращаться к методам из другого инстанса
+                setTimeout(function(){
+                    vue1.alertFast()
+                }, 1000)
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
