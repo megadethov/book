@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+    <!--<h2>{{ title }}</h2>--> <!--вместо этого юзаем template-->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    //    старый варик
+/*    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello I am Vue!'
+        }
+    })*/
+
+    //    новый варик
+    var vue = new Vue({
+        data: {
+            title: 'Hello I am Vue!'
+        },
+        template: '<h1>{{ title }}</h1>' /*ограничения по исп. - нужен корневой эл-т, например - div*/
+    });
+    vue.$mount('#app')
+
+</script>
+</body>
+</html>
