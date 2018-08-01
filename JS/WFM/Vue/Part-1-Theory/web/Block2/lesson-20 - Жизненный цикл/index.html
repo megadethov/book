@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{ title }}</h2>
+
+    <button @click="title = 'Changed title'">Change</button>
+    <button @click="doDestroy">Destroy</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello I am Vue!'
+        },
+        methods: {
+            doDestroy: function () {
+               this.$destroy() /*приложение уничтожено и больше не работает*/
+            }
+        },
+
+
+//        вызывается перед созданием инстанса приложения
+        beforeCreate: function () {
+            console.log('Before Create')
+        },
+//        далее вызывается callback (на этом этапе приложение уже создано, но еще нет никакого HTML)
+        created: function () {
+            console.log('Created')
+        },
+//        здесь Vue уже fyfkbpbhetn b готовится вставить шаблон в дом дерево
+        beforeMount: function () {
+            console.log('Before Mount')
+        },
+//        шаблон сгенерен и вставлен в дом дерево
+        mounted: function () {
+            console.log('Mounted')
+        },
+//        Это былиосновные этапы, но есть еще вспомогательные цикличные.
+//        Вызываются до и после каких-либо изменений
+        beforeUpdate: function () {
+            console.log('Before Update')
+        },
+        updated: function () {
+            console.log('Updated')
+        },
+//        И еще 2, позволяют отслеживать уничтожение компонента
+        beforeDestroy: function () {
+            console.log('Before Destroy')
+        },
+        destroyed: function () {
+            console.log('Destroyed')
+        }
+    })
+
+
+
+</script>
+</body>
+</html>
