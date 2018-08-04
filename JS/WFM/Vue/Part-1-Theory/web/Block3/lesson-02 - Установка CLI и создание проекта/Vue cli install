@@ -1,0 +1,36 @@
+https://github.com/vuejs/vue-cli/tree/master
+
+Installation
+Prerequisites: Node.js (>=6.x, 8.x preferred), npm version 3+ and Git.
+
+$ npm install -g vue-cli
+
+Usage:
+$ vue init <template-name> <project-name>
+Example:
+$ vue init webpack my-project
+
+==========================================================
+ВНИМАНИЕ!
+SyntaxError: Block-scoped declarations (let, const, function, class) not yet supported outside strict mode
+РЕШЕНИЕ:
+I had the same problem coused by the old version of nodejs package on Ubuntu. I've just updated to 7.5 and it's working.
+
+curl -sL  https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+==========================================================
+
+init webpack-simple vue-project
+? Project name vue-project
+? Project description A Vue.js project
+? Author Yuriy Yefremov <megadethov@gmail.com>
+? License MIT
+? Use sass? No
+
+   vue-cli · Generated "vue-project".
+
+   To get started:
+
+     cd vue-project
+     npm install
+     npm run dev
