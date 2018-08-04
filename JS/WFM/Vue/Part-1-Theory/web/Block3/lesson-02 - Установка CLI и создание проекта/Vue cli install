@@ -20,7 +20,7 @@ curl -sL  https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ==========================================================
 
-init webpack-simple vue-project
+vue init webpack-simple vue-project
 ? Project name vue-project
 ? Project description A Vue.js project
 ? Author Yuriy Yefremov <megadethov@gmail.com>
