@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+    <!--    <div style="border: 1px solid black;padding: 10px;">
+            <h1>{{ counter }}</h1>
+            <button @click="counter++">Counter</button>
+        </div>
+
+        <div style="border: 1px solid black;padding: 10px;">
+            <h1>{{ counter2 }}</h1>
+            <button @click="counter2++">Counter 2</button>
+        </div>-->
+
+    <!--Трабла в том, что мы дублируем разметку для 2-х счетчиков, а если их 20
+    Для решения и были придуманы компоненты-->
+
+    <my-counter></my-counter> <!--и это все-->
+    <my-counter></my-counter> <!--еще один-->
+
+    <my-counter v-for="c in 20"></my-counter> <!--сразу 20-->
+
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    //    У глобальной переменной Vue есть ф-ция, 1-й параметр - имя тега, к-й будем исп. (типа кастом тег)
+    //    Обязательно до инита приложения
+    Vue.component('my-counter', {
+        template: `
+    <div style="border: 1px solid black;padding: 10px;">
+        <h1>{{ counter }}</h1>
+        <button @click="add">Counter</button>
+    </div>
+        `,
+//        ВНИМАНИЕ поле data должно быть в шаблоне ф-цией
+        /*        data: {
+         counter: 0
+         },*/
+        data: function () {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app',
+        /*        data: {
+         counter: 0,
+         counter2: 0
+         }*/
+    })
+
+</script>
+</body>
+</html>
