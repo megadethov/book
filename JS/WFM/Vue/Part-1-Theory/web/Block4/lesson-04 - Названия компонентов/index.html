@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <my-counter v-for="c in 2"></my-counter>
+
+</div>
+
+<hr>
+
+<div id="app2">
+    <my-counter></my-counter> <!--Vue распарсит и преобразует - myCounter в my-counter-->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+    var component = {
+        template: `
+    <div style="border: 1px solid black;padding: 10px;">
+        <h1>{{ counter }}</h1>
+        <button @click="add">Counter</button>
+    </div>
+        `,
+        data: function () {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            }
+        }
+    }
+
+    new Vue({
+        el: '#app',
+        components: {
+            "my-counter": component /*если юзаешь линтер - кавычки в названии не пройдут */
+        }
+    });
+
+    new Vue({
+        el: "#app2",
+        components: {
+            myCounter: component /*отсутствие <-> и кемел позволяют не исп. <''> А ТЕГ МОЖЕМ ПО ПРЕЖНЕМУ ЮЗАТЬ С <->,
+             тк Vue парсит кемел и преобразует в валид html*/
+        }
+    })
+
+</script>
+</body>
+</html>
