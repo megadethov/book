@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <my-counter v-for="c in 2"></my-counter>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+//    теперь создадим здесь обычный JS Object
+    var dataObj = {
+        counter: 0
+    }
+
+    Vue.component('my-counter', {
+        template: `
+    <div style="border: 1px solid black;padding: 10px;">
+        <h1>{{ counter }}</h1>
+        <button @click="add">Counter</button>
+    </div>
+        `,
+        data: function () {
+            return dataObj // counter поместили в объект, НО теперь все счетчики ++ одновременно, тк ссылка на один объект
+/*            {counter: 0}*/
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app'
+    })
+
+</script>
+</body>
+</html>
