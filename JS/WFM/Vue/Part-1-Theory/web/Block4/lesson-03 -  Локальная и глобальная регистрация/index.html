@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+</head>
+<body>
+
+<div id="app">
+
+    <my-counter v-for="c in 2"></my-counter>
+
+</div>
+
+<hr>
+
+<!--создадим еще одно приложение-->
+<div id="app2">
+    <my-counter></my-counter> <!--темплейт со счетчиком и здесь доступен, тк он зареган глобально-->
+    <!--ВНИМАНИЕ! При переключении на локальный компонент, здесь он уже не доступен-->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+
+//    это глобальная регистрация компонента
+/*    Vue.component('my-counter' , {
+        template: `
+    <div style="border: 1px solid black;padding: 10px;">
+        <h1>{{ counter }}</h1>
+        <button @click="add">Counter</button>
+    </div>
+        `,
+        data: function () {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            }
+        }
+    })*/
+
+//   а это локальная регистрация компонента - нужно прописать в инстансе Vue
+var component = {
+    template: `
+    <div style="border: 1px solid black;padding: 10px;">
+        <h1>{{ counter }}</h1>
+        <button @click="add">Counter</button>
+    </div>
+        `,
+    data: function () {
+        return {
+            counter: 0
+        }
+    },
+    methods: {
+        add: function () {
+            this.counter++
+        }
+    }
+}
+
+     new Vue({
+        el: '#app',
+//         регаем локально компонент
+         components: {
+            "my-counter": component
+         }
+    });
+
+    new Vue({
+        el: "#app2"
+    })
+
+</script>
+</body>
+</html>
