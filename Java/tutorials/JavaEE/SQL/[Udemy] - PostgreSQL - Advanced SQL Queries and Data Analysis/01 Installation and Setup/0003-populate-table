@@ -1,2 +1,14 @@
 ﻿--вставка значений в таблицу
 INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '2017-11-24');
+INSERT INTO cities VALUES ('San Francisco', '-194.0, 53.0');
+
+--вставка значений в таблицу с указанием колонок
+INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
+VALUES ('San Francisco', 43, 57, 0.0, '2017-11-23');
+--порядок и кол-во колонок не важно
+INSERT INTO weather (date, city, temp_lo, temp_hi)
+VALUES ('1994-11-29', 'Hayward', 54, 37);
+
+--просмотр таблицы
+SELECT * FROM weather;
+SELECT * FROM cities;
