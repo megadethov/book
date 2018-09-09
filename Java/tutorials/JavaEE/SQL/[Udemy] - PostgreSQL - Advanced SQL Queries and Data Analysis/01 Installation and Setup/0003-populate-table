@@ -1,0 +1,2 @@
+﻿--вставка значений в таблицу
+INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '2017-11-24');
