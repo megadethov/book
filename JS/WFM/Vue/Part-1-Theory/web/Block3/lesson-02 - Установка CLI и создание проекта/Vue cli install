@@ -32,5 +32,5 @@ vue init webpack-simple vue-project
    To get started:
 
      cd vue-project
-     npm install
-     npm run dev
+     npm install - установит все зависимости, описанные в package.json, в папку с пакетами - node-modules
+     npm run dev - запуск приложения (из корня проекта)
